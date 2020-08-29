@@ -16,7 +16,7 @@ tutorial_options(exercise.lines = 10)
 ```
 
 
-# CB2R Data Science Workshop, Summer 2020
+# Data Science for Biologists, Fall 2020
 <br><br><br>
 
 > The library `dplyr` has been pre-loaded for use using the command `library(dplyr)`.
