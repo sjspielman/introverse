@@ -1,0 +1,369 @@
+---
+title: "Question Bank Set 1"
+author: "Shemaiah Sotrah"
+date: "6/24/2020"
+output: learnr::tutorial
+runtime: shiny_prerendered
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(learnr)
+```
+
+
+### Set 1: Using R as a calculator
+
+1. What is 5 times 6?
+
+```{r calc_q1, exercise =TRUE}
+
+```
+  
+<div id="calc_q1-hint">
+**Hint:**  Use the asterisk `*` to multiply numbers
+</div>
+
+2. What is 600 divided by 2.53?
+ 
+``` {r calc_q2, exercise = TRUE}
+
+```
+
+<div id="calc_q2-hint">
+**Hint:**  Use the forward slash `/` to divide numbers
+</div>
+
+3. What is 138 squared?
+  
+``` {r calc_q3, exercise = TRUE}
+
+```
+
+<div id="calc_q3-hint">
+**Hint:**  Use the carot symbol `^` *or* two asterisks (`**`) to raise numbers to an exponent.
+</div>
+
+4. What is the square root of 14?
+  
+``` {r calc_q4, exercise = TRUE}
+
+```  
+
+<div id="calc_q4-hint">
+**Hint:**   Square roots are like raising to the power of 0.5
+</div>
+
+### Set 1: Answer Key
+``` {r, calc_q1-answer}
+#Solution to Question 1
+5*6
+```
+
+``` {r, calc_q2-answer}
+#Solution to Question 2
+600/2.53
+```
+
+``` {r, calc_q3-answer}
+#Solution to Question 3
+138**2 
+#Equally valid approach
+138^2 
+```
+
+``` {r, calc_q4-answer}
+14^0.5
+```
+
+
+### Set 2: Working with logic: TRUE and FALSE
+
+1. Use a *logical operator* to ask if 56 is greater than 7.
+  
+``` {r logical_q1, exercise = TRUE}
+
+```  
+
+<div id="logical_q1-hint">
+**Hint:**  Logical operators include: `>`, `<`, `>=`, `<=`, `==`
+</div>
+
+2. Use a *logical operator* to ask if 110 is equal to 12.
+  
+``` {r logical_q2, exercise = TRUE}
+
+``` 
+  
+<div id="logical_q2-hint">
+**Hint:**  When comparing *equality* of numbers, you MUST use two equals!! `==`
+</div>
+
+3. Use a *logical operator* to ask if 32 is less than or equal to 88.
+  
+``` {r logical_q3, exercise = TRUE}
+
+``` 
+
+<div id="logical_q3-hint">
+**Hint:**  `<` is less than, but `<=` is less than *or equal to*`
+</div>
+
+4. Use a *logical operator* to ask if 100 is equal to -10 squared.
+  
+``` {r logical_q4, exercise = TRUE}
+
+``` 
+
+<div id="logical_q4-hint">
+**Hint:** Don't forget to use parentheses!!
+</div>
+
+5. Use a *logical operator* to ask if 100 is *not equal* to -55. 
+  
+``` {r logical_q5, exercise = TRUE}
+
+``` 
+
+<div id="logical_q5-hint">
+**Hint:** Check if values are *not equal* with the logical operator `!=`. Generally speaking, exclamation marks negate logical statements.
+</div>
+
+6. Use a *logical operator* to ask if 100 is *not less than* 88. 
+ 
+``` {r logical_q6, exercise = TRUE}
+
+``` 
+
+<div id="logical_q6-hint">
+**Hint:** *Negate* any other logical operator (besides `==`, which becomes `!=`), by *enclosing the statement inside parentheses prefixed by an exclamation mark, e.g. `!(...statement...)`
+</div>
+
+7. In all questions above, you wrote *single logical statements* - you used a logical operator to evaluate if a single thing was TRUE or FALSE. This time, write a *compound logical statement* to ask if: 100 is equal to 100 *and* 66 is equal to 66.
+
+``` {r logical_q7, exercise = TRUE}
+
+``` 
+
+```{r logical_q7-hint-1}
+#Combine statements with *and* using the ampersand `&`
+```
+
+```{r logical_q7-hint-2}
+#Statements with "and" will only evaluate as TRUE if *both* conditions are TRUE. `
+```
+
+8. Write a *compound logical statement* to ask if 100 is greater than to 87 *and* 66 is less than 12.
+  
+``` {r logical_q8, exercise = TRUE}
+
+``` 
+
+<div id="logical_q8-hint">
+**Hint:**  Combine statements with *and* using the ampersand `&`
+</div>
+
+9. Similar to the previous question, write a *compound logical statement* to ask if 100 is greater than to 87 *OR* 66 is less than 12.
+  
+``` {r logical_q9, exercise = TRUE}
+
+``` 
+
+```{r logical_q9-hint-1}
+#Combine statements with *or* using the "pipe operator" `|`. This is not the letter L or I - this symbol is located on the backslash `\` key. Press Shift + `\` to get it.
+```
+
+```{r logical_q9-hint-2}
+#Statements with "or" will evaluate as TRUE if *at least one* condition is TRUE. `
+```
+
+### Set 2: Answer Key
+``` {r, logical_q1-answer}
+#Solution to Question 1
+56 > 7
+```
+
+``` {r, logical_q2-answer}
+#Solution to Question 2
+110 == 12
+```
+
+``` {r, logical_3-answer}
+#Solution to Question 3
+32 <= 88
+```
+
+``` {r, logical_q4-answer}
+#Solution to Question 4
+100 == (-10)^2
+```
+
+``` {r, logical_q5-answer}
+#Solution to Question 5
+100 != -55
+```
+
+``` {r, logical_q6-answer}
+#Solution to Question 6
+!(100 < 88)
+```
+
+``` {r, logical_q7-answer}
+#Solution to Question 7
+100 == 100 & 66 == 66
+```
+
+``` {r, logical_q8-answer}
+#Solution to Question 8
+100 > 87  & 66 < 12
+```
+
+``` {r, logical_q9-answer}
+#Solution to Question 9
+100 > 87 | 66 < 12
+```
+
+### Set 3: Defining and understanding variables in R
+
+1. The code example below defines a variable. Answer the multiple choice questions about this code:
+```{r}
+y <- 8.5
+```
+
+```{r quiz1, echo=FALSE}
+quiz(caption = "Multiple Choice",
+  question("What is the *name* of this variable?",
+     answer("`<-`"),
+     answer("y", correct = TRUE),
+     answer("8.5"),
+     answer("We can't tell.")
+     ),
+  question("What is the *value* of this variable?",
+     answer("`<-`"),
+     answer("y"),
+     answer("8.5", correct = TRUE),
+     answer("We can't tell.")
+     ),
+  question("What is the *type* of this variable?",
+     answer("Character"),
+     answer("Numeric", correct = TRUE),
+     answer("Logical"),
+     answer("We can't tell."
+     )
+  )
+)
+```
+
+<!-- Shemaiah: for these questions, include the option:   exercise.lines=8     -->
+
+2. Using the code presented in question 1 to help guide you, define a variable named `banana_price` whose value is 0.55 (aka 55 cents). 
+
+``` {r variables_q2, exercise = TRUE, exercise.lines=8}
+
+``` 
+
+<div id="variables_q2-hint">
+**Hint:**  Use the assignment operator `<-` to assign the value 0.55 to the variable name `banana_price`
+</div>
+
+3. Again, define the `banana_price` variable (since these questions don't communicate with each other!!). Use R as a calculator to determine the cost of 17 bananas.
+
+``` {r variables_q3, exercise = TRUE, exercise.lines=8}
+
+``` 
+  
+<div id="variables_q3-hint">
+**Hint:**  Perform this operation using the `banana_price` variable itself.
+</div>
+
+4. Again, define the `banana_price` variable. Define a second variable called `num_bananas` with the value for how many bananas you're buying. Using both your variables, use R as a calculator to calculate the total cost.
+
+``` {r variables_q4, exercise = TRUE, exercise.lines=8}
+
+``` 
+  
+<div id="variables_q4-hint">
+**Hint:**  We are learning to use variables whenever possible instead of the direct numbers. Using values in calculations rather than variables representing those values is called **hard-coding** and can lead to bugs!
+</div>
+
+5. Again, define your two variables, `banana_price` and `num_bananas`. Again calculate the total cost using these variables, *but this time*, save the output to a new variable called `total_cost`. Output the final value of `total_cost` by simply typing the variable name on its own line.
+  
+``` {r variables_q5, exercise = TRUE, exercise.lines=8}
+
+``` 
+
+<!-- Shemaiah: make sure to KEEP THE \ in front of $. -->
+6. Let's work with *logical operations* and variables. Imagine you have \$5 to spend at the grocery store. Can you afford to buy 30 bananas (you are apparently making *a lot* of quarantine banana bread)? To answer this question, first *define* four variables (`banana_price`, `num_bananas`[ but what's the value this time?!], `total_cost`, and `total_money` which represents your budget). Then, use logical operations to compare `total_cost` and `total_money`. You should arrive at an answer of TRUE *if it is affordable*, and FALSE if you can't buy this many bananas.
+   
+``` {r variables_q6, exercise = TRUE, exercise.lines=8}
+
+``` 
+
+<div id="variables_q6-hint">
+**Hint:**  A TRUE solution is one where `total_money` is *greater than or equal to* the `total_cost`. Or, where `total_cost` is *less than or equal to* `total_money`.
+</div>
+
+7. The grocery store visit is getting more interesting. Sure, banana bread is all well and good, but it's certainly not as good as chocolate-chip banana bread. You've recently come into some money, so you now have \$20 to spend!! You want to buy 4 bags of chocolate chips that cost \$1.50 each as well as 16 bananas which, due to some evil price-gouging, now cost 60 cents (\$0.60) each. Can you afford this purchase? 
+   
+``` {r variables_q7, exercise = TRUE, exercise.lines=8}
+
+``` 
+
+```{r variables_q7-hint-1}
+#Make sure to define all variables with *meaningful variable names* first, *then* perform calculations to determine the `total_cost`, and then compare `total_cost` to `total_money`. In the end, you will have created six variables.
+```
+
+```{r variables_q7-hint-2}
+#Don't put spaces into your variable names *ever*. Instead, use underscores to represent spaces.
+```
+
+### Set 3: Answer Key
+
+``` {r, variables_q2-answer}
+#Solution to Question 2
+ banana_price <- 0.55
+```
+
+``` {r, variables_q3-answer}
+#Solution to Question 3
+banana_price <- 0.55
+banana_price * 17
+```
+
+``` {r, variables_q4-answer}
+#Solution to Question 4
+banana_price <- 0.55
+num_bananas <- 17
+banana_price * num_bananas
+```
+
+``` {r, variables_q5-answer}
+#Solution to Question 5
+banana_price <- 0.55
+num_bananas <- 17
+total_cost <- banana_price * num_bananas
+total_cost
+```
+
+``` {r, variables_q6-answer}
+#Solution to Question 6
+banana_price <- 0.55
+num_bananas <- 30
+total_money <- 5
+total_cost <- banana_price * num_bananas
+total_cost <= total_money
+```
+
+``` {r, variables_q7-answer}
+#Solution to Question 7
+banana_price <- 0.6
+num_bananas <- 16
+choc_price <- 1.5
+num_choc  <- 4
+total_money <- 20
+total_cost <- (banana_price * num_bananas) + (choc_price * num_choc)
+total_cost <= total_money
+```
+
+

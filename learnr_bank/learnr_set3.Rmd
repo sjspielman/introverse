@@ -1,0 +1,338 @@
+---
+title: "Question Template Set 3"
+author: "Stephanie J. Spielman"
+date: "6/24/2020"
+output: learnr::tutorial
+runtime: shiny_prerendered
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(learnr)
+library(tibble)
+library(dplyr)
+```
+
+<!-- ALL MULTPLE CHOICE!!!!!! -->
+
+### Set 1: Understanding types of data I
+
+<!-- The first FIVE questions all have the same a/b/c/d choices. below each question i write which is correct -->
+a) Numeric discrete 
+b) Numeric continuous
+c) Categorical nominal
+d) Categorical ordinal
+d) Not enough information is provided
+ <!-- just one overall question -->
+### Determine what type of variable/data each of the following is. 
+In addition, with your group, come up with THREE different potential values for the variable. Use the example to help guide you:
+
+
+Example: **Square footage of a building** is *numeric continuous*. Example values are 1000, 5000, 300.5 - aka, random numbers which could be a building's square footage. I would not include a value -100, for example.
+
+``` {r quiz1, echo = FALSE}
+
+quiz(caption = "Multiple Choice Set 1",
+     question("What type of variable/data is the number of pixels on a screen?",
+              answer("Numeric discrete ", correct = TRUE),
+              answer("Numeric continuous"),
+              answer("Categorical nominal"),
+              answer("Categorical ordinal"),
+              answer("Not enough information is provided")
+              ),
+     question("What type of variable/data is the length of a centipede?",
+              answer("Numeric discrete"),
+              answer("Numeric continuous", correct = TRUE),
+              answer("Categorical nominal"),
+              answer("Categorical ordinal"),
+              answer("Not enough information is provided")
+              ),
+     question("What type of variable/data is the colors in a painting?",
+              answer("Numeric discrete "),
+              answer("Numeric continuous"),
+              answer("Categorical nominal", correct = TRUE),
+              answer("Categorical ordinal"),
+              answer("Not enough information is provided")
+              ),
+     question("What type of variable/data is the movie time in seconds?",
+              answer("Numeric discrete "),
+              answer("Numeric continuous", correct = TRUE),
+              answer("Categorical nominal"),
+              answer("Categorical ordinal"),
+              answer("Not enough information is provided")
+              ),
+     question("What type of variable/data is the letter grade for a class?",
+              answer("Numeric discrete "),
+              answer("Numeric continuous"),
+              answer("Categorical nominal"),
+              answer("Categorical ordinal", correct = TRUE),
+              answer("Not enough information is provided")
+              ),
+     question("What type of variable/data is the number of legs an animal has?",
+              answer("Numeric discrete ", correct = TRUE),
+              answer("Numeric continuous"),
+              answer("Categorical nominal"),
+              answer("Categorical ordinal"),
+              answer("Not enough information is provided")
+              ),
+     question("What type of variable/data is the types of cheese?",
+              answer("Numeric discrete "),
+              answer("Numeric continuous"),
+              answer("Categorical nominal"),
+              answer("Categorical ordinal", correct = TRUE),
+              answer("Not enough information is provided")
+              ),
+     question("What type of variable/data is the belt level in karate?",
+              answer("Numeric discrete "),
+              answer("Numeric continuous"),
+              answer("Categorical nominal", correct = TRUE),
+              answer("Categorical ordinal"),
+              answer("Not enough information is provided")
+              ),
+     question("What type of variable/data is the amount of sugar in an ice cream cone?",
+              answer("Numeric discrete", correct = TRUE),
+              answer("Numeric continuous"),
+              answer("Categorical nominal"),
+              answer("Categorical ordinal"),
+              answer("Not enough information is provided")
+              ),
+     question("What type of variable/data is the average number of children per family?",
+              answer("Numeric discrete", message = "The average of the values is not the same as the values themselves"),
+              answer("Numeric continuous", correct = TRUE),
+              answer("Categorical nominal"),
+              answer("Categorical ordinal"),
+              answer("Not enough information is provided")
+              ),
+     )
+
+```
+
+
+MC1: **Number of pixels on a screen**
+(a)
+
+MC2: **Length of a centipede**
+(b)
+
+MC3: **Colors in a painting**
+(c)
+
+MC4: **Movie time in seconds**
+(b)
+
+MC5: **Letter grade for a class**
+(d)
+
+MC6: **Number of legs an animal has**
+(a)
+
+MC7: **Types of cheese**
+(d)
+
+MC8: **Belt level in karate**
+(c)
+
+MC9: **Amount of sugar in an ice cream cone**
+(a)
+
+MC10: **Average number of children per family**
+(b)
+<!-- GIVE MC8 A HINT!!!: "The *average* of values is not the same as the values themselves." -->
+
+Group Exercise:
+<!-- This is just a plain question, not a learnr thing -->
+There are currently dozens of clinical trials for vaccines for SARS-CoV-2 going on across the world. One of the important components of vaccine development is to test the proper *dosage*. Imagine, in one such clinical trial, researchers are testing the following dosages of their new drug (don't worry about units): 2.5, 5, 10, 15, and 20. This data could *either* be interpreted as a *numeric* or a *categorical* variable. With your group, discuss how this variable could be considered either type. Furthermore, try to figure out which subtype (discrete/continuous and nominal/ordinal) each variable type would be.
+
+
+### Set 2: Understanding types of data II
+
+This exercise uses an example dataset, shown below as it might appear in R, which provides some information about all elements in the periodic table:
+
++ `element_name`: The full name of the element
++ `element_abbr`: The abbreviation of the element
++ `hardsoft_acidbase_theory`: The category the element is in for something called "Hard-Soft Acid-Base Theory," which describes the overall acid/base properties of an element. The scale runs in order as: hard acid, intermediate acid, soft acid, soft base, intermediate base, hard base.
++ `atomic_mass`: The element's mass
++ `number_of_protons`: The number of protons the element has
++ `electronegativity`: A measure of an element's propensity to attract electrons
++ `metal_type`: The type of metal a given element is. There is no natural ordering to this quantity.
+
+<!--include this chunk AS IS -->
+```{r, echo=FALSE}
+tibble::tribble(
+  ~element_name, ~element_abbr, ~hardsoft_acidbase_theory, ~atomic_mass, ~number_of_protons, ~periodic_table_period, ~periodic_table_group, ~atomic_radius, ~electronegativity, ~metal_type, ~density, ~specific_heat,
+  "Silver", "Ag", "Soft acid", 107.868, 47, 5, 11, 1.80, 1.93, "Transition Metal", 1.05e+01, 0.235, 
+  "Aluminum", "Al", "Hard acid", 26.982, 13, 3, 13, 1.80, 1.61, "Metal", 2.70e+00, 0.897, 
+  "Arsenic", "As", "Hard acid", 74.922, 33, 4, 15, 1.30, 2.18, "Metalloid", 5.78e+00, 0.329, 
+  "Gold", "Au", "Soft acid", 196.967, 79, 6, 11, 1.80, 2.54, "Transition Metal", 1.93e+01, 0.129, 
+  "Boron", "B", "Soft acid", 10.811, 5, 2, 13, 1.20, 2.04, "Metalloid", 2.34e+00, 1.026, 
+  "Barium", "Ba", "Hard acid", 137.327, 56, 6, 2, 2.80, 0.89, "Alkaline Earth Metal", 3.59e+00, 0.204, 
+  "Beryllium", "Be", "Hard acid", 9.012, 4, 2, 2, 1.40, 1.57, "Alkaline Earth Metal", 1.85e+00, 1.825, 
+  "Bismuth", "Bi", "Int. acid", 208.980, 83, 6, 15, 1.60, 2.02, "Metal", 9.81e+00, 0.122, 
+  "Bromine", "Br", "Soft base", 79.904, 35, 4, 17, 1.10, 2.96, "Halogen", 3.12e+00, 0.474, 
+  "Carbon", "C", "Soft base", 12.011, 6, 2, 14, 0.91, 2.55, "Nonmetal", 2.27e+00, 0.709, 
+  "Calcium", "Ca", "Hard acid", 40.078, 20, 4, 2, 2.20, 1.00, "Alkaline Earth Metal", 1.54e+00, 0.647, 
+  "Cadmium", "Cd", "Soft acid", 112.411, 48, 5, 12, 1.70, 1.69, "Transition Metal", 8.69e+00, 0.232, 
+  "Cerium", "Ce", "Hard acid", 140.116, 58, 6, NA, 2.70, 1.12, "Lanthanide", 6.77e+00, 0.192, 
+  "Chlorine", "Cl", "Int., base", 35.453, 17, 3, 17, 0.97, 3.16, "Halogen", 3.21e-03, 0.479, 
+  "Cobalt", "Co", "Int. acid", 58.933, 27, 4, 9, 1.70, 1.88, "Transition Metal", 8.86e+00, 0.421, 
+  "Chromium", "Cr", "Hard acid", 51.996, 24, 4, 6, 1.90, 1.66, "Transition Metal", 7.15e+00, 0.449, 
+  "Cesium", "Cs", "Hard acid", 132.905, 55, 6, 1, 3.30, 0.79, "Alkali Metal", 1.87e+00, 0.242, 
+  "Copper", "Cu", "Int. acid", 63.546, 29, 4, 11, 1.60, 1.90, "Transition Metal", 8.96e+00, 0.385, 
+  "Dysprosium", "Dy", "Hard acid", 162.500, 66, 6, NA, 2.50, 1.22, "Lanthanide", 8.55e+00, 0.170, 
+  "Erbium", "Er", "Hard acid", 167.259, 68, 6, NA, 2.50, 1.24, "Lanthanide", 9.07e+00, 0.168, 
+  "Fluorine", "F", "Hard base", 18.998, 9, 2, 17, 0.57, 3.98, "Halogen", 1.70e-03, 0.824, 
+  "Iron", "Fe", "Int. acid", 55.845, 26, 4, 8, 1.70, 1.83, "Transition Metal", 7.87e+00, 0.449, 
+  "Gallium", "Ga", "Hard acid", 69.723, 31, 4, 13, 1.80, 1.81, "Metal", 5.91e+00, 0.371, 
+  "Gadolinium", "Gd", "Hard acid", 157.250, 64, 6, NA, 2.50, 1.20, "Lanthanide", 7.90e+00, 0.236, 
+  "Germanium", "Ge", "Hard acid", 72.640, 32, 4, 14, 1.50, 2.01, "Metalloid", 5.32e+00, 0.320, 
+  "Hydrogen", "H", "Hard acid", 1.007, 1, 1, 1, 0.79, 2.20, "Nonmetal", 8.99e-05, 14.304, 
+  "Hafnium", "Hf", "Hard acid", 178.490, 72, 6, 4, 2.20, 1.30, "Transition Metal", 1.33e+01, 0.144, 
+  "Mercury", "Hg", "Soft acid", 200.590, 80, 6, 12, 1.80, 2.00, "Transition Metal", 1.35e+01, 0.140, 
+  "Iodine", "I", "Soft base", 126.904, 53, 5, 17, 1.30, 2.66, "Halogen", 4.93e+00, 0.214, 
+  "Indium", "In", "Int. acid", 114.818, 49, 5, 13, 2.00, 1.78, "Metal", 7.31e+00, 0.233, 
+  "Iridium", "Ir", "Soft acid", 192.217, 77, 6, 9, 1.90, 2.20, "Transition Metal", 2.26e+01, 0.131, 
+  "Potassium", "K", "Hard acid", 39.098, 19, 4, 1, 2.80, 0.82, "Alkali Metal", 8.62e-01, 0.757, 
+  "Lanthanum", "La", "Hard acid", 138.905, 57, 6, 3, 2.70, 1.10, "Lanthanide", 6.15e+00, 0.195, 
+  "Lithium", "Li", "Hard acid", 6.941, 3, 2, 1, 2.10, 0.98, "Alkali Metal", 5.34e-01, 3.582, 
+  "Magnesium", "Mg", "Hard acid", 24.305, 12, 3, 2, 1.70, 1.31, "Alkaline Earth Metal", 1.74e+00, 1.023, 
+  "Manganese", "Mn", "Int. acid", 54.938, 25, 4, 7, 1.80, 1.55, "Transition Metal", 7.44e+00, 0.479, 
+  "Molybdenum", "Mo", "Int. acid", 95.960, 42, 5, 6, 2.00, 2.16, "Transition Metal", 1.02e+01, 0.251, 
+  "Nitrogen", "N", "Int., base", 14.007, 7, 2, 15, 0.75, 3.04, "Nonmetal", 1.25e-03, 1.040, 
+  "Sodium", "Na", "Hard acid", 22.990, 11, 3, 1, 2.20, 0.93, "Alkali Metal", 9.71e-01, 1.228, 
+  "Niobium", "Nb", "Hard acid", 92.906, 41, 5, 5, 2.10, 1.60, "Transition Metal", 8.57e+00, 0.265, 
+  "Neodymium", "Nd", "Hard acid", 144.242, 60, 6, NA, 2.60, 1.14, "Lanthanide", 7.01e+00, 0.190, 
+  "Nickel", "Ni", "Int. acid", 58.693, 28, 4, 10, 1.60, 1.91, "Transition Metal", 8.91e+00, 0.444, 
+  "Oxygen", "O", "Hard base", 15.999, 8, 2, 16, 0.65, 3.44, "Nonmetal", 1.43e-03, 0.918, 
+  "Osmium", "Os", "Soft acid", 190.230, 76, 6, 8, 1.90, 2.20, "Transition Metal", 2.26e+01, 0.130, 
+  "Phosphorus", "P", "Soft base", 30.974, 15, 3, 15, 1.20, 2.19, "Nonmetal", 1.82e+00, 0.769, 
+  "Lead", "Pb", "Int. acid", 207.200, 82, 6, 14, 1.80, 2.33, "Metal", 1.13e+01, 0.129, 
+  "Palladium", "Pd", "Soft acid", 106.420, 46, 5, 10, 1.80, 2.20, "Transition Metal", 1.20e+01, 0.244, 
+  "Platinum", "Pt", "Soft acid", 195.084, 78, 6, 10, 1.80, 2.28, "Transition Metal", 2.15e+01, 0.133, 
+  "Rubidium", "Rb", "Hard acid", 85.468, 37, 5, 1, 3.00, 0.82, "Alkali Metal", 1.53e+00, 0.363, 
+  "Rhenium", "Re", "Int. acid", 186.207, 75, 6, 7, 2.00, 1.90, "Transition Metal", 2.10e+01, 0.137, 
+  "Rare-earth element", "REE", NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 
+  "Rhodium", "Rh", "Soft acid", 102.906, 45, 5, 9, 1.80, 2.28, "Transition Metal", 1.24e+01, 0.243, 
+  "Ruthenium", "Ru", "Soft acid", 101.070, 44, 5, 8, 1.90, 2.20, "Transition Metal", 1.24e+01, 0.238, 
+  "Sulfur", "S", "Int., base", 32.065, 16, 3, 16, 1.10, 2.58, "Nonmetal", 2.07e+00, 0.710, 
+  "Antimony", "Sb", "Hard acid", 121.760, 51, 5, 15, 1.50, 2.05, "Metalloid", 6.69e+00, 0.207, 
+  "Scandium", "Sc", "Hard acid", 44.956, 21, 4, 3, 2.10, 1.36, "Transition Metal", 2.99e+00, 0.568, 
+  "Selenium", "Se", "Soft base", 78.960, 34, 4, 16, 1.20, 2.55, "Nonmetal", 4.81e+00, 0.321, 
+  "Silicon", "Si", "Hard acid", 28.086, 14, 3, 14, 1.50, 1.90, "Metalloid", 2.33e+00, 0.705, 
+  "Samarium", "Sm", "Hard acid", 150.360, 62, 6, NA, 2.60, 1.17, "Lanthanide", 7.52e+00, 0.197, 
+  "Tin", "Sn", "Hard acid", 118.710, 50, 5, 14, 1.70, 1.96, "Metal", 7.29e+00, 0.228, 
+  "Strontium", "Sr", "Hard acid", 87.620, 38, 5, 2, 2.50, 0.95, "Alkaline Earth Metal", 2.64e+00, 0.301, 
+  "Tantalum", "Ta", "Int. acid", 180.948, 73, 6, 5, 2.10, 1.50, "Transition Metal", 1.67e+01, 0.140, 
+  "Technetium", "Tc", "Int. acid", 98.000, 43, 5, 7, 2.00, 1.90, "Transition Metal", 1.15e+01, NA, 
+  "Tellurium", "Te", "Soft base", 127.600, 52, 5, 16, 1.40, 2.10, "Metalloid", 6.23e+00, 0.202, 
+  "Thorium", "Th", "Hard acid", 232.038, 90, 7, NA, NA, 1.30, "Actinide", 1.17e+01, 0.113, 
+  "Titanium", "Ti", "Hard acid", 47.867, 22, 4, 4, 2.00, 1.54, "Transition Metal", 4.54e+00, 0.523, 
+  "Thallium", "Tl", "Soft acid", 204.383, 81, 6, 13, 2.10, 2.04, "Metal", 1.19e+01, 0.129, 
+  "Uranium", "U", "Hard acid", 238.029, 92, 7, NA, NA, 1.38, "Actinide", 1.90e+01, 0.116, 
+  "Vanadium", "V", "Hard acid", 50.942, 23, 4, 5, 1.90, 1.63, "Transition Metal", 6.11e+00, 0.489, 
+  "Tungsten", "W", "Int. acid", 183.840, 74, 6, 6, 2.00, 2.36, "Transition Metal", 1.93e+01, 0.132, 
+  "Yttrium", "Y", "Hard acid", 88.906, 39, 5, 3, 2.30, 1.22, "Transition Metal", 4.47e+00, 0.298, 
+  "Ytterbium", "Yb", "Hard acid", 173.054, 70, 6, NA, 2.40, 1.10, "Lanthanide", 6.97e+00, 0.155, 
+  "Zinc", "Zn", "Int. acid", 65.380, 30, 4, 12, 1.50, 1.65, "Transition Metal", 7.13e+00, 0.388, 
+  "Zirconium", "Zr", "Hard acid", 91.224, 40, 5, 4, 2.20, 1.33, "Transition Metal", 6.51e+00, 0.278) %>%
+  select(-periodic_table_period, -periodic_table_group, -atomic_radius, -density, -specific_heat) %>%
+  filter(element_name !="REE")
+```
+
+<!-- These questions have multiple correct options - see here for details on how to code: https://rstudio.github.io/learnr/questions.html -->
+
+
+MC1: Which variables are *numeric discrete*? Select all that apply.
+
+a) `element_name`
+b) `element_abbr`
+c) `hardsoft_acidbase_theory`
+d) `atomic_mass`   <- CORRECT
+e) `number_of_protons`
+f) `electronegativity`
+g) `metal_type`
+h) None of the above
+
+MC2: Which variables are *numeric continuous*? Select all that apply.
+
+a) `element_name`
+b) `element_abbr`
+c) `hardsoft_acidbase_theory`
+d) `atomic_mass`  <- CORRECT
+e) `number_of_protons`
+f) `electronegativity`  <- CORRECT
+g) `metal_type`
+h) None of the above
+
+MC3: Which variables are *categorical nominal*? Select all that apply.
+
+a) `element_name`  <- CORRECT , and add message: "This could also be considered ordinal due to the structure of the periodic table" <!-- the link i included above has an example of adding a message -->
+b) `element_abbr`  <- CORRECT, and add message: "This could also be considered ordinal due to the structure of the periodic table"
+c) `hardsoft_acidbase_theory`
+d) `atomic_mass`
+e) `number_of_protons`
+f) `electronegativity`
+g) `metal_type` <- CORRECT
+h) None of the above
+
+MC4: Which variables are *categorical ordinal*? Select all that apply.
+
+a) `element_name`
+b) `element_abbr`
+c) `hardsoft_acidbase_theory` <-CORRECT
+d) `atomic_mass`
+e) `number_of_protons`
+f) `electronegativity`
+g) `metal_type`
+h) None of the above
+
+``` {r quiz2, echo = FALSE}
+quiz(caption = "Multiple Choice Set 3",
+     question("Which variables are *numeric discrete*? Select all that apply.",
+              answer("element_name"),
+              answer("element_abbr"),
+              answer("hardsoft_acidbase_theory"),
+              answer("atomic_mass", correct = TRUE),
+              answer("number_of_protons"),
+              answer("electronegativity"),
+              answer("metal_type"),
+              answer("None of the above")
+              ),
+     question("Which variables are *numeric continuous*? Select all that apply.",
+              answer("element_name"),
+              answer("element_abbr"),
+              answer("hardsoft_acidbase_theory"),
+              answer("atomic_mass", correct = TRUE),
+              answer("number_of_protons"),
+              answer("electronegativity", correct = TRUE),
+              answer("metal_type"),
+              answer("None of the above")
+              ),
+     question(" Which variables are *categorical nominal*? Select all that apply.",
+              answer("element_name", correct = TRUE, message = "This could also be considered ordinal due to the structure of the periodic table"),
+              answer("element_abbr", correct = TRUE, message = "This could also be considered ordinal due to the structure of the periodic table"),
+              answer("hardsoft_acidbase_theory"),
+              answer("atomic_mass"),
+              answer("number_of_protons"),
+              answer("electronegativity"),
+              answer("metal_type", correct = TRUE),
+              answer("None of the above")
+              ),
+     question("Which variables are *categorical ordinal*? Select all that apply.",
+              answer("element_name"),
+              answer("element_abbr"),
+              answer("hardsoft_acidbase_theory", correct = TRUE),
+              answer("atomic_mass"),
+              answer("number_of_protons"),
+              answer("electronegativity"),
+              answer("metal_type")
+              )
+     )
+```
+
+
+
+
+
+
+
+
