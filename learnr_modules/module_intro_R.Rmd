@@ -13,7 +13,7 @@ library(learnr)
 library(ggplot2) ## for msleep dataset
 ```
 
-# CB2R Data Science Workshop, Summer 2020
+# Data Science for Biologists, Fall 2020
 <br><br><br>
 
 ## Set 1: Using R as a calculator

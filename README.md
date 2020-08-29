@@ -9,3 +9,7 @@ Contributors:
 + Madeline ("Maddie") Greene (Fall 2020 - Present)
 + John ("Jake") Kovaleski (Fall 2020 - Present)
 + Shemaiah Sotrah (Summer 2020)
+
+Lessons:
+
+1. [Introduction to data types](https://rowanbiosci.shinyapps.io/intro_data_types/)
