@@ -1,0 +1,75 @@
+
+/* FROM DEFAULT
+https://github.com/rstudio/learnr/blob/master/inst/rmarkdown/templates/tutorial/resources/rstudio-theme.css
+
+h1, h2, h3, h4, h5, h6 {
+  color: inherit;
+  font-weight: 300; }
+
+h1 {
+  font-size: 2.4em;
+  margin: .75em 0 .5em 0; }
+
+h2 {
+  font-size: 2.0em;
+  margin: .75em 0 .5em 0; }
+
+h3 {
+  font-size: 1.6em;
+  margin: .75em 0 .5em 0; }
+
+h4 {
+  font-size: 1.2em;
+  margin: .75em 0 .5em 0; }
+
+p {
+  line-height: 1.6em;
+  margin-bottom: 1em; }
+*/
+
+/************************************************/
+/* I changed to: */
+h1 {
+  font-size: 2em;
+  margin: .75em 0 .5em 0; }
+
+h2 {
+  font-size: 1.8em;
+  margin: .75em 0 .5em 0; }
+
+h3 {
+  font-size: 1.5em;
+  margin: .75em 0 .5em 0; }
+
+h4 {
+  font-size: 1.2em;
+  margin: .75em 0 .5em 0; }
+  
+p {
+  line-height: 1.2em;
+  margin-bottom: 0.5em; 
+}
+
+
+/************************************************/
+
+
+
+ol {
+  font-size:1.15em;
+  margin-left: -20px;
+}
+
+
+blockquote {
+  display: block;
+  font-size: 1em;
+  font-weight: 500;
+  margin-left: 20px;
+}
+
+/*
+#TOC {
+  width:225px;
+}
+*/
