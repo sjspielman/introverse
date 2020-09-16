@@ -9,7 +9,7 @@ runtime: shiny_prerendered
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = TRUE, collapse=TRUE)
 library(learnr)
 library(tidyverse) 
 tutorial_options(exercise.lines = 10)
@@ -213,8 +213,17 @@ ggplot(sparrows) + # Use the sparrows dataset
   geom_point() # Use points
 ```
 
+The `geom_point()` geom can accept several visual features, which can either be plainly specified to `geom_point()` or specified as an *aesthetic* if they map to the data. The most important ones are:
 
-1. Make a scatterplot of wingspread across femur length.
++ `color`: Color of points
+  + *Certain* types of points can also have a `fill` (question 9 below)
++ `size`: Size of points
++ `shape`: Shape of points
++ For more, check out the [`geom_point()` documentation](https://ggplot2.tidyverse.org/reference/geom_point.html) and scroll to "Aesthetics", and then *keep scrolling for Examples!*. **HINT: the documentation is GOOD to read!!!!!!!!!!!!!! I read it all the time, still!** One great way to get more practice is to follow and re-create examples from documentation!
+<!-- vignette("ggplot2-specs") -->
+
+
+1. Make a scatterplot of femur length across wingspread. Remember: This terminology means *Y across X*.
 
 > Hint: You may want to use the function `head()` or `names()` (try it out!!) to remind yourself what the relevant column names from the `sparrows` dataset are!!
 
@@ -228,7 +237,7 @@ ggplot(sparrows) +
   geom_point() 
 ```
 
-2. Again make a scatterplot of wingspread across femur length, but make all points the color red.
+2. Again make a scatterplot of femur length across wingspread, but make all points the color red.
 
 > Hint: This is simply coloring points, not mapping color to a variable. Just add the color argument to `geom_point()`.
 
@@ -242,7 +251,7 @@ ggplot(sparrows) +
   geom_point(color = "red") 
 ```
 
-3. Again make a scatterplot of wingspread across femur length, but this time color all points _based on survival status_. 
+3. Again make a scatterplot of femur length across wingspread, but this time color all points _based on survival status_. 
 
 > Hint: This IS mapping a variable to a color, so you need to place your color argument inside aes(). 
 
@@ -257,7 +266,7 @@ ggplot(sparrows) +
   geom_point() 
 ```
 
-4. Again make a scatterplot of wingspread across femur length, but this time color all points based on _weight_. Unlike survival, weight is a *numeric continuous* variable so you'll get a gradient of colors rather than a color for each survival category.
+4. Again make a scatterplot of femur length across wingspread, but this time color all points based on _weight_. Unlike survival, weight is a *numeric continuous* variable so you'll get a gradient of colors rather than a color for each survival category.
 ```{r scatter_4, exercise = TRUE}
 
 ```
@@ -269,11 +278,14 @@ ggplot(sparrows) +
 ```
 
 
-5. Again make a scatterplot of wingspread across femur length, with points colored based on _weight_. But this time, let's add some more professional labels to the plot using the `labs()` function, which you can see in action [here](https://ggplot2.tidyverse.org/reference/labs.html). The code below changes the X-axis label as shown - run and understand the code, and then add in the following y-axis label and title:
+5. Again make a scatterplot of femur length across wingspread, with points colored based on _weight_. But this time, let's add some more professional labels to the plot using the `labs()` function, which you can see in action [here](https://ggplot2.tidyverse.org/reference/labs.html). The code below changes the X-axis label as shown - run and understand the code, and then add in the following y-axis label and title:
 
 + Y axis: "Femur Length (mm)"
 + Title: "Scatterplot of sparrow wingspread and femur length"
 + For some extra bells and whistles, try adding a caption or subtitle!!
+
+> Hint: You actually need to visit that link to see what *arguments* you need to use in `labs()` to specify these labels. **Looking at the documentation is AMAZING!!**
+
 ```{r scatter_5, exercise = TRUE}
 ggplot(sparrows) + 
   aes(x = Wingspread, y = Femur_Length, color=Weight) +  
@@ -290,9 +302,9 @@ ggplot(sparrows) +
        title = "Scatterplot of sparrow wingspread and femur length")
 ```
 
-6. The code below makes a scatterplot of wingspread across femur length with points colored by _Age_. You'll notice in the legend that "Young" comes before "Adult" - this is because R interprets the order alphabetically by default! To change the order, we need to change the **levels** of the factor variable `Age`. Follow the comments and the code below to change the order of `Age` and remake the plot.
+6. The code below makes a scatterplot of femur length across wingspread with points colored by _Age_. You'll notice in the legend that "Young" comes before "Adult" - this is because R interprets the order alphabetically by default! To change the order, we need to change the **levels** of the factor variable `Age`. Follow the comments and the code below to change the order of `Age` and remake the plot.
 
-```{r scatter_6, exercise = TRUE}
+```{r scatter_6, exercise = TRUE, exercise.lines = 15}
 ggplot(sparrows) + 
   aes(x = Wingspread, y = Femur_Length, color=Age) +  
   geom_point()
@@ -306,9 +318,12 @@ sparrows$Age <- as.factor(sparrows$Age, levels=c("Young", "Adult"))
 levels(sparrows$Age)
 
 # Now you can re-make the plot using the re-defined sparrows data frame
-# Literally re-run the plotting code at the top of this exercise chunk
+# Aka, literally re-run the plotting code at the top of this exercise chunk
 ```
-7. The code below makes a scatterplot of wingspread across femur length with points colored by _Sex_. Using the same approach as in the previous question, make "Male" come BEFORE "Female" in the plot.
+
+
+
+7. The code below makes a scatterplot of femur length across wingspread with points colored by _Sex_. Using the same approach as in the previous question, make "Male" come BEFORE "Female" in the plot.
 
 ```{r scatter_7, exercise = TRUE}
 
@@ -332,7 +347,7 @@ ggplot(sparrows) +
   geom_point()
 ```
 
-8. Finally, let's play with point size and shape. [This website](https://www.google.com/url?sa=i&url=http%3A%2F%2Fwww.sthda.com%2Fenglish%2Fwiki%2Fr-plot-pch-symbols-the-different-point-shapes-available-in-r&psig=AOvVaw0OJUM40mKjvj8_grWKRxXT&ust=1600267681741000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCODXw-ez6-sCFQAAAAAdAAAAABAD) shows all the different shapes in R you can use - we specify them with numbers. (Note: this website shows some example plotting using a non-`ggplot2` approach. Ignore that. We only care about the point symbols!) The plot below contains larger points at size 2, and points shaped like triangles. As always, first run and understand the template code. Then, modify the code to make the points size 3 and with a new point style of your choosing!!
+8. Finally, let's play with point size and shape. [This website](https://www.google.com/url?sa=i&url=http%3A%2F%2Fwww.sthda.com%2Fenglish%2Fwiki%2Fr-plot-pch-symbols-the-different-point-shapes-available-in-r&psig=AOvVaw0OJUM40mKjvj8_grWKRxXT&ust=1600267681741000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCODXw-ez6-sCFQAAAAAdAAAAABAD) shows all the different shapes in R you can use - we specify them with numbers. (Note: this website shows some example plotting using a non-`ggplot2` approach. Ignore that. We only care about the point symbols!) The plot below contains larger points at size 2, and points shaped like triangles. First run and understand the template code. Then, modify the code to make the points size 3 and with a new point style of your choosing!!
 
 > Hint: We are literally providing a single size and shape, NOT mapping size and shape to the data! Therefore, they are regular arguments to `geom_point()`, NOT to `aes()`.
 
@@ -364,25 +379,95 @@ ggplot(sparrows) +
 ```
 
 
-10. Make on more version of this figure that contains the following features:
+10. We can actually *save* plots as variables and re-use them! Because `ggplot2` is designed to keep adding plot components on top of one another, we can even add plot components on top of a plot. The code below creates our new favorite (least favorite by now?) scatterplot. Try it out!
+
+> Hint: The assignment operator can be used in either direction, as long as it points to the *variable name*. `x <- 7` and `7 -> x` are both good!! `x -> 7` is not :(
+
+```{r scatter_10, exercise=TRUE, exercise.lines = 20}
+ggplot(sparrows) + 
+  aes(x = Wingspread, y = Femur_Length) +  
+  geom_point() -> sparrow_wing_femur_plot # Use the assignment operator in the forward direction for better flow of code!
+
+# Examine the plot first
+sparrow_wing_femur_plot
+
+# Next, UNCOMMENT this code and run it to see some awesome.
+# IMPORTANT: this does NOT change the definition of `sparrow_wing_femur_plot`
+#sparrow_wing_femur_plot +
+#  labs(x = "OMG WE ADDED AN X-AXIS LABEL!")
+
+# Finally, add both x and y axis labels to the plot below in the space below:
+
+```
+
+```{r scatter_10-solution}
+ggplot(sparrows) + 
+  aes(x = Wingspread, y = Femur_Length) +  
+  geom_point() -> sparrow_wing_femur_plot
+
+sparrow_wing_femur_plot + 
+  labs(x = "Wingspread (mm)", 
+       y = "Femur length (mm)")
+```
+
+
+11. Make one more version of this figure that contains the following features:
 
 + Clean and professional labels using `labs()`
 + *Color* all points based on `Survival` 
-+ *SIZE* all points based on `Weight` (Hint: use `size` as an aesthetic to map the given variable)
++ *Size* all points based on `Weight` (Hint: use `size` as an aesthetic to map the given variable)
 + Make all the points into shape 15
++ **BONUS**: Try changing the [theme](https://ggplot2.tidyverse.org/reference/ggtheme.html)
 
 Once the plot is made, think about these design choices. Just because one *can* add these visual features, does it mean one *should* add these visual features? (Answer: No.)
-```{r scatter_10, exercise = TRUE}
+```{r scatter_11, exercise = TRUE}
 
 ```
 
 
-```{r scatter_10-solution}
+```{r scatter_11-solution}
 ggplot(sparrows) + 
   aes(x = Wingspread, y = Femur_Length, color = Survival, size = Weight) +  
   geom_point(shape = 15) + 
     labs(x = "Wingspread (mm)",
-       y = "Femur Length (mm)",
-       title = "Scatterplot of sparrow wingspread and femur length",
-       caption = "Oh wow is this an ugly plot!")
+         y = "Femur Length (mm)",
+         title = "Scatterplot of sparrow femur length across wingspread ",
+         caption = "Oh wow is this an ugly plot!")
 ```
+
+
+## Set 2: Visualizing distributions
+
+There are *many* different plotting strategies for visualizing distributions, specifically, *values of a numeric variable.* Some more popular options and their geoms (which link to the documentation!) include...
+
+Plot | Geom (yes, these are links!) | Notes
+:----|:-------|:-------
+Histogram    | [`geom_histogram()`](https://ggplot2.tidyverse.org/reference/geom_histogram.html) | Only ONE axis is specified in `aes()` (usually the x-axis). `ggplot2` takes care of the other axis for you - it *counts and bins on your behalf!* (A close relative is *frequency polygons*)
+Density plot | [`geom_density()`](https://ggplot2.tidyverse.org/reference/geom_density.html) | Think of this as a smoothened histogram. Same as for histogram, you only specify the X axis.
+Boxplot      | [`geom_boxplot()`](https://ggplot2.tidyverse.org/reference/geom_boxplot.html) | Best used when making multiple boxplots in a single panel
+Violin Plot  | [`geom_violin()`](https://ggplot2.tidyverse.org/reference/geom_violin.html) | The hybrid child of a density plot and a boxplot, kind of!
+Strip Plot   | [`geom_jitter()`](https://ggplot2.tidyverse.org/reference/geom_jitter.html)  | Or, `geom_point(position = "jitter")`!
+Sina Plot    | [`geom_sina()`](https://ggforce.data-imaginist.com/reference/geom_sina.html)    | The hybrid child of a density plot and a strip plot. *Requires a separate package called `ggforce` to plot.*
+
+*Exercises forthcoming.*
+
+## Set 3: Visualizing Amounts/Counts
+
+The most common approach visualizing amounts, or count, data is with barplots, which we will focus on in this set.
+
+*Exercises forthcoming.*
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
