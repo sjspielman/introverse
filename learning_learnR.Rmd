@@ -1,0 +1,99 @@
+---
+title: "Learning LearnR"
+author: "Jake Kovaleski"
+output: 
+  learnr::tutorial:
+    theme: united
+runtime: shiny_prerendered
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+library(tidyverse)
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+
+## Using ggplot2
+
+### Exercise 1
+
+*Let's preview the dataset you'll be using*
+
+``` {r iris head}
+head(iris)
+```
+
+Write the R code required make a histogram:
+
+*Remember: the varible needs to be continous to be plotted*
+
+```{r simple_hist, exercise=TRUE}
+
+```
+
+### Exercise 2
+
+*Let's clean up those axes*
+
+Repeat your code, but this time use the `labs()` function to make the axis titles look better:
+
+```{r clean_axis_titles, exercise=TRUE}
+  
+
+```
+
+### Exercise 3
+
+*Now let's add some color. Keep in mind the difference between color and fill, and where to insert them in the code*
+
+``` {r adding_color, exercise=TRUE}
+
+
+```
+
+## Using dplyr
+
+### Exercise 1
+
+Remind youself of the dataset we are using (iris) by only showing the first five rows:
+
+```{r print-limit, exercise=TRUE}
+
+```
+
+```{r print-limit-hint}
+'head()' is the function to use
+```
+
+### Exercise 2
+
+Using a dyplr function, wrangle the data to only display the versicolor species.
+
+```{r filter-prac,exercise=TRUE }
+
+
+```
+
+```{r filter-prac-hint}
+while select() *selects* columns, what function extracts rows?
+
+```
+
+### Exercise 3
+
+Combine your skills to make a histogram displaying petal length only across the versicolor species.
+
+```{r dpylr_ggplot, exercise=TRUE }
+
+
+```
+
+
+
+
+
+
+
+
+
