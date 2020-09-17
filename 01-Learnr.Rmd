@@ -1,0 +1,92 @@
+---
+title: "Tutorial"
+output: learnr::tutorial
+runtime: shiny_prerendered
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+
+## Topic 1
+
+### Exercise 1
+
+Write the R code required to add 2 plus 2:
+
+```{r two-plus-two, exercise=TRUE, exercise.lines = 1}
+
+```
+
+```{r two-plus-two-solution}
+2+2
+```
+
+### Exercise 2 
+
+Write the R code required to subtract 3 from 7:
+
+```{r seven-minus-three, exercise=TRUE, exercise.lines = 1}
+
+```
+
+```{r seven-minus-three-solution}
+7-3
+```
+
+
+### Exercise 3
+
+Write the R code requried to divide 10 by 2:
+
+```{r ten-divide-two, exercise=TRUE, exercise.lines = 1}
+
+```
+
+```{r ten-divide-two-solution}
+10/2
+```
+
+### Exercise 4 
+
+Write the R code required to multiple 5 by 5:
+```{r five-multiply-five, exercise=TRUE, exercise.lines = 1}
+
+```
+
+```{r five-multiply-five-solution}
+5*5
+```
+
+## Topic 2 
+
+
+### Exercise 1
+
+Write a code chunk that shows the first 6 outputs of the data set Iris:
+
+```{r code-chunk, exercise=TRUE, exercise.lines = 1}
+
+```
+
+```{r code-chunk-solution}
+head(iris)
+```
+### Exercise 2
+
+Write a code chunk that shows the last 6 outputs of the data set Iris:
+
+```{r code-chunk2, exercise=TRUE, exercise.lines = 1}
+
+```
+
+```{r code-chunk2-solution}
+tail(iris)
+```
+
+
+## Topic 3
+
+
