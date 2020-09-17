@@ -1,0 +1,46 @@
+blockquote {
+  display: block;
+  font-size: 1em;
+  font-weight: 500;
+}
+
+h2 {
+  margin-top: 2em;
+}
+
+h3 {
+  margin-top: 1.2em;
+}
+
+h4 {
+  margin-top: 1em;
+}
+
+
+h5 {
+  margin-top: 2.5em;
+  margin-bottom:0.75em;
+}
+
+
+#TOC {
+  width:225px;
+}
+
+
+mark {
+    background-color:#FFCC00;
+}
+
+
+.question {
+    font-size:1.2em;
+    font-weight:500;
+    padding-bottom:10em;
+    padding-top:2em;
+}
+
+
+answer {
+    color:blue;
+}
