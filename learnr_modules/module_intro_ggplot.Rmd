@@ -1,5 +1,5 @@
 ---
-title: "Introduction to making figures with `ggplot2`"
+title: "Data Science for Biologists, Fall 2020"
 author: "Stephanie J. Spielman"
 output: 
   learnr::tutorial:
@@ -156,10 +156,15 @@ sparrows <- tibble::tribble(
   dplyr::mutate(Age = as.factor(Age), 
                 Survival = as.factor(Survival), 
                 Sex = as.factor(Sex))
+
+sparrows %>%
+  dplyr::group_by(Sex) %>%
+  dplyr::summarize(mean_wingspread = mean(Wingspread)) -> sparrow_summarized
+
 ```
 
-# Data Science for Biologists, Fall 2020
-<br><br><br>
+# Introduction to making figures with `ggplot2`
+<br>
 
 ## References
 
@@ -239,7 +244,7 @@ ggplot(sparrows) +
 
 2. Again make a scatterplot of femur length across wingspread, but make all points the color red.
 
-> Hint: This is simply coloring points, not mapping color to a variable. Just add the color argument to `geom_point()`.
+> Hint: This is simply coloring points, not mapping color to a variable. Just add the color argument to `geom_point()`. Colors MUST go in QUOTES - `"red"` (or `'red'`), NOT `red`.
 
 ```{r scatter_2, exercise = TRUE}
 
@@ -265,6 +270,25 @@ ggplot(sparrows) +
   aes(x = Wingspread, y = Femur_Length, color=Survival) +  
   geom_point() 
 ```
+
+
+#### **Sidenote!** An *extremely common* bug/typo you can now look forward to doing for the rest of your life is accidentally placing a column *outside* of `aes()`. Here's an example of that bug.
+
+> `ggplot2` can only automatically know that you are referring to a column if it's inside `aes()`. If it's outside an `aes()`, R wants to find a variable with that name. But, `Survival` is not a variable on its own - it only exists as a column within `sparrows`.
+
+```{r scatter_sidenote, exercise=TRUE}
+# This code won't work! Run it to see and UNDERSTAND the error message. Then, ccan you fix it?
+ggplot(sparrows) + 
+  aes(x = Wingspread, y = Femur_Length) +  
+  geom_point(color=Survival) 
+```
+
+```{r scatter_sidenote-solution}
+ggplot(sparrows) + 
+  aes(x = Wingspread, y = Femur_Length, color=Survival) +  
+  geom_point() 
+```
+
 
 4. Again make a scatterplot of femur length across wingspread, but this time color all points based on _weight_. Unlike survival, weight is a *numeric continuous* variable so you'll get a gradient of colors rather than a color for each survival category.
 ```{r scatter_4, exercise = TRUE}
@@ -391,8 +415,7 @@ ggplot(sparrows) +
 # Examine the plot first
 sparrow_wing_femur_plot
 
-# Next, UNCOMMENT this code and run it to see some awesome.
-# IMPORTANT: this does NOT change the definition of `sparrow_wing_femur_plot`
+# Next, UNCOMMENT the next code and run it to see some awesome. IMPORTANT: this does NOT change the definition of `sparrow_wing_femur_plot`
 #sparrow_wing_femur_plot +
 #  labs(x = "OMG WE ADDED AN X-AXIS LABEL!")
 
@@ -411,29 +434,158 @@ sparrow_wing_femur_plot +
 ```
 
 
-11. Make one more version of this figure that contains the following features:
+11. So far, we have been writing separate lines for the `aes()`. In fact, you can include `aes()` in the initial call to `ggplot()` or to any `geom_` function to specify aesthetics for that geom (as we'll learn soon, you can have multiple geoms in a plot!). The code below demonstrates this concept; Run the code below to understand that you can place `aes()` in many locations.
+
+> It is VERY common (in fact it's the norm!!) for people to include `aes()` inside the initial call to `ggplot()`.
+
+```{r scatter_11, exercise=TRUE}
+# Place aes in ggplot(). This is EQUIVALENT to aes() on their own line
+ggplot(sparrows, aes(x = Wingspread, y = Femur_Length)) +  
+  geom_point() 
+
+# Place aes in geom_point(). We'll see soon - this does slightly different things!
+ggplot(sparrows) +  
+  geom_point(aes(x = Wingspread, y = Femur_Length))
+```
+
+
+12. Now, let's add another geom! The function `geom_smooth()` can be used to add a trendline to the plot, using one of several modeling options. To get a line of best fit (aka regression line), use the code `geom_smooth(method = "lm")`. Re-create your scatterplot (no colors or aesthetics besides x and y) but add (literally, add!) this geom to your plot to show the trendline for your data.
+
+> By default, `geom_smooth()` will include a 95% confidence interval, showing the statistical bands for where the true trendline is. You can include the argument `se=FALSE` to `geom_smooth()` to disable the bands - try it out! (`se` stands for "standard error," which is mathematically very closely related to the confidence interal).
+
+> You will note that `ggplot2` returns the message: "`geom_smooth()` using formula 'y ~ x'". This is NORMAL and EXPECTED: It is telling you what type of trendline was calculated. You can safely IGNORE IT.
+
+> For an added challenge, include see what adding `color` and `fill` arguments to geom_smooth does! Use these arguments in the same way you'd provide "just a color/fill" to `geom_point()`.
+
+
+```{r scatter_12, exercise=TRUE}
+
+
+```
+
+
+```{r scatter_12-solution}
+# With confidence bands
+ggplot(sparrows, aes(x = Wingspread, y = Femur_Length)) +
+  geom_point() + 
+  geom_smooth(method = "lm")
+
+# Without confidence bands
+ggplot(sparrows, aes(x = Wingspread, y = Femur_Length)) +
+  geom_point() + 
+  geom_smooth(method = "lm", se = FALSE)
+
+
+################### Added challenge ########################
+# With confidence bands and color
+ggplot(sparrows, aes(x = Wingspread, y = Femur_Length)) +
+  geom_point() + 
+  geom_smooth(method = "lm", color = "orange")
+
+# With confidence bands and color and fill!
+ggplot(sparrows, aes(x = Wingspread, y = Femur_Length)) +
+  geom_point() + 
+  geom_smooth(method = "lm", color = "orange", fill = "navy")
+```
+
+
+13. Let's combine insights from tasks 11-12 here: `aes()` placement when using multiple geoms. This time, we'd like to specify a color aesthetic for `Survival`. Re-build your plot with `geom_point()` and `geom_smooth()` with this aesthetic using three different placements for *the COLOR aes*. For all plots, place the `x` and `y` aesthetics in the initial `ggplot()` call.
+
++ Place the color aesthetic in the initial `ggplot()` call, *along with* `x` and `y`
++ Place the color aesthetic in `geom_point()` call *only*
++ Place the color aesthetic in `geom_smooth()` call *only*
++ Place the color aesthetic in `geom_smooth()` call *only*, but ALSO ADD a "regular" color argument to `geom_smooth()`
+  + This example is meant to show you how `ggplot2` might resolve *conflicting instructions* (color as aes and as "just a color" - what will it do?!)
+
+> For an added challenge, experiment with the `fill` aesthetic placement as well. This aesthetic is ONLY used by `geom_smooth()`, not `geom_point()` (since regular points don't have a fill). This is an opportunity to learn through engagement!
+  
+> Hint: Don't forget to actually put `color = Survival` inside of the `aes()` function, no matter its placement!!!!
+
+```{r scatter_13, exercise=TRUE}
+
+```
+
+
+```{r scatter_13-solution}
+# color aes in initial ggplot call
+ggplot(sparrows, aes(x = Wingspread, y = Femur_Length, color = Survival)) +
+  geom_point() + 
+  geom_smooth(method = "lm")
+
+# color aes in geom_point() call
+ggplot(sparrows, aes(x = Wingspread, y = Femur_Length)) +
+  geom_point() + 
+  geom_smooth(method = "lm")
+
+# color aes in geom_smooth() call
+ggplot(sparrows, aes(x = Wingspread, y = Femur_Length)) +
+  geom_point() + 
+  geom_smooth(method = "lm", aes(color = Survival))
+
+# color aes in geom_smooth() call AND a color is added, to see what happens!
+ggplot(sparrows, aes(x = Wingspread, y = Femur_Length)) +
+  geom_point() + 
+  geom_smooth(method = "lm", aes(color = Survival), color = "purple")
+
+# Like the last example, but what if I switched the arguments around?
+ggplot(sparrows, aes(x = Wingspread, y = Femur_Length)) +
+  geom_point() + 
+  geom_smooth(method = "lm", color = "purple", aes(color = Survival))
+
+
+################### Added challenge ########################
+### What about fill placement? Can you see how and why these produce different plots?
+ggplot(sparrows, aes(x = Wingspread, y = Femur_Length, fill = Survival, color = Survival)) +
+  geom_point() + 
+  geom_smooth(method = "lm")
+
+ggplot(sparrows, aes(x = Wingspread, y = Femur_Length)) +
+  geom_point(aes(fill = Survival, color = Survival)) + 
+  geom_smooth(method = "lm")
+
+ggplot(sparrows, aes(x = Wingspread, y = Femur_Length)) +
+  geom_point() + 
+  geom_smooth(method = "lm", aes(fill = Survival, color = Survival))
+
+ggplot(sparrows, aes(x = Wingspread, y = Femur_Length)) +
+  geom_point(aes(color = Survival)) + 
+  geom_smooth(method = "lm", aes(fill = Survival))
+```
+
+
+
+
+
+
+
+14. Make one more version of this figure that contains the following features:
 
 + Clean and professional labels using `labs()`
-+ *Color* all points based on `Survival` 
++ *Color* all points based on `Survival`
+  + With an included *trendline* for EACH `Survival` level (make sure your aesthetic placement is appropriate!)
 + *Size* all points based on `Weight` (Hint: use `size` as an aesthetic to map the given variable)
 + Make all the points into shape 15
 + **BONUS**: Try changing the [theme](https://ggplot2.tidyverse.org/reference/ggtheme.html)
 
 Once the plot is made, think about these design choices. Just because one *can* add these visual features, does it mean one *should* add these visual features? (Answer: No.)
-```{r scatter_11, exercise = TRUE}
+
+> Note: Some of the legend colors will come out funky - later, we will learn how to deal with this type of situation.
+
+```{r scatter_14, exercise = TRUE}
 
 ```
 
 
-```{r scatter_11-solution}
-ggplot(sparrows) + 
-  aes(x = Wingspread, y = Femur_Length, color = Survival, size = Weight) +  
+```{r scatter_14-solution}
+ggplot(sparrows, aes(x = Wingspread, y = Femur_Length, color = Survival, size = Weight)) +  
   geom_point(shape = 15) + 
+  geom_smooth(method = "lm") +
     labs(x = "Wingspread (mm)",
          y = "Femur Length (mm)",
          title = "Scatterplot of sparrow femur length across wingspread ",
-         caption = "Oh wow is this an ugly plot!")
+         subtitle = "Oh wow is this an ugly plot!")
 ```
+
 
 
 ## Set 2: Visualizing distributions
@@ -445,15 +597,277 @@ Plot | Geom (yes, these are links!) | Notes
 Histogram    | [`geom_histogram()`](https://ggplot2.tidyverse.org/reference/geom_histogram.html) | Only ONE axis is specified in `aes()` (usually the x-axis). `ggplot2` takes care of the other axis for you - it *counts and bins on your behalf!* (A close relative is *frequency polygons*)
 Density plot | [`geom_density()`](https://ggplot2.tidyverse.org/reference/geom_density.html) | Think of this as a smoothened histogram. Same as for histogram, you only specify the X axis.
 Boxplot      | [`geom_boxplot()`](https://ggplot2.tidyverse.org/reference/geom_boxplot.html) | Best used when making multiple boxplots in a single panel
+Strip Plot   | [`geom_jitter()`](https://ggplot2.tidyverse.org/reference/geom_jitter.html)  | Or, `geom_point(position = position_jitter())`!
 Violin Plot  | [`geom_violin()`](https://ggplot2.tidyverse.org/reference/geom_violin.html) | The hybrid child of a density plot and a boxplot, kind of!
-Strip Plot   | [`geom_jitter()`](https://ggplot2.tidyverse.org/reference/geom_jitter.html)  | Or, `geom_point(position = "jitter")`!
 Sina Plot    | [`geom_sina()`](https://ggforce.data-imaginist.com/reference/geom_sina.html)    | The hybrid child of a density plot and a strip plot. *Requires a separate package called `ggforce` to plot.*
 
-*Exercises forthcoming.*
+
+Our goal here is to visualize the distribution of `Wingspread` to learn how to use each type of plot.
+<br><br>
+
+1. Make a simple histogram of sparrow Wingspread using `geom_histogram()`. Remember: You only should specify the X-axis; `ggplot2` will do the Y-axis for you!
+
+> For an added insight, try specifying `Wingspread` as the `y` *instead of* as the `x` aesthetic. `ggplot2` will then make a horizontal histogram!
+
+
+```{r dist_1, exercise = TRUE}
+
+```
+
+```{r dist_1-solution}
+ggplot(sparrows, aes(x = Wingspread)) +
+  geom_histogram()
+```
+
+2. You will notice that `ggplot2` returns a *warning message* when you make histograms: "`stat_bin()` using `bins = 30`. Pick better value with `binwidth`." This is an EXPECTED AND NORMAL message. It is `ggplot` telling you: I assumed there should be *30 bins* along your X-axis in your histogram. It suggests ONE way you can customize the binning: Using the argument `binwidth` to `geom_histogram()` to specify how wide along the X-axis a bin should be. Alternatively, can also use the argument `bins` to `geom_histogram()` to specify how many bins there should be (its default is 30! Get it?).
+
+Re-create your histogram in five separate versions, each with a different specification to `binwidth`: 0.1, 1, 5, 10, and 20. *Think about* which version(s) represent(s) the data well, and which version(s) is/are just terrible ideas. 
+
+> For an added challenge, also experiment with the `bins` argument instead of `binwidth`.
+
+```{r dist_2, exercise = TRUE}
+
+```
+
+```{r dist_2-solution}
+# binwidth of 0.1
+ggplot(sparrows, aes(x = Wingspread)) +
+  geom_histogram(binwidth = 0.1)
+
+# binwidth of 1
+ggplot(sparrows, aes(x = Wingspread)) +
+  geom_histogram(binwidth = 1)
+
+# binwidth of 5
+ggplot(sparrows, aes(x = Wingspread)) +
+  geom_histogram(binwidth = 5)
+
+# binwidth of 10
+ggplot(sparrows, aes(x = Wingspread)) +
+  geom_histogram(binwidth = 10)
+
+# binwidth of 20
+ggplot(sparrows, aes(x = Wingspread)) +
+  geom_histogram(binwidth = 20)
+```
+
+3. This is really where variables start to become important: Let's say you have an R script which creates 50 histograms, and you want 15 bins for all histograms (i.e., `geom_histogram(bins = 15)`). One option is to make all plots and write `15` for the argument. This works well..until you change your mind later and decide that maybe 12 would have been better. Rather than having to find and replace all `15`'s, we could just have a variable used in the code, and simply change the variable and have it automatically apply. 
+
+Run the code below to see this in action, and then *change* the `my_bins` variable to equal 5. Re-run the code with this new variable definition to see the change.
+
+```{r dist_3, exercise = TRUE}
+my_bins <- 15
+ggplot(sparrows, aes(x = Wingspread)) +
+  geom_histogram(bins = my_bins)
+```
+
+```{r dist_3-solution}
+my_bins <- 5
+ggplot(sparrows, aes(x = Wingspread)) +
+  geom_histogram(bins = my_bins)
+```
+
+4. How about some colors? Add "just a fill" and "just a color" of your choosing to the plot. This will also help you to see the boundaries of your bins.
+
+> Hint: Don't forget [my favorite PDF](https://github.com/sjspielman/datascience_for_biologists/raw/master/spring2020/rmd_lessons/static/Rcolor.pdf)!
+
++ Added challenge: Also add "just a size" (use a value below 3, trust me...) to your histogram to see what it does! 
++ For an double added challenge, make all your visual features variables to use in your plot rather than the direct values
+
+```{r dist_4, exercise = TRUE}
+
+```
+
+```{r dist_4-solution}
+ggplot(sparrows, aes(x = Wingspread)) +
+  geom_histogram(color = "chocolate3", fill = "skyblue")
+
+# With size:
+ggplot(sparrows, aes(x = Wingspread)) +
+  geom_histogram(color = "chocolate3", fill = "skyblue", size = 2)
+
+# Using variables:
+hist_color <- "chocolate3"
+hist_fill <- "skyblue"
+hist_line_size <- 2
+ggplot(sparrows, aes(x = Wingspread)) +
+  geom_histogram(color = hist_color, fill = hist_fill, size = hist_line_size)
+
+```
+
+
+
+
+5. Now let's make a *density plot* of `Wingspread` using `geom_density()`. Since the Y-axis of density plots are a transformed value, leave the `y` aesthetic blank just like for histograms. *Start off strong by adding "just a FILL" of your choosing to your density plot!!*
+
+```{r dist_5, exercise = TRUE}
+
+```
+
+```{r dist_5-solution}
+ggplot(sparrows, aes(x = Wingspread)) +
+  geom_density(fill = "palegreen4")
+```
+
+6. To make add transparency to colors, we can use the `alpha` argument *given directly to the relevant geom*. Values of alpha range from 0-1, where 0 is fully transparent and 1 is fully opaque. Add some alpha to your plot to practice this argument.
+
+> For an added challenge, make a variable to use for your `alpha` value!
+
+```{r dist_6, exercise = TRUE}
+
+```
+
+```{r dist_6-solution}
+ggplot(sparrows, aes(x = Wingspread)) +
+  geom_density(fill = "palegreen4", alpha = 0.6)
+```
+
+
+7. To add transparency, we can use the `alpha` argument *given directly to the relevant geom*. Values of alpha range from 0-1, where 0 is fully transparent and 1 is fully opaque. Add some alpha to your plot to practice this argument.
+
+> For an added challenge, make a variable to use for your `alpha` value!
+
+```{r dist_7, exercise = TRUE}
+
+```
+
+```{r dist_7-solution}
+ggplot(sparrows, aes(x = Wingspread)) +
+  geom_density(fill = "palegreen4", alpha = 0.6)
+```
+
+
+8. Let's now look at *both* male and female distributions (`Sex`) in one plot - we need only add a fill aesthetic to accomplish this! Indeed, the X-axis is still `Wingspread`, Y is still automatically calculated, and the only distinction between male and female distributions would therefore the be their fill!
+
+> Hint: alpha is a really, really good idea here.
+
+```{r dist_8, exercise = TRUE}
+
+```
+
+```{r dist_8-solution}
+ggplot(sparrows, aes(x = Wingspread, fill = Sex)) +
+  geom_density(alpha = 0.6)
+```
+
+9. Moving on to *boxplots*: Let's make a boxplot of Wingspread for each Sex with `geom_boxplot()`.. Axes are not transformed values in boxplots, so we'll need to specify *First, DRAW (or conceptualize) BY HAND (yes, by hand), how you expect the plot to look.* Think about what variable is on each axis, and then build your plot up accordingly.
+
+> Up your game right away! Can you add "just a fill" and/or "just a color"? Your plot, your choice!
+> Instead of "just" a fill, can you fill distributions by `Sex`? Hint: You'll need to add another aesthetic mapping for `Sex` on top of what you already have?
+> Next level: Instead of filling by `Sex`, fill by `Survival`. Understand what happened here and how the fill ended up in the plot. Getting cool, right? 
+
+```{r dist_9, exercise = TRUE}
+
+```
+
+```{r dist_9-solution}
+# Boxplot with "just" a fill
+ggplot(sparrows, aes(x = Sex, y = Wingspread)) +
+  geom_boxplot(fill = "slateblue3")
+
+# Boxplot filled by Sex - don't forget to remove any straggling "just" fills!
+ggplot(sparrows, aes(x = Sex, y = Wingspread, fill = Sex)) +
+  geom_boxplot()
+
+# Boxplot filled by Survival - make sure you see how the aes mappings lead to the created plot! Ask me questions!
+ggplot(sparrows, aes(x = Sex, y = Wingspread, fill = Survival)) +
+  geom_boxplot()
+```
+
+
+10. Re-make the boxplots above but as a *violin plot* using `geom_violin()`. Your code here will be virtually identical, except for the geom specification. 
+
+
+
+```{r dist_10, exercise = TRUE}
+
+```
+
+```{r dist_10-solution}
+# Violin with "just" a fill
+ggplot(sparrows, aes(x = Sex, y = Wingspread)) +
+  geom_violin(fill = "slateblue3")
+
+# Violin filled by Sex 
+ggplot(sparrows, aes(x = Sex, y = Wingspread, fill = Sex)) +
+  geom_violin()
+
+# Violin filled by Survival 
+ggplot(sparrows, aes(x = Sex, y = Wingspread, fill = Survival)) +
+  geom_violin()
+```
+
+
+
+11. Let's now practice Dr. Spielman's favorite plot: strip plots. Dr. Spielman loves these SO much because they actually show ALL of the data! Not summarized into bins or boxplot summaries, but literally all the points. Make a strip plot (using `geom_jitter()`) of `Wingspread` across `Sex`.
+
+> You may need to change the _spacing_ of the points in the strip plot. You can do this with the argument `width` to `geom_jitter()`. I have personally found that 0.1-0.3 is usually a nice range for this argument.
+> NOTE: `geom_jitter()` is actually just a special version of `geom_point()`, so all point aesthetics apply here.
+> You may want to change the size of points to make everything cleanly visible. Perhaps the plot would also benefit from some transparency to the points?
+> The "jittering" to the points is random, so every time you re-make the plot, the specific x-location of the points will change. Think: Why should the Y location NEVER change? (Answer: The Y axis is actual wingspread data!)
+
+```{r dist_11, exercise = TRUE}
+
+```
+
+```{r dist_11-solution}
+
+ggplot(sparrows, aes(x = Sex, y = Wingspread)) +
+  geom_jitter()
+
+# narrower width - compare this to the default above to understand how it works!
+ggplot(sparrows, aes(x = Sex, y = Wingspread)) +
+  geom_jitter(width = 0.1)
+
+# want to change the size? practice learning how these arguments modify the plot!
+ggplot(sparrows, aes(x = Sex, y = Wingspread)) +
+  geom_jitter(width = 0.1, size = 3, alpha = 0.5)
+```
+
+
+
+12. Re-make the strip plot, but also color by `Survival` (inside `aes()`!). You'll find a result somewhat to the boxplot version of this plot.
+
+> Think: Why did I say color and not fill, as I did for boxplot? Make sure you understand the difference!
+
+> Make sure to check the width -  does it need to be tweaked for clear interpretation?
+
+```{r dist_12, exercise = TRUE}
+
+```
+
+```{r dist_12-solution}
+ggplot(sparrows, aes(x = Sex, y = Wingspread, color = Survival)) +
+  geom_jitter(width = 0.1)
+
+# Bonus information: this is actually just a shortcut for...
+ggplot(sparrows, aes(x = Sex, y = Wingspread, color = Survival)) +
+  geom_point(position = position_jitter(width = 0.1))
+```
+
+13. Re-make the strip plot, but add the argument `position = position_jitterdodge()` to `geom_jitter()` (again, check the width!). Compare this plot to the one you made in #11: Think, what have you learned about "dodged" positioning (the default observed in #11 is called "stacked" positioning)? 
+
+> Dodging vs stacking can be customized when you are showing multiple distributions at the same tick along the X-axis. For example, here we have both dead and alive birds for EACH TICK male and female along the X-axis. The specific way to specify dodging is a little different for other geoms. Here, we just want to see the concept for how it works for strip plots.
+>**NOTE:** If you specify this argument and want to customize width also, you must place the argument `jitter.width` INSIDE, e.g. position = position_jitterdodge(jitter.width = 0.1)
+
+
+```{r dist_13, exercise = TRUE}
+
+```
+
+```{r dist_13-solution}
+ggplot(sparrows, aes(x = Sex, y = Wingspread, color = Survival)) +
+  geom_jitter(position = position_jitterdodge())
+
+# This is actually the same as...
+ggplot(sparrows, aes(x = Sex, y = Wingspread, color = Survival)) +
+  geom_point(position = position_jitterdodge())
+```
 
 ## Set 3: Visualizing Amounts/Counts
 
 The most common approach visualizing amounts, or count, data is with barplots, which we will focus on in this set.
+
 
 *Exercises forthcoming.*
 

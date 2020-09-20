@@ -46,9 +46,10 @@ h4 {
   margin: .75em 0 .5em 0; }
   
 p {
-  line-height: 1.5em;
+  line-height: 1.2em;
   margin-bottom: 0.5em; 
   font-size:1.2em;
+  margin-left:15px;
 }
 
 
@@ -57,9 +58,16 @@ p {
 
 
 ol {
+  line-height: 1.2em;
   font-size:1.15em;
-  margin-left: -15px;
+  margin-left: -10px;
   padding-top: 30px;
+}
+
+ul > ul {
+  line-height: 1.2em;
+  font-size:1.15em;
+  padding-top: 2px;
 }
 
 
