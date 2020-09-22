@@ -20,7 +20,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 *Let's preview the dataset you'll be using*
 
-``` {r iris head}
+``` {r iris_head}
 head(iris)
 ```
 
@@ -31,7 +31,10 @@ Write the R code required make a histogram:
 ```{r simple_hist, exercise=TRUE}
 
 ```
-
+```{r simple_hist-solution}
+ggplot(iris, aes(x = Sepal.Length)) + geom_histogram()
+# Correct answers also include those using Sepal.Width, Petal.Length, or Petal.Width within the `aes()` function
+```
 ### Exercise 2
 
 *Let's clean up those axes*
@@ -42,16 +45,27 @@ Repeat your code, but this time use the `labs()` function to make the axis title
   
 
 ```
+```{r clean_axis_titles-solution}
+
+ggplot(iris, aes(x = Sepal.Length)) + geom_histogram() + labs(x = "Sepal Length", y = "Count")
+```
 
 ### Exercise 3
 
 *Now let's add some color. Keep in mind the difference between color and fill, and where to insert them in the code*
 
+> Make sure it makes visual sense
+
 ``` {r adding_color, exercise=TRUE}
 
 
 ```
+```{r adding_color-solution}
 
+ggplot(iris, aes(x = Sepal.Length)) + geom_histogram(fill = #color of your choice
+                                                     color = #color of  your choice
+                                                    ) + labs(x = "Sepal Length", y = "Count")
+```
 ## Using dplyr
 
 ### Exercise 1
@@ -62,9 +76,9 @@ Remind youself of the dataset we are using (iris) by only showing the first five
 
 ```
 
-```{r print-limit-hint}
-'head()' is the function to use
-```
+<div id="print-limit-hint">
+`head()` is the function to use
+</div>
 
 ### Exercise 2
 
@@ -75,8 +89,8 @@ Using a dyplr function, wrangle the data to only display the versicolor species.
 
 ```
 
-```{r filter-prac-hint}
-while select() *selects* columns, what function extracts rows?
+```{r filter-prac-solution}
+iris %>% filter(Species == "versicolor")
 
 ```
 
@@ -87,13 +101,11 @@ Combine your skills to make a histogram displaying petal length only across the 
 ```{r dpylr_ggplot, exercise=TRUE }
 
 
+
 ```
+```{r dpylr_ggplot-solution}
 
+iris %>% filter(Species == "versicolor") %>% ggplot(aes(x = Petal.Length)) + geom_histogram() + labs(x= "Petal Length", y = "Count")
 
-
-
-
-
-
-
+```
 
