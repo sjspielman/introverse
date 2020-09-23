@@ -62,7 +62,7 @@ ggplot(iris, aes(x = Sepal.Length)) + geom_histogram() + labs(x = "Sepal Length"
 ```
 ```{r adding_color-solution}
 
-ggplot(iris, aes(x = Sepal.Length)) + geom_histogram(fill = "color of your choice"
+ggplot(iris, aes(x = Sepal.Length)) + geom_histogram(fill = "color of your choice",
                                                      color = "color of your choice")
                                     + labs(x = "Sepal Length", y = "Count")
 ```
