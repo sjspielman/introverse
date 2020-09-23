@@ -26,7 +26,7 @@ head(iris)
 
 Write the R code required make a histogram:
 
-*Remember: the varible needs to be continous to be plotted*
+*Remember: the varible needs to be continuous to be plotted*
 
 ```{r simple_hist, exercise=TRUE}
 
@@ -62,9 +62,9 @@ ggplot(iris, aes(x = Sepal.Length)) + geom_histogram() + labs(x = "Sepal Length"
 ```
 ```{r adding_color-solution}
 
-ggplot(iris, aes(x = Sepal.Length)) + geom_histogram(fill = #color of your choice
-                                                     color = #color of  your choice
-                                                    ) + labs(x = "Sepal Length", y = "Count")
+ggplot(iris, aes(x = Sepal.Length)) + geom_histogram(fill = "color of your choice"
+                                                     color = "color of your choice")
+                                    + labs(x = "Sepal Length", y = "Count")
 ```
 ## Using dplyr
 
@@ -105,7 +105,11 @@ Combine your skills to make a histogram displaying petal length only across the 
 ```
 ```{r dpylr_ggplot-solution}
 
-iris %>% filter(Species == "versicolor") %>% ggplot(aes(x = Petal.Length)) + geom_histogram() + labs(x= "Petal Length", y = "Count")
+iris %>% 
+  filter(Species == "versicolor") %>% 
+  ggplot(aes(x = Petal.Length)) + 
+     geom_histogram() + 
+     labs(x= "Petal Length", y = "Count")
 
 ```
 
