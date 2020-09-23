@@ -159,8 +159,17 @@ sparrows <- tibble::tribble(
 
 sparrows %>%
   dplyr::group_by(Sex) %>%
-  dplyr::summarize(mean_wingspread = mean(Wingspread)) -> sparrow_summarized
+  dplyr::summarize(mean_wingspread = mean(Wingspread)) -> sparrow_meanwing_sex
 
+
+sparrows %>%
+  dplyr::count(Sex) -> sparrows_sex_precounted
+sparrows %>%
+  dplyr::count(Age) -> sparrows_age_precounted
+sparrows %>%
+  dplyr::count(Survival) -> sparrows_survival_precounted
+sparrows %>%
+  dplyr::count(Age, Sex, Survival) -> sparrows_precounted
 ```
 
 # Introduction to making figures with `ggplot2`
@@ -176,6 +185,8 @@ For help, your go-to references are:
 4. [Chapter Three from "Data Visualization: A practical introduction"](https://socviz.co/makeplot.html) introduces `ggplot2` usage
 5. [Chapter Three from "R for Data Science"](https://r4ds.had.co.nz/data-visualisation.html) introduces `ggplot2` usage
 6. [All the R colors you ever wanted to use!!](https://github.com/sjspielman/datascience_for_biologists/raw/master/spring2020/rmd_lessons/static/Rcolor.pdf)
+7. [Reference: Customizing Colors and Fills](http://htmlpreview.github.io/?https://github.com/sjspielman/datascience_for_biologists/blob/master/fall2020/tutorials/color_fill_scales.html)
+
 
 ## Background: The `ggplot2` package
 
@@ -201,7 +212,7 @@ library(ggplot2)
 
 All exercises here will use a pre-loaded dataset called `sparrows`. This dataset was collected in 1898 by Hermon Bumpus, an American biologist working at Brown University (fun fact: Dr. Spielman's *alma mater*!). Immediately following a bad winter storm, he collected 136 English house sparrows (some alive, some dead), *Passer domesticus*, and brought them indoors. Of these birds, 64 had died during the storm, but 72 recovered and survived. Bumpus measured the birds' physical traits (in mm or g) and recorded them for future generations of data science students.
 
-**Before you begin the exercises, examine the dataset here!!**
+**Before you begin the exercises, examine the dataset here!! AS A GENERAL RULE, you should ALWAYS ALWAYS ALWAYS look at data before (and while!) plotting!!**
 
 ```{r examine-sparrows, exercise=TRUE}
 sparrows
@@ -210,7 +221,7 @@ sparrows
 
 ## Set 1: Scatterplots 
 
-Scatterplots show the **relationship** between two variables, and they use the `geom_point()` geometry as shown in this example where sparrow Weight is plotted *across* sparrow Wingspread (y goes across x!).
+Scatterplots show the **relationship** between two variables, and they use the `geom_point()` geometry as shown in this example where sparrow `Weight` is plotted *across* sparrow `Wingspread` (Y goes across X!).
 
 ```{r scatter_demo, exercise = TRUE}
 ggplot(sparrows) + # Use the sparrows dataset
@@ -338,7 +349,7 @@ levels(sparrows$Age)
 
 # RE-DEFINE the order like this. Run this code to see:
 # This *permanently* changes the Age column in sparrows, unless you change it again later
-sparrows$Age <- as.factor(sparrows$Age, levels=c("Young", "Adult"))
+sparrows$Age <- factor(sparrows$Age, levels=c("Young", "Adult"))
 levels(sparrows$Age)
 
 # Now you can re-make the plot using the re-defined sparrows data frame
@@ -360,7 +371,7 @@ levels(sparrows$Sex)
 
 # RE-DEFINE the order like this. Run this code to see:
 # This *permanently* changes the Age column in sparrows, unless you change it again later
-sparrows$Sex <- as.factor(sparrows$Age, levels=c("Female", "Male"))
+sparrows$Sex <- factor(sparrows$Age, levels=c("Female", "Male"))
 
 # Confirm that the re-level worked:
 levels(sparrows$Sex)
@@ -866,20 +877,144 @@ ggplot(sparrows, aes(x = Sex, y = Wingspread, color = Survival)) +
 
 ## Set 3: Visualizing Amounts/Counts
 
-The most common approach visualizing amounts, or count, data is with barplots, which we will focus on in this set.
+The most common approach visualizing amounts, or count, data is with barplots, which we will focus on in this set. There are TWO commonly used geoms for making barplots:
+
++ `geom_bar()` will *count data for you* into a barplot and produce your Y-axis for you. This geom ONLY takes an X or Y mapping (use Y mapping for *horizontal* barplot)
+
++ `geom_col()` will draw a bar (column) whose height is precisely provided in the data set. This geom requires BOTH X AND Y mappings.
+
+As an example:
+
+```{r, collapse=TRUE}
+# Always look at the data!!
+head(sparrows)
+# Make a barplot of the NUMBER OF EACH SEX. Requires ggplot to count for us
+ggplot(sparrows, aes(x = Sex)) + 
+  geom_bar()
+# Make a barplot of literally these averages in this other dataset I made for you:
+sparrow_meanwing_sex
+ggplot(sparrow_meanwing_sex, aes(x = Sex, y = mean_wingspread)) + 
+  geom_col()
+```
+
+1. Using the full `sparrows` dataset, make a barplot using `geom_bar()` of the number of each *age group* (`Age`) in the dataset.
+```{r bar_1, exercise = TRUE}
+
+```
+
+```{r bar_1-solution}
+ggplot(sparrows, aes(x = Age)) +
+  geom_bar()
+```
 
 
-*Exercises forthcoming.*
+2. Using the full `sparrows` dataset, again make a barplot using `geom_bar()` of the number of each *age group* (`Age`) in the dataset. This time, add a fill aesthetic mapping to `Survival`. What do you notice about the result?
+```{r bar_2, exercise = TRUE}
+
+```
+
+```{r bar_2-solution}
+# We now see TWO bars for each age group, based on survival status
+ggplot(sparrows, aes(x = Age, fill = Survival)) +
+  geom_bar()
+```
 
 
+3. As you see in the question above, the default way that multiple bars will be shown is *stacked*. Modify the plot to show *dodged* bars using the argument `position = position_dodge()` in `geom_bar()`.
+```{r bar_3, exercise = TRUE}
+
+```
+
+```{r bar_3-solution}
+# Bars are now side-by-side, aka "dodged"
+ggplot(sparrows, aes(x = Age, fill = Survival)) +
+  geom_bar(position = position_dodge())
+```
+
+4. Again modify this barplot by making it *horizontal* by mapping `Age` to the Y axis *instead of the X.* `ggplot2` is exceptionally flexible!
+```{r bar_4, exercise = TRUE}
+
+```
+
+```{r bar_4-solution}
+ggplot(sparrows, aes(y = Age, fill = Survival)) +
+  geom_bar(position = position_dodge())
+```
+
+5. Let's see what happens when you *accidentally use the wrong geom.* Again, make this plot (vertical version, not horizontal), but use `geom_col()` instead, by running the code below. You'll get an error! Read and understand why the error is there (*and check out the hint too!*)
+
+```{r bar_5, exercise = TRUE, eval=FALSE}
+ggplot(sparrows, aes(x = Age, fill = Survival)) +
+  geom_col(position = position_dodge())
+```
+
+<div id="bar_5-hint">
+`geom_col` NEEDS both x and y, so `ggplot2` will refuse to plot anything until the required aesthetics are given. **THIS DOES NOT ALWAYS MEAN YOU NEED TO JUST ADD A Y AND YOUR PROBLEMS ARE SOLVED.** It often means you have used the wrong geom for the type of plot you want to make!!
+</div>
 
 
+#### Switching gears
+
+Now, let's practice `geom_col()` using these other datasets I have made that are more suited for the geom. These datasets contain the actual counts for how many of teach type of sparrow are in the dataset (soon, you will learn to manipulate data to create this sort of thing yourself!!). **Explore the contents of these three data frames before proceeding!**
+
+```{r sparrows-summary-demo, exercise=TRUE}
+sparrows_survival_precounted
+sparrows_age_precounted
+sparrows_precounted
+```
+
+6. Using the `sparrows_survival_precounted`, plot the number of dead and alive birds with `geom_col()`.
+
+> **Hint:** The column `n` contains the count that you LITERALLY want along the Y-axis.
+
+```{r bar_6, exercise = TRUE}
+
+```
+
+```{r bar_6-solution}
+ggplot(sparrows_survival_precounted, aes(x = Survival, y = n)) +
+  geom_col()
+```
+
+7. Using the `sparrows_age_precounted`, plot the number of dead and alive birds with `geom_col()`. This time, make the bars a single *color and fill* of your choosing! 
+
+> **Hint:** No mapping here, "just" a color and fill!
 
 
+```{r bar_7, exercise = TRUE}
+
+```
+
+```{r bar_7-solution}
+ggplot(sparrows_age_precounted, aes(x = Age, y = n)) +
+  geom_col(fill = "darkseagreen3", color = "dodgerblue4")
+```
 
 
+8. Let's again see what happens if the wrong geom is accidentally used. See the **Hint** for an explanation!
+
+```{r bar_8, exercise=TRUE}
+ggplot(sparrows_age_precounted, aes(x = Age, y = n)) +
+  geom_bar(fill = "darkseagreen3", color = "dodgerblue4")
+```
+
+<div id="bar_8-hint">
+`geom_bar()` does calculations to count data using a special function called `stat_count()`. In fact, many geoms use stat functions implicitly - `geom_histogram()` uses `stat_bin()`, and `geom_density()` uses `stat_density()`. These stat functions perform the data transformations necessary to build the plot. Here, your error says `stat_count()` doesn't know how to count 2 axes! One only, please! 
+</div>
 
 
+9. Finally, use `geom_col()` to create a *dodged* barplot of the bird counts for `Survival` and `Sex` shown in `sparrows_precounted`.
+
+> Hint: You want to FILL by one variable, and set the other variable to the X axis.
+
+```{r bar_9, exercise=TRUE}
+
+```
+
+```{r bar_9-solution}
+ggplot(sparrows_precounted, aes(x = Age, y = n, fill = Sex)) +
+  geom_col(position = position_dodge())
+```
 
 
 
