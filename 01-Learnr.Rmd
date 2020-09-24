@@ -4,7 +4,7 @@ output: learnr::tutorial
 runtime: shiny_prerendered
 ---
 
-```{r setup, include=FALSE}
+```{r setup, include=FALSE, exercise.lines = 10}
 library(learnr)
 knitr::opts_chunk$set(echo = FALSE)
 ```
@@ -16,7 +16,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 Write the R code required to add 2 plus 2:
 
-```{r two-plus-two, exercise=TRUE, exercise.lines = 1}
+```{r two-plus-two, exercise=TRUE}
 
 ```
 
@@ -28,7 +28,7 @@ Write the R code required to add 2 plus 2:
 
 Write the R code required to subtract 3 from 7:
 
-```{r seven-minus-three, exercise=TRUE, exercise.lines = 1}
+```{r seven-minus-three, exercise=TRUE}
 
 ```
 
@@ -41,7 +41,7 @@ Write the R code required to subtract 3 from 7:
 
 Write the R code requried to divide 10 by 2:
 
-```{r ten-divide-two, exercise=TRUE, exercise.lines = 1}
+```{r ten-divide-two, exercise=TRUE}
 
 ```
 
@@ -52,7 +52,7 @@ Write the R code requried to divide 10 by 2:
 ### Exercise 4 
 
 Write the R code required to multiple 5 by 5:
-```{r five-multiply-five, exercise=TRUE, exercise.lines = 1}
+```{r five-multiply-five, exercise=TRUE}
 
 ```
 
@@ -65,9 +65,9 @@ Write the R code required to multiple 5 by 5:
 
 ### Exercise 1
 
-Write a code chunk that shows the first 6 outputs of the data set Iris:
+Write a code chunk that shows the first 6 rows of the data set `iris`:
 
-```{r code-chunk, exercise=TRUE, exercise.lines = 1}
+```{r code-chunk, exercise=TRUE}
 
 ```
 
@@ -78,15 +78,11 @@ head(iris)
 
 Write a code chunk that shows the last 6 outputs of the data set Iris:
 
-```{r code-chunk2, exercise=TRUE, exercise.lines = 1}
+```{r code-chunk2, exercise=TRUE}
 
 ```
 
 ```{r code-chunk2-solution}
 tail(iris)
 ```
-
-
-## Topic 3
-
 
