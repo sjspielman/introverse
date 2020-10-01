@@ -9,70 +9,147 @@ runtime: shiny_prerendered
 
 ```{r setup, include=FALSE}
 library(learnr)
+library(tidyverse)
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
 
-## Topic 1
+### Exercise 1
 
-### Exercise 
+Write the R code required to prove 7 is greater than 5:
 
-*Here's a simple exercise with an empty code chunk provided for entering the answer.*
+*The correct output will be `TRUE`.*
 
-Write the R code required to add two plus two:
-
-```{r two-plus-two, exercise=TRUE}
+```{r 7_g_5, exercise=TRUE}
 
 ```
-
-### Exercise with Code
-
-*Here's an exercise with some prepopulated code as well as `exercise.lines = 5` to provide a bit more initial room to work.*
-
-Now write a function that adds any two numbers and then call it:
-
-```{r add-function, exercise=TRUE, exercise.lines = 5}
-add <- function() {
-  
-}
+```{r 7_g_5-solution}
+7 > 5 # OR
+5 < 7
 ```
 
-## Topic 2
+### Exercise 2
 
-### Exercise with Hint
+Write the R code required to prove 256 is equal to 256
 
-*Here's an exercise where the chunk is pre-evaulated via the `exercise.eval` option (so the user can see the default output we'd like them to customize). We also add a "hint" to the correct solution via the chunk immediate below labeled `print-limit-hint`.*
+```{r equal, exercise=TRUE}
 
-Modify the following code to limit the number of rows printed to 5:
-
-```{r print-limit, exercise=TRUE, exercise.eval=TRUE}
-mtcars
+```
+```{r equal-solution}
+256 == 256
 ```
 
-```{r print-limit-hint}
-head(mtcars)
+### Exercise 3
+
+Write the R code required to prove 11 is not equal to 23.
+
+```{r not, exercise=TRUE}
+
+
+```
+```{r not-solution}
+11 != 23
 ```
 
-### Quiz
+### Exercise 4
 
-*You can include any number of single or multiple choice questions as a quiz. Use the `question` function to define a question and the `quiz` function for grouping multiple questions together.*
+Write the R code required to prove 28 is greater than or equal to 13
 
-Some questions to verify that you understand the purposes of various base and recommended R packages:
+```{r gret_or_eq, exercise=TRUE}
 
-```{r quiz}
-quiz(
-  question("Which package contains functions for installing other R packages?",
-    answer("base"),
-    answer("tools"),
-    answer("utils", correct = TRUE),
-    answer("codetools")
-  ),
-  question("Which of the R packages listed below are used to create plots?",
-    answer("lattice", correct = TRUE),
-    answer("tools"),
-    answer("stats"),
-    answer("grid", correct = TRUE)
-  )
-)
 ```
+```{r gret_or_eq-solution}
+28 >= 13 # OR
+13 <= 28
+```
+
+
+### Exercise 5
+
+Assign the value of 33 to `x`, then write the R code necessary to prove `x` is greater than 12 AND `x` is less than 146
+
+```{r and, exercise=TRUE}
+
+```
+```{r and-solution}
+x = 33
+x > 12 & x < 146
+```
+
+
+### Exercise 6
+
+Make `x = 47` and `y = 93`. Use only the varibles, `&`, `<`, `>`, and `!=` to get a `TRUE` output.
+
+
+```{r many_types, exercise= TRUE}
+
+
+```
+```{r many_types-solution}
+x = 47
+y = 93
+x < y & y > x & x != y
+
+```
+### Exercise 7
+
+Assign an array from 1 to 10 to the varible `x`, then visiualize the whole array. 
+
+``` {r array, exercise = TRUE}
+
+```
+```{r array-solution}
+x = 1:10
+print(x)
+```
+
+### Exercise 8
+
+Using `x = 1:10` again, prove the number 6 is within the array.
+
+```{r within_array, exercise= TRUE}
+
+```
+```{r within_array-solution}
+x = 1:10
+6 %in% x
+```
+
+### Exercise 9
+
+Using `x = 1:10` once more, prove that either 2 OR 6278 is within that array.
+
+```{r or, exercise=TRUE}
+
+```
+```{r or-solution}
+x = 1:10
+1 %in% x | 6278 %in% x
+```
+
+
+### Exercise 10
+
+Say you wanted to know if the `starwars` dataset included any data on Lando Calrissian, how could you quickly see if he was included?
+
+```{r Lando, exercise = TRUE}
+
+```
+```{r Lando-solution}
+"Lando Calrissian" %in% starwars$name
+```
+
+### Exercise 11
+
+`%in` can also be used inside the `filter()` function. Use it to extract the characters with orange skin color.
+
+```{r orange, exercise = TRUE}
+
+```
+```{r orange-solution}
+starwars %>% filter(skin_color %in% "orange")
+```
+
+
 
