@@ -34,7 +34,14 @@ data_frame_variable %>%
 ```
 <br><br>
 
-## Set 1: Using `dplyr` verbs 
+TABLE OF COMMON VERBS GOES HERE.
+<br>
+
+## Resources
+
+## First, look at the data
+
+## Set 1: Using `dplyr` verbs: REMOVE SELECT AND ADD MORE QUESTIONS
 
 <br><br>
 
