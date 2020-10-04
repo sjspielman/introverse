@@ -34,21 +34,21 @@ h1 {
   margin: .75em 0 .5em 0; }
 
 h2 {
-  font-size: 1.8em;
-  margin: .75em 0 .5em 0; }
+  font-size: 1.5em;
+  margin: 1.5em 0 .5em 0; }
 
 h3 {
-  font-size: 1.6em;
+  font-size: 1.3em;
   margin: .75em 0 .5em 0; }
 
 h4 {
-  font-size: 1.4em;
+  font-size: 1.2em;
   margin: .75em 0 .5em 0; }
   
 p {
   line-height: 1.2em;
   margin-bottom: 0.5em; 
-  font-size:1.2em;
+  font-size:1em;
   margin-left:15px;
 }
 
@@ -59,15 +59,16 @@ p {
 
 ol {
   line-height: 1.2em;
-  font-size:1.15em;
+  font-size:1em;
   margin-left: -10px;
   padding-top: 30px;
+  padding-bottom:0px;
 }
 
 ul > ul {
   line-height: 1.2em;
-  font-size:1.15em;
-  padding-top: 2px;
+  font-size:1em;
+  padding-top: 0px;
 }
 
 
@@ -77,6 +78,7 @@ blockquote {
   font-size: 0.8em;
   color: #6b6b6b;
   margin-left: 20px;
+  padding:0;
 }
 
 /*
