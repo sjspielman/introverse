@@ -232,7 +232,7 @@ msleep %>%
 
 ```{r dplyr1_q4-solution}
 msleep %>%
-  filter(vore %in% c("herbi", "insecti"))
+  filter(vore %in% c("herbi", "insecti"), awake >= 12)
 ```   
 
 
