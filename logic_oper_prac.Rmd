@@ -124,7 +124,7 @@ x > y | y > x
 
 ### Exercise 3
 
-Assign 47 to `z` and 93 to `w`. Ask whether `z` is less than `w` *AND* `w` is greater than or equal to `z` *AND* `z` is not equal to `w`:
+Assign 47 to `z` and 93 to `w`. Ask whether `z` is less than `w` *AND* if `w` is greater than or equal to `z` *AND* if `z` is not equal to `w`:
 
 
 ```{r compound_logical_3, exercise= TRUE}
@@ -135,6 +135,37 @@ Assign 47 to `z` and 93 to `w`. Ask whether `z` is less than `w` *AND* `w` is gr
 z <- 47
 w <- 93
 z < w & w >= z & z != w
+
+```
+
+### Exercise 4
+
+Assign `a`, `b`, and `c` as 1, 5, and 10, respectively. Ask whether `a` and `b` together are less than `c` *OR* `b` minus `c` is greater than `a`:
+
+```{r compound_logical_4, exercise= TRUE}
+
+
+```
+```{r compound_logical_4-solution}
+a <- 1
+b <- 5
+c <- 10
+(a + b) < c | (b - c) > a
+
+```
+
+### Exercise 5
+
+Assign "data science" to `strng1`, and "for biologists" to `strng2`. Ask whether the number of characters in `strng1` is equal to 12 *AND* if `strng1` is less than or equal to `strng2`:
+
+```{r compound_logical_5, exercise= TRUE}
+
+
+```
+```{r compound_logical_5-solution}
+strng1 <- "data science"
+strng2 <- "for biologists"
+nchar(strng1) == 12 & strng1 <= strng2
 
 ```
 
