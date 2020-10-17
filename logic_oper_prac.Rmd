@@ -66,40 +66,40 @@ Write the R code required to ask whether 28 is greater than or equal to 13:
 
 ### Exercise 5
 
-Ask whether `k` is greater than `f`:
+Define the varibles `k` and `f` as 43 and 92, respectively. Ask whether `k` is greater than `f`:
 
 ```{r simple_logical_5, exercise=TRUE}
-f = 92
-k = 43
+
 
 ```
 ```{r simple_logical_5-solution}
-f = 92
-k = 43
+f <- 92
+k <- 43
 k > f
 
 ```
 
 ### Exercise 6
 
-Ask whether `moon` has more characters than `sun` in its string:
+Use `var1 <- "13 characters"` and `var2 <- "characters = 15"` and ask whether `var1` has more characters than `var2` in its string:
+
+*`nchar()` is a function that asks how many characters are in a string. An example has been included in the answer chunk, run the code to see how it operates.*
 
 ```{r simple_logical_6, exercise=TRUE}
-sun <- "13 characters"
-moon <- "characters = 15"
-
+example <- "How many characters are in this string?"
+nchar(example)
 ```
 ```{r simple_logical_6-solution}
-sun <- "13 characters"
-moon <- "characters = 15"
-nchar(moon) > nchar(sun)
+var1 <- "13 characters"
+var2 <- "characters = 15"
+nchar(var1) > nchar(var2)
 ```
 
 ## Compound Operations 
 
 ### Exercise 1
 
-Assign the value of 33 to `x`, then write the R code necessary to ask whether `x` is greater than 12 AND `x` is less than 146:
+Assign the value of 33 to `x`, then ask whether `x` is greater than 12 *AND* less than 146:
 
 ```{r compound_logical_1, exercise=TRUE}
 
@@ -111,20 +111,20 @@ x > 12 & x < 146
 
 ### Exercise 2
 
-Assign `x = 77` and `y = 31`, ask whether `x` is greater than `y` OR `y` is greater than `x`:
+Assign 77 to `x` and 31 to `y`, ask whether `x` is greater than `y` OR `y` is greater than `x`:
 
 ```{r compound_logical_2, exercise=TRUE}
 
 ```
 ```{r compound_logical_2-solution}
-x = 77
-y = 31
+x <- 77
+y <- 31
 x > y | y > x
 ```
 
 ### Exercise 3
 
-Make `x = 47` and `y = 93`. Use only the varibles, `&`, `<`, `>`, and `!=` to get a `TRUE` output:
+Assign 47 to `z` and 93 to `w`. Ask whether `z` is less than `w` *AND* `w` is greater than or equal to `z` *AND* `z` is not equal to `w`:
 
 
 ```{r compound_logical_3, exercise= TRUE}
@@ -132,9 +132,9 @@ Make `x = 47` and `y = 93`. Use only the varibles, `&`, `<`, `>`, and `!=` to ge
 
 ```
 ```{r compound_logical_3-solution}
-x = 47
-y = 93
-x < y & y > x & x != y
+z <- 47
+w <- 93
+z < w & w >= z & z != w
 
 ```
 
@@ -142,13 +142,13 @@ x < y & y > x & x != y
 
 ### Exercise 1
 
-Assign an array from 1 to 10 to the varible `x`, then visiualize the whole array:
+Assign an array from 1 to 10 to the varible `x`, then print the whole array:
 
 ``` {r function_logical_1, exercise = TRUE}
 
 ```
 ```{r function_logical_1-solution}
-x = 1:10
+x <- 1:10
 print(x)
 ```
 
@@ -156,24 +156,52 @@ print(x)
 
 Using `x = 1:10` again, ask whether the number 6 is within the array:
 
+*You must assign the array to `x` again, each chunk is its own environment.*
+
 ```{r function_logical_2, exercise= TRUE}
 
 ```
 ```{r function_logical_2-solution}
-x = 1:10
+x <- 1:10
 6 %in% x
 ```
 
 ### Exercise 3
 
-Using `x = 1:10` once more, ask whether that either 2 OR 6278 is within that array:
+Make an array, `a`, ranging from 1:500, and ask whether that either 2 OR 6278 is within that array:
 
 ```{r function_logical_3, exercise=TRUE}
 
 ```
 ```{r function_logical_3-solution}
-x = 1:10
-1 %in% x | 6278 %in% x
+a <- 1:500
+1 %in% a | 6278 %in% a
+```
+
+### Exercise 4
+
+Make an array, `ex4_array`, ranging from 47 to 423, then find the length of the array:
+
+*`length()` is the function whose output is the length of an string, array, column, ect.*
+
+```{r function_logical_4, exercise=TRUE}
+
+```
+```{r function_logical_4-solution}
+ex4_array <- 47:423
+length(ex4_array)
+```
+
+### Exercise 5
+
+Make an array, `ex4_array`, ranging from 73 to 632, and ask whether the length is equal to 560:
+
+```{r function_logical_5, exercise=TRUE}
+
+```
+```{r function_logical_5-solution}
+ex5_array <- 73:632
+length(ex5_array) == 559
 ```
 
 ## Working with data frames and logical
