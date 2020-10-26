@@ -10,6 +10,7 @@ runtime: shiny_prerendered
 ```{r setup, include=FALSE}
 library(learnr)
 library(tidyverse)
+library(dslabs)
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
@@ -17,7 +18,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ### Exercise 1
 
-Write the R code required to ask whether 7 is greater than 5:
+Write the R code required to ask whether 7 is greater than 5.
 
 *The correct output will be `TRUE`.*
 
@@ -31,7 +32,7 @@ Write the R code required to ask whether 7 is greater than 5:
 
 ### Exercise 2
 
-Write the R code required to ask whether 256 is equal to 256:
+Write the R code required to ask whether 256 is equal to 256.
 
 ```{r simple_logical_2, exercise=TRUE}
 
@@ -42,7 +43,7 @@ Write the R code required to ask whether 256 is equal to 256:
 
 ### Exercise 3
 
-Write the R code required to ask whether 11 is not equal to 23:
+Write the R code required to ask whether 11 is not equal to 23.
 
 ```{r simple_logical_3, exercise=TRUE}
 
@@ -54,7 +55,7 @@ Write the R code required to ask whether 11 is not equal to 23:
 
 ### Exercise 4
 
-Write the R code required to ask whether 28 is greater than or equal to 13:
+Write the R code required to ask whether 28 is greater than or equal to 13.
 
 ```{r simple_logical_4, exercise=TRUE}
 
@@ -66,7 +67,7 @@ Write the R code required to ask whether 28 is greater than or equal to 13:
 
 ### Exercise 5
 
-Define the varibles `k` and `f` as 43 and 92, respectively. Ask whether `k` is greater than `f`:
+Define the varibles `k` and `f` as 43 and 92, respectively. Ask whether `k` is greater than `f`.
 
 ```{r simple_logical_5, exercise=TRUE}
 
@@ -81,7 +82,7 @@ k > f
 
 ### Exercise 6
 
-Use `var1 <- "13 characters"` and `var2 <- "characters = 15"` and ask whether `var1` has more characters than `var2` in its string:
+Use `var1 <- "13 characters"` and `var2 <- "characters = 15"` and ask whether `var1` has more characters than `var2` in its string.
 
 *`nchar()` is a function that asks how many characters are in a string. An example has been included in the answer chunk, run the code to see how it operates.*
 
@@ -99,54 +100,65 @@ nchar(var1) > nchar(var2)
 
 ### Exercise 1
 
-Assign the value of 33 to `x`, then ask whether `x` is greater than 12 *AND* less than 146:
+Ask whether 13 is less than 22 *OR* greater than 0.5.
 
 ```{r compound_logical_1, exercise=TRUE}
 
 ```
 ```{r compound_logical_1-solution}
-x = 33
-x > 12 & x < 146
+13 < 22 | 13 > 0.5
 ```
 
 ### Exercise 2
 
-Assign 77 to `x` and 31 to `y`, ask whether `x` is greater than `y` OR `y` is greater than `x`:
+Assign the value of 33 to `x`, then ask whether `x` is greater than 12 *AND* less than 146.
 
 ```{r compound_logical_2, exercise=TRUE}
 
 ```
 ```{r compound_logical_2-solution}
+x <- 33
+x > 12 & x < 146
+```
+
+### Exercise 3
+
+Assign 77 to `x` and 31 to `y`. Ask whether `x` is greater than `y` OR `y` is greater than `x`.
+
+```{r compound_logical_3, exercise=TRUE}
+
+```
+```{r compound_logical_3-solution}
 x <- 77
 y <- 31
 x > y | y > x
 ```
 
-### Exercise 3
-
-Assign 47 to `z` and 93 to `w`. Ask whether `z` is less than `w` *AND* if `w` is greater than or equal to `z` *AND* if `z` is not equal to `w`:
-
-
-```{r compound_logical_3, exercise= TRUE}
-
-
-```
-```{r compound_logical_3-solution}
-z <- 47
-w <- 93
-z < w & w >= z & z != w
-
-```
-
 ### Exercise 4
 
-Assign `a`, `b`, and `c` as 1, 5, and 10, respectively. Ask whether `a` and `b` together are less than `c` *OR* `b` minus `c` is greater than `a`:
+Assign 47 to `z` and 93 to `w`. Ask whether `z` is less than `w` *AND* if `w` is greater than or equal to `z` *AND* if `z` is not equal to `w`.
+
 
 ```{r compound_logical_4, exercise= TRUE}
 
 
 ```
 ```{r compound_logical_4-solution}
+z <- 47
+w <- 93
+z < w & w >= z & z != w
+
+```
+
+### Exercise 5
+
+Assign `a`, `b`, and `c` as 1, 5, and 10, respectively. Ask whether `a` and `b` together are less than `c` *OR* `b` minus `c` is greater than `a`.
+
+```{r compound_logical_5, exercise= TRUE}
+
+
+```
+```{r compound_logical_5-solution}
 a <- 1
 b <- 5
 c <- 10
@@ -154,15 +166,15 @@ c <- 10
 
 ```
 
-### Exercise 5
+### Exercise 6
 
-Assign "data science" to `strng1`, and "for biologists" to `strng2`. Ask whether the number of characters in `strng1` is equal to 12 *AND* if `strng1` is less than or equal to `strng2`:
+Assign "data science" to `strng1`, and "for biologists" to `strng2`. Ask whether the number of characters in `strng1` is equal to 12 *AND* if `strng1` is less than or equal to `strng2`.
 
-```{r compound_logical_5, exercise= TRUE}
+```{r compound_logical_6, exercise= TRUE}
 
 
 ```
-```{r compound_logical_5-solution}
+```{r compound_logical_6-solution}
 strng1 <- "data science"
 strng2 <- "for biologists"
 nchar(strng1) == 12 & strng1 <= strng2
@@ -173,7 +185,7 @@ nchar(strng1) == 12 & strng1 <= strng2
 
 ### Exercise 1
 
-Assign an array from 1 to 10 to the varible `x`, then print the whole array:
+Assign an array from 1 to 10 to the varible `x`, then print the whole array.
 
 ``` {r function_logical_1, exercise = TRUE}
 
@@ -185,7 +197,7 @@ print(x)
 
 ### Exercise 2
 
-Using `x = 1:10` again, ask whether the number 6 is within the array:
+Using `x = 1:10` again, ask whether the number 6 is within the array.
 
 *You must assign the array to `x` again, each chunk is its own environment.*
 
@@ -199,7 +211,7 @@ x <- 1:10
 
 ### Exercise 3
 
-Make an array, `a`, ranging from 1:500, and ask whether that either 2 OR 6278 is within that array:
+Make an array, `a`, ranging from 1:500, and ask whether that either 2 OR 6278 is within that array.
 
 ```{r function_logical_3, exercise=TRUE}
 
@@ -211,7 +223,7 @@ a <- 1:500
 
 ### Exercise 4
 
-Make an array, `ex4_array`, ranging from 47 to 423, then find the length of the array:
+Make an array, `ex4_array`, ranging from 47 to 423, then find the length of the array.
 
 *`length()` is the function whose output is the length of an string, array, column, ect.*
 
@@ -225,7 +237,7 @@ length(ex4_array)
 
 ### Exercise 5
 
-Make an array, `ex4_array`, ranging from 73 to 632, and ask whether the length is equal to 560:
+Make an array, `ex5_array`, ranging from 73 to 632, and ask whether the length is equal to 560.
 
 ```{r function_logical_5, exercise=TRUE}
 
@@ -235,11 +247,25 @@ ex5_array <- 73:632
 length(ex5_array) == 559
 ```
 
+### Exercise 6
+
+Make an array, `ex6_array`, ranging from 31 to 489, and another, `anthr_array`, ranging from 123 to 589. Ask whether the length of `ex6_array` is less than or equal to `2nd_array`.
+
+```{r function_logical_6, exercise=TRUE}
+
+```
+```{r function_logical_6-solution}
+ex6_array <- 31:489
+anthr_array <- 123:589
+length(ex6_array) <= length(anthr_array)
+```
+
+
 ## Working with data frames and logical
 
 ### Exercsie 1
 
-Confirm that there are 87 different Star Wars characters in the `starwars` dataset:
+Confirm that there are 87 different Star Wars characters in the `starwars` dataset.
 
 *The column title is `name`*
 
@@ -261,6 +287,52 @@ Say you wanted to know if the `starwars` dataset included any data on Lando Calr
 "Lando Calrissian" %in% starwars$name
 ```
 
+### Exercise 3
+
+Determine what types of columns `hair_color` and `mass` are in the `starwars` dataset.
+
+```{r dataframe_logical_3, exercise = TRUE}
+
+```
+```{r dataframe_logical_3-solution}
+class(starwars$mass)
+class(starwars$hair_color)
+```
+
+### Exercise 4
+
+Someone tells you the average quater mile time of the cars within the `mtcars` dataset is 17.84875 seconds. Ask whether the average is indeed equal to 17.84875 seconds.
+
+*The code to view the first 5 lines of `mtcars` has been provided*
+
+```{r dataframe_logical_4, exercise = TRUE}
+head(mtcars)
+```
+```{r dataframe_logical_4-solution}
+mean(mtcars$qsec) == 17.84875
+```
+
+### Exercise 5
+
+Ask whether the median MPG of the cars within the `mtcars` dataset is less than or equal to 20 MPG.
+
+```{r dataframe_logical_5, exercise = TRUE}
+
+```
+```{r dataframe_logical_5-solution}
+median(mtcars$mpg) <= 20
+```
+
+### Exercise 6
+
+Using the iris dataset, ask if the standard deviation of sepal length is greater than the standard deviation of sepal width.
+
+```{r dataframe_logical_6, exercise = TRUE}
+head(iris)
+```
+```{r dataframe_logical_6-solution}
+sd(iris$Sepal.Length) > sd(iris$Sepal.Width)
+```
 
 
 
