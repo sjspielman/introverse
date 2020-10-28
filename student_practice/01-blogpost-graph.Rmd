@@ -1,4 +1,5 @@
 ---
+<<<<<<< HEAD
 title: "Bar Charts"
 author: "Madeline Greene"
 date: "9/27/2020"
@@ -7,11 +8,18 @@ output:
     theme: leonids
     highlight: github
   toc: true
+=======
+title: "Graph Blog Post"
+author: "Madeline Greene"
+date: "9/27/2020"
+output: html_document
+>>>>>>> 520da86f57a869bcf44739a973b219f58e018d8f
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 library(tidyverse)
+<<<<<<< HEAD
 library(prettydoc)
 ```
 
@@ -69,5 +77,143 @@ Then the other aesetics that can be changed are:
 + group
 + linetype 
 + size
+=======
+```
+
+
+Graphs alone can be confusing. Which one do I use? Will this effectively show the data I am trying to represent? Now, pick a graph and use R to create it. This can be a simple yet stressful task. Here’s a way to break it down step by step. 
+
+First, let’s identify the main different types of graph’s that could be used, specifically in R. They include : 
+
++ Histograms and Density Plots
++ Dot Plots 
++ Bar Plots
++ Line Charts
++ Box Plots
++ Scatterplots 
++ Violin Plots 
+
+*Briefly, I will explain each graph and what they try to accomplish/display in terms of representing your data.*
+
+
+**Histograms** – By definition, a histogram is a special type of vertical bar graph that presents numeric data and its frequency distribution.
+
+**Density Plots** – 
+
+**Dot Plots** – 
+
+**Bar Plots** – The simplest and most straightforward way to compare various categories is the classic bar graph. The universally-recognized graph features a series of bars of varying lengths. One axis of a bar graph features the categories being compared, while the other axis represents the value of each. The length of each bar is proportionate to the numerical value or percentage that it represents.
+
+**Line Charts** – Line charts, or line graphs, are powerful visual tools that illustrate trends in data over a period of time or a particular correlation. Each value is plotted on the chart, then the points are connected to display a trend over the compared time span. Multiple trends can be compared by plotting lines of various colors.
+
+**Box Plots** – 
+
+**Scatterplots** – The graph consists of two axes, each representing a set of data, creating a point representing every data set. 
+
+
+**Violin Plots** -
+
+**Ribbon Plots** -
+
+
+## Including Graphs
+
+*Now, I will provide the basic outline of code to create each graph in R.*
+
+```{r-histogram}
+#histogram code
+geom_histogram()
+```
+
+```{r-density}
+#density code
+geom_density()
+```
+
+```{r-dot}
+#dot code
+geom_dotplot()
+```
+
+```{r-bar}
+#bar code
+geom_bar()
+```
+
+```{r-line}
+#line code
+geom_line()
+```
+
+```{r-box}
+#boxplot code
+geom_boxplot()
+```
+
+```{r-scatterplot}
+#scatterplot code
+geom_point()
+```
+
+```{r-violin}
+#violin code
+geom_violin()
+```
+
+```{r-ribbon}
+#ribbon code
+geom_ribbon()
+```
+
+
+## Examples
+*Here I will include simple examples using the data sets that is universally used that is provided in R, `iris`. 
+
+
+```{r-histogram-iris}
+#histogram code
+geom_histogram()
+```
+
+```{r-density-iris}
+#density code
+geom_density()
+```
+
+```{r-dot-iris}
+#dot code
+geom_dotplot()
+```
+
+```{r-bar-iris}
+#bar code
+geom_bar()
+```
+
+```{r-line-iris}
+#line code
+geom_line()
+```
+
+```{r-box-iris}
+#boxplot code
+geom_boxplot()
+```
+
+```{r-scatterplot-iris}
+#scatterplot code
+geom_point()
+```
+
+```{r-violin-iris}
+#violin code
+geom_violin()
+```
+
+```{r-ribbon-iris}
+#ribbon code
+geom_ribbon()
+```
+>>>>>>> 520da86f57a869bcf44739a973b219f58e018d8f
 
 
