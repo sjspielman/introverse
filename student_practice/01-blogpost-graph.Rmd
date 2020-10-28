@@ -1,0 +1,73 @@
+---
+title: "Bar Charts"
+author: "Madeline Greene"
+date: "9/27/2020"
+output: 
+  prettydoc::html_pretty:
+    theme: leonids
+    highlight: github
+  toc: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(prettydoc)
+```
+
+
+Graphs alone can be confusing. Which one do I use? Will this effectively show the data I am trying to represent? Now, pick a graph and use R to create it. This can be a simple yet stressful task. Here’s a way to break it down step by step. The success of many visualizations is dependent on a solid understanding of basic concepts. So whether you’re learning this for the first time or reading to reinforce basic concepts ... When I first started to learn about graphs and applying my knowledge to data sets, I was beyond lost and confused. Why am I getting confused if bar charts seem rather simple? Specifically as a science major and my passion for science, I have been exposed to different types of graphs and charts. So why now, when I have a data set in front of me, unable to determine which type to use? I want to start with the basic graph that most people today are aware of : *bar charts*
+
+So what is a bar chart? In this blog post, we will explore what it is, how to interpret it, common variations, and tools to properly build bar charts using R. 
+
+
+#### **What is a Bar Chart?**
+The simplest and most straightforward way to compare various categories is the classic bar graph. The universally-recognized graph features a series of bars of varying lengths. One axis of a bar graph features the categories being compared, while the other axis represents the value of each. The length of each bar is proportionate to the numerical value or percentage that it represents.
+
+
+#### **What are the different types of Bar Charts?**
++ Vertical Bar Charts
+
+A bar chart is a chart with rectangular bars with lengths proportional to the values that they represent.  One axis of the chart shows the specific categories being compared, and the other axis represents a discrete value. Bar charts provide a visual presentation of categorical data. 
+
+
++ Horizontal Bar Charts
+
+The horizontal bar chart is the same as a column chart or a vertical bar chart only the x-axis and y-axis are switched. Horizontal bar charts have some advantages compared to the vertical bar charts: Labels are easier to display and with a big dataset they tend to work better in a narrow layout such as mobile view.
+
+
++ Clustered Bar Charts
+
+The clustered bar chart is again the same as a vertical or horizontal bar chart with one exception. It is used and is great for displaying and comparing multiple sets of data over the same categories.
+
++ Stacked Bar Charts
+
+Stacked bar charts are used to help compare categorical totals differences over the same category.  
+
+
+
+#### **How does this apply to R?**
+
+
+*Now, I will provide the basic outline of code to create each graph in R.*
+
+```{r-bar}
+geom_bar()
+```
+
+To create a `geom_bar`, there are a few aestetics that can be changed/altered. 
+There are two required aestetics that are required:
+
++ x
++ y
+
+Then the other aesetics that can be changed are:
+
++ alpha
++ color 
++ fill
++ group
++ linetype 
++ size
+
+
