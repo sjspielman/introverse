@@ -454,10 +454,10 @@ The numeric columns within `iris` can be made into arrays. Create an array named
 Compare your maximum and minimum to your answer to the previous exercise!
 
 
-```{r dataframe_logical_14, exercise = TRUE}
+```{r dataframe_logical_15, exercise = TRUE}
 
 ```
-```{r dataframe_logical_14-solution}
+```{r dataframe_logical_15-solution}
 ex15_array <- iris$Petal.Width
 summary(ex15_array)
 ```
