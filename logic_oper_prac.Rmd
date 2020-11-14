@@ -282,7 +282,7 @@ colnames(starwars)
 
 ### Exercise 2
 
-Confirm that there are 87 different Star Wars characters in the `starwars` data set.
+Confirm that there are 87 different Star Wars characters in the `starwars` data set by asking if its `length()` is equal to 87
 
 *The column title is `name`*
 
@@ -290,7 +290,7 @@ Confirm that there are 87 different Star Wars characters in the `starwars` data 
 
 ```
 ```{r dataframe_logical_2-solution}
-length(starwars$name)
+length(starwars$name) == 87
 ```
 
 ### Exercise 3
@@ -309,18 +309,23 @@ Remove any rows that have an `NA` so you'll only have rows with data for each an
 This function is important in the event you are working with data where any `NA` may invalidate that row.
 
 *Namely, you'd want to use the `na.omit()` function*
+
+To confirm that some rows have been removed, save your output from above to a variable, named `no_NAs` and write R code to ask if its length is less than 87.
+
 ```{r dataframe_logical_4, exercise = TRUE}
 
 ```
 ```{r dataframe_logical_4-solution}
-na.omit(starwars)
+na.omit(starwars) -> "no_NAs"
+length(no_NAs) < 87
 ```
 
 ### Exercise 5
 
 Determine what types of columns `hair_color` and `mass` are in the `starwars` data set.
+Once determined, ask if they are the same, or equal.
 
-Columns can be *classified* by character, numeric (real numbers), integer, complex, logical (True/False)
+Columns can be *classified* by character, numeric (real numbers), integer, complex, logical (True/False), and are found by using `class()`.
 
 ```{r dataframe_logical_5, exercise = TRUE}
 
@@ -328,6 +333,7 @@ Columns can be *classified* by character, numeric (real numbers), integer, compl
 ```{r dataframe_logical_5-solution}
 class(starwars$mass)
 class(starwars$hair_color)
+class(starwars$mass) == class(starwars$hair_color)
 ```
 
 ### Exercise 6
@@ -370,7 +376,7 @@ median(mtcars$mpg) <= 20
 
 ### Exercise 9
 
-Write R code to ask what the maximum and minimum values are for horsepower, `hp`, within the `mtcars` data set are. 
+Write R code to ask what the maximum and minimum values are for horsepower, `hp`, within the `mtcars` data set are. Confirm these values make sense by writing R code to ask if the max is greater than or equal to the minimum.
 
 *You'll need to use `min()` and `max()` to find these values*
 
@@ -380,6 +386,7 @@ Write R code to ask what the maximum and minimum values are for horsepower, `hp`
 ```{r dataframe_logical_9-solution}
 max(mtcars$hp)
 min(mtcars$hp)
+max(mtcars$hp) >= min(mtcars$hp)
 ```
 
 ### Exercise 10
@@ -434,7 +441,9 @@ sum(iris$Sepal.Length) > 900 | 1.2 <= median(iris$Petal.Width)
 
 ### Exercise 14
 
-Using the `iris` data set and `range()`, find out which numeric column has the largest range.
+Using the `iris` data set and `range()`, write R code to find the ranges of each numeric column within `iris`.
+
+Finding the range within the `diff()` function will provide the difference between the values. Now write R code to ask if the difference in range values for petal length is greater or equal to that of sepal width.
 
 ```{r dataframe_logical_14, exercise = TRUE}
 
@@ -444,22 +453,23 @@ range(iris$Sepal.Length)
 range(iris$Sepal.Width)
 range(iris$Petal.Length)
 range(iris$Petal.Width)
-#It's both sepal width and petal width!
+diff(range(iris$Petal.Length)) >= diff(range(iris$Sepal.Width))
 ```
 
 ### Exercise 15
 
-The numeric columns within `iris` can be made into arrays. Create an array named `ex15_array` from the column `Petal.Width` and write R code to ask for the summary statistics, using `summary()`. 
+The numeric columns within data sets can be made into arrays. Create an array named `ex15_array` from the column `Petal.Width` and write R code to ask for the summary statistics, using `summary()`. 
 
-Compare your maximum and minimum to your answer to the previous exercise!
+Write R code to ask if the summary statistics from the array is equal to the range of petal width values. Think about what values from the summary you expect to be true, and which ones false.
 
+*Run the pre-populated code to see what the output of `summary()` looks like.
 
 ```{r dataframe_logical_15, exercise = TRUE}
-
+summary(iris$Sepal.Length)
 ```
 ```{r dataframe_logical_15-solution}
 ex15_array <- iris$Petal.Width
-summary(ex15_array)
+summary(ex15_array) == range(iris$Petal.Width)
 ```
 
 
