@@ -12,8 +12,9 @@ theme_set(theme_light() + theme(axis.text = element_text(size = rel(1.5)),
                                 legend.text = element_text(size = rel(1.5)),
                                 legend.title = element_text(size = rel(1.5)),
                                 legend.position = "bottom"))
-# TODO: WHY DOESN'T THIS WORK!!!!!!!!!!!!!!!!!!
-pengiuns <- penguins %>% mutate(year = as.character(year))
+source("utils.R")
+source("descriptions.R")
+source("modules.R")
 
 
 # Thanks, stackoverflow!
@@ -30,90 +31,62 @@ rowCallback <- c(
 )
 
 
-ui <- fluidPage(theme = shinytheme("sandstone"),
+ui <- fluidPage(theme = "my_united.css",
 
     # Application title
     titlePanel("Common types of data visualizations"),
-    p("Written by ", a("Stephanie J. Spielman", href = "https://spielmanlab.github.io"), "and released under a CC-BY license."),
+    p("Written by ", a("Stephanie J. Spielman.", href = "https://spielmanlab.github.io"), "The", a("source code", href = "https://github.com/spielmanlab/intro_ds_in_r"), "is released under a CC-BY 4.0 license."),
     br(),br(),
     
 
     tabsetPanel(
         tabPanel("Overview",
-                 h4("Penguins!!"),
+                 br(),
+                 penguins_text,
                  DTOutput("penguin_table")
                  ),
         ## UI: Histogram tabPanel -------------------------------------------------
         tabPanel("Histograms",
-                 h4("Histograms display numeric distributions."),
-                 br(),
                  sidebarLayout(
                      sidebarPanel(
-
-                         selectInput("histogram_variable", "Variable?",
-                                     choices = c("bill_length_mm",
-                                                 "bill_depth_mm",
-                                                 "flipper_length_mm",
-                                                 "body_mass_g"),
-                                     selected = "bill_length_mm"),
-                         
-                         numericInput("binwidth", "Binwidth?",
+                         selectInput("histogram_variable", "Numeric variable to visualize:",
+                                     choices = numeric_choices),
+                         numericInput("binwidth", "How wide (along the X-axis) should the histogram bins be?",
                                       value = 1, min = 0.1, max = 20, step = 0.5),
-                         
-                         selectInput("histogram_facet_variable", "Should we show multiple across?",
-                                     choices = c("species",
-                                                 "island",
-                                                 "sex"),
-                                     selected = "species"),
+                         selectInput("histogram_facet_variable", "Second variable to visualize numeric distributions across:",
+                                     choices = discrete_choices),
+                         color_module_ui("histogram_color")
                      ),
+                     
                      mainPanel(
-                         p("Paragraph of text about what histograms are."),
-                         br(),br(),
-                         plotOutput("histogram"),
                          br(),
-                         plotOutput("faceted_histogram")
+                         plotOutput("histogram", width = "600px", height = "400px"),
+                         br(),
+                         plotOutput("faceted_histogram", width = "700px", height = "400px"),
+                         histogram_text,
                      )
                  ) # sidePanelLayout
         ), # tabpanel histograms
         
         ## UI: Boxplot tabPanel -------------------------------------------------
         tabPanel("Boxplots",
-            br(),
-            h4("Boxplots display numeric distributions, usually for comparative purposes."),
             sidebarLayout(
                 sidebarPanel(
-                    selectInput("boxplot_y_variable", "y variable? This is the variable whose distribution you want to see",
-                                choices = c("bill_length_mm",
-                                             "bill_depth_mm",
-                                             "flipper_length_mm",
-                                             "body_mass_g"),
+                    selectInput("boxplot_y_variable", "y variable? This is the numeric variable whose distribution you want to see",
+                                choices = numeric_choices,
                                 selected = "bill_length_mm"),
                     selectInput("boxplot_x_variable", "x variable? There will be a separate boxplot for each category.",
-                                choices = c("species",
-                                            "island",
-                                             "sex"),
-                                selected = "species"),                         
-                         
-                         selectInput("boxplot_color_style", "Color based on categories, or all same color?",
-                                    choices = c("Color each category separately",
-                                                  "Single color")
-                                     ),
-                         conditionalPanel("input.boxplot_color_style == 'Single color'",
-                                          { 
-                                              colourpicker::colourInput("boxplot_color", 
-                                                                        "Choose boxplot color","purple")
-                                              
-                                          }
-                         )#, #TODO: show across years?
-                         
-                         
-                     ),
-                     mainPanel(
-                         p("Paragraph of text about what boxplots are. They are sort of silly, and the real takehomes are the range and median and outliers. They were invented to draw by hand and maybe figure out a way to identify outliers."),
-                         br(),br(),
-                         plotOutput("boxplot")
-                     )
-                 ) # sidePanelLayout
+                                choices = discrete_choices,
+                                selected = "species"),   
+                    color_module_ui("boxplot_color")
+                ),
+                mainPanel(
+                  br(),
+                  plotOutput("boxplot", width = "700px", height = "400px"),
+                  boxplot_text,
+                  br() 
+                )
+            ) # sidePanelLayout
         ),#boxplot
         
         ## UI: Density tabPanel -------------------------------------------------
@@ -124,26 +97,20 @@ ui <- fluidPage(theme = shinytheme("sandstone"),
                      sidebarPanel(
                          
                          selectInput("density_variable", "Variable?",
-                                     choices = c("bill_length_mm",
-                                                 "bill_depth_mm",
-                                                 "flipper_length_mm",
-                                                 "body_mass_g"),
-                                     selected = "bill_length_mm"),
+                                     choices = numeric_choices),
                          
                          selectInput("density_fill_variable", "Should we show multiple across?",
-                                     choices = c("species",
-                                                 "island",
-                                                 "sex"),
-                                     selected = "species"),
+                                     choices = discrete_choices),
+                         colourpicker::colourInput("density_single_fill", "Color of the single density plot?", value = default_color)
                      ),
                      mainPanel(
                          p("Paragraph of text about what density plots are."),
                          br(),br(),
-                         plotOutput("density"),
+                         plotOutput("density", width = "500px", height = "350px"),
                          br(),
-                         plotOutput("overlapping_density"),
+                         plotOutput("overlapping_density", width = "750px", height = "350px"),
                          br(),
-                         plotOutput("faceted_density")                      
+                         plotOutput("faceted_density", width = "750px", height = "350px")      
                      )
                  ) # sidePanelLayout                
                  
@@ -159,20 +126,11 @@ ui <- fluidPage(theme = shinytheme("sandstone"),
                  sidebarLayout(
                      sidebarPanel(
                          selectInput("violin_y_variable", "y variable? This is the variable whose distribution you want to see",
-                                     choices = c("bill_length_mm",
-                                                 "bill_depth_mm",
-                                                 "flipper_length_mm",
-                                                 "body_mass_g"),
-                                     selected = "bill_length_mm"),
+                                     choices = numeric_choices),
                          selectInput("violin_x_variable", "x variable? There will be a separate violin plot for each category.",
-                                     choices = c("species",
-                                                 "island",
-                                                 "sex"),
-                                     selected = "species"),                         
-                         
+                                     choices = discrete_choices),                         
                          selectInput("violin_color_style", "Color based on categories, or all same color?",
-                                     choices = c("Color each category separately",
-                                                 "Single color")
+                                     choices = color_choices
                          ),
                          conditionalPanel("input.violin_color_style == 'Single color'",
                                           { 
@@ -185,36 +143,29 @@ ui <- fluidPage(theme = shinytheme("sandstone"),
                          
                      ),
                      mainPanel(
-                         p("Paragraph of text about what violin are. They are the ill-fated lovechild of density plots and boxplots."),
-                         br(),br(),
-                         plotOutput("violin")
+                         br(),
+                         plotOutput("violin"),
+                         br()
                      )
                  ) # sidePanelLayout
         ),#violin
         ## UI: Jitter tabPanel -------------------------------------------------
         tabPanel("Strip (jitter) plots",
-                 h4("Strip plots display numeric distributions usually for comparative purposes."),
-                 br(),
                  sidebarLayout(
                      sidebarPanel(
                          
                          selectInput("jitter_variable", "Variable?",
-                                     choices = c("bill_length_mm",
-                                                 "bill_depth_mm",
-                                                 "flipper_length_mm",
-                                                 "body_mass_g"),
-                                     selected = "bill_length_mm"),
+                                     choices = numeric_choices
+                         ),
                          
                          selectInput("jitter_color_variable", "Should we show multiple across?",
-                                     choices = c("species",
-                                                 "island",
-                                                 "sex"),
-                                     selected = "species"),
+                                     choices = discrete_choices
+                         ),
                      ),
                      mainPanel(
-                         p("Paragraph of text about what strip/jitter plots are. I love them."),
-                         br(),br(),
+                         br(),
                          plotOutput("jitter"),
+                         br()
                      )
                  ) # sidePanelLayout
         ), # tabpanel jitter
@@ -226,63 +177,37 @@ ui <- fluidPage(theme = shinytheme("sandstone"),
         
         ## UI: Scatterplot tabPanel
         tabPanel("Scatterplots",
-                 h4("Looking at the relationship between two numeric values. Each point is a single individual penguin."),
                  br(),
                  sidebarLayout(
                      sidebarPanel(
                          selectInput("scatter_x_variable", "X variable?",
-                                     choices = c("bill_length_mm",
-                                                 "bill_depth_mm",
-                                                 "flipper_length_mm",
-                                                 "body_mass_g"),
-                                     selected = "bill_length_mm"),
-                         
+                                     choices =numeric_choices),
+
                          selectInput("scatter_y_variable", "Y variable?",
-                                     choices = c("bill_length_mm",
-                                                 "bill_depth_mm",
-                                                 "flipper_length_mm",
-                                                 "body_mass_g"),
-                                     selected = "bill_depth_mm"),
+                                     choices =numeric_choices),
+                         
                          
                          selectInput("scatter_color_style", "Color the points?",
-                                     choices = c("Single color",
-                                                 "Color based on another variable"),
-                                     selected = "Single color"
-                                     ),
+                                     choices = color_choices),
                          conditionalPanel("input.scatter_color_style != 'Single color'",
                                           { 
                                               selectInput("scatter_color_variable", "what variable?",
-                                                          choices = c("bill_length_mm",
-                                                                      "bill_depth_mm",
-                                                                      "flipper_length_mm",
-                                                                      "body_mass_g",
-                                                                      "species",
-                                                                      "island",
-                                                                      "sex",
-                                                                      "year"),
-                                                          selected = "bill_length_mm"
+                                                          choices = c(numeric_choices, discrete_choices)
                                               )
                                           }
                          ) # conditionalpanel
                      ), #sidebarpanel
                      mainPanel(
-                         p("scatterplots are not strip plots."),
-                         br(),br(),
-                         plotOutput("scatter")
-                         
+                        
+                         br(),
+                         plotOutput("scatter"),
+                         br(),
+                         scatter_text
                      )
                  ) #sidebarlayout
-    )
+    ) #tabpanelscatterplots
+)) # end with tabsetpanl, ui
     
-    
-    
-    
-    # Sidebar with a slider input for number of bins 
-    #sidebarLayout(
-    #    sidebarPanel()
-    #    mainPanel()
-    
-))
 
 server <- function(input, output) {
 
@@ -294,49 +219,68 @@ server <- function(input, output) {
     })
     
     ## Server: Histograms Panel ---------------------------------
+    histogram_color <- color_module_server("histogram_color")
     output$histogram <- renderPlot({
-        
+      
+        hist_fill <- ifelse(is.null(histogram_color()$single_color), default_color, histogram_color()$single_color)
         ggplot(penguins, aes(x = !!(sym(input$histogram_variable)))) + 
-            geom_histogram(binwidth = input$binwidth, fill = "cadetblue", color = "black") + 
-            ggtitle(paste0("Histogram of all `", input$histogram_variable, "` values"))
+            geom_histogram(binwidth = input$binwidth, fill = hist_fill, color = "black") + 
+            labs(title = paste0("Histogram of all `", input$histogram_variable, "` values"),
+                 subtitle = paste0("All values of `", input$histogram_variable, "` are shown in this figure.")
+                 )
     })
 
     output$faceted_histogram <- renderPlot({
         
         penguins %>%
             drop_na(!!(sym(input$histogram_facet_variable))) %>%
-        ggplot(aes(x = !!(sym(input$histogram_variable)),
-                   fill = !!(sym(input$histogram_facet_variable)))) + 
-            geom_histogram(binwidth = input$binwidth, color = "black") +
+        ggplot(aes(x = !!(sym(input$histogram_variable)))) +
             facet_wrap(vars(!!(sym(input$histogram_facet_variable)))) +
-            ggtitle(paste0("Faceted histogram of `", input$histogram_variable, "` values across `", input$histogram_facet_variable, "` values")) +
-            scale_fill_brewer(palette = "Set2")
-        
-        
+            labs(title = paste0("Faceted histogram of `", input$histogram_variable, "` values across `", input$histogram_facet_variable, "` values"),
+                 subtitle = paste0("A subset of values `", input$histogram_variable, "` is shown in each panel, also known as a 'facet.'")
+            ) -> p
+            
+        if (histogram_color()$color_style == color_choices[1])
+        {
+          p + geom_histogram(binwidth = input$binwidth, 
+                             fill = histogram_color()$single_color,
+                             color = "black") -> p
+        } else {
+          p + geom_histogram(binwidth = input$binwidth, 
+                             fill = aes(!!(sym(input$histogram_facet_variable))), 
+                             color = "black") +
+                             scale_fill_brewer(palette = "Set2") -> p
+        }
+        p
     })    
 
     ## Server: Boxplots Panel ---------------------------------
+    boxplot_color <- color_module_server("boxplot_color")
     output$boxplot <- renderPlot({
-
-        ggplot(penguins, aes(x = !!(sym(input$boxplot_x_variable)),
-                             y = !!(sym(input$boxplot_y_variable)))) -> p
+      penguins %>%
+        drop_na(!!(sym(input$boxplot_x_variable))) %>%
+      ggplot(aes(x = !!(sym(input$boxplot_x_variable)),
+                 y = !!(sym(input$boxplot_y_variable)))) +
+        labs(title = paste0("Boxplot of `", input$boxplot_y_variable, "` values across `", input$boxplot_x_variable, "` values"))-> p
         
-        if (input$boxplot_color_style == "Color each category separately")
-        {
-            p <- p + geom_boxplot(aes(fill = !!(sym(input$boxplot_x_variable)))) +
-                        theme(legend.position = "none") +
-                        scale_fill_brewer(palette = "Set2") 
-        } else {
-            p <- p + geom_boxplot(fill = input$boxplot_color)
-        }
-        p + ggtitle(paste0("Boxplot of `", input$boxplot_y_variable, "` values across `", input$boxplot_x_variable, "` values"))
+      if (boxplot_color()$color_style == color_choices[1])
+      {
+        p + geom_boxplot(fill = boxplot_color()$single_color) -> p
+      } else {
+        p <- p + geom_boxplot(aes(fill = !!(sym(input$boxplot_x_variable)))) +
+          theme(legend.position = "none") +
+          scale_fill_brewer(palette = "Set2") 
+      }
+      p 
     })
     
     ## Server: Density Panel ---------------------------------
     output$density <- renderPlot({
         ggplot(penguins, aes(x = !!(sym(input$density_variable)))) +
-            geom_density(fill = "cadetblue") +
-            ggtitle(paste0("Density plot of `", input$density_variable, "` values"))
+            geom_density(fill = input$density_single_fill) +
+            labs(title = paste0("Density plot of all `", input$density_variable, "` values"),
+                subtitle = paste0("All values of `", input$density_variable, "` are shown in this figure.")
+            )
     })
     
     output$overlapping_density <- renderPlot({
@@ -346,7 +290,10 @@ server <- function(input, output) {
                       fill = !!(sym(input$density_fill_variable)) )) +
             geom_density(alpha = 0.8) + 
             scale_fill_brewer(palette = "Set2") +
-            ggtitle(paste0("Overlapping density plot of `", input$density_variable, "` values across `", input$density_fill_variable, "` values"))
+            labs(
+              title = paste0("Overlapping density plot of `", input$density_variable, "` values across `", input$density_fill_variable, "` values"),
+              subtitle = "This plot has a single x-axis for all categories, and categories are distinguished by color. Without colors, we could not interpret this plot."
+              )
     })
     
     output$faceted_density <- renderPlot({
@@ -357,7 +304,10 @@ server <- function(input, output) {
             geom_density() + 
             facet_wrap(vars(!!(sym(input$density_fill_variable)))) +
             scale_fill_brewer(palette = "Set2") +
-            ggtitle(paste0("Faceted density plot of `", input$density_variable, "` values across `", input$density_fill_variable, "` values"))
+            labs(
+              title = (paste0("Faceted density plot of `", input$density_variable, "` values across `", input$density_fill_variable, "` values")),
+              subtitle = "This plot has a separate x-axis for each category. Colors also distinguish categories, but they are not necessary to interpret the plot."       
+            )
     })
     
     ## Server: Violin Panel ---------------------------------
@@ -398,14 +348,14 @@ server <- function(input, output) {
             ggplot(aes(x = !!(sym(input$scatter_x_variable)),
                        y = !!(sym(input$scatter_y_variable)))) -> p
         
-        if (input$scatter_color_style == "Single color")
+        if (input$scatter_color_style == color_choices[1])
         {
             p <- p + geom_point(size = 2, color = "hotpink") 
         } else {
             p <- p + geom_point(size = 2,
                                 aes(color = !!(sym(input$scatter_color_variable)))) +
                     theme(legend.text = element_text(angle = 30))
-            if (!(input$scatter_color_variable %in% c("bill_length_mm", "bill_depth_mm", "flipper_length_mm", "body_mass_g"))) p <- p + scale_color_brewer(palette = "Set2") 
+            if (!(input$scatter_color_variable %in% numeric_choices)) p <- p + scale_color_brewer(palette = "Set2") 
         }
         p + ggtitle(paste0("Scatter plot of `", input$scatter_y_variable, "` across `", input$scatter_x_variable, "`"))
     })                           
