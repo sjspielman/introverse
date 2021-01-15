@@ -1,5 +1,5 @@
 # intro_ds_in_r
-Interactive lessons for introduction to data science in R, led by [Stephanie J. Spielman](https://spielmanlab.github.io)
+Interactive lessons for introduction to data science in R, led by [Stephanie J. Spielman, PhD](https://spielmanlab.github.io)
 
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
 
