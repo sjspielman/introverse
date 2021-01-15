@@ -13,7 +13,7 @@ penguins_text <- shiny::tagList(
     a('Dr. Kristen Gorman', href = '(https://www.uaf.edu/cfos/people/faculty/detail/kristen-gorman.php'),'and the', a('Palmer Station, Antarctica LTER', href = 'https://pal.lternet.edu/'),'a member of the', a('Long Term Ecological Research Network.', href = 'https://lternet.edu/')
     ),
 
-  tags$img(src = "img/lter_penguins.png", width = "50%"),
+  tags$img(src = "img/lter_penguins.png", width = "30%"),
   div(style = "font-size:0.8em;", 
     p("Artwork by", a("@allison_horst", href="https://github.com/allisonhorst/palmerpenguins"))
   ),
