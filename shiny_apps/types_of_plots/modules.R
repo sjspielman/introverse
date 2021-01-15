@@ -8,10 +8,10 @@ counterButton <- function(id, label = "Counter") {
   )
 }
 
-color_module_ui <- function(id) {
+color_module_ui <- function(id, label = "Color all by same color or based on category?" ) {
   ns <- NS(id)
   tagList(
-    selectInput(ns("color_style"), "Color all by same color or based on category?",
+    selectInput(ns("color_style"), label = label,
                 choices = color_choices # Single color
     
     ),

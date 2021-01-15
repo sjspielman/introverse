@@ -3,6 +3,7 @@ library(shinythemes)
 library(tidyverse)
 library(palmerpenguins)
 library(DT)
+library(ggtext)
 theme_set(theme_light() + theme(axis.text = element_text(size = rel(1.5)),
                                 axis.title = element_text(size = rel(1.5)),
                                 strip.text = element_text(size = rel(1.5)),
@@ -63,7 +64,7 @@ ui <- fluidPage(theme = "my_united.css",
                          plotOutput("histogram", width = "600px", height = "400px"),
                          br(),
                          plotOutput("faceted_histogram", width = "700px", height = "400px"),
-                         histogram_text,
+                         histogram_text
                      )
                  ) # sidePanelLayout
         ), # tabpanel histograms
@@ -83,8 +84,7 @@ ui <- fluidPage(theme = "my_united.css",
                 mainPanel(
                   br(),
                   plotOutput("boxplot", width = "700px", height = "400px"),
-                  boxplot_text,
-                  br() 
+                  boxplot_text
                 )
             ) # sidePanelLayout
         ),#boxplot
@@ -104,13 +104,14 @@ ui <- fluidPage(theme = "my_united.css",
                          colourpicker::colourInput("density_single_fill", "Color of the single density plot?", value = default_color)
                      ),
                      mainPanel(
-                         p("Paragraph of text about what density plots are."),
-                         br(),br(),
+                         br(),
                          plotOutput("density", width = "500px", height = "350px"),
                          br(),
                          plotOutput("overlapping_density", width = "750px", height = "350px"),
                          br(),
-                         plotOutput("faceted_density", width = "750px", height = "350px")      
+                         plotOutput("faceted_density", width = "750px", height = "350px"),
+                         br(),
+                         density_text
                      )
                  ) # sidePanelLayout                
                  
@@ -129,23 +130,13 @@ ui <- fluidPage(theme = "my_united.css",
                                      choices = numeric_choices),
                          selectInput("violin_x_variable", "x variable? There will be a separate violin plot for each category.",
                                      choices = discrete_choices),                         
-                         selectInput("violin_color_style", "Color based on categories, or all same color?",
-                                     choices = color_choices
-                         ),
-                         conditionalPanel("input.violin_color_style == 'Single color'",
-                                          { 
-                                              colourpicker::colourInput("violin_color", 
-                                                                        "Choose violin color","firebrick3")
-                                              
-                                          }
-                         )#, #TODO: show across years?
-                         
-                         
+                         color_module_ui("violin_color")
                      ),
                      mainPanel(
                          br(),
                          plotOutput("violin"),
-                         br()
+                         br(),
+                         violin_text
                      )
                  ) # sidePanelLayout
         ),#violin
@@ -154,28 +145,57 @@ ui <- fluidPage(theme = "my_united.css",
                  sidebarLayout(
                      sidebarPanel(
                          
-                         selectInput("jitter_variable", "Variable?",
+                         selectInput("jitter_y_variable", "Variable?",
                                      choices = numeric_choices
                          ),
-                         
-                         selectInput("jitter_color_variable", "Should we show multiple across?",
-                                     choices = discrete_choices
-                         ),
+                         selectInput("jitter_x_variable", "xvariable? Separate strip per category.", 
+                                     choices = discrete_choices),    
+                         color_module_ui("jitter_color"),
+                         radioButtons("jitter_setting", "Turn off the 'jittering' to see plain points",
+                                      choices = jitter_choices),
                      ),
                      mainPanel(
                          br(),
                          plotOutput("jitter"),
-                         br()
+                         br(),
+                         jitter_text
                      )
                  ) # sidePanelLayout
         ), # tabpanel jitter
         
         ## UI: Barplot tabPanel ----------------------------------------
         tabPanel("Barplots",
-                 h4("Great for categorical, but evil for numeric.")
-                 ),
+                 sidebarLayout(
+                   sidebarPanel(
+                     # TODO color choice for single variable barplot
+                     selectInput("barplot_variable", "Variable?",
+                                 choices = discrete_choices
+                     ), 
+                     selectInput("barplot_second_variable", "Compare against a second variable in second plot",
+                                 choices = discrete_choices,
+                                 selected = discrete_choices[2]
+                     ),
+                     selectInput("barplot_position", "Bar style in grouped barplot?", 
+                                 choices = position_choices
+                     )
+                   ),
+                   mainPanel(
+                     br(),
+                     plotOutput("barplot_single", width = "500px", height = "300px"),
+                     plotOutput("barplot_double", width = "500px", height = "300px"),
+                     br(),
+                     barplot_text,
+                     # demonstrates the concept, but is not interactive.
+                     plotOutput("barplot_error", width = "500px", height = "300px")
+                   )
+                 ) # sidePanelLayout
+        ), # tabpanel barplot
         
-        ## UI: Scatterplot tabPanel
+        
+        
+        
+        
+        ## UI: Scatterplot tabPanel ------------------------------------
         tabPanel("Scatterplots",
                  br(),
                  sidebarLayout(
@@ -184,12 +204,18 @@ ui <- fluidPage(theme = "my_united.css",
                                      choices =numeric_choices),
 
                          selectInput("scatter_y_variable", "Y variable?",
-                                     choices =numeric_choices),
+                                     choices =numeric_choices,
+                                     selected = numeric_choices[2]),
                          
-                         
+                         ## The module is not well-suited here. it's ok.
                          selectInput("scatter_color_style", "Color the points?",
                                      choices = color_choices),
-                         conditionalPanel("input.scatter_color_style != 'Single color'",
+                         conditionalPanel("input.scatter_color_style == 'Single color'",
+                                          { 
+                                            colourpicker::colourInput("scatter_single_color", "What color?",
+                                                                      value = default_color)
+                                          }),
+                        conditionalPanel("input.scatter_color_style != 'Single color'",
                                           { 
                                               selectInput("scatter_color_variable", "what variable?",
                                                           choices = c(numeric_choices, discrete_choices)
@@ -311,58 +337,132 @@ server <- function(input, output) {
     })
     
     ## Server: Violin Panel ---------------------------------
+    violin_color <- color_module_server("violin_color")
     output$violin <- renderPlot({
+        penguins %>%
+          drop_na(!!(sym(input$violin_x_variable))) %>%
+          ggplot(aes(x = !!(sym(input$violin_x_variable)),
+                     y = !!(sym(input$violin_y_variable)))) +
+                labs(
+                  title = paste0("Violin plot of `", input$violin_y_variable, "` values across `", input$violin_x_variable, "` values"))-> p
         
-        ggplot(penguins, aes(x = !!(sym(input$violin_x_variable)),
-                             y = !!(sym(input$violin_y_variable)))) -> p
-        
-        if (input$violin_color_style == "Color each category separately")
+        if (violin_color()$color_style == color_choices[1])
         {
-            p <- p + geom_violin(aes(fill = !!(sym(input$violin_x_variable)))) +
+          p <- p + geom_violin(fill = violin_color()$single_color)
+        } else {
+          p <- p + geom_violin(aes(fill = !!(sym(input$violin_x_variable)))) +
                 theme(legend.position = "none") +
                 scale_fill_brewer(palette = "Set2") 
-        } else {
-            p <- p + geom_violin(fill = input$violin_color)
-        }
-        p + ggtitle(paste0("Violin plot of `", input$violin_y_variable, "` values across `", input$violin_x_variable, "` values"))
+        } 
+        p 
     })
     
     ## Server: Strip (jitter) Panel ---------------------------------
+    jitter_color <- color_module_server("jitter_color")
     output$jitter <- renderPlot({
         penguins %>%
-            drop_na(!!(sym(input$jitter_color_variable))) %>%
-            ggplot(aes(x = !!(sym(input$jitter_color_variable)),
-                       y = !!(sym(input$jitter_variable)),
-                       color = !!(sym(input$jitter_color_variable)))) + 
-            geom_jitter(width = 0.2, size=2) +
-            ggtitle(paste0("Strip/jitter plot of `", input$jitter_variable, "` values across `", input$jitter_color_variable, "` values")) +
-            scale_color_brewer(palette = "Set2")
+            drop_na(!!(sym(input$jitter_x_variable))) %>%
+            ggplot(aes(x = !!(sym(input$jitter_x_variable)),
+                       y = !!(sym(input$jitter_y_variable)))) +
+              labs(title = paste0("Strip/jitter plot of `", input$jitter_y_variable, "` values across `", input$jitter_x_variable, "` values")) -> p
+ 
+      
+      
+      
+      if (jitter_color()$color_style == color_choices[1])
+      {
+        if (input$jitter_setting == jitter_choices[1])
+        {
+          p <- p + geom_jitter(width = 0.2, size=2, color = jitter_color()$single_color)
+        } else {
+          p <- p + geom_point(size=2, color = jitter_color()$single_color)
+        }
+      } else {
+        if (input$jitter_setting == jitter_choices[1])
+        {
+          p <- p + geom_jitter(width = 0.2, size=2, 
+                               aes(color = !!(sym(input$jitter_x_variable))))
+        } else {
+          p <- p + geom_point(size=2, aes(color = !!(sym(input$jitter_x_variable))))
+        }
+         p <- p + scale_color_brewer(palette = "Set2") + theme(legend.position = "none")
+      } 
+      p               
     })    
     
+    
+    ## Server: Barplot ----------------------------------
+    output$barplot_single <- renderPlot({ 
+      penguins %>%
+        drop_na(!!(sym(input$barplot_variable))) %>%
+        ggplot(aes(x = !!(sym(input$barplot_variable)))) + 
+          geom_bar(color = "black", fill = default_color) + 
+          labs(
+            title("The number of penguin observations in each category.")
+          )
+      
+      })
+    
+    output$barplot_double <- renderPlot({ 
+      penguins %>%
+        drop_na(!!(sym(input$barplot_variable)),
+                !!(sym(input$barplot_second_variable))) %>%
+        ggplot(aes(x = !!(sym(input$barplot_variable)),
+                   fill = !!(sym(input$barplot_second_variable))))  + 
+        labs(
+          title("The number of penguin observations in each combination of categories.")
+        ) -> p
+      
+      if (input$barplot_position == position_choices[1])
+      {
+        p <- p + geom_bar(color = "black", position = position_dodge(preserve = "single"))
+      } else {
+        p <- p + geom_bar(color = "black")
+      }
+      p + scale_fill_brewer(palette = "Set2")
+      
+    })
+    
+    output$barplot_error <- renderPlot({
+      penguins %>%
+        drop_na(flipper_length_mm, species) %>%
+        group_by(species) %>%
+        summarize(mean_flipper = mean(flipper_length_mm), sd_flipper = sd(flipper_length_mm)) %>%
+        ggplot(aes(x = species, y = mean_flipper, fill = species)) + 
+          geom_col(color = "black") + 
+          geom_errorbar(aes(ymax = mean_flipper + sd_flipper/2, ymin =  mean_flipper - sd_flipper/2), width = 0.05, size=1) + 
+        scale_fill_brewer(palette = "Set2") + 
+        ylab("Mean +/- SD of flipper length (mm)") + 
+        theme(axis.title.y = element_text(size=12))
+    })
+    
+  
     
     ## Server: Scatterplot ----------------------------------
     output$scatter <- renderPlot({
         penguins %>%
-            # just drop it all.....
+            # just drop it all BURN IT ALL DOWN
             drop_na() %>%
             ggplot(aes(x = !!(sym(input$scatter_x_variable)),
                        y = !!(sym(input$scatter_y_variable)))) -> p
         
         if (input$scatter_color_style == color_choices[1])
         {
-            p <- p + geom_point(size = 2, color = "hotpink") 
+            p <- p + geom_point(size = 2, color = input$scatter_single_color) 
         } else {
             p <- p + geom_point(size = 2,
-                                aes(color = !!(sym(input$scatter_color_variable)))) +
-                    theme(legend.text = element_text(angle = 30))
-            if (!(input$scatter_color_variable %in% numeric_choices)) p <- p + scale_color_brewer(palette = "Set2") 
+                                aes(color = !!(sym(input$scatter_color_variable))))
+            if (!(input$scatter_color_variable %in% numeric_choices)) 
+            {
+              p <- p + scale_color_brewer(palette = "Set2") 
+            } else {
+              p <- p + theme(legend.text = element_text(size = 10))
+            }
         }
         p + ggtitle(paste0("Scatter plot of `", input$scatter_y_variable, "` across `", input$scatter_x_variable, "`"))
     })                           
         
 }
-  
-
 
 
 # Run the application 

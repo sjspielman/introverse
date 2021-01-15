@@ -11,4 +11,6 @@ discrete_choices <- c("species",
                       "year")
 
 color_choices <- c("Single color", "Color each category separately")
+position_choices <- c("Side-by-side ('dodged')", "Stacked")
 default_color <- "dodgerblue"
+jitter_choices <- c("Jitter", "No jitter")

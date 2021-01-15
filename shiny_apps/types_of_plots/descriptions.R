@@ -80,10 +80,31 @@ boxplot_text <- tagList(
 
 
 
+density_text <- tagList(
+  p("Like a smoothed histogram and can be interpreted in a similar way - higher peaks represent areas along the x axis where more data is concentrated. the y-axis though is not count (how many observations), but it is kind of a statistical transformation of the count called kernel density. For many, the look of this plot will be most intuitive about interpreting a dsitribution, and you don't need to udnertand the nitty-gritty details of what kerney density is to be able to identify trends. Be aware, however, that referring to the y axis is not meaningful - we would not say something like a certain value has a density of 0.5. We might say there is a higher density of points in a lower or upper region, but not a specific density value.")
+)
+
+violin_text <- tagList(
+  p("The child of a boxplot and a density plot. Each is a density plot, but turned sideways and mirrored. It is usually presented like a boxplot, with different subsets (categories) of a numeric variable displayed across the x-axis. Some people really like this plot, and some people really hate it. When you first see them they are strange looking and unappealing, but for many like myself, they grow on you overtime.")
+)
+
+jitter_text <- tagList(
+  
+  p("All the points at once!")
+)
+
+sina_text <- tagList(
+  p("The child of a violin and jitter plot! It's the same as a jitter plot, except points are specifically arranged based on density like a violin plot. These are possibly the most compreshensive plot - you see all the values based on their height, and you see the shape of the distribution. Much like violin and strip, these are really a love it or hate it proposition.")
+)
 
 
 
-
+barplot_text <- tagList(
+  p("Many plots contain bars and they show different things. Either way the height of the bar represents some value, commonly the count of a categorical variable. These days there are many boutique/small-batch ways of representing categorical data and relationships but barplots are the old school and generally most common."),
+  br(),
+  p("Many often use barplots to summarize distribtuions of numeric data by plotting mean and error bars. while very common, these types of plots cannot at all convey the underlying distribution of the data. Below is an example of such a barplot: The height of each bar represents the mean flipper length for each penguin species, and the total length of each error bar represents that distribution's standard deviation. In essense, then, this plot is just a fancy way to state two numbers. This type of plot is useful if your visualization goal is only to compare means and spread, but if you want to explore any other aspects of the data, this type of plot will be more or less useless.")
+  
+)
 
 
 
