@@ -1,9 +1,10 @@
 library(shiny)
-library(shinythemes)
-library(tidyverse)
-library(palmerpenguins)
 library(DT)
-library(ggtext)
+library(palmerpenguins)
+library(ggplot2)
+library(ggforce)
+library(tidyr)
+library(dplyr)
 theme_set(theme_light() + theme(axis.text = element_text(size = rel(1.5)),
                                 axis.title = element_text(size = rel(1.5)),
                                 strip.text = element_text(size = rel(1.5)),
@@ -50,17 +51,18 @@ ui <- fluidPage(theme = "my_united.css",
         tabPanel("Histograms",
                  sidebarLayout(
                      sidebarPanel(
-                         selectInput("histogram_variable", "Numeric variable to visualize:",
+                         selectInput("histogram_variable", "Select a numeric continuous variable to visualize. This variable will be placed along the x-axis.",
                                      choices = numeric_choices),
-                         numericInput("binwidth", "How wide (along the X-axis) should the histogram bins be?",
+                         numericInput("binwidth", "How wide (along the x-axis) should the histogram bins be?",
                                       value = 1, min = 0.1, max = 20, step = 0.5),
-                         selectInput("histogram_facet_variable", "Second variable to visualize numeric distributions across:",
+                         selectInput("histogram_facet_variable", "Select a discrete variable to visualize numeric distributions across:",
                                      choices = discrete_choices),
-                         color_module_ui("histogram_color")
+                         color_module_ui("histogram_color", 
+                                         label = "Should the faceted histograms be filled with the same color, or filled with a separate color for each category?")
                      ),
                      
                      mainPanel(
-                         br(),
+                         histogram_dataviz,                          
                          plotOutput("histogram", width = "600px", height = "400px"),
                          br(),
                          plotOutput("faceted_histogram", width = "700px", height = "400px"),
@@ -73,16 +75,17 @@ ui <- fluidPage(theme = "my_united.css",
         tabPanel("Boxplots",
             sidebarLayout(
                 sidebarPanel(
-                    selectInput("boxplot_y_variable", "y variable? This is the numeric variable whose distribution you want to see",
+                    selectInput("boxplot_y_variable", "Select a numeric continuous variable to visualize. This variable will be placed along the y-axis.",
                                 choices = numeric_choices,
                                 selected = "bill_length_mm"),
-                    selectInput("boxplot_x_variable", "x variable? There will be a separate boxplot for each category.",
+                    selectInput("boxplot_x_variable", "Select a discrete variable to visualize numeric distributions across. This variable will be placed along the x-axis. There will be a separate boxplot for each category.",
                                 choices = discrete_choices,
                                 selected = "species"),   
-                    color_module_ui("boxplot_color")
+                    color_module_ui("boxplot_color", 
+                                    label = "Should the boxplots be filled with the same color, or filled with a separate color for each category?")
                 ),
                 mainPanel(
-                  br(),
+                  boxplot_dataviz,                          
                   plotOutput("boxplot", width = "700px", height = "400px"),
                   boxplot_text
                 )
@@ -91,23 +94,21 @@ ui <- fluidPage(theme = "my_united.css",
         
         ## UI: Density tabPanel -------------------------------------------------
         tabPanel("Density plots",
-                 h4("Density plots display numeric distributions."),
-                 br(),
                  sidebarLayout(
                      sidebarPanel(
                          
-                         selectInput("density_variable", "Variable?",
+                         selectInput("density_variable", "Select a numeric continuous variable to visualize. This variable will be placed along the x-axis.",
                                      choices = numeric_choices),
                          
-                         selectInput("density_fill_variable", "Should we show multiple across?",
+                         selectInput("density_fill_variable", "Select a discrete variable to visualize numeric distributions across. There will be a separate density plot for each category.",
                                      choices = discrete_choices),
                          colourpicker::colourInput("density_single_fill", "Color of the single density plot?", value = default_color)
                      ),
                      mainPanel(
-                         br(),
-                         plotOutput("density", width = "500px", height = "350px"),
-                         br(),
-                         plotOutput("overlapping_density", width = "750px", height = "350px"),
+                        density_dataviz,                          
+                        plotOutput("density", width = "500px", height = "350px"),
+                        br(),
+                        plotOutput("overlapping_density", width = "750px", height = "350px"),
                          br(),
                          plotOutput("faceted_density", width = "750px", height = "350px"),
                          br(),
@@ -122,65 +123,91 @@ ui <- fluidPage(theme = "my_united.css",
         ), # density
         ## UI: Violin tabPanel -------------------------------------------------
         tabPanel("Violin plots",
-                 h4("Violin display numeric distributions, usually for comparative purposes. "),
-                 br(),
                  sidebarLayout(
                      sidebarPanel(
-                         selectInput("violin_y_variable", "y variable? This is the variable whose distribution you want to see",
+                         selectInput("violin_y_variable", "Select a numeric continuous variable to visualize. This variable will be placed along the y-axis.",
                                      choices = numeric_choices),
-                         selectInput("violin_x_variable", "x variable? There will be a separate violin plot for each category.",
+                         selectInput("violin_x_variable", "Select a discrete variable to visualize numeric distributions across. This variable will be placed along the x-axis. There will be a separate violin plot for each category.",
                                      choices = discrete_choices),                         
-                         color_module_ui("violin_color")
+                         color_module_ui("violin_color", 
+                                         label = "Should the violin plots be filled with the same color, or filled with a separate color for each category?")
                      ),
                      mainPanel(
-                         br(),
-                         plotOutput("violin"),
+                       violin_dataviz,                          
+                       plotOutput("violin"),
                          br(),
                          violin_text
                      )
                  ) # sidePanelLayout
         ),#violin
+        
         ## UI: Jitter tabPanel -------------------------------------------------
         tabPanel("Strip (jitter) plots",
                  sidebarLayout(
                      sidebarPanel(
                          
-                         selectInput("jitter_y_variable", "Variable?",
+                         selectInput("jitter_y_variable", "Select a numeric continuous variable to visualize. This variable will be placed along the y-axis.",
                                      choices = numeric_choices
                          ),
-                         selectInput("jitter_x_variable", "xvariable? Separate strip per category.", 
+                         selectInput("jitter_x_variable", "Select a discrete variable to visualize numeric distributions across. This variable will be plced along the x-axis. There will be a separate strip/jitter plot for each category.", 
                                      choices = discrete_choices),    
-                         color_module_ui("jitter_color"),
-                         radioButtons("jitter_setting", "Turn off the 'jittering' to see plain points",
-                                      choices = jitter_choices),
+                         color_module_ui("jitter_color",
+                                         label = "Should the points all have the same color, or be colored separately for each category?"),
+                         radioButtons("jitter_setting", "Turn off the 'jittering' to see regular points and discover the importance of 'jittering.'",
+                                      choices = jitter_choices)
                      ),
                      mainPanel(
-                         br(),
-                         plotOutput("jitter"),
+                       jitter_dataviz,                          
+                       plotOutput("jitter"),
                          br(),
                          jitter_text
                      )
                  ) # sidePanelLayout
         ), # tabpanel jitter
         
+        ## UI: Sina tabPanel -------------------------------------------------
+        tabPanel("Sina plots",
+                 sidebarLayout(
+                   sidebarPanel(
+                     
+                     selectInput("sina_y_variable", "Select a numeric continuous variable to visualize. This variable will be placed along the y-axis.",
+                                 choices = numeric_choices
+                     ),
+                     selectInput("sina_x_variable", "Select a discrete variable to visualize numeric distributions across. This variable will be plced along the x-axis. There will be a separate sina plot for each category.", 
+                                 choices = discrete_choices),    
+                     color_module_ui("sina_color",
+                                     label = "Should the points all have the same color, or be colored separately for each category?")
+                   ),
+                   mainPanel(
+                     sina_dataviz,                          
+                     plotOutput("sina"),
+                     br(),
+                     sina_text
+                   )
+                 ) # sidePanelLayout
+        ), # tabpanel sina
+      
         ## UI: Barplot tabPanel ----------------------------------------
         tabPanel("Barplots",
                  sidebarLayout(
                    sidebarPanel(
                      # TODO color choice for single variable barplot
-                     selectInput("barplot_variable", "Variable?",
+                     selectInput("barplot_variable", "Select a discrete variable to visualize. This variable will be placed along the x-axis.",
                                  choices = discrete_choices
                      ), 
-                     selectInput("barplot_second_variable", "Compare against a second variable in second plot",
+                     colourpicker::colourInput("barplot_single_fill", 
+                                               "What color should the single barplot's bars be filled with?", value = default_color),
+                     
+                     selectInput("barplot_second_variable", "Select a second discrete variable to visualize in comparison with the first discrete variable in a 'grouped barplot.'",
                                  choices = discrete_choices,
                                  selected = discrete_choices[2]
                      ),
-                     selectInput("barplot_position", "Bar style in grouped barplot?", 
+                     selectInput("barplot_position", "How should the grouped barplot bars be styled?", 
                                  choices = position_choices
                      )
                    ),
                    mainPanel(
-                     br(),
+                     barplot_dataviz,                          
                      plotOutput("barplot_single", width = "500px", height = "300px"),
                      plotOutput("barplot_double", width = "500px", height = "300px"),
                      br(),
@@ -200,33 +227,34 @@ ui <- fluidPage(theme = "my_united.css",
                  br(),
                  sidebarLayout(
                      sidebarPanel(
-                         selectInput("scatter_x_variable", "X variable?",
+                         selectInput("scatter_x_variable", "Select a numeric variable to place along the x-axis. This is sometimes called the 'independent' or 'predictor' variable.",
                                      choices =numeric_choices),
 
-                         selectInput("scatter_y_variable", "Y variable?",
+                         selectInput("scatter_y_variable", "Select a numeric variable to place along the y-axis.  This is sometimes called the 'response' variable.",
                                      choices =numeric_choices,
                                      selected = numeric_choices[2]),
+                         radioButtons("bestfit", "Display linear regression line ('line-of-best-fit')",
+                                      choices = c("Yes", "No")),
                          
                          ## The module is not well-suited here. it's ok.
-                         selectInput("scatter_color_style", "Color the points?",
+                         selectInput("scatter_color_style", "Should all points be the same color, or colored based on their value of another given variable?",
                                      choices = color_choices),
                          conditionalPanel("input.scatter_color_style == 'Single color'",
                                           { 
-                                            colourpicker::colourInput("scatter_single_color", "What color?",
+                                            colourpicker::colourInput("scatter_single_color", "What single color should all points be?",
                                                                       value = default_color)
                                           }),
                         conditionalPanel("input.scatter_color_style != 'Single color'",
                                           { 
-                                              selectInput("scatter_color_variable", "what variable?",
+                                              selectInput("scatter_color_variable", "What variable should determine point colors?",
                                                           choices = c(numeric_choices, discrete_choices)
                                               )
                                           }
                          ) # conditionalpanel
                      ), #sidebarpanel
                      mainPanel(
-                        
-                         br(),
-                         plotOutput("scatter"),
+                       scatter_dataviz,                          
+                       plotOutput("scatter"),
                          br(),
                          scatter_text
                      )
@@ -250,7 +278,7 @@ server <- function(input, output) {
       
         hist_fill <- ifelse(is.null(histogram_color()$single_color), default_color, histogram_color()$single_color)
         ggplot(penguins, aes(x = !!(sym(input$histogram_variable)))) + 
-            geom_histogram(binwidth = input$binwidth, fill = hist_fill, color = "black") + 
+            geom_histogram(binwidth = input$binwidth, fill = histogram_color()$single_color, color = "black") + 
             labs(title = paste0("Histogram of all `", input$histogram_variable, "` values"),
                  subtitle = paste0("All values of `", input$histogram_variable, "` are shown in this figure.")
                  )
@@ -273,7 +301,7 @@ server <- function(input, output) {
                              color = "black") -> p
         } else {
           p + geom_histogram(binwidth = input$binwidth, 
-                             fill = aes(!!(sym(input$histogram_facet_variable))), 
+                             aes(fill = !!(sym(input$histogram_facet_variable))), 
                              color = "black") +
                              scale_fill_brewer(palette = "Set2") -> p
         }
@@ -359,7 +387,8 @@ server <- function(input, output) {
     
     ## Server: Strip (jitter) Panel ---------------------------------
     jitter_color <- color_module_server("jitter_color")
-    output$jitter <- renderPlot({
+      set.seed(10)
+      output$jitter <- renderPlot({
         penguins %>%
             drop_na(!!(sym(input$jitter_x_variable))) %>%
             ggplot(aes(x = !!(sym(input$jitter_x_variable)),
@@ -390,13 +419,36 @@ server <- function(input, output) {
       p               
     })    
     
-    
+ 
+      ## Server: Sina Panel ---------------------------------
+      sina_color <- color_module_server("sina_color")
+      output$sina <- renderPlot({
+        penguins %>%
+          drop_na(!!(sym(input$sina_x_variable))) %>%
+          ggplot(aes(x = !!(sym(input$sina_x_variable)),
+                     y = !!(sym(input$sina_y_variable)))) +
+          labs(title = paste0("Sina plot of `", input$sina_y_variable, "` values across `", input$sina_x_variable, "` values")) -> p
+        
+        
+        
+        
+        if (sina_color()$color_style == color_choices[1])
+        {
+            p <- p + geom_sina(size=2, color = sina_color()$single_color)
+        } else {
+            p <- p + geom_sina(size=2, aes(color = !!(sym(input$sina_x_variable)))) + 
+              scale_color_brewer(palette = "Set2") + 
+              theme(legend.position = "none")
+        } 
+        p               
+      })         
+         
     ## Server: Barplot ----------------------------------
     output$barplot_single <- renderPlot({ 
       penguins %>%
         drop_na(!!(sym(input$barplot_variable))) %>%
         ggplot(aes(x = !!(sym(input$barplot_variable)))) + 
-          geom_bar(color = "black", fill = default_color) + 
+          geom_bar(color = "black", fill = input$barplot_single_fill) + 
           labs(
             title("The number of penguin observations in each category.")
           )
@@ -410,7 +462,7 @@ server <- function(input, output) {
         ggplot(aes(x = !!(sym(input$barplot_variable)),
                    fill = !!(sym(input$barplot_second_variable))))  + 
         labs(
-          title("The number of penguin observations in each combination of categories.")
+          title("Grouped barplot of the number of penguin observations in each combination of categories.")
         ) -> p
       
       if (input$barplot_position == position_choices[1])
@@ -444,11 +496,13 @@ server <- function(input, output) {
             # just drop it all BURN IT ALL DOWN
             drop_na() %>%
             ggplot(aes(x = !!(sym(input$scatter_x_variable)),
-                       y = !!(sym(input$scatter_y_variable)))) -> p
+                       y = !!(sym(input$scatter_y_variable)))) +
+                ggtitle(paste0("Scatter plot of `", input$scatter_y_variable, "` across `", input$scatter_x_variable, "`")) -> p
         
         if (input$scatter_color_style == color_choices[1])
         {
             p <- p + geom_point(size = 2, color = input$scatter_single_color) 
+            if (input$bestfit == "Yes") p <- p + geom_smooth(method = "lm")
         } else {
             p <- p + geom_point(size = 2,
                                 aes(color = !!(sym(input$scatter_color_variable))))
@@ -458,8 +512,13 @@ server <- function(input, output) {
             } else {
               p <- p + theme(legend.text = element_text(size = 10))
             }
+            if (input$bestfit == "Yes") p <- p + geom_smooth(aes(color = !!(sym(input$scatter_color_variable))),
+                                                                 method = "lm")
+            
         }
-        p + ggtitle(paste0("Scatter plot of `", input$scatter_y_variable, "` across `", input$scatter_x_variable, "`"))
+        
+      
+        p 
     })                           
         
 }
