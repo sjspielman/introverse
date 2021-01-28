@@ -1,0 +1,360 @@
+---
+title: "Remaking ggplots"
+author: "Jake Kovaleski"
+output: 
+  learnr::tutorial:
+    progressive: true
+    theme: united
+runtime: shiny_prerendered
+---
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library(learnr)
+library(datasets)
+knitr::opts_chunk$set(echo = FALSE)
+Backpack <- read.csv(url("https://vincentarelbundock.github.io/Rdatasets/csv/Stat2Data/Backpack.csv"))
+backpacks <- select(Backpack, -X) 
+```
+
+## The Data 
+
+### Retrieving the Data
+
+This prewritten code is an example of how you would load in a dataset you found online. The second line removes a column that had no data within it that was added during downloading, while also changing the name.
+
+```{r bring_data, exercise=TRUE}
+Backpack <- read.csv(url("https://vincentarelbundock.github.io/Rdatasets/csv/Stat2Data/Backpack.csv"))
+backpacks <- select(Backpack, -X)
+
+```
+
+### Understanding the Data
+
+This data comes from a survey of 100 students at California Polytechnic State University (San Luis Obispo) that collected data to investigate the question of whether back aches might be due to carrying heavy backpacks.
+
+```{r viewing_data, exercise=TRUE}
+head(backpacks)
+  
+```
+
+
+`BackpackWeight` and `BodyWeight`	are in pounds;
+
+`Ratio` is	`BackpackWeight`/`BodyWeight`;
+
+`BackProblems` is defined by 0=no or 1=yes;
+
+`Major`	is code for academic major;
+
+`Year` is the students year in school;
+
+`Sex` is a factor with levels, Female and Male;
+
+`Status` describes a Graduate or Undergraduate, seen as G or U, respectively; and
+
+`Units` is the number of credits taken that quarter for each student.
+
+
+*Source: Mintz J., Mintz J., Moore K., and Schuh K., "Oh, My Aching Back! A Statistical Analysis of Backpack Weights," Stats: The Magazine for Students of Statistics, vol. 32, 2002, pp. 1719.*
+
+## Remaking plots using ggplot
+
+### Exercise 1
+
+Recreate this plot: 
+
+```{r}
+ggplot(backpacks, aes(x = BackpackWeight)) +
+  geom_histogram()
+```
+**Hint:** Remember to identify the name of the dataset, the one aesthetic, and the name of the plot used.
+```{r exer_1, exercise = TRUE}
+
+```
+
+```{r exer_1-solution}
+ggplot(backpacks, aes(x = BackpackWeight)) +
+  geom_histogram()
+```
+
+### Exercise 2
+
+Recreate this plot
+
+```{r}
+ggplot(backpacks, aes(x = BackpackWeight)) +
+  geom_histogram(bins=15)
+```
+**Hint:** This is the same plot as before, but note there are now *15* bins.
+```{r exer_2, exercise = TRUE}
+
+```
+
+```{r exer_2-solution}
+ggplot(backpacks, aes(x = BackpackWeight)) +
+  geom_histogram(bins=15)
+```
+
+### Exercise 3
+
+Recreate this plot
+
+```{r}
+ggplot(backpacks, aes(x = BackpackWeight)) +
+  geom_histogram(bins=15) +
+  labs(x="Backpack Weight (lb)", y = "Count")
+```
+**Hint:** Making the plot more professional looking, a space was added to the name of the X-axis and a capitalization to the Y-axis. This is achieved by adding the function `labs()`.
+```{r exer_3, exercise = TRUE}
+
+```
+
+```{r exer_3-solution}
+ggplot(backpacks, aes(x = BackpackWeight)) +
+  geom_histogram(bins=15) +
+  labs(x="Backpack Weight (lb)", y = "Count")
+```
+
+### Exercise 4
+
+Recreate this plot: 
+
+```{r}
+ggplot(backpacks, aes(x = BackpackWeight)) +
+  geom_histogram(bins=15, fill = "firebrick") +
+  labs(x="Backpack Weight (lb)", y = "Count")
+```
+**Hint:** The only feature that has been added is that the histogram has been *filled*. The color is named "firebrick" and because it is only impacting the histogram, not the whole graph, that should clue you where to add the feature in the code.
+```{r exer_4, exercise = TRUE}
+
+```
+
+```{r exer_4-solution}
+ggplot(backpacks, aes(x = BackpackWeight)) +
+  geom_histogram(bins=15, fill = "firebrick") +
+  labs(x="Backpack Weight (lb)", y = "Count")
+```
+
+### Exercise 5
+
+Recreate this plot: 
+
+```{r}
+ggplot(backpacks, aes(x = BackpackWeight)) +
+    geom_histogram(bins=15, fill = "firebrick", color = "black") +
+    labs(x="Backpack Weight (lb)", y = "Count")
+```
+**Hint:** Along with the fill from the last exercise, the plot has now been *colored* "black." Notice how each property affects the plot.
+```{r exer_5, exercise = TRUE}
+
+```
+
+```{r exer_5-solution}
+ggplot(backpacks, aes(x = BackpackWeight)) +
+    geom_histogram(bins=15, fill = "firebrick", color = "black") +
+    labs(x="Backpack Weight (lb)", y = "Count")
+```
+
+### Exercise 6
+
+Recreate this plot: 
+
+```{r}
+ggplot(backpacks, aes(x = BackpackWeight)) +
+  geom_histogram(bins=15, fill = "firebrick", alpha = 0.7) +
+  labs(x="Backpack Weight (lb)", y = "Count")
+```
+**Hint:** An alpha has been added to the histogram, and its level is 0.7. This can be a helpful tool when discerning multiple groups or allowing the viewer to see a grid background.
+```{r exer_6, exercise = TRUE}
+
+```
+
+```{r exer_6-solution}
+ggplot(backpacks, aes(x = BackpackWeight)) +
+  geom_histogram(bins=15, fill = "firebrick", alpha = 0.7) +
+  labs(x="Backpack Weight (lb)", y = "Count")
+```
+
+### Exercise 7
+
+Recreate this plot: 
+
+```{r}
+ggplot(backpacks, aes(x = BackpackWeight, fill = Sex)) +
+    geom_histogram(bins=15, alpha = 0.7) +
+    labs(x="Backpack Weight (lb)", y = "Count")
+```
+**Hint:** Instead of our new graph being filled by "firebrick," it is now filled by a distinction in `Sex`
+```{r exer_7, exercise = TRUE}
+
+```
+
+```{r exer_7-solution}
+ggplot(backpacks, aes(x = BackpackWeight, fill = Sex)) +
+    geom_histogram(bins=15, alpha = 0.7) +
+    labs(x="Backpack Weight (lb)", y = "Count")
+```
+
+### Exercise 8
+
+Recreate this plot: 
+
+```{r}
+ggplot(backpacks, aes(x = BodyWeight, y = BackpackWeight )) +
+    geom_point(color = "darkblue") +
+  labs(x="Body Weight (lb)", y = "Backpack Weight (lb)")
+```
+**Hint:** Here we see `geom_point()` and the color is "darkblue." With points, a *color* property will fill the entire point.
+```{r exer_8, exercise = TRUE}
+
+```
+
+```{r exer_8-solution}
+ggplot(backpacks, aes(x = BodyWeight, y = BackpackWeight )) +
+    geom_point(color = "darkblue") +
+  labs(x="Body Weight (lb)", y = "Backpack Weight (lb)")
+```
+
+### Exercise 9
+
+Recreate this plot: 
+
+```{r}
+ggplot(backpacks, aes(x = BodyWeight, y = BackpackWeight, color = Sex )) +
+    geom_point() +
+  labs(x="Body Weight (lb)", y = "Backpack Weight (lb)")
+```
+**Hint:** Again, we are going to color the plot by `Sex`.
+```{r exer_9, exercise = TRUE}
+
+```
+
+```{r exer_9-solution}
+ggplot(backpacks, aes(x = BodyWeight, y = BackpackWeight, color = Sex )) +
+    geom_point() +
+  labs(x="Body Weight (lb)", y = "Backpack Weight (lb)")
+```
+
+## New Data
+
+This data comes from the CO2 uptake of six plants from Quebec and six plants from Mississippi was measured at several levels of ambient CO2 concentration. Half the plants of each type were chilled overnight before the experiment was conducted.
+
+```{r viewing_data2, exercise=TRUE}
+head(CO2)
+  
+```
+
+
+`Plant` is a unique identifier for each plant.
+
+`Type` a factor with levels Quebec and Mississippi giving the origin of the plant.
+
+`Treatment` a factor with levels nonchilled and chilled
+
+`conc` a numeric vector of ambient carbon dioxide concentrations (mL/L).
+
+`uptake` a numeric vector of carbon dioxide uptake rates (umol/m^2 sec).
+
+*Sources: Potvin, C., Lechowicz, M. J. and Tardif, S. (1990) “The statistical analysis of ecophysiological response curves obtained from experiments involving repeated measures”, Ecology, 71, 1389–1400.*
+
+*Pinheiro, J. C. and Bates, D. M. (2000) Mixed-effects Models in S and S-PLUS, Springer.*
+
+### Exercise 10
+
+Recreate this plot: 
+
+```{r}
+ggplot(CO2, aes(x = Type, y = conc)) +
+  geom_boxplot()
+```
+**Hint:** This is the most basic boxplot, a discrete X and continous Y.
+```{r exer_10, exercise = TRUE}
+
+```
+
+```{r exer_10-solution}
+ggplot(CO2, aes(x = Type, y = conc)) +
+  geom_boxplot()
+```
+
+
+### Exercise 11
+
+Recreate this plot: 
+
+```{r}
+ggplot(CO2, aes(x = Type, y = conc)) +
+    geom_boxplot(fill = "pink", color = "green") +
+    labs(x = "Location of Plant", y = "Concentration (mL/L)")
+```
+**Hint:** The two colors are "green" and "pink."
+```{r exer_11, exercise = TRUE}
+
+```
+
+```{r exer_11-solution}
+ggplot(CO2, aes(x = Type, y = conc)) +
+    geom_boxplot(fill = "pink", color = "green") +
+    labs(x = "Location of Plant", y = "Concentration (mL/L)")
+```
+
+### Exercise 12
+
+Recreate this plot: 
+
+```{r}
+ggplot(CO2, aes(x = Plant, y = uptake)) +
+  geom_bar(stat = "identity")
+```
+**Hint:** To keep the data as is, use `stat = "identity"` within `geom_bar()`.
+```{r exer_12, exercise = TRUE}
+
+```
+
+```{r exer_12-solution}
+ggplot(CO2, aes(x = Plant, y = uptake)) +
+  geom_bar(stat = "identity")
+```
+
+### Exercise 13
+
+Recreate this plot: 
+
+```{r}
+ggplot(CO2, aes(x = Plant, y = uptake, fill = Type)) +
+  geom_bar(stat = "identity") +
+  labs(y = "Uptake (umol/m^2 sec)" )
+```
+**Hint:** The differing locations are under the variable `Type`.
+```{r exer_13, exercise = TRUE}
+
+```
+
+```{r exer_13-solution}
+ggplot(CO2, aes(x = Plant, y = uptake, fill = Type)) +
+  geom_bar(stat = "identity") +
+  labs(y = "Uptake (umol/m^2 sec)" )
+```
+
+### Exercise 14
+
+Recreate this plot: 
+
+```{r}
+ggplot(CO2, aes(x = Plant)) +
+  geom_bar(stat = "identity") +
+  facet_grid(Type~)
+```
+**Hint:** 
+```{r exer_14, exercise = TRUE}
+
+```
+
+```{r exer_14-solution}
+
+```
+
+
+
+
