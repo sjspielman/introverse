@@ -183,9 +183,10 @@ Recreate this plot:
 ```{r}
 ggplot(backpacks, aes(x = BackpackWeight, fill = Sex)) +
     geom_histogram(bins=15, alpha = 0.7) +
-    labs(x="Backpack Weight (lb)", y = "Count")
+    labs(x="Backpack Weight (lb)", y = "Count") +
+  ggtitle("A distribution of Backpack Weight by Sex")
 ```
-**Hint:** Instead of our new graph being filled by "firebrick," it is now filled by a distinction in `Sex`
+**Hint:** Instead of our new graph being filled by "firebrick," it is now filled by a distinction in `Sex`. A nice title has been written by adding `ggtitle()`.
 ```{r exer_7, exercise = TRUE}
 
 ```
@@ -193,7 +194,8 @@ ggplot(backpacks, aes(x = BackpackWeight, fill = Sex)) +
 ```{r exer_7-solution}
 ggplot(backpacks, aes(x = BackpackWeight, fill = Sex)) +
     geom_histogram(bins=15, alpha = 0.7) +
-    labs(x="Backpack Weight (lb)", y = "Count")
+    labs(x="Backpack Weight (lb)", y = "Count") +
+  ggtitle("A distribution of Backpack Weight by Sex")
 ```
 
 ### Exercise 8
@@ -268,7 +270,7 @@ Recreate this plot:
 ggplot(CO2, aes(x = Type, y = conc)) +
   geom_boxplot()
 ```
-**Hint:** This is the most basic boxplot, a discrete X and continous Y.
+**Hint:** This is the most basic boxplot, a discrete X and continuous Y.
 ```{r exer_10, exercise = TRUE}
 
 ```
@@ -326,7 +328,7 @@ ggplot(CO2, aes(x = Plant, y = uptake, fill = Type)) +
   geom_bar(stat = "identity") +
   labs(y = "Uptake (umol/m^2 sec)" )
 ```
-**Hint:** The differing locations are under the variable `Type`.
+**Hint:** Remember, the differing locations are under the variable `Type`.
 ```{r exer_13, exercise = TRUE}
 
 ```
@@ -342,9 +344,27 @@ ggplot(CO2, aes(x = Plant, y = uptake, fill = Type)) +
 Recreate this plot: 
 
 ```{r}
-ggplot(CO2, aes(x = Plant)) +
-  geom_bar(stat = "identity") +
-  facet_grid(Type~)
+ggplot(CO2, aes(x = Treatment, y = uptake)) +
+    geom_violin(fill = "grey34", color = "red2") +
+  labs(y = "Uptake (umol/m^2 sec)")
+```
+**Hint:** Using `geom_violin()`, we see a violin plot that highlights the density of values in the distribution. The colors "grey34"and "red2" are used.
+```{r exer_14, exercise = TRUE}
+
+```
+
+```{r exer_14-solution}
+ggplot(CO2, aes(x = Treatment, y = uptake)) +
+    geom_violin(fill = "grey34", color = "red2") +
+  labs(y = "Uptake (umol/m^2 sec)")
+```
+
+### Exercise 15
+
+Recreate this plot: 
+
+```{r}
+
 ```
 **Hint:** 
 ```{r exer_14, exercise = TRUE}
@@ -354,7 +374,6 @@ ggplot(CO2, aes(x = Plant)) +
 ```{r exer_14-solution}
 
 ```
-
 
 
 
