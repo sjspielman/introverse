@@ -5,144 +5,15 @@ output:
   learnr::tutorial:
     theme: united
 runtime: shiny_prerendered
+editor_options: 
+  chunk_output_type: console
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = TRUE, warning=FALSE, message=FALSE, fig.width = 7)
 library(learnr)
-library(tibble)
-library(dplyr)
-```
-
-# Data Science for Biologists, Fall 2020
-<br><br><br>
-
-## Set 1: Identifying data types
-<br>
-Determine what type of data each of the following is. In addition, with your group, come up with THREE (unless only two are possible for binary data!) different potential values for the variable. Use the example to help guide you:
-
-
-Example: **Square footage of a building** is *numeric continuous*. Example values are 1000, 5000, 300.5 - aka, random numbers which could be a building's square footage. I would not include a value -100, for example.
-
-<br><br>
-``` {r quiz1, echo = FALSE}
-
-quiz(caption = "",
-     question("What type of data is *the number of pixels on a screen*?",
-              answer("Numeric discrete", correct = TRUE),
-              answer("Numeric continuous"),
-              answer("Categorical nominal"),
-              answer("Categorical ordinal"),
-              answer("Categorical binary"),
-              allow_retry = TRUE
-
-              ),
-     question("What type of data is *the length of a centipede as measured in mm*?",
-              answer("Numeric discrete"),
-              answer("Numeric continuous", correct = TRUE),
-              answer("Categorical nominal"),
-              answer("Categorical ordinal"),
-              answer("Categorical binary"),
-              allow_retry = TRUE
-              ),
-     question("What type of data is *answers to a yes or no question*?",
-              answer("Numeric discrete"),
-              answer("Numeric continuous"),
-              answer("Categorical nominal"),
-              answer("Categorical ordinal"),
-              answer("Categorical binary", correct = TRUE),
-              allow_retry = TRUE
-              ),
-     question("What type of data is *the colors in a painting*?",
-              answer("Numeric discrete "),
-              answer("Numeric continuous"),
-              answer("Categorical nominal", correct = TRUE),
-              answer("Categorical ordinal"),
-              answer("Categorical binary"),
-              allow_retry = TRUE
-              ),
-     question("What type of data is *a movie's time measured in seconds*?",
-              answer("Numeric discrete "),
-              answer("Numeric continuous", correct = TRUE),
-              answer("Categorical nominal"),
-              answer("Categorical ordinal"),
-              answer("Categorical binary"),
-              allow_retry = TRUE
-              ),
-     question("What type of data is the *letter grade for a class*?",
-              answer("Numeric discrete "),
-              answer("Numeric continuous"),
-              answer("Categorical nominal"),
-              answer("Categorical ordinal", correct = TRUE),
-              answer("Categorical binary"),
-              allow_retry = TRUE
-              ),
-     question("What type of data is the *number of legs an animal has*?",
-              answer("Numeric discrete", correct = TRUE),
-              answer("Numeric continuous"),
-              answer("Categorical nominal"),
-              answer("Categorical ordinal"),
-              answer("Categorical binary"),
-              allow_retry = TRUE
-              ),
-     question("What type of data is the *types of cheese*?",
-              answer("Numeric discrete "),
-              answer("Numeric continuous"),
-              answer("Categorical nominal", correct = TRUE),
-              answer("Categorical ordinal"),
-              answer("Categorical binary"),
-              allow_retry = TRUE
-              ),
-     question("What type of data is the *belt level in karate*?",
-              answer("Numeric discrete "),
-              answer("Numeric continuous"),
-              answer("Categorical nominal"),
-              answer("Categorical ordinal", correct = TRUE),
-              answer("Categorical binary"),
-              allow_retry = TRUE
-              ),
-     question("What type of data is the *amount of sugar in an ice cream cone measured in mg*?",
-              answer("Numeric discrete"),
-              answer("Numeric continuous", correct = TRUE),
-              answer("Categorical nominal"),
-              answer("Categorical ordinal"),
-              answer("Categorical binary"),
-              allow_retry = TRUE
-              ),
-     question("What type of data is the *average number of children per family*?",
-              answer("Numeric discrete", message = "The average of the values is not the same as the values themselves"),
-              answer("Numeric continuous", correct = TRUE),
-              answer("Categorical nominal"),
-              answer("Categorical ordinal"),
-              answer("Categorical binary"),
-              allow_retry = TRUE
-              )
-     )
-
-```
-
-#### Work with your group and be ready to explain your reasoning!
-
-There are currently dozens of clinical trials for vaccines for SARS-CoV-2 going on across the world. One of the important components of vaccine development is to test the proper *dosage*. Imagine, in one such clinical trial, researchers are testing the following dosages of their new drug (don't worry about units): 2.5, 5, 10, 15, and 20. This data could *either* be interpreted as a *numeric* or a *categorical* variable. With your group, discuss how this variable could be considered either type. Furthermore, try to figure out which subtype (discrete/continuous and nominal/ordinal) each variable type would be.
-
-
-
-## Set 2: Identifying variable types from datasets
-
-
-This exercise uses an example dataset, shown below as it might appear in R, which provides some information about all elements in the periodic table:
-
-+ `element_name`: The full name of the element
-+ `element_abbr`: The abbreviation of the element
-+ `hardsoft_acidbase_theory`: The category the element is in for something called "Hard-Soft Acid-Base Theory," which describes the overall acid/base properties of an element. The scale runs in order as: hard acid, intermediate acid, soft acid, soft base, intermediate base, hard base.
-+ `atomic_mass`: The element's mass
-+ `number_of_protons`: The number of protons the element has
-+ `electronegativity`: A measure of an element's propensity to attract electrons
-+ `metal_type`: The type of metal a given element is. There is no natural ordering to this quantity.
-
-<!--include this chunk AS IS -->
-```{r, echo=FALSE}
-tibble::tribble(
+library(tidyverse)
+elements <- tibble::tribble(
   ~element_name, ~element_abbr, ~hardsoft_acidbase_theory, ~atomic_mass, ~number_of_protons, ~periodic_table_period, ~periodic_table_group, ~atomic_radius, ~electronegativity, ~metal_type, ~density, ~specific_heat,
   "Silver", "Ag", "Soft acid", 107.868, 47, 5, 11, 1.80, 1.93, "Transition Metal", 1.05e+01, 0.235, 
   "Aluminum", "Al", "Hard acid", 26.982, 13, 3, 13, 1.80, 1.61, "Metal", 2.70e+00, 0.897, 
@@ -218,8 +89,144 @@ tibble::tribble(
   "Ytterbium", "Yb", "Hard acid", 173.054, 70, 6, NA, 2.40, 1.10, "Lanthanide", 6.97e+00, 0.155, 
   "Zinc", "Zn", "Int. acid", 65.380, 30, 4, 12, 1.50, 1.65, "Transition Metal", 7.13e+00, 0.388, 
   "Zirconium", "Zr", "Hard acid", 91.224, 40, 5, 4, 2.20, 1.33, "Transition Metal", 6.51e+00, 0.278) %>%
-  select(-periodic_table_period, -periodic_table_group, -atomic_radius, -density, -specific_heat) %>%
-  filter(element_name !="REE")
+  select(-periodic_table_period, -periodic_table_group, -atomic_radius, -density) %>%
+  filter(element_name !="REE") %>%
+  drop_na() %>%
+  filter(specific_heat <= 3)
+
+theme_set(theme_grey() + theme(axis.text = element_text(size = 10)))
+```
+
+# Data Science for Biologists, Spring 2021
+<br><br><br>
+
+## Part 1: Identifying data types
+<br>
+Determine what type of data each of the following is. In addition, with your group, come up with THREE (unless only two are possible for binary data!) different potential values for the variable. Use the example to help guide you:
+
+
+Example: **Square footage of a building** is *numeric continuous*. Example values are 1000, 5000, 300.5, etc. These are all positive numbers that could be a building's square footage. I would not include a value -100, for example.
+
+<br><br>
+``` {r quiz1, echo = FALSE}
+
+quiz(caption = "",
+     question("What type of data is *the number of pixels on a screen*?",
+              answer("Numeric discrete", correct = TRUE),
+              answer("Numeric continuous"),
+              answer("Categorical nominal"),
+              answer("Categorical ordinal"),
+              answer("Categorical binary"),
+              allow_retry = TRUE
+
+              ),
+     question("What type of data is *the length of a centipede as measured in mm*?",
+              answer("Numeric discrete"),
+              answer("Numeric continuous", correct = TRUE),
+              answer("Categorical nominal"),
+              answer("Categorical ordinal"),
+              answer("Categorical binary"),
+              allow_retry = TRUE
+              ),
+     question("What type of data is *answers to a yes or no question*?",
+              answer("Numeric discrete"),
+              answer("Numeric continuous"),
+              answer("Categorical nominal"),
+              answer("Categorical ordinal"),
+              answer("Categorical binary", correct = TRUE),
+              allow_retry = TRUE
+              ),
+     question("What type of data is *the colors in a painting*?",
+              answer("Numeric discrete "),
+              answer("Numeric continuous"),
+              answer("Categorical nominal", correct = TRUE),
+              answer("Categorical ordinal"),
+              answer("Categorical binary"),
+              allow_retry = TRUE
+              ),
+     question("What type of data is *a movie's time measured in seconds*?",
+              answer("Numeric discrete "),
+              answer("Numeric continuous", correct = TRUE),
+              answer("Categorical nominal"),
+              answer("Categorical ordinal"),
+              answer("Categorical binary"),
+              allow_retry = TRUE
+              ),
+     question("What type of data is the *letter grade for a class*?",
+              answer("Numeric discrete "),
+              answer("Numeric continuous"),
+              answer("Categorical nominal"),
+              answer("Categorical ordinal", correct = TRUE),
+              answer("Categorical binary"),
+              allow_retry = TRUE
+              ),
+     question("What type of data is the *number of eyes an animal has*?",
+              answer("Numeric discrete", correct = TRUE),
+              answer("Numeric continuous"),
+              answer("Categorical nominal"),
+              answer("Categorical ordinal"),
+              answer("Categorical binary"),
+              allow_retry = TRUE
+              ),
+     question("What type of data is the *types of cheese*?",
+              answer("Numeric discrete "),
+              answer("Numeric continuous"),
+              answer("Categorical nominal", correct = TRUE),
+              answer("Categorical ordinal"),
+              answer("Categorical binary"),
+              allow_retry = TRUE
+              ),
+     question("What type of data is the *belt level in karate*?",
+              answer("Numeric discrete "),
+              answer("Numeric continuous"),
+              answer("Categorical nominal"),
+              answer("Categorical ordinal", correct = TRUE),
+              answer("Categorical binary"),
+              allow_retry = TRUE
+              ),
+     question("What type of data is the *amount of sugar in an ice cream cone measured in mg*?",
+              answer("Numeric discrete"),
+              answer("Numeric continuous", correct = TRUE),
+              answer("Categorical nominal"),
+              answer("Categorical ordinal"),
+              answer("Categorical binary"),
+              allow_retry = TRUE
+              ),
+     question("What type of data is the *average number of children per family*?",
+              answer("Numeric discrete", message = "The average of the values is not the same as the values themselves"),
+              answer("Numeric continuous", correct = TRUE),
+              answer("Categorical nominal"),
+              answer("Categorical ordinal"),
+              answer("Categorical binary"),
+              allow_retry = TRUE
+              )
+     )
+
+```
+
+#### Thinking exercise
+
+There are currently dozens of clinical trials for vaccines for SARS-CoV-2 going on across the world. One of the important components of vaccine development is to test the proper *dosage*. Imagine, in one such clinical trial, researchers are testing the following dosages of their new drug (don't worry about units): 2.5, 5, 10, 15, and 20. This data could *either* be interpreted as a *numeric* or a *categorical* variable. Consider why this is true. Furthermore, try to figure out which subtype (discrete/continuous and nominal/ordinal) each variable type would be.
+
+
+
+## Part 2: Identifying variable types from datasets
+<br>
+
+This exercise uses an example dataset, shown below as it might appear in R, which provides some information about all elements in the periodic table:
+
++ `element_name`: The full name of the element
++ `element_abbr`: The abbreviation of the element
++ `hardsoft_acidbase_theory`: The category the element is in for something called "Hard-Soft Acid-Base Theory," which describes the overall acid/base properties of an element. The scale runs in order as: hard acid, intermediate acid, soft acid, soft base, intermediate base, hard base.
++ `atomic_mass`: The element's mass
++ `number_of_protons`: The number of protons the element has
++ `electronegativity`: A measure of an element's propensity to attract electrons
++ `metal_type`: The type of metal a given element is. There is no natural ordering to this quantity.
++ `specific_heat`: The specific heat of an element. Specific heat, according to Wikipedia, is the "amount of energy that must be added, in the form of heat, to one unit of mass of the substance in order to cause an increase of one unit in temperature." 
+
+<!--include this chunk AS IS -->
+```{r, echo=FALSE}
+elements
 ```
 
 
@@ -227,61 +234,561 @@ tibble::tribble(
 ``` {r quiz2, echo = FALSE}
 quiz(caption = "",
      question("Which variables are *numeric discrete*? Select all that apply.",
-              answer("element_name"),
-              answer("element_abbr"),
-              answer("hardsoft_acidbase_theory"),
-              answer("atomic_mass"),
-              answer("number_of_protons", correct = TRUE),
-              answer("electronegativity"),
-              answer("metal_type"),
+              answer("`element_name`"),
+              answer("`element_abbr`"),
+              answer("`hardsoft_acidbase_theory`"),
+              answer("`atomic_mass`"),
+              answer("`number_of_protons`", correct = TRUE),
+              answer("`electronegativity`"),
+              answer("`metal_type`"),
+              answer("`specific_heat`"),
               answer("None of the above"),
               allow_retry = TRUE,
               type = "multiple"
               ),
      question("Which variables are *numeric continuous*? Select all that apply.",
-              answer("element_name"),
-              answer("element_abbr"),
-              answer("hardsoft_acidbase_theory"),
-              answer("atomic_mass", correct = TRUE),
-              answer("number_of_protons"),
-              answer("electronegativity", correct = TRUE),
-              answer("metal_type"),
-              answer("None of the above"),
+              answer("`element_name`"),
+              answer("`element_abbr`"),
+              answer("`hardsoft_acidbase_theory`"),
+              answer("`atomic_mass`", correct = TRUE),
+              answer("`number_of_protons`"),
+              answer("`electronegativity`", correct = TRUE),
+              answer("`metal_type`"),
+              answer("`specific_heat`", correct = TRUE),
               allow_retry = TRUE,type = "multiple"
               ),
      question(" Which variables are *categorical nominal*? Select all that apply.",
-              answer("element_name", correct = TRUE, message = "This could also be considered ordinal due to the structure of the periodic table"),
-              answer("element_abbr", correct = TRUE, message = "This could also be considered ordinal due to the structure of the periodic table"),
-              answer("hardsoft_acidbase_theory"),
-              answer("atomic_mass"),
-              answer("number_of_protons"),
-              answer("electronegativity"),
-              answer("metal_type", correct = TRUE),
-              answer("None of the above"),
+              answer("`element_name`", correct = TRUE, message = "This could also be considered ordinal due to the structure of the periodic table"),
+              answer("`element_abbr`", correct = TRUE, message = "This could also be considered ordinal due to the structure of the periodic table"),
+              answer("`hardsoft_acidbase_theory`"),
+              answer("`atomic_mass`"),
+              answer("`number_of_protons`"),
+              answer("`electronegativity`"),
+              answer("`metal_type`", correct = TRUE),
+              answer("`specific_heat`"),
               allow_retry = TRUE,type = "multiple"
               ),
      question("Which variables are *categorical ordinal*? Select all that apply.",
-              answer("element_name"),
-              answer("element_abbr"),
-              answer("hardsoft_acidbase_theory", correct = TRUE),
-              answer("atomic_mass"),
-              answer("number_of_protons"),
-              answer("electronegativity"),
-              answer("metal_type"),
-              answer("None of the above"),
+              answer("`element_name`"),
+              answer("`element_abbr`"),
+              answer("`hardsoft_acidbase_theory`", correct = TRUE),
+              answer("`atomic_mass`"),
+              answer("`number_of_protons`"),
+              answer("`electronegativity`"),
+              answer("`metal_type`"),
+              answer("`specific_heat`"),
               allow_retry = TRUE,type = "multiple"
               ),
           question("Which variables are *categorical binary*? Select all that apply.",
-              answer("element_name"),
-              answer("element_abbr"),
-              answer("hardsoft_acidbase_theory"),
-              answer("atomic_mass"),
-              answer("number_of_protons"),
-              answer("electronegativity"),
-              answer("metal_type"),
+              answer("`element_name`"),
+              answer("`element_abbr`"),
+              answer("`hardsoft_acidbase_theory`"),
+              answer("`atomic_mass`"),
+              answer("`number_of_protons`"),
+              answer("`electronegativity`"),
+              answer("`metal_type`"),
+              answer("`specific_heat`"),
               answer("None of the above", correct = TRUE),
               allow_retry = TRUE,type = "multiple"
               )
      )
 ```
 
+## Part 3: Identifying types of data visualizations
+
+Imagine we want to visualize the some of the variables in this periodic table dataset (each column in a variable). For each scenario, indicate what type(s) of plot(s) could be acceptable choices for the visualization goal.
+
+```{r, echo=FALSE}
+elements
+```
+
+
+
+``` {r quiz_acceptable_plot_types, echo = FALSE}
+quiz(caption = "",
+     question("What types of plot(s) would be appropriate to visualize `atomic_mass`? Select all that apply.",
+              answer("Histogram", correct = TRUE),
+              answer("Scatterplot"),            
+              answer("Barplot"),
+              answer("Boxplot", correct = TRUE),
+              answer("Density plot", correct = TRUE),
+              answer("Violin plot", correct = TRUE),
+              answer("Strip (jitter) plot", correct = TRUE),
+              allow_retry = TRUE,
+              type = "multiple"
+              ),
+     question("What types of plot(s) would be appropriate to visualize `hardsoft_acidbase_theory`? Select all that apply.",
+              answer("Histogram"),
+              answer("Scatterplot"),            
+              answer("Barplot", correct = TRUE),
+              answer("Boxplot"),
+              answer("Density plot"),
+              answer("Violin plot"),
+              answer("Strip (jitter) plot"),
+              allow_retry = TRUE,
+              type = "multiple"
+            ),    
+     question("What types of plot(s) would be appropriate to visualize `electronegativity`? Select all that apply.",
+              answer("Histogram", correct = TRUE),
+              answer("Scatterplot"),            
+              answer("Barplot"),
+              answer("Boxplot", correct = TRUE),
+              answer("Density plot", correct = TRUE),
+              answer("Violin plot", correct = TRUE),
+              answer("Strip (jitter) plot", correct = TRUE),
+              allow_retry = TRUE,
+              type = "multiple"
+              ),
+     question("What types of plot(s) would be appropriate to visualize the relationship between `number_of_protons` and `atomic_mass`? Select all that apply.",
+              answer("Histogram"),
+              answer("Scatterplot", correct = TRUE),            
+              answer("Barplot"),
+              answer("Boxplot"),
+              answer("Density plot"),
+              answer("Violin plot"),
+              answer("Strip (jitter) plot", correct = TRUE),
+              allow_retry = TRUE,
+              type = "multiple"
+            ),         
+     question("What types of plot(s) would be appropriate to visualize `metal_type`? Select all that apply.",
+              answer("Histogram"),
+              answer("Scatterplot"),            
+              answer("Barplot", correct = TRUE),
+              answer("Boxplot"),
+              answer("Density plot"),
+              answer("Violin plot"),
+              answer("Strip (jitter) plot"),
+              allow_retry = TRUE,
+              type = "multiple"
+            ),    
+     question("What types of plot(s) would be appropriate to visualize the relationship between `hardsoft_acidbase_theory` and `atomic_mass`? In other words, we want to visualize the distribution of `atomic_mass` values for each `hardsoft_acidbase_theory` category (or vice versa). Select all that apply.",
+              answer("Histogram", correct = TRUE),
+              answer("Scatterplot"),            
+              answer("Barplot"),
+              answer("Boxplot", correct = TRUE),
+              answer("Density plot", correct = TRUE),
+              answer("Violin plot", correct = TRUE),
+              answer("Strip (jitter) plot", correct = TRUE),
+              allow_retry = TRUE,
+              type = "multiple"
+            ),       
+     question("What types of plot(s) would be appropriate to visualize the relationship between `hardsoft_acidbase_theory` and `metal_type`? In other words, we want to visualize the distribution of `hardsoft_acidbase_theory` values for each `metal_type` category. Select all that apply.",
+              answer("Histogram"),
+              answer("Scatterplot"),            
+              answer("Barplot", correct = TRUE),
+              answer("Boxplot"),
+              answer("Density plot"),
+              answer("Violin plot"),
+              answer("Strip (jitter) plot"),
+              allow_retry = TRUE,
+              type = "multiple"
+            )
+     )
+```
+
+## Part 4: Identifying types of data visualizations  {data-progressive=TRUE}
+
+Below are several figures made from this dataset (soon, you will be able to make all of these!). Answer the associated questions about each figure, including (but not limited to!):
+
++ What kind of plot is displayed?
++ Which variable, if any, is on the X-axis? If it is not a variable, it may be a *statistical transformation* of some kind.
++ Which variable, if any, is on the Y-axis? If it is not a variable, it may be a *statistical transformation* of some kind.
+<!--
++ Is there a color/fill in the dataset. If so, is the color/fill mapped to a variable (and which variable), or is it "just a color/fill"? 
+-->
+
+```{r, echo=FALSE}
+elements
+```
+
+<br><br>
+
+### Figure 1
+
+```{r part4_figure1, echo=FALSE}
+ggplot(elements, aes(x = metal_type)) + 
+  geom_bar(fill = "blue") + 
+  labs(x = "Metal Type", title = "Distribution of metal types") + 
+  theme(axis.text.x = element_text(size=7))
+
+quiz(caption = "",
+     question("What type of plot is this?",
+              answer("Histogram"),
+              answer("Scatterplot"),            
+              answer("Barplot", correct = TRUE),
+              answer("Boxplot"),
+              answer("Density plot"),
+              answer("Violin plot"),
+              answer("Strip (jitter) plot"),
+              allow_retry = TRUE,
+              type = "multiple"
+              ),
+     question("What variable, if any, is on the X axis?",
+              answer("`element_name`"),
+              answer("`element_abbr`"),
+              answer("`hardsoft_acidbase_theory`"),
+              answer("`atomic_mass`"),
+              answer("`number_of_protons`"),
+              answer("`electronegativity`"),
+              answer("`metal_type`", correct = TRUE),
+              answer("`specific_heat`"),
+              answer("None of the above: A data transformation is on the X-axis"),
+              allow_retry = TRUE,
+              type = "multiple"
+              ),
+     question("What variable, if any, is on the Y axis?",
+              answer("`element_name`"),
+              answer("`element_abbr`"),
+              answer("`hardsoft_acidbase_theory`"),
+              answer("`atomic_mass`"),
+              answer("`number_of_protons`"),
+              answer("`electronegativity`"),
+              answer("`metal_type`"),
+              answer("`specific_heat`"),
+              answer("None of the above: A data transformation is on the Y-axis", correct = TRUE),
+              allow_retry = TRUE,
+              type = "multiple"
+              )
+     )
+#     question("If there is a color or fill, it is 'just a color/fill', or is it  mapped to a variable? If the latter, select which variable to which the color/fill maps.",
+#              answer("NA - there is no color/fill"),
+#              answer("Just a color/fill.", correct = TRUE),
+#              answer("Maps to `element_name`"),
+#              answer("Maps to `element_abbr`"),
+#              answer("Maps to `hardsoft_acidbase_theory`"),
+#              answer("Maps to `atomic_mass`"),
+#              answer("Maps to `number_of_protons`"),
+#              answer("Maps to `electronegativity`"),
+#              answer("Maps to `metal_type`"),
+#              answer("Maps to `specific_heat`"),
+#              allow_retry = TRUE
+#            ) 
+```
+
+
+
+
+### Figure 2
+
+```{r part4_figure2, echo=FALSE}
+ggplot(elements, aes(x = electronegativity)) + 
+  geom_histogram(fill = "cadetblue", color = "black") + 
+  labs(x = "Electronegativity", title = "Distribution of element electronegavity values")
+
+quiz(caption = "",
+     question("What type of plot is this?",
+              answer("Histogram", correct = TRUE),
+              answer("Scatterplot"),            
+              answer("Barplot"),
+              answer("Boxplot"),
+              answer("Density plot"),
+              answer("Violin plot"),
+              allow_retry = TRUE,
+              type = "multiple"
+              ),
+     question("What variable, if any, is on the X axis?",
+              answer("`element_name`"),
+              answer("`element_abbr`"),
+              answer("`hardsoft_acidbase_theory`"),
+              answer("`atomic_mass`"),
+              answer("`number_of_protons`"),
+              answer("`electronegativity`", correct = TRUE),
+              answer("`metal_type`"),
+              answer("`specific_heat`"),
+              answer("None of the above: A data transformation is on the X-axis"),
+              allow_retry = TRUE,
+              type = "multiple"
+              ),
+     question("What variable, if any, is on the Y axis?",
+              answer("`element_name`"),
+              answer("`element_abbr`"),
+              answer("`hardsoft_acidbase_theory`"),
+              answer("`atomic_mass`"),
+              answer("`number_of_protons`"),
+              answer("`electronegativity`"),
+              answer("`metal_type`"),
+              answer("`specific_heat`"),
+              answer("None of the above: A data transformation is on the Y-axis", correct = TRUE),
+              allow_retry = TRUE,
+              type = "multiple"
+              )
+  )
+```
+
+
+
+### Figure 3
+
+```{r part4_figure3, echo=FALSE}
+ggplot(elements, aes(x = hardsoft_acidbase_theory,
+                     y = specific_heat)) + 
+  geom_boxplot() +
+  labs(x = "Hard-Soft Acid-Base category", 
+       y = "Element specific heat")
+
+quiz(caption = "",
+     question("What type of plot is this?",
+              answer("Histogram"),
+              answer("Scatterplot"),            
+              answer("Barplot"),
+              answer("Boxplot", correct = TRUE),
+              answer("Density plot"),
+              answer("Violin plot"),
+              answer("Strip (jitter) plot"),
+              allow_retry = TRUE
+              ),
+     question("What variable, if any, is on the X axis?",
+              answer("`element_name`"),
+              answer("`element_abbr`"),
+              answer("`hardsoft_acidbase_theory`", correct = TRUE),
+              answer("`atomic_mass`"),
+              answer("`number_of_protons`"),
+              answer("`electronegativity`"),
+              answer("`metal_type`"),
+              answer("`specific_heat`"),
+              answer("None of the above: A data transformation is on the X-axis"),
+              allow_retry = TRUE
+              ),
+     question("What variable, if any, is on the Y axis?",
+              answer("`element_name`"),
+              answer("`element_abbr`"),
+              answer("`hardsoft_acidbase_theory`"),
+              answer("`atomic_mass`"),
+              answer("`number_of_protons`"),
+              answer("`electronegativity`"),
+              answer("`metal_type`"),
+              answer("`specific_heat`", correct = TRUE),
+              answer("None of the above: A data transformation is on the Y-axis"),
+              allow_retry = TRUE
+              )
+  )
+```
+
+
+
+### Figure 4
+
+```{r part4_figure4, echo=FALSE}
+ggplot(elements, aes(x = metal_type,
+                     fill = hardsoft_acidbase_theory)) + 
+  geom_bar() +
+  labs(x = "Metal Type", 
+       y = "Count") +
+  scale_fill_brewer(palette = "Set2", name = "HSAB Category") +
+  theme(axis.text.x = element_text(size=7), 
+        legend.position = "bottom")
+
+quiz(caption = "",
+     question("What type of plot is this?",
+              answer("Histogram"),
+              answer("Scatterplot"),            
+              answer("Barplot", correct = TRUE),
+              answer("Boxplot"),
+              answer("Density plot"),
+              answer("Violin plot"),
+              answer("Strip (jitter) plot"),
+              allow_retry = TRUE
+              ),
+     question("What variable, if any, is on the X axis?",
+              answer("`element_name`"),
+              answer("`element_abbr`"),
+              answer("`hardsoft_acidbase_theory`", correct = TRUE),
+              answer("`atomic_mass`"),
+              answer("`number_of_protons`"),
+              answer("`electronegativity`"),
+              answer("`metal_type`"),
+              answer("`specific_heat`"),
+              answer("None of the above: A data transformation is on the X-axis"),
+              allow_retry = TRUE
+              ),
+     question("What variable, if any, is on the Y axis?",
+              answer("`element_name`"),
+              answer("`element_abbr`"),
+              answer("`hardsoft_acidbase_theory`"),
+              answer("`atomic_mass`"),
+              answer("`number_of_protons`"),
+              answer("`electronegativity`"),
+              answer("`metal_type`"),
+              answer("`specific_heat`", correct = TRUE),
+              answer("None of the above: A data transformation is on the Y-axis"),
+              allow_retry = TRUE
+              ),
+     question("But wait! Obviously there is also a representation of `hardsoft_acidbase_theory` in this plot, but it's not on the X or the Y axis. How is this information communicated in the plot?",
+            answer("The bars are _colored_ by `hardsoft_acidbase_theory` category.", correct = TRUE),
+            answer("This is not the answer."),
+            allow_retry = TRUE)
+  )
+```
+
+
+
+### Figure 5
+
+```{r part4_figure5, echo=FALSE}
+ggplot(elements, aes(x = number_of_protons,
+                     y = specific_heat)) + 
+  geom_point() +
+  labs(x = "Number of protons", 
+       y = "Element specific heat")
+
+quiz(caption = "",
+     question("What type of plot is this?",
+              answer("Histogram"),
+              answer("Scatterplot", correct = TRUE),            
+              answer("Barplot"),
+              answer("Boxplot"),
+              answer("Density plot"),
+              answer("Violin plot"),
+              allow_retry = TRUE
+              ),
+     question("What variable, if any, is on the X axis?",
+              answer("`element_name`"),
+              answer("`element_abbr`"),
+              answer("`hardsoft_acidbase_theory`"),
+              answer("`atomic_mass`"),
+              answer("`number_of_protons`", correct = TRUE),
+              answer("`electronegativity`"),
+              answer("`metal_type`"),
+              answer("`specific_heat`"),
+              answer("None of the above: A data transformation is on the X-axis"),
+              allow_retry = TRUE
+              ),
+     question("What variable, if any, is on the Y axis?",
+              answer("`element_name`"),
+              answer("`element_abbr`"),
+              answer("`hardsoft_acidbase_theory`"),
+              answer("`atomic_mass`"),
+              answer("`number_of_protons`"),
+              answer("`electronegativity`"),
+              answer("`metal_type`"),
+              answer("`specific_heat`", correct = TRUE),
+              answer("None of the above: A data transformation is on the Y-axis"),
+              allow_retry = TRUE
+              )
+  )
+```
+
+
+### Figure 6
+
+```{r part4_figure6, echo=FALSE}
+set.seed(10)
+ggplot(elements, aes(x = hardsoft_acidbase_theory,
+                     y = number_of_protons)) + 
+  geom_jitter(aes(color = hardsoft_acidbase_theory), width=0.2) +
+  labs(x = "HSAB category", 
+       y = "Number of protons") + 
+  theme(legend.position = "none")
+
+quiz(caption = "",
+     question("What type of plot is this?",
+              answer("Histogram"),
+              answer("Scatterplot"),            
+              answer("Barplot"),
+              answer("Boxplot"),
+              answer("Density plot"),
+              answer("Violin plot"),
+              answer("Strip (jitter) plot", correct = TRUE),
+              allow_retry = TRUE
+              ),
+     question("What variable, if any, is on the X axis?",
+              answer("`element_name`"),
+              answer("`element_abbr`"),
+              answer("`hardsoft_acidbase_theory`", correct = TRUE),
+              answer("`atomic_mass`"),
+              answer("`number_of_protons`"),
+              answer("`electronegativity`"),
+              answer("`metal_type`"),
+              answer("`specific_heat`"),
+              answer("None of the above: A data transformation is on the X-axis"),
+              allow_retry = TRUE
+              ),
+     question("What variable, if any, is on the Y axis?",
+              answer("`element_name`"),
+              answer("`element_abbr`"),
+              answer("`hardsoft_acidbase_theory`"),
+              answer("`atomic_mass`"),
+              answer("`number_of_protons`", correct = TRUE),
+              answer("`electronegativity`"),
+              answer("`metal_type`"),
+              answer("`specific_heat`"),
+              answer("None of the above: A data transformation is on the Y-axis"),
+              allow_retry = TRUE
+              ), 
+     question("But wait! There are also different colors of points in the plot. Are all points the same color, or does color _vary_ among points based on something else?",
+            answer("All points are the same color"),
+            answer("Point colors vary based on the element's HSAB category.", correct = TRUE),
+            answer("Point colors vary based on how many protons the element has."),
+            answer("This is not the answer."),
+            allow_retry = TRUE)
+  )
+```
+
+<br>
+
+#### Consider this other version of the SAME figure, and answer the subsequent question.
+
+
+```{r part4_figure6_part2, echo=FALSE}
+set.seed(10)
+ggplot(elements, aes(x = hardsoft_acidbase_theory,
+                     y = number_of_protons)) + 
+  geom_jitter(aes(color = number_of_protons), width=0.2) +
+  labs(x = "HSAB category", 
+       y = "Number of protons") + 
+  theme(legend.position = "none")
+
+quiz(
+     question("Again, we see also different colors of points in the plot. Are all points the same color, or does color _vary_ among points based on something else?",
+            answer("All points are the same color"),
+            answer("Point colors vary based on the element's HSAB category."),
+            answer("Point colors vary based on how many protons the element has.", correct = TRUE),
+            answer("This is not the answer."),
+            allow_retry = TRUE)
+  )
+```
+
+<br>
+
+#### Consider this _third_ version of the SAME figure**, and answer the subsequent question.
+
+```{r part4_figure6_part3, echo=FALSE}
+set.seed(10)
+ggplot(elements, aes(x = hardsoft_acidbase_theory,
+                     y = number_of_protons)) + 
+  geom_jitter(color = "firebrick", width=0.2) +
+  labs(x = "HSAB category", 
+       y = "Number of protons") + 
+  theme(legend.position = "none")
+
+quiz(
+     question("Are all points the same color, or does color _vary_ among points based on something else?",
+            answer("All points are the same color", correct = TRUE),
+            answer("Point colors vary based on the element's HSAB category."),
+            answer("Point colors vary based on how many protons the element has."),
+            answer("This is not the answer."),
+            allow_retry = TRUE)
+  )
+```
+
+<br>
+
+#### Consider this _FOURTH_ (and final) version of the SAME figure**, and answer the subsequent question.
+
+```{r part4_figure6_part4, echo=FALSE}
+set.seed(10)
+ggplot(elements, aes(x = hardsoft_acidbase_theory,
+                     y = number_of_protons)) + 
+  geom_jitter(color = "firebrick", width=0.2) +
+  labs(x = "HSAB category", 
+       y = "Number of protons") + 
+  theme_classic() +
+  theme(legend.position = "none")
+
+quiz(
+     question("This plot version clearly looks different from the previous versions. What has changed?",
+            answer("There are more HSAB categories on the X-axis than before, but the rest remains the same."),
+            answer("The background of the plot is different from before, but the data in the plot in the same.", correct = TRUE),
+            allow_retry = TRUE)
+  )
+```
