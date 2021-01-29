@@ -367,11 +367,11 @@ Recreate this plot:
 
 ```
 **Hint:** 
-```{r exer_14, exercise = TRUE}
+```{r exer_15, exercise = TRUE}
 
 ```
 
-```{r exer_14-solution}
+```{r exer_15-solution}
 
 ```
 
