@@ -1,0 +1,47 @@
+---
+title: "Yay Practice!"
+output: learnr::tutorial
+runtime: shiny_prerendered
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+
+## Using stringr
+
+### Exercise 
+
+
+Write the R code required count the length of the string "abcde".
+
+```{r count-length, exercise=TRUE}
+
+```
+
+Write the R code required to turn the sentence "i love coding" to all uppercase.
+
+```{r turn-all-uppercase, exercise=TRUE}
+
+```
+
+Write the R code required to order "w, p, r" by the correct number.
+
+```{r order-by-number, exercise=TRUE}
+
+```
+
+Write the R code required to split "1-2-3-4-5" into a fixed number of pieces.
+
+```{r split, exercise=TRUE}
+
+```
+
+Write the R code to define "I love coding" to a variable, then split each character individually.
+
+```{r split-sentence-by-characters, exercise=TRUE}
+
+```
+
