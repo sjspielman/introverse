@@ -1,11 +1,12 @@
 ---
-title: "Yay Practice!"
+title: "Stringr module"
 output: learnr::tutorial
 runtime: shiny_prerendered
 ---
 
 ```{r setup, include=FALSE}
 library(learnr)
+library(stringr)
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
@@ -15,28 +16,261 @@ knitr::opts_chunk$set(echo = FALSE)
 ### Exercise 
 
 
-Write the R code required count the length of the string "abcde".
+Write the R code required to count the length of the string "abcde".
 
 ```{r count-length, exercise=TRUE}
 
 ```
 
+```{r count-length-solution}
+str_length("abcde")
+```
+
+Write the R code required to count the length of the string "abcde fg" What do you notice about including a space in the string?
+
+```{r count-length-2, exercise=TRUE}
+
+```
+
+```{r count-length-2-solution}
+str_length("abcde fg")
+```
+
+Write the R code required to count the length of the string "how long is this string?"
+
+```{r count-length-3, exercise=TRUE}
+
+```
+
+```{r count-length-3-solution}
+str_length("how long is this string")
+```
+
+Write the R code required to count the length of the string "12.98". What do you notice about the use of punctuation in the string?
+
+```{r count-length-4, exercise=TRUE}
+
+```
+
+```{r count-length-4-solution}
+str_length("12.98")
+```
+
+Write the R code required to count the length of the string "24 hours in a day".
+
+```{r count-length-5, exercise=TRUE}
+
+```
+
+```{r count-length-5-solution}
+str_length("24 hours in a day")
+```
+
+
 Write the R code required to turn the sentence "i love coding" to all uppercase.
+
+> Hint: save your string to a variable first.
 
 ```{r turn-all-uppercase, exercise=TRUE}
 
 ```
 
+```{r turn-all-uppercase-solution}
+"I love coding" -> x
+str_to_upper(x)
+```
+
+Write the R code required to turn the sentence "CODING IS AMAZING!!" to all lowercase.
+
+```{r turn-all-lowercase, exercise=TRUE}
+
+```
+
+
+```{r turn-all-lowercase-solution}
+"CODING IS AMAZING!!" -> x
+str_to_lower(x)
+```
+
+Write the R code required to write the sentence "I LOVE CODING!" in all lowercase, using the Turkish locale-sensitivity. 
+
+```{r turn-all-lowercase-tr, exercise=TRUE}
+
+```
+
+```{r turn-all-lowercase-tr-solution}
+"I LOVE CODING!" -> x
+str_to_lower(x, "tr")
+```
+
+Write the R code required to write the phrase "uppercase fun" in all uppercase.
+
+```{r uppercase-fun, exercise=TRUE}
+
+```
+
+```{r uppercase-fun-solution}
+"uppercase fun" -> x
+str_to_upper(x)
+```
+
+Write the R code required to write the phrase "LOWERCASE FUN" in all lowercase.
+
+```{r lowercase-fun, exercise=TRUE}
+
+```
+
+
+```{r lowercase-fun-solution}
+"LOWERCASE FUN" -> x
+str_to_lower(x)
+```
+
 Write the R code required to order "w, p, r" by the correct number.
+
+> Hint: save your string to a variable
 
 ```{r order-by-number, exercise=TRUE}
 
 ```
 
+```{r order-by-number-solution}
+c("w", "p", "r") -> x
+str_order(x)
+```
+
+Write the R code required to order "w, p, r" in the correct order.
+
+```{r order-by-number-2, exercise=TRUE}
+
+```
+
+```{r order-by-number-3-solution}
+c("w", "p", "r") -> x
+str_sort(x)
+```
+
+Write the R code required to order "3, 7, 2" in the correct order.
+
+```{r order-by-number-4, exercise=TRUE}
+
+```
+
+```{r order-by-number-4-solution}
+c("3", "7", "2") -> x
+str_sort(x)
+```
+
+Add extra whitespace to both sides of the words "coding" "fun"
+
+```{r whitespace-1, exercise=TRUE}
+
+```
+
+
+```{r whitespace-1-solution}
+c("coding", "fun") -> x
+str_pad(x, 10, "both")
+```
+
+
+Wrap the poem "Shall I Compare Thee to a Summer's Day" by William Shakespeare so that the length of the lines are as similar as possible.
+
+"Shall I compare thee to a summer’s day?
+Thou art more lovely and more temperate.
+Rough winds do shake the darling buds of May,
+And summer’s lease hath all too short a date.
+
+
+```{r wrap, exercise=TRUE}
+
+```
+
+```{r wrap-solution}
+poem <-str_c(" 'Shall I compare thee to a summer's day? Thou art more lovely and more temperate. Rough winds do shake their darling buds of May , and summer's lease hath all too short a date.'")
+
+cat(str_wrap(poem, width = 40))
+```
+
 Write the R code required to split "1-2-3-4-5" into a fixed number of pieces.
+
+> Hint: remember to include the symbols your numbers are divided by in your code.
 
 ```{r split, exercise=TRUE}
 
+```
+
+```{r split-solution}
+str_split("1-2-3-4-5", "-")
+```
+
+Write the R code required to split "1/2/3/4/5" into a fixed number of pieces.
+
+```{r split-2, exercise=TRUE}
+
+```
+
+```{r split-2-solution}
+str_split("1/2/3/4/5", "/")
+```
+
+Write the R code required to split "1-2-3-4-5" into 2 fixed pieces.
+
+```{r split-3, exercise=TRUE}
+
+```
+
+```{r split-3-solution}
+str_split_fixed("1-2-3-4-5", "-", n=2)
+```
+
+Write the R code required to split "c-o-d-i-n-g" into 3 fixed pieces.
+
+```{r split-4, exercise=TRUE}
+
+```
+
+
+```{r split-4-solution}
+str_split_fixed("c-o-d-i-n-g", "-", n=3)
+```
+
+Use the function `fixed()` to detect if the sequences "hello" and "hello" match.
+
+```{r fixed, exercise=TRUE}
+
+```
+
+```{r fixed-solution}
+x1 <- "hello"
+x2 <- "hello"
+c(x1, x2)
+x1==x2
+```
+
+Use the function `fixed()` to detect if the sequences "hello:)" and "hello" match.
+```{r fixed-2, exercise=TRUE}
+
+```
+
+```{r fixed-2-solution}
+x1 <- "hello:)"
+x2 <- "hello"
+c(x1, x2)
+x1==x2
+```
+
+Use the function `fixed()` to detect if the sequences "HellO" and "hello" match.
+
+```{r fixed-3, exercise=TRUE}
+
+```
+
+```{r fixed-3-solution}
+x1 <- "HellO"
+x2 <- "hello"
+c(x1, x2)
+x1==x2
 ```
 
 Write the R code to define "I love coding" to a variable, then split each character individually.
@@ -44,4 +278,47 @@ Write the R code to define "I love coding" to a variable, then split each charac
 ```{r split-sentence-by-characters, exercise=TRUE}
 
 ```
+
+```{r split-sentence-by-characters-solution}
+"I love coding" -> x
+str_split(x, "")
+```
+
+Write the R code required to count how many characters are present in the phrase "I love coding" after f-rst diving it into individual characters.
+
+```{r split-sentence-by-characters-count, exercise=TRUE}
+
+```
+
+```{r split-sentence-by-characters-count-solution}
+"I love coding" -> x
+str_split(x, "")
+str_count(x, "")
+```
+
+Use `boundary()` to split the sentence "Coding is so much fun." into separate words. 
+
+```{r split-sentence-by-words, exercise=TRUE}
+
+```
+
+```{r split-sentence-by-words-solution}
+"Coding is so much fun" -> x
+str_split(x, boundary("word"))
+``` 
+
+Use `boundary()` and another stringr function learned earler to split the sentence "We are learning stringr." into separate words. Next, count how many words are present.
+
+```{r split-sentence-by-words-count, exercise=TRUE}
+
+```
+
+```{r split-sentence-by-words-count-solution}
+"We are learning stringr" -> x
+str_split(x, boundary("word"))
+str_count(x, boundary("word"))
+``` 
+
+
+
 
