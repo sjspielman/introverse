@@ -10,22 +10,22 @@ runtime: shiny_prerendered
 
 ```{r setup, include=FALSE}
 library(tidyverse)
-library(learnr)
+library(learnr) 
 library(datasets)
+source("script_defining_plots.R")
 knitr::opts_chunk$set(echo = FALSE)
-Backpack <- read.csv(url("https://vincentarelbundock.github.io/Rdatasets/csv/Stat2Data/Backpack.csv"))
-backpacks <- select(Backpack, -X) 
+backpacks <- read_csv(url("https://vincentarelbundock.github.io/Rdatasets/csv/Stat2Data/Backpack.csv"))
 ```
 
 ## The Data 
 
 ### Retrieving the Data
 
-This prewritten code is an example of how you would load in a dataset you found online. The second line removes a column that had no data within it that was added during downloading, while also changing the name.
+This prewritten code is an example of how you would load in a dataset you found online. Run it.
 
 ```{r bring_data, exercise=TRUE}
-Backpack <- read.csv(url("https://vincentarelbundock.github.io/Rdatasets/csv/Stat2Data/Backpack.csv"))
-backpacks <- select(Backpack, -X)
+backpacks <- read_csv(url("https://vincentarelbundock.github.io/Rdatasets/csv/Stat2Data/Backpack.csv"))
+
 
 ```
 
@@ -58,24 +58,23 @@ head(backpacks)
 
 *Source: Mintz J., Mintz J., Moore K., and Schuh K., "Oh, My Aching Back! A Statistical Analysis of Backpack Weights," Stats: The Magazine for Students of Statistics, vol. 32, 2002, pp. 1719.*
 
-## Remaking plots using ggplot
+## Remaking Histograms
 
 ### Exercise 1
 
 Recreate this plot: 
 
 ```{r}
-ggplot(backpacks, aes(x = BackpackWeight)) +
-  geom_histogram()
+eval(parse(text = hist_1))
 ```
+
 **Hint:** Remember to identify the name of the dataset, the one aesthetic, and the name of the plot used.
-```{r exer_1, exercise = TRUE}
+```{r hist_1, exercise = TRUE}
 
 ```
 
-```{r exer_1-solution}
-ggplot(backpacks, aes(x = BackpackWeight)) +
-  geom_histogram()
+```{r hist_1-solution}
+cat(hist_1)
 ```
 
 ### Exercise 2
@@ -83,15 +82,15 @@ ggplot(backpacks, aes(x = BackpackWeight)) +
 Recreate this plot
 
 ```{r}
-ggplot(backpacks, aes(x = BackpackWeight)) +
-  geom_histogram(bins=15)
+eval(parse(text = hist_2))
 ```
+
 **Hint:** This is the same plot as before, but note there are now *15* bins.
-```{r exer_2, exercise = TRUE}
+```{r hist_2, exercise = TRUE}
 
 ```
 
-```{r exer_2-solution}
+```{r hist_2-solution}
 ggplot(backpacks, aes(x = BackpackWeight)) +
   geom_histogram(bins=15)
 ```
@@ -101,16 +100,15 @@ ggplot(backpacks, aes(x = BackpackWeight)) +
 Recreate this plot
 
 ```{r}
-ggplot(backpacks, aes(x = BackpackWeight)) +
-  geom_histogram(bins=15) +
-  labs(x="Backpack Weight (lb)", y = "Count")
+eval(parse(text = hist_3))
 ```
+
 **Hint:** Making the plot more professional looking, a space was added to the name of the X-axis and a capitalization to the Y-axis. This is achieved by adding the function `labs()`.
-```{r exer_3, exercise = TRUE}
+```{r hist_3, exercise = TRUE}
 
 ```
 
-```{r exer_3-solution}
+```{r hist_3-solution}
 ggplot(backpacks, aes(x = BackpackWeight)) +
   geom_histogram(bins=15) +
   labs(x="Backpack Weight (lb)", y = "Count")
@@ -121,16 +119,15 @@ ggplot(backpacks, aes(x = BackpackWeight)) +
 Recreate this plot: 
 
 ```{r}
-ggplot(backpacks, aes(x = BackpackWeight)) +
-  geom_histogram(bins=15, fill = "firebrick") +
-  labs(x="Backpack Weight (lb)", y = "Count")
+eval(parse(text = hist_4))
 ```
+
 **Hint:** The only feature that has been added is that the histogram has been *filled*. The color is named "firebrick" and because it is only impacting the histogram, not the whole graph, that should clue you where to add the feature in the code.
-```{r exer_4, exercise = TRUE}
+```{r hist_4, exercise = TRUE}
 
 ```
 
-```{r exer_4-solution}
+```{r hist_4-solution}
 ggplot(backpacks, aes(x = BackpackWeight)) +
   geom_histogram(bins=15, fill = "firebrick") +
   labs(x="Backpack Weight (lb)", y = "Count")
@@ -141,19 +138,18 @@ ggplot(backpacks, aes(x = BackpackWeight)) +
 Recreate this plot: 
 
 ```{r}
-ggplot(backpacks, aes(x = BackpackWeight)) +
-    geom_histogram(bins=15, fill = "firebrick", color = "black") +
-    labs(x="Backpack Weight (lb)", y = "Count")
+eval(parse(text = hist_5))
 ```
+
 **Hint:** Along with the fill from the last exercise, the plot has now been *colored* "black." Notice how each property affects the plot.
-```{r exer_5, exercise = TRUE}
+```{r hist_5, exercise = TRUE}
 
 ```
 
-```{r exer_5-solution}
+```{r hist_5-solution}
 ggplot(backpacks, aes(x = BackpackWeight)) +
-    geom_histogram(bins=15, fill = "firebrick", color = "black") +
-    labs(x="Backpack Weight (lb)", y = "Count")
+    geom_histogram(bins=15, fill = 'firebrick', color = 'black') +
+    labs(x='Backpack Weight (lb)', y = 'Count')
 ```
 
 ### Exercise 6
@@ -161,16 +157,15 @@ ggplot(backpacks, aes(x = BackpackWeight)) +
 Recreate this plot: 
 
 ```{r}
-ggplot(backpacks, aes(x = BackpackWeight)) +
-  geom_histogram(bins=15, fill = "firebrick", alpha = 0.7) +
-  labs(x="Backpack Weight (lb)", y = "Count")
+eval(parse(text = hist_6))
 ```
+
 **Hint:** An alpha has been added to the histogram, and its level is 0.7. This can be a helpful tool when discerning multiple groups or allowing the viewer to see a grid background.
-```{r exer_6, exercise = TRUE}
+```{r hist_6, exercise = TRUE}
 
 ```
 
-```{r exer_6-solution}
+```{r hist_6-solution}
 ggplot(backpacks, aes(x = BackpackWeight)) +
   geom_histogram(bins=15, fill = "firebrick", alpha = 0.7) +
   labs(x="Backpack Weight (lb)", y = "Count")
