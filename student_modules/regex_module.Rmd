@@ -6,70 +6,46 @@ runtime: shiny_prerendered
 
 ```{r setup, include=FALSE}
 library(learnr)
+library(stringr)
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
+Write a regex expression explaining the relationship between 9.034 and 9.56.
 
-## Topic 1
-
-### Exercise 
-
-*Here's a simple exercise with an empty code chunk provided for entering the answer.*
-
-Write the R code required to add two plus two:
-
-```{r two-plus-two, exercise=TRUE}
+```{r regex1, exercise=TRUE}
 
 ```
 
-### Exercise with Code
 
-*Here's an exercise with some prepopulated code as well as `exercise.lines = 5` to provide a bit more initial room to work.*
+Write a regex expression explaining the relationship between "I like coding" and "Coding is fun".
 
-Now write a function that adds any two numbers and then call it:
+```{r regex2, exercise=TRUE}
 
-```{r add-function, exercise=TRUE, exercise.lines = 5}
-add <- function() {
-  
-}
 ```
 
-## Topic 2
+Write a regex expression extracting all uppercase letters from the phrase "New York City".
 
-### Exercise with Hint
+```{r regex3, exercise=TRUE}
 
-*Here's an exercise where the chunk is pre-evaulated via the `exercise.eval` option (so the user can see the default output we'd like them to customize). We also add a "hint" to the correct solution via the chunk immediate below labeled `print-limit-hint`.*
-
-Modify the following code to limit the number of rows printed to 5:
-
-```{r print-limit, exercise=TRUE, exercise.eval=TRUE}
-mtcars
 ```
 
-```{r print-limit-hint}
-head(mtcars)
+Write a regex expression extracting all lowercase letter from the phrase "New York City".
+
+```{r regex4, exercise=TRUE}
+
 ```
 
-### Quiz
+Write a regex expression extracting all uppercase characters A-T and all lowercase letters a-t.
 
-*You can include any number of single or multiple choice questions as a quiz. Use the `question` function to define a question and the `quiz` function for grouping multiple questions together.*
+```{r regex5, exercise=TRUE}
 
-Some questions to verify that you understand the purposes of various base and recommended R packages:
-
-```{r quiz}
-quiz(
-  question("Which package contains functions for installing other R packages?",
-    answer("base"),
-    answer("tools"),
-    answer("utils", correct = TRUE),
-    answer("codetools")
-  ),
-  question("Which of the R packages listed below are used to create plots?",
-    answer("lattice", correct = TRUE),
-    answer("tools"),
-    answer("stats"),
-    answer("grid", correct = TRUE)
-  )
-)
 ```
+
+Write a regex expression extracting all numbers from the phrase "I have 3 dogs and 4 cats".
+
+```{r regex6, exercise=TRUE}
+
+```
+
+
 
