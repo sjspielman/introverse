@@ -12,9 +12,10 @@ runtime: shiny_prerendered
 library(tidyverse)
 library(learnr) 
 library(datasets)
+library(ggrepel)
 source("script_defining_plots.R")
 knitr::opts_chunk$set(echo = FALSE)
-backpacks <- read_csv(url("https://vincentarelbundock.github.io/Rdatasets/csv/Stat2Data/Backpack.csv"))
+backpacks <- readr::read_csv(url("https://vincentarelbundock.github.io/Rdatasets/csv/Stat2Data/Backpack.csv"))
 ```
 
 ## The Data 
@@ -32,6 +33,8 @@ backpacks <- read_csv(url("https://vincentarelbundock.github.io/Rdatasets/csv/St
 ### Understanding the Data
 
 This data comes from a survey of 100 students at California Polytechnic State University (San Luis Obispo) that collected data to investigate the question of whether back aches might be due to carrying heavy backpacks.
+
+The function `head()` allows us to preview the first five rows of the dataset.
 
 ```{r viewing_data, exercise=TRUE}
 head(backpacks)
@@ -68,12 +71,12 @@ Recreate this plot:
 eval(parse(text = hist_1))
 ```
 
-**Hint:** Remember to identify the name of the dataset, the one aesthetic, and the name of the plot used.
+**Hint:** Remember to identify the name of the dataset, the one aesthetic, and the type of plot you are creating 
 ```{r hist_1, exercise = TRUE}
 
 ```
 
-```{r hist_1-solution}
+```{r hist_1-solution, echo=FALSE, eval=FALSE}
 cat(hist_1)
 ```
 
@@ -176,21 +179,19 @@ ggplot(backpacks, aes(x = BackpackWeight)) +
 Recreate this plot: 
 
 ```{r}
-ggplot(backpacks, aes(x = BackpackWeight, fill = Sex)) +
-    geom_histogram(bins=15, alpha = 0.7) +
-    labs(x="Backpack Weight (lb)", y = "Count") +
-  ggtitle("A distribution of Backpack Weight by Sex")
+eval(parse(text = hist_7))
 ```
-**Hint:** Instead of our new graph being filled by "firebrick," it is now filled by a distinction in `Sex`. A nice title has been written by adding `ggtitle()`.
-```{r exer_7, exercise = TRUE}
+
+**Hint:** Adding the function `facet_grid()` allows us to view different histograms by any variable we choose. In this case, its parameter is `. ~ Sex` which split the sexes horizontally, the opposite will execute vertically. Also, adding the `title` argument to `labs()` gives us an opportunity to include an informative title.
+```{r hist_7, exercise = TRUE}
 
 ```
 
-```{r exer_7-solution}
-ggplot(backpacks, aes(x = BackpackWeight, fill = Sex)) +
-    geom_histogram(bins=15, alpha = 0.7) +
-    labs(x="Backpack Weight (lb)", y = "Count") +
-  ggtitle("A distribution of Backpack Weight by Sex")
+```{r hist_7-solution}
+ggplot(backpacks, aes(x = BackpackWeight)) +
+    geom_histogram(bins=15, fill = "firebrick", alpha = 0.7) +
+    facet_grid(. ~ Sex) +
+    labs(x="Backpack Weight (lb)", y = "Count", title ="Distributions of Backpack Weight by Sex" )
 ```
 
 ### Exercise 8
@@ -198,19 +199,15 @@ ggplot(backpacks, aes(x = BackpackWeight, fill = Sex)) +
 Recreate this plot: 
 
 ```{r}
-ggplot(backpacks, aes(x = BodyWeight, y = BackpackWeight )) +
-    geom_point(color = "darkblue") +
-  labs(x="Body Weight (lb)", y = "Backpack Weight (lb)")
+eval(parse(text = hist_8))
 ```
-**Hint:** Here we see `geom_point()` and the color is "darkblue." With points, a *color* property will fill the entire point.
-```{r exer_8, exercise = TRUE}
+
+```{r hist_8, exercise = TRUE}
 
 ```
 
-```{r exer_8-solution}
-ggplot(backpacks, aes(x = BodyWeight, y = BackpackWeight )) +
-    geom_point(color = "darkblue") +
-  labs(x="Body Weight (lb)", y = "Backpack Weight (lb)")
+```{r hist_8-solution}
+
 ```
 
 ### Exercise 9
@@ -218,19 +215,176 @@ ggplot(backpacks, aes(x = BodyWeight, y = BackpackWeight )) +
 Recreate this plot: 
 
 ```{r}
-ggplot(backpacks, aes(x = BodyWeight, y = BackpackWeight, color = Sex )) +
-    geom_point() +
-  labs(x="Body Weight (lb)", y = "Backpack Weight (lb)")
+eval(parse(text = hist_9))
 ```
+
+**Hint:** This may look familiar to Exercise 5, because it is! However, as you may notice the one difference here is a vertical line. Adding the function `geom_vline()` along with aesthetics `xintercept = mean(BackpackWeight)` creates a line stemming from the x-axis at the mean backpack weight. 
+```{r hist_9, exercise = TRUE}
+
+```
+
+```{r hist_9-solution}
+
+```
+
+### Exercise 10
+
+Recreate this plot: 
+
+```{r}
+eval(parse(text = hist_10))
+```
+
+**Hint:** Going further with lines, R has a few different line types. What is being used here is `linetype = "dashed"`. Think about the 2 appropriate places to put that argument.
+```{r hist_10, exercise = TRUE}
+
+```
+
+```{r hist_10-solution}
+
+```
+
+## Remaking Scatterplots
+
+### Exercise 1
+
+Recreate this plot: 
+
+```{r}
+eval(parse(text = scatt_1))
+```
+
+**Hint:** Here we see a scatter plot, created using `geom_point()`. The color is "darkblue." With points, a *color* property will fill the entire point.
+```{r scatt_1, exercise = TRUE}
+
+```
+
+```{r scatt_1-solution}
+
+```
+
+### Exercise 2
+
+Recreate this plot: 
+
+```{r}
+eval(parse(text = scatt_2))
+```
+
 **Hint:** Again, we are going to color the plot by `Sex`.
-```{r exer_9, exercise = TRUE}
+```{r scatt_2, exercise = TRUE}
 
 ```
 
-```{r exer_9-solution}
-ggplot(backpacks, aes(x = BodyWeight, y = BackpackWeight, color = Sex )) +
-    geom_point() +
-  labs(x="Body Weight (lb)", y = "Backpack Weight (lb)")
+```{r scatt_2-solution}
+
+```
+
+### Exercise 3
+
+Recreate this plot: 
+
+```{r}
+eval(parse(text = scatt_3))
+```
+
+**Hint:** In addition to coloring by a third variable, you can use other aesthetics like `shape` and `size`.
+```{r scatt_3, exercise = TRUE}
+
+```
+
+```{r scatt_3-solution}
+
+```
+
+### Exercise 4
+
+Recreate this plot: 
+
+```{r}
+eval(parse(text = scatt_4))
+```
+
+**Hint:** As you can see we have differing shapes and colors for Sex than the default. This is accomplished by adding the following functions: `scale_shape_manual()` and `scale_color_manual()`. Within each we have the argument `values=c()`, in which a vector is returned. This this example, `scale_shape_manual(values=c(8, 17))` is used. Consider what to write next if the colors are green and navy, respectively.
+  
+```{r scatt_4, exercise = TRUE}
+
+```
+
+```{r scatt_4-solution}
+
+```
+
+### Exercise 5
+
+Recreate this plot: 
+
+```{r}
+eval(parse(text = scatt_5))
+```
+
+**Hint:** Coloring by a continuous variable presents you with a color gradient with the default being white to to dark blue. Adding the function `scale_color_gradient()` with arguments `low` and `high` allows you to customize the colors. Blue and red are used here.
+  
+```{r scatt_5, exercise = TRUE}
+
+```
+
+```{r scatt_5-solution}
+
+```
+
+### Exercise 6
+
+Recreate this plot: 
+
+```{r}
+eval(parse(text = scatt_6))
+```
+
+**Hint:** Extremely helpful additions to scatterplots are lines to show patterns or relationships. `geom_smooth()` is a function we can add to place a line onto any 2 continuous variable plot. To calculate the linear relationship, we include the argument `method=lm`.
+  
+```{r scatt_6, exercise = TRUE}
+
+```
+
+```{r scatt_6-solution}
+
+```
+
+### Exercise 7
+
+Recreate this plot: 
+
+```{r}
+eval(parse(text = scatt_7))
+```
+
+**Hint:** While this isn't the most informative plot, it highlights a cool feature we can add to our plots. `geom_text()` was added to our first scatterplot in the section. It requires a aesthetic, in this case `label`, telling it what information to add to each point. 
+  
+```{r scatt_7, exercise = TRUE}
+
+```
+
+```{r scatt_7-solution}
+
+```
+
+### Exercise 8
+
+Recreate this plot: 
+
+```{r}
+eval(parse(text = scatt_8))
+```
+
+**Hint:** Two changes have been made since the last plot. One makes use of a package, `ggrepel` and one of its functions, `geom_text_repel()`. The other is size. Use this new function exactly how you used `geom_text()` and change the sizing to 2.5.
+  
+```{r scatt_8, exercise = TRUE}
+
+```
+
+```{r scatt_8-solution}
+
 ```
 
 ## New Data
@@ -257,44 +411,61 @@ head(CO2)
 
 *Pinheiro, J. C. and Bates, D. M. (2000) Mixed-effects Models in S and S-PLUS, Springer.*
 
-### Exercise 10
+### Exercise 1
 
 Recreate this plot: 
 
 ```{r}
-ggplot(CO2, aes(x = Type, y = conc)) +
-  geom_boxplot()
-```
-**Hint:** This is the most basic boxplot, a discrete X and continuous Y.
-```{r exer_10, exercise = TRUE}
-
+eval(parse(text = box_1))
 ```
 
-```{r exer_10-solution}
-ggplot(CO2, aes(x = Type, y = conc)) +
-  geom_boxplot()
+**Hint:** This is the most basic boxplot, a discrete X and continuous Y, using `geom_boxplot()`.
+```{r box_1, exercise = TRUE}
+
+```
+
+```{r box_1-solution}
+
 ```
 
 
-### Exercise 11
+### Exercise 2
 
 Recreate this plot: 
 
 ```{r}
-ggplot(CO2, aes(x = Type, y = conc)) +
-    geom_boxplot(fill = "pink", color = "green") +
-    labs(x = "Location of Plant", y = "Concentration (mL/L)")
+eval(parse(text = box_2))
 ```
+
 **Hint:** The two colors are "green" and "pink."
-```{r exer_11, exercise = TRUE}
+```{r box_2, exercise = TRUE}
 
 ```
 
-```{r exer_11-solution}
-ggplot(CO2, aes(x = Type, y = conc)) +
-    geom_boxplot(fill = "pink", color = "green") +
-    labs(x = "Location of Plant", y = "Concentration (mL/L)")
+```{r box_2-solution}
+
 ```
+
+### Exercise 3
+
+Recreate this plot: 
+
+```{r}
+eval(parse(text = box_3))
+```
+
+**Hint:** This may look familiar as we have used facets with histograms. Instead of `facet_grid()`, we here have `facet_wrap()` that displays the single variable of concentration better in multiple plots. Note the colors beige and black and there's a title too!
+```{r box_3, exercise = TRUE}
+
+```
+
+```{r box_3-solution}
+
+```
+
+
+
+
 
 ### Exercise 12
 
@@ -304,6 +475,7 @@ Recreate this plot:
 ggplot(CO2, aes(x = Plant, y = uptake)) +
   geom_bar(stat = "identity")
 ```
+
 **Hint:** To keep the data as is, use `stat = "identity"` within `geom_bar()`.
 ```{r exer_12, exercise = TRUE}
 
@@ -323,6 +495,7 @@ ggplot(CO2, aes(x = Plant, y = uptake, fill = Type)) +
   geom_bar(stat = "identity") +
   labs(y = "Uptake (umol/m^2 sec)" )
 ```
+
 **Hint:** Remember, the differing locations are under the variable `Type`.
 ```{r exer_13, exercise = TRUE}
 
@@ -343,6 +516,7 @@ ggplot(CO2, aes(x = Treatment, y = uptake)) +
     geom_violin(fill = "grey34", color = "red2") +
   labs(y = "Uptake (umol/m^2 sec)")
 ```
+
 **Hint:** Using `geom_violin()`, we see a violin plot that highlights the density of values in the distribution. The colors "grey34"and "red2" are used.
 ```{r exer_14, exercise = TRUE}
 
