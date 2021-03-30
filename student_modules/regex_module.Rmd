@@ -10,6 +10,9 @@ library(stringr)
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
+
+
+
 Write a regex expression explaining the relationship between 9.034 and 9.56.
 
 ```{r regex1, exercise=TRUE}
@@ -23,13 +26,13 @@ Write a regex expression explaining the relationship between "I like coding" and
 
 ```
 
-Write a regex expression extracting all uppercase letters from the phrase "New York City".
+Write a regex expression extracting all uppercase letters from the city "New York City".
 
 ```{r regex3, exercise=TRUE}
 
 ```
 
-Write a regex expression extracting all lowercase letter from the phrase "New York City".
+Write a regex expression extracting all lowercase letters from the city "New York City".
 
 ```{r regex4, exercise=TRUE}
 
@@ -46,6 +49,45 @@ Write a regex expression extracting all numbers from the phrase "I have 3 dogs a
 ```{r regex6, exercise=TRUE}
 
 ```
+
+Write a regex expression extracting all numbers from the phrase "I have 12 birds and 10 fish". (12 should print as "12" and not "1" "2")
+
+```{r regex7, exercise=TRUE}
+
+```
+
+
+
+
+
+Write a regex expression searching and replacing every capital letter with its lowercase counterpart in the phrase "She Has Science Homework"
+
+```{r regex8, exercise=TRUE}
+
+```
+
+Write a regex expression to replace 9.0998 with 9.1.
+
+```{r regex9, exercise=TRUE}
+
+```
+
+Write a regex expression searching and replacing the numbers in the phrase "I have 6 cats and 7 dogs" with the numbers spelled out. (e.g., 6 = six)
+
+```{r regex10, exercise=TRUE}
+
+```
+
+Write a regex expression searching and replacing 
+the lowercase letters are the beginning of each word in the city "las vegas" with their uppercase counterpart.
+
+```{r regex11, exercise=TRUE}
+
+```
+
+
+
+
 
 
 
