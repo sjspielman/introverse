@@ -78,12 +78,37 @@ Write a regex expression searching and replacing the numbers in the phrase "I ha
 
 ```
 
-Write a regex expression searching and replacing 
-the lowercase letters are the beginning of each word in the city "las vegas" with their uppercase counterpart.
+Write a regex expression searching and replacing the word "cats" in the phrase "I have 2 cats" with the word "fish".
 
 ```{r regex11, exercise=TRUE}
 
 ```
+
+
+Write a regex expression searching and replacing the lowercase letters are the beginning of each word in the city "las vegas" with their uppercase counterpart.
+
+```{r regex12, exercise=TRUE}
+
+```
+
+Write a regex expression to add hyphens in the word "mother in law" where spaces are currently present.
+
+```{r regex13, exercise=TRUE}
+
+```
+
+Write a regex expression searching and replacing hyphens in the cities "Las-Vegas" and "San-Juan" with spaces. 
+
+```{r regex14, exercise=TRUE}
+
+```
+
+Write a regex expression joining the two components of the words "ear ring", "dish washer" and "earth worm" to create their individual compound words.
+
+```{r regex15, exercise=TRUE}
+
+```
+
 
 
 
