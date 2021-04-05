@@ -11,103 +11,133 @@ knitr::opts_chunk$set(echo = FALSE)
 ```
 
 
+Write a regex expression explaining the phrase "Regex module for beginners".
+
+```{r regex1, exercise=TRUE}
+
+```
+
+Write a regex expression explaining the number 17.993
+
+```{r regex2, exercise=TRUE}
+
+```
+
+
+Write a regex expression explaining the phrase "8 hot dogs and 9 lemonades".
+
+```{r regex3, exercise=TRUE}
+
+```
+
 
 
 Write a regex expression explaining the relationship between 9.034 and 9.56.
 
-```{r regex1, exercise=TRUE}
+```{r regex4, exercise=TRUE}
 
 ```
 
 
 Write a regex expression explaining the relationship between "I like coding" and "Coding is fun".
 
-```{r regex2, exercise=TRUE}
+```{r regex5, exercise=TRUE}
 
 ```
 
 Write a regex expression extracting all uppercase letters from the city "New York City".
 
-```{r regex3, exercise=TRUE}
+```{r regex6, exercise=TRUE}
 
 ```
 
 Write a regex expression extracting all lowercase letters from the city "New York City".
 
-```{r regex4, exercise=TRUE}
+```{r regex7, exercise=TRUE}
 
 ```
 
 Write a regex expression extracting all uppercase characters A-T and all lowercase letters a-t.
 
-```{r regex5, exercise=TRUE}
+```{r regex8, exercise=TRUE}
 
 ```
 
 Write a regex expression extracting all numbers from the phrase "I have 3 dogs and 4 cats".
 
-```{r regex6, exercise=TRUE}
+```{r regex9, exercise=TRUE}
 
 ```
 
 Write a regex expression extracting all numbers from the phrase "I have 12 birds and 10 fish". (12 should print as "12" and not "1" "2")
 
-```{r regex7, exercise=TRUE}
+```{r regex10, exercise=TRUE}
 
 ```
 
 
+Write a regex expression searching and replacing every capital letter with its lowercase counterpart in the phrase "She Has Science Homework".
 
-
-
-Write a regex expression searching and replacing every capital letter with its lowercase counterpart in the phrase "She Has Science Homework"
-
-```{r regex8, exercise=TRUE}
+```{r regex11, exercise=TRUE}
 
 ```
 
 Write a regex expression to replace 9.0998 with 9.1.
 
-```{r regex9, exercise=TRUE}
+```{r regex12, exercise=TRUE}
 
 ```
 
 Write a regex expression searching and replacing the numbers in the phrase "I have 6 cats and 7 dogs" with the numbers spelled out. (e.g., 6 = six)
 
-```{r regex10, exercise=TRUE}
+```{r regex13, exercise=TRUE}
 
 ```
 
 Write a regex expression searching and replacing the word "cats" in the phrase "I have 2 cats" with the word "fish".
 
-```{r regex11, exercise=TRUE}
+```{r regex14, exercise=TRUE}
 
 ```
 
 
 Write a regex expression searching and replacing the lowercase letters are the beginning of each word in the city "las vegas" with their uppercase counterpart.
 
-```{r regex12, exercise=TRUE}
+```{r regex15, exercise=TRUE}
 
 ```
 
 Write a regex expression to add hyphens in the word "mother in law" where spaces are currently present.
 
-```{r regex13, exercise=TRUE}
+```{r regex16, exercise=TRUE}
 
 ```
 
 Write a regex expression searching and replacing hyphens in the cities "Las-Vegas" and "San-Juan" with spaces. 
 
-```{r regex14, exercise=TRUE}
+```{r regex17, exercise=TRUE}
 
 ```
 
 Write a regex expression joining the two components of the words "ear ring", "dish washer" and "earth worm" to create their individual compound words.
 
-```{r regex15, exercise=TRUE}
+```{r regex18, exercise=TRUE}
 
 ```
+
+Write a regex expression searching and pattern matching the decimals 12.624, 14.83 and 16.2838 to the format of 12.8.
+
+```{r regex19, exercise=TRUE}
+
+```
+
+Write a regex expression searching and pattern matching the cities "las_vegas", "san_antonio", "san_juan" and "san_francisco" to match the format Los Angeles. 
+
+```{r regex20, exercise=TRUE}
+
+```
+
+
 
 
 
