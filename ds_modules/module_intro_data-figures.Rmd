@@ -1,0 +1,961 @@
+---
+title: "Introduction to data types and figures"
+author: "Data Science for Biologists, Spring 2021"
+output: 
+  learnr::tutorial:
+    theme: united
+runtime: shiny_prerendered
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning=FALSE, message=FALSE, fig.width = 7)
+library(learnr)
+library(tidyverse)
+elements <- tibble::tribble(
+  ~element_name, ~element_abbr, ~acid_base, ~atomic_mass, ~number_of_protons, ~periodic_table_period, ~periodic_table_group, ~atomic_radius, ~electronegativity, ~metal_type, ~density, ~specific_heat,
+  "Silver", "Ag", "acid", 107.868, 47, 5, 11, 1.80, 1.93, "Transition Metal", 1.05e+01, 0.235, 
+  "Aluminum", "Al", "acid", 26.982, 13, 3, 13, 1.80, 1.61, "Metal", 2.70e+00, 0.897, 
+  "Arsenic", "As", "acid", 74.922, 33, 4, 15, 1.30, 2.18, "Metalloid", 5.78e+00, 0.329, 
+  "Gold", "Au", "acid", 196.967, 79, 6, 11, 1.80, 2.54, "Transition Metal", 1.93e+01, 0.129, 
+  "Boron", "B", "acid", 10.811, 5, 2, 13, 1.20, 2.04, "Metalloid", 2.34e+00, 1.026, 
+  "Barium", "Ba", "acid", 137.327, 56, 6, 2, 2.80, 0.89, "Metal", 3.59e+00, 0.204, 
+  "Beryllium", "Be", "acid", 9.012, 4, 2, 2, 1.40, 1.57, "Metal", 1.85e+00, 1.825, 
+  "Bismuth", "Bi", "acid", 208.980, 83, 6, 15, 1.60, 2.02, "Metal", 9.81e+00, 0.122, 
+  "Bromine", "Br", "base", 79.904, 35, 4, 17, 1.10, 2.96, "Halogen", 3.12e+00, 0.474, 
+  "Carbon", "C", "base", 12.011, 6, 2, 14, 0.91, 2.55, "Nonmetal", 2.27e+00, 0.709, 
+  "Calcium", "Ca", "acid", 40.078, 20, 4, 2, 2.20, 1.00, "Metal", 1.54e+00, 0.647, 
+  "Cadmium", "Cd", "acid", 112.411, 48, 5, 12, 1.70, 1.69, "Transition Metal", 8.69e+00, 0.232, 
+  "Cerium", "Ce", "acid", 140.116, 58, 6, NA, 2.70, 1.12, "Lanthanide", 6.77e+00, 0.192, 
+  "Chlorine", "Cl", "base", 35.453, 17, 3, 17, 0.97, 3.16, "Halogen", 3.21e-03, 0.479, 
+  "Cobalt", "Co", "acid", 58.933, 27, 4, 9, 1.70, 1.88, "Transition Metal", 8.86e+00, 0.421, 
+  "Chromium", "Cr", "acid", 51.996, 24, 4, 6, 1.90, 1.66, "Transition Metal", 7.15e+00, 0.449, 
+  "Cesium", "Cs", "acid", 132.905, 55, 6, 1, 3.30, 0.79, "Metal", 1.87e+00, 0.242, 
+  "Copper", "Cu", "acid", 63.546, 29, 4, 11, 1.60, 1.90, "Transition Metal", 8.96e+00, 0.385, 
+  "Dysprosium", "Dy", "acid", 162.500, 66, 6, NA, 2.50, 1.22, "Lanthanide", 8.55e+00, 0.170, 
+  "Erbium", "Er", "acid", 167.259, 68, 6, NA, 2.50, 1.24, "Lanthanide", 9.07e+00, 0.168, 
+  "Fluorine", "F", "base", 18.998, 9, 2, 17, 0.57, 3.98, "Halogen", 1.70e-03, 0.824, 
+  "Iron", "Fe", "acid", 55.845, 26, 4, 8, 1.70, 1.83, "Transition Metal", 7.87e+00, 0.449, 
+  "Gallium", "Ga", "acid", 69.723, 31, 4, 13, 1.80, 1.81, "Metal", 5.91e+00, 0.371, 
+  "Gadolinium", "Gd", "acid", 157.250, 64, 6, NA, 2.50, 1.20, "Lanthanide", 7.90e+00, 0.236, 
+  "Germanium", "Ge", "acid", 72.640, 32, 4, 14, 1.50, 2.01, "Metalloid", 5.32e+00, 0.320, 
+  "Hydrogen", "H", "acid", 1.007, 1, 1, 1, 0.79, 2.20, "Nonmetal", 8.99e-05, 14.304, 
+  "Hafnium", "Hf", "acid", 178.490, 72, 6, 4, 2.20, 1.30, "Transition Metal", 1.33e+01, 0.144, 
+  "Mercury", "Hg", "acid", 200.590, 80, 6, 12, 1.80, 2.00, "Transition Metal", 1.35e+01, 0.140, 
+  "Iodine", "I", "base", 126.904, 53, 5, 17, 1.30, 2.66, "Halogen", 4.93e+00, 0.214, 
+  "Indium", "In", "acid", 114.818, 49, 5, 13, 2.00, 1.78, "Metal", 7.31e+00, 0.233, 
+  "Iridium", "Ir", "acid", 192.217, 77, 6, 9, 1.90, 2.20, "Transition Metal", 2.26e+01, 0.131, 
+  "Potassium", "K", "acid", 39.098, 19, 4, 1, 2.80, 0.82, "Metal", 8.62e-01, 0.757, 
+  "Lanthanum", "La", "acid", 138.905, 57, 6, 3, 2.70, 1.10, "Lanthanide", 6.15e+00, 0.195, 
+  "Lithium", "Li", "acid", 6.941, 3, 2, 1, 2.10, 0.98, "Metal", 5.34e-01, 3.582, 
+  "Magnesium", "Mg", "acid", 24.305, 12, 3, 2, 1.70, 1.31, "Metal", 1.74e+00, 1.023, 
+  "Manganese", "Mn", "acid", 54.938, 25, 4, 7, 1.80, 1.55, "Transition Metal", 7.44e+00, 0.479, 
+  "Molybdenum", "Mo", "acid", 95.960, 42, 5, 6, 2.00, 2.16, "Transition Metal", 1.02e+01, 0.251, 
+  "Nitrogen", "N", "base", 14.007, 7, 2, 15, 0.75, 3.04, "Nonmetal", 1.25e-03, 1.040, 
+  "Sodium", "Na", "acid", 22.990, 11, 3, 1, 2.20, 0.93, "Metal", 9.71e-01, 1.228, 
+  "Niobium", "Nb", "acid", 92.906, 41, 5, 5, 2.10, 1.60, "Transition Metal", 8.57e+00, 0.265, 
+  "Neodymium", "Nd", "acid", 144.242, 60, 6, NA, 2.60, 1.14, "Lanthanide", 7.01e+00, 0.190, 
+  "Nickel", "Ni", "acid", 58.693, 28, 4, 10, 1.60, 1.91, "Transition Metal", 8.91e+00, 0.444, 
+  "Oxygen", "O", "base", 15.999, 8, 2, 16, 0.65, 3.44, "Nonmetal", 1.43e-03, 0.918, 
+  "Osmium", "Os", "acid", 190.230, 76, 6, 8, 1.90, 2.20, "Transition Metal", 2.26e+01, 0.130, 
+  "Phosphorus", "P", "base", 30.974, 15, 3, 15, 1.20, 2.19, "Nonmetal", 1.82e+00, 0.769, 
+  "Lead", "Pb", "acid", 207.200, 82, 6, 14, 1.80, 2.33, "Metal", 1.13e+01, 0.129, 
+  "Palladium", "Pd", "acid", 106.420, 46, 5, 10, 1.80, 2.20, "Transition Metal", 1.20e+01, 0.244, 
+  "Platinum", "Pt", "acid", 195.084, 78, 6, 10, 1.80, 2.28, "Transition Metal", 2.15e+01, 0.133, 
+  "Rubidium", "Rb", "acid", 85.468, 37, 5, 1, 3.00, 0.82, "Metal", 1.53e+00, 0.363, 
+  "Rhenium", "Re", "acid", 186.207, 75, 6, 7, 2.00, 1.90, "Transition Metal", 2.10e+01, 0.137, 
+  "Rhodium", "Rh", "acid", 102.906, 45, 5, 9, 1.80, 2.28, "Transition Metal", 1.24e+01, 0.243, 
+  "Ruthenium", "Ru", "acid", 101.070, 44, 5, 8, 1.90, 2.20, "Transition Metal", 1.24e+01, 0.238, 
+  "Sulfur", "S", "base", 32.065, 16, 3, 16, 1.10, 2.58, "Nonmetal", 2.07e+00, 0.710, 
+  "Antimony", "Sb", "acid", 121.760, 51, 5, 15, 1.50, 2.05, "Metalloid", 6.69e+00, 0.207, 
+  "Scandium", "Sc", "acid", 44.956, 21, 4, 3, 2.10, 1.36, "Transition Metal", 2.99e+00, 0.568, 
+  "Selenium", "Se", "base", 78.960, 34, 4, 16, 1.20, 2.55, "Nonmetal", 4.81e+00, 0.321, 
+  "Silicon", "Si", "acid", 28.086, 14, 3, 14, 1.50, 1.90, "Metalloid", 2.33e+00, 0.705, 
+  "Samarium", "Sm", "acid", 150.360, 62, 6, NA, 2.60, 1.17, "Lanthanide", 7.52e+00, 0.197, 
+  "Tin", "Sn", "acid", 118.710, 50, 5, 14, 1.70, 1.96, "Metal", 7.29e+00, 0.228, 
+  "Strontium", "Sr", "acid", 87.620, 38, 5, 2, 2.50, 0.95, "Metal", 2.64e+00, 0.301, 
+  "Tantalum", "Ta", "acid", 180.948, 73, 6, 5, 2.10, 1.50, "Transition Metal", 1.67e+01, 0.140, 
+  "Technetium", "Tc", "acid", 98.000, 43, 5, 7, 2.00, 1.90, "Transition Metal", 1.15e+01, NA, 
+  "Tellurium", "Te", "base", 127.600, 52, 5, 16, 1.40, 2.10, "Metalloid", 6.23e+00, 0.202, 
+  "Thorium", "Th", "acid", 232.038, 90, 7, NA, NA, 1.30, "Actinide", 1.17e+01, 0.113, 
+  "Titanium", "Ti", "acid", 47.867, 22, 4, 4, 2.00, 1.54, "Transition Metal", 4.54e+00, 0.523, 
+  "Thallium", "Tl", "acid", 204.383, 81, 6, 13, 2.10, 2.04, "Metal", 1.19e+01, 0.129, 
+  "Uranium", "U", "acid", 238.029, 92, 7, NA, NA, 1.38, "Actinide", 1.90e+01, 0.116, 
+  "Vanadium", "V", "acid", 50.942, 23, 4, 5, 1.90, 1.63, "Transition Metal", 6.11e+00, 0.489, 
+  "Tungsten", "W", "acid", 183.840, 74, 6, 6, 2.00, 2.36, "Transition Metal", 1.93e+01, 0.132, 
+  "Yttrium", "Y", "acid", 88.906, 39, 5, 3, 2.30, 1.22, "Transition Metal", 4.47e+00, 0.298, 
+  "Ytterbium", "Yb", "acid", 173.054, 70, 6, NA, 2.40, 1.10, "Lanthanide", 6.97e+00, 0.155, 
+  "Zinc", "Zn", "acid", 65.380, 30, 4, 12, 1.50, 1.65, "Transition Metal", 7.13e+00, 0.388, 
+  "Zirconium", "Zr", "acid", 91.224, 40, 5, 4, 2.20, 1.33, "Transition Metal", 6.51e+00, 0.278) %>%
+  select(-element_abbr) %>% # -periodic_table_period, -periodic_table_group, -atomic_radius, -density) %>%
+  drop_na() %>%
+  filter(specific_heat <= 3)
+
+theme_set(theme_grey() + theme(axis.text = element_text(size = 10)))
+```
+
+# Data Science for Biologists, Spring 2021
+<br><br><br>
+
+## Part 1: Identifying data types
+<br>
+Determine what type of data each of the following is. In addition, with your group, come up with THREE (unless only two are possible for binary data!) different potential values for the variable. Use the example to help guide you:
+
+
+Example: **Square footage of a building** is *numeric continuous*. Example values are 1000, 5000, 300.5, etc. These are all positive numbers that could be a building's square footage. I would not include a value -100, for example.
+
+<br><br>
+``` {r quiz1, echo = FALSE}
+
+quiz(caption = "",
+     question("What type of data is *the number of pixels on a screen*?",
+              answer("Numeric discrete", correct = TRUE),
+              answer("Numeric continuous"),
+              answer("Categorical nominal"),
+              answer("Categorical ordinal"),
+              answer("Categorical binary"),
+              allow_retry = TRUE
+
+              ),
+     question("What type of data is *the length of a centipede as measured in mm*?",
+              answer("Numeric discrete"),
+              answer("Numeric continuous", correct = TRUE),
+              answer("Categorical nominal"),
+              answer("Categorical ordinal"),
+              answer("Categorical binary"),
+              allow_retry = TRUE
+              ),
+     question("What type of data is *answers to a yes or no question*?",
+              answer("Numeric discrete"),
+              answer("Numeric continuous"),
+              answer("Categorical nominal"),
+              answer("Categorical ordinal"),
+              answer("Categorical binary", correct = TRUE),
+              allow_retry = TRUE
+              ),
+     question("What type of data is *the colors in a painting*?",
+              answer("Numeric discrete "),
+              answer("Numeric continuous"),
+              answer("Categorical nominal", correct = TRUE),
+              answer("Categorical ordinal"),
+              answer("Categorical binary"),
+              allow_retry = TRUE
+              ),
+     question("What type of data is *a movie's time measured in seconds*?",
+              answer("Numeric discrete "),
+              answer("Numeric continuous", correct = TRUE),
+              answer("Categorical nominal"),
+              answer("Categorical ordinal"),
+              answer("Categorical binary"),
+              allow_retry = TRUE
+              ),
+     question("What type of data is the *letter grade for a class*?",
+              answer("Numeric discrete "),
+              answer("Numeric continuous"),
+              answer("Categorical nominal"),
+              answer("Categorical ordinal", correct = TRUE),
+              answer("Categorical binary"),
+              allow_retry = TRUE
+              ),
+     question("What type of data is the *number of eyes an animal has*?",
+              answer("Numeric discrete", correct = TRUE),
+              answer("Numeric continuous"),
+              answer("Categorical nominal"),
+              answer("Categorical ordinal"),
+              answer("Categorical binary"),
+              allow_retry = TRUE
+              ),
+     question("What type of data is the *types of cheese*?",
+              answer("Numeric discrete "),
+              answer("Numeric continuous"),
+              answer("Categorical nominal", correct = TRUE),
+              answer("Categorical ordinal"),
+              answer("Categorical binary"),
+              allow_retry = TRUE
+              ),
+     question("What type of data is the *belt level in karate*?",
+              answer("Numeric discrete "),
+              answer("Numeric continuous"),
+              answer("Categorical nominal"),
+              answer("Categorical ordinal", correct = TRUE),
+              answer("Categorical binary"),
+              allow_retry = TRUE
+              ),
+     question("What type of data is the *amount of sugar in an ice cream cone measured in mg*?",
+              answer("Numeric discrete"),
+              answer("Numeric continuous", correct = TRUE),
+              answer("Categorical nominal"),
+              answer("Categorical ordinal"),
+              answer("Categorical binary"),
+              allow_retry = TRUE
+              ),
+     question("What type of data is the *average number of children per family*?",
+              answer("Numeric discrete", message = "The average of the values is not the same as the values themselves"),
+              answer("Numeric continuous", correct = TRUE),
+              answer("Categorical nominal"),
+              answer("Categorical ordinal"),
+              answer("Categorical binary"),
+              allow_retry = TRUE
+              )
+     )
+
+```
+
+#### Thinking exercise
+
+There are currently dozens of clinical trials for vaccines for SARS-CoV-2 going on across the world. One of the important components of vaccine development is to test the proper *dosage*. Imagine, in one such clinical trial, researchers are testing the following dosages of their new drug (don't worry about units): 2.5, 5, 10, 15, and 20. This data could *either* be interpreted as a *numeric* or a *categorical* variable. Consider why this is true. Furthermore, try to figure out which subtype (discrete/continuous and nominal/ordinal) each variable type would be.
+
+
+
+## Part 2: Identifying variable types from datasets
+<br>
+
+This exercise uses an example dataset, the first 10 rows of which are shown below which provides some information about all elements in the periodic table. It contains the following columns, which represent the *variables* in the dataset (don't worry about units):
+
++ `element_name`: The full name of the element
++ `acid_base`: Whether the element is considered an acid or a base.
++ `atomic_mass`: The element's mass
++ `number_of_protons`: The number of protons the element has
++ `periodic_table_period`: The period (row) in the periodic table where this element is found
++ `periodic_table_group`: The group (column) in the periodic table where this element is found
++ `atomic_radius`: The size of element's atomic radius
++ `electronegativity`: A measure of an element's propensity to attract electrons
++ `metal_type`: The type of metal a given element is (there is no natural ordering to this quantity)
++ `density`: The density of an element at room temperature.
++ `specific_heat`: The specific heat of an element. 
+
+
+<!--include this chunk AS IS -->
+```{r, echo=FALSE}
+elements
+```
+
+
+
+``` {r quiz2, echo = FALSE}
+quiz(caption = "",
+     question("Which variables are *numeric discrete*? Select all that apply.",
+              answer("`element_name`"),
+              answer("`acid_base`"),
+              answer("`atomic_mass`"),
+              answer("`number_of_protons`", correct = TRUE),
+              answer("`periodic_table_period`", correct = TRUE),
+              answer("`periodic_table_group`", correct = TRUE),
+              answer("`atomic_radius`"),
+              answer("`electronegativity`"),
+              answer("`metal_type`"),
+              answer("`density`"),
+              answer("`specific_heat`"),
+              answer("None of the above"),
+              allow_retry = TRUE,
+              type = "multiple"
+              ),
+     question("Which variables are *numeric continuous*? Select all that apply.",
+              answer("`element_name`"),
+              answer("`acid_base`"),
+              answer("`atomic_mass`", correct = TRUE),
+              answer("`number_of_protons`"),
+              answer("`periodic_table_period`"),
+              answer("`periodic_table_group`"),
+              answer("`atomic_radius`", correct = TRUE),
+              answer("`electronegativity`", correct = TRUE),
+              answer("`metal_type`"),
+              answer("`density`", correct = TRUE),
+              answer("`specific_heat`", correct = TRUE),
+              answer("None of the above"),
+              allow_retry = TRUE,type = "multiple"
+              ),
+     question(" Which variables are *categorical*, specifically nominal or ordinal? Select all that apply.",
+              answer("`element_name`", correct = TRUE),
+              answer("`acid_base`"),
+              answer("`atomic_mass`"),
+              answer("`number_of_protons`"),
+              answer("`periodic_table_period`"),
+              answer("`periodic_table_group`"),
+              answer("`atomic_radius`"),
+              answer("`electronegativity`"),
+              answer("`metal_type`", correct = TRUE),
+              answer("`density`"),
+              answer("`specific_heat`"),
+              answer("None of the above"),
+              allow_retry = TRUE,type = "multiple"
+              ),
+          question("Which variables are *categorical binary*? Select all that apply.",
+              answer("`element_name`"),
+              answer("`acid_base`", correct = TRUE),
+              answer("`atomic_mass`"),
+              answer("`number_of_protons`"),
+              answer("`periodic_table_period`"),
+              answer("`periodic_table_group`"),
+              answer("`atomic_radius`"),
+              answer("`electronegativity`"),
+              answer("`metal_type`"),
+              answer("`density`"),
+              answer("`specific_heat`"),
+              answer("None of the above"),
+              allow_retry = TRUE,type = "multiple"
+              )
+     )
+```
+
+## Part 3: Relating data types to figures 
+
+Imagine we want to visualize the some of the variables in this periodic table dataset (each column in a variable). For each scenario, indicate what type(s) of plot(s) could be acceptable choices for the visualization goal. **Base your answer only on which plots are appropriate for showing the TYPE of data (numeric or categorical), not whether the plot might look nice.**
+
+```{r, echo=FALSE}
+elements
+```
+
+
+
+``` {r quiz_acceptable_plot_types, echo = FALSE}
+quiz(caption = "",
+     question("What types of plot(s) would be appropriate to visualize the distribution of `atomic_mass` values? Select all that apply.",
+              answer("Histogram", correct = TRUE),
+              answer("Scatterplot"),            
+              answer("Barplot"),
+              answer("Boxplot", correct = TRUE),
+              answer("Density plot", correct = TRUE),
+              answer("Violin plot", correct = TRUE),
+              answer("Strip (jitter) plot", correct = TRUE),
+              allow_retry = TRUE,
+              type = "multiple"
+              ),
+     question("What types of plot(s) would be appropriate to visualize the counts in each `metal_type` category? Select all that apply.",
+              answer("Histogram"),
+              answer("Scatterplot"),            
+              answer("Barplot", correct = TRUE),
+              answer("Boxplot"),
+              answer("Density plot"),
+              answer("Violin plot"),
+              answer("Strip (jitter) plot"),
+              allow_retry = TRUE,
+              type = "multiple"
+            ),    
+     question("What types of plot(s) would be appropriate to visualize the distribution of `electronegativity` values? Select all that apply.",
+              answer("Histogram", correct = TRUE),
+              answer("Scatterplot"),            
+              answer("Barplot"),
+              answer("Boxplot", correct = TRUE),
+              answer("Density plot", correct = TRUE),
+              answer("Violin plot", correct = TRUE),
+              answer("Strip (jitter) plot", correct = TRUE),
+              allow_retry = TRUE,
+              type = "multiple"
+              ),
+     question("What types of plot(s) would be appropriate to visualize the relationship between `specific_heat` and `atomic_mass`? Select all that apply.",
+              answer("Histogram"),
+              answer("Scatterplot", correct = TRUE),            
+              answer("Barplot"),
+              answer("Boxplot"),
+              answer("Density plot"),
+              answer("Violin plot"),
+              answer("Strip (jitter) plot"),
+              allow_retry = TRUE,
+              type = "multiple"
+            ),         
+     question("What types of plot(s) would be appropriate to visualize the number of elements in each periodic table group? Select all that apply.",
+              answer("Histogram"),
+              answer("Scatterplot"),            
+              answer("Barplot", correct = TRUE),
+              answer("Boxplot"),
+              answer("Density plot"),
+              answer("Violin plot"),
+              answer("Strip (jitter) plot"),
+              allow_retry = TRUE,
+              type = "multiple"
+            ))
+
+
+# ,    
+#      question("What types of plot(s) would be appropriate to visualize the relationship between `acid_base` and `atomic_mass`? In other words, we want to visualize the distribution of `atomic_mass` values for each `acid_base` category (or vice versa). Select all that apply.",
+#               answer("Histogram", correct = TRUE),
+#               answer("Scatterplot"),            
+#               answer("Barplot"),
+#               answer("Boxplot", correct = TRUE),
+#               answer("Density plot", correct = TRUE),
+#               answer("Violin plot", correct = TRUE),
+#               answer("Strip (jitter) plot", correct = TRUE),
+#               allow_retry = TRUE,
+#               type = "multiple"
+#             ),       
+#      question("What types of plot(s) would be appropriate to visualize the relationship between `acid_base` and `metal_type`? In other words, we want to visualize the distribution of `acid_base` values for each `metal_type` category. Select all that apply.",
+#               answer("Histogram"),
+#               answer("Scatterplot"),            
+#               answer("Barplot", correct = TRUE),
+#               answer("Boxplot"),
+#               answer("Density plot"),
+#               answer("Violin plot"),
+#               answer("Strip (jitter) plot"),
+#               allow_retry = TRUE,
+#               type = "multiple"
+#             )
+#      )
+```
+
+## Part 4: Identifying types of data visualizations  {data-progressive=TRUE}
+
+Below are several figures made from this dataset (soon, you will be able to make all of these!). Answer the associated questions about each figure, including (but not limited to!):
+
++ What kind of plot is displayed?
++ Which variable, if any, is on the X-axis? If it is not a variable, it may be a *statistical transformation* of some kind.
++ Which variable, if any, is on the Y-axis? If it is not a variable, it may be a *statistical transformation* of some kind.
+
+
+```{r, echo=FALSE}
+elements
+```
+
+<br><br>
+
+### Figure 1
+
+```{r part4_figure1, echo=FALSE}
+ggplot(elements, aes(x = fct_infreq(metal_type))) + 
+  geom_bar(fill = "blue") + 
+  labs(x = "Metal Type", title = "Distribution of metal types") + 
+  theme(axis.text.x = element_text(size=7))
+
+quiz(caption = "",
+     question("What type of plot is this?",
+              answer("Histogram"),
+              answer("Scatterplot"),            
+              answer("Barplot", correct = TRUE),
+              answer("Boxplot"),
+              answer("Density plot"),
+              answer("Violin plot"),
+              answer("Strip (jitter) plot"),
+              allow_retry = TRUE,
+              type = "multiple"
+              ),
+     question("What variable, if any, is on the X axis?",
+              answer("`element_name`"),
+              answer("`acid_base`"),
+              answer("`atomic_mass`"),
+              answer("`number_of_protons`"),
+              answer("`periodic_table_period`"),
+              answer("`periodic_table_group`"),
+              answer("`atomic_radius`"),
+              answer("`electronegativity`"),
+              answer("`metal_type`", correct=TRUE),
+              answer("`density`"),
+              answer("`specific_heat`"),
+              answer("None of the above: A statistical transformation is on the X-axis"),
+              allow_retry = TRUE,
+              type = "multiple"
+              ),
+     question("What variable, if any, is on the Y axis?",
+              answer("`element_name`"),
+              answer("`acid_base`"),
+              answer("`atomic_mass`"),
+              answer("`number_of_protons`"),
+              answer("`periodic_table_period`"),
+              answer("`periodic_table_group`"),
+              answer("`atomic_radius`"),
+              answer("`electronegativity`"),
+              answer("`metal_type`"),
+              answer("`density`"),
+              answer("`specific_heat`"),
+              answer("None of the above: A statistical transformation is on the Y-axis", correct=TRUE),
+              allow_retry = TRUE,
+              type = "multiple"
+              )
+     )
+```
+
+
+
+
+### Figure 2
+
+```{r part4_figure2, echo=FALSE}
+ggplot(elements, aes(x = acid_base,
+                     y = specific_heat)) + 
+  geom_boxplot(fill = "hotpink") +
+  labs(x = "Acid or base", 
+       y = "Element specific heat")
+
+quiz(caption = "",
+     question("What type of plot is this?",
+              answer("Histogram"),
+              answer("Scatterplot"),            
+              answer("Barplot"),
+              answer("Boxplot", correct = TRUE),
+              answer("Density plot"),
+              answer("Violin plot"),
+              answer("Strip (jitter) plot"),
+              allow_retry = TRUE
+              ),
+     question("What variable, if any, is on the X axis?",
+              answer("`element_name`"),
+              answer("`acid_base`", correct=TRUE),
+              answer("`atomic_mass`"),
+              answer("`number_of_protons`"),
+              answer("`periodic_table_period`"),
+              answer("`periodic_table_group`"),
+              answer("`atomic_radius`"),
+              answer("`electronegativity`"),
+              answer("`metal_type`"),
+              answer("`density`"),
+              answer("`specific_heat`"),
+              answer("None of the above: A statistical transformation is on the X-axis"),
+              allow_retry = TRUE
+              ),
+     question("What variable, if any, is on the Y axis?",
+              answer("`element_name`"),
+              answer("`acid_base`"),
+              answer("`atomic_mass`"),
+              answer("`number_of_protons`"),
+              answer("`periodic_table_period`"),
+              answer("`periodic_table_group`"),
+              answer("`atomic_radius`"),
+              answer("`electronegativity`"),
+              answer("`metal_type`"),
+              answer("`density`"),
+              answer("`specific_heat`", correct=TRUE),
+              answer("None of the above: A statistical transformation is on the Y-axis"),
+              allow_retry = TRUE
+              )
+  )
+```
+
+### Figure 3
+
+
+```{r part4_figure3, echo=FALSE}
+ggplot(elements, aes(x = atomic_radius)) + 
+  geom_histogram(fill = "cadetblue", color = "black", binwidth = 0.3) + 
+  labs(x = "Atomic radius", title = "Distribution of atomic radius values")
+
+quiz(caption = "",
+     question("What type of plot is this?",
+              answer("Histogram", correct = TRUE),
+              answer("Scatterplot"),            
+              answer("Barplot"),
+              answer("Boxplot"),
+              answer("Density plot"),
+              answer("Violin plot"),
+              allow_retry = TRUE,
+              type = "multiple"
+              ),
+     question("What variable, if any, is on the X axis?",
+              answer("`element_name`"),
+              answer("`acid_base`"),
+              answer("`atomic_mass`"),
+              answer("`number_of_protons`"),
+              answer("`periodic_table_period`"),
+              answer("`periodic_table_group`"),
+              answer("`atomic_radius`", correct=TRUE),
+              answer("`electronegativity`"),
+              answer("`metal_type`"),
+              answer("`density`"),
+              answer("`specific_heat`"),
+              answer("None of the above: A statistical transformation is on the X-axis"),
+              allow_retry = TRUE,
+              type = "multiple"
+              ),
+     question("What variable, if any, is on the Y axis?",
+              answer("`element_name`"),
+              answer("`acid_base`"),
+              answer("`atomic_mass`"),
+              answer("`number_of_protons`"),
+              answer("`periodic_table_period`"),
+              answer("`periodic_table_group`"),
+              answer("`atomic_radius`"),
+              answer("`electronegativity`"),
+              answer("`metal_type`"),
+              answer("`density`"),
+              answer("`specific_heat`"),
+              answer("None of the above: A statistical transformation is on the Y-axis", correct = TRUE),
+              allow_retry = TRUE,
+              type = "multiple"
+              )
+  )
+```
+
+
+
+
+
+### Figure 4
+
+```{r part4_figure4, echo=FALSE}
+ggplot(elements, aes(x = periodic_table_period,
+                     fill = acid_base)) + 
+  geom_bar() +
+  labs(x = "Period on periodic table", 
+       y = "Count") +
+  scale_fill_brewer(palette = "Set1", name = "Acid or base") +
+  theme(axis.text.x = element_text(size=7), 
+        legend.position = "bottom")
+
+quiz(caption = "",
+     question("What type of plot is this?",
+              answer("Histogram"),
+              answer("Scatterplot"),            
+              answer("Barplot", correct = TRUE),
+              answer("Boxplot"),
+              answer("Density plot"),
+              answer("Violin plot"),
+              answer("Strip (jitter) plot"),
+              allow_retry = TRUE
+              ),
+     question("What variable, if any, is on the X axis?",
+              answer("`element_name`"),
+              answer("`acid_base`"),
+              answer("`atomic_mass`"),
+              answer("`number_of_protons`"),
+              answer("`periodic_table_period`", correct=TRUE),
+              answer("`periodic_table_group`"),
+              answer("`atomic_radius`"),
+              answer("`electronegativity`"),
+              answer("`metal_type`"),
+              answer("`density`"),
+              answer("`specific_heat`"),
+              answer("None of the above: A statistical transformation is on the X-axis"),
+              allow_retry = TRUE
+              ),
+     question("What variable, if any, is on the Y axis?",
+              answer("`element_name`"),
+              answer("`acid_base`"),
+              answer("`atomic_mass`"),
+              answer("`number_of_protons`"),
+              answer("`periodic_table_period`"),
+              answer("`periodic_table_group`"),
+              answer("`atomic_radius`"),
+              answer("`electronegativity`"),
+              answer("`metal_type`"),
+              answer("`density`"),
+              answer("`specific_heat`"),
+              answer("None of the above: A statistical transformation is on the Y-axis", correct = TRUE),
+              allow_retry = TRUE
+              ),
+     question("But wait! Obviously there is also a representation of `acid_base` in this plot, but it's not on the X or the Y axis. How is this information communicated in the plot?",
+            answer("The bars are _filled with a color_ based `acid_base` category.", correct = TRUE),
+            answer("This is not the answer."),
+            allow_retry = TRUE)
+  )
+```
+
+
+
+### Figure 5
+
+```{r part4_figure5, echo=FALSE}
+ggplot(elements, aes(x = density,
+                     y = specific_heat)) + 
+  geom_point() +
+  labs(x = "Element density", 
+       y = "Element specific heat")
+
+quiz(caption = "",
+     question("What type of plot is this?",
+              answer("Histogram"),
+              answer("Scatterplot", correct = TRUE),            
+              answer("Barplot"),
+              answer("Boxplot"),
+              answer("Density plot"),
+              answer("Violin plot"),
+              allow_retry = TRUE
+              ),
+     question("What variable, if any, is on the X axis?",
+              answer("`element_name`"),
+              answer("`acid_base`"),
+              answer("`atomic_mass`"),
+              answer("`number_of_protons`"),
+              answer("`periodic_table_period`"),
+              answer("`periodic_table_group`"),
+              answer("`atomic_radius`"),
+              answer("`electronegativity`"),
+              answer("`metal_type`"),
+              answer("`density`", correct=TRUE),
+              answer("`specific_heat`"),
+              answer("None of the above: A statistical transformation is on the X-axis"),
+              allow_retry = TRUE
+              ),
+     question("What variable, if any, is on the Y axis?",
+              answer("`element_name`"),
+              answer("`acid_base`"),
+              answer("`atomic_mass`"),
+              answer("`number_of_protons`"),
+              answer("`periodic_table_period`"),
+              answer("`periodic_table_group`"),
+              answer("`atomic_radius`"),
+              answer("`electronegativity`"),
+              answer("`metal_type`"),
+              answer("`density`"),
+              answer("`specific_heat`", correct=TRUE),
+              answer("None of the above: A statistical transformation is on the Y-axis"),
+              allow_retry = TRUE
+              )
+  )
+```
+
+
+### Figure 6
+
+```{r part4_figure6, echo=FALSE}
+set.seed(10)
+ggplot(elements, aes(x = acid_base,
+                     y = electronegativity)) + 
+  geom_jitter(aes(color = acid_base), width=0.2, size=2) +
+  labs(x = "Acid or base", 
+       y = "Element electronegativity") + 
+  theme(legend.position = "none") +
+  scale_color_brewer(palette = "Dark2")
+
+quiz(caption = "",
+     question("What type of plot is this?",
+              answer("Histogram"),
+              answer("Scatterplot"),            
+              answer("Barplot"),
+              answer("Boxplot"),
+              answer("Density plot"),
+              answer("Violin plot"),
+              answer("Strip (jitter) plot", correct = TRUE),
+              allow_retry = TRUE
+              ),
+     question("What variable, if any, is on the X axis?",
+              answer("`element_name`"),
+              answer("`acid_base`", correct=TRUE),
+              answer("`atomic_mass`"),
+              answer("`number_of_protons`"),
+              answer("`periodic_table_period`"),
+              answer("`periodic_table_group`"),
+              answer("`atomic_radius`"),
+              answer("`electronegativity`"),
+              answer("`metal_type`"),
+              answer("`density`"),
+              answer("`specific_heat`"),
+              answer("None of the above: A statistical transformation is on the X-axis"),
+              allow_retry = TRUE
+              ),
+     question("What variable, if any, is on the Y axis?",
+              answer("`element_name`"),
+              answer("`acid_base`"),
+              answer("`atomic_mass`"),
+              answer("`number_of_protons`"),
+              answer("`periodic_table_period`"),
+              answer("`periodic_table_group`"),
+              answer("`atomic_radius`"),
+              answer("`electronegativity`", correct=TRUE),
+              answer("`metal_type`"),
+              answer("`density`"),
+              answer("`specific_heat`"),
+              answer("None of the above: A statistical transformation is on the Y-axis"),
+              allow_retry = TRUE
+              ), 
+     question("But wait! These points are not black but have a color of some kind. Are all points the same color, or does color _vary_ among points based on something else?",
+            answer("All points are the same color."),
+            answer("Point colors vary based on whether the element is an acid or base.", correct = TRUE),
+            answer("This is not the answer."),
+            allow_retry = TRUE)
+)
+```
+
+<br>
+
+#### Consider this other version of the same figure, and answer the subsequent question.
+
+```{r part4_figure6_part2, echo=FALSE}
+set.seed(10)
+ggplot(elements, aes(x = acid_base,
+                     y = electronegativity)) + 
+  geom_jitter(color = "firebrick", width=0.2) +
+  labs(x = "Acid or base", 
+       y = "Element electronegativity") + 
+  theme(legend.position = "none")
+
+quiz(
+     question("Are all points the same color, or does color _vary_ among points based on something else?",
+            answer("All points are the same color", correct = TRUE),
+            answer("Point colors vary based on the element's acid/base category."),
+            answer("This is not the answer."),
+            allow_retry = TRUE)
+  )
+```
+
+<br>
+
+#### Consider this _third_ version of the figure, and answer the subsequent question.
+
+```{r part4_figure6_part3, echo=FALSE}
+set.seed(10)
+ggplot(elements, aes(x = acid_base,
+                     y = electronegativity)) + 
+  geom_jitter(color = "firebrick", width=0.2) +
+  labs(x = "Acid or base", 
+       y = "Element electronegativity") + 
+  theme_classic() +
+  theme(legend.position = "none")
+
+quiz(
+     question("This plot version clearly looks different from the previous versions. What has changed?",
+            answer("There are more points in the plot from before, meaning data has been somewhat changed."),
+            answer("The background of the plot is different from before, but the data in the plot in the same.", correct = TRUE),
+            allow_retry = TRUE)
+  )
+```
+
+
+#### Consider this _fourth and final_ version of the same figure, and answer the subsequent question.
+
+```{r part4_figure6_part4, echo=FALSE}
+set.seed(10)
+ggplot(elements, aes(x = fct_relevel(acid_base, "base"),
+                     y = electronegativity)) + 
+  geom_jitter(color = "firebrick", width=0.2) +
+  labs(x = "Acid or base", 
+       y = "Element electronegativity") + 
+  theme_classic() +
+  theme(legend.position = "none")
+
+quiz(
+     question("This plot version is also somewhat different. How?",
+            answer("There are more points in the plot from before, meaning data has been somewhat changed."),
+            answer("The x-axis is switched! Base now comes before acid.", correct = TRUE),
+            allow_retry = TRUE)
+  )
+```
+
+
+
+### Figure 7
+
+```{r part4_figure7, echo=FALSE}
+ggplot(elements, aes(x = electronegativity,
+                     fill = acid_base)) + 
+  geom_density(alpha = 0.6)+
+  labs(x = "Element electronegativity") + 
+  theme(legend.position = "bottom") +
+  scale_fill_brewer(palette = "Pastel2", name = "Acid or base")
+
+quiz(caption = "",
+     question("What type of plot is this?",
+              answer("Histogram"),
+              answer("Scatterplot"),            
+              answer("Barplot"),
+              answer("Boxplot"),
+              answer("Density plot", correct = TRUE),
+              answer("Violin plot"),
+              answer("Strip (jitter) plot"),
+              allow_retry = TRUE
+              ),
+     question("What variable, if any, is on the X axis?",
+              answer("`element_name`"),
+              answer("`acid_base`"),
+              answer("`atomic_mass`"),
+              answer("`number_of_protons`"),
+              answer("`periodic_table_period`"),
+              answer("`periodic_table_group`"),
+              answer("`atomic_radius`"),
+              answer("`electronegativity`", correct=TRUE),
+              answer("`metal_type`"),
+              answer("`density`"),
+              answer("`specific_heat`"),
+              answer("None of the above: A statistical transformation is on the X-axis"),
+              allow_retry = TRUE
+              ),
+     question("What variable, if any, is on the Y axis?",
+              answer("`element_name`"),
+              answer("`acid_base`"),
+              answer("`atomic_mass`"),
+              answer("`number_of_protons`"),
+              answer("`periodic_table_period`"),
+              answer("`periodic_table_group`"),
+              answer("`atomic_radius`"),
+              answer("`electronegativity`"),
+              answer("`metal_type`"),
+              answer("`density`"),
+              answer("`specific_heat`"),
+              answer("None of the above: A statistical transformation is on the Y-axis", correct=TRUE),
+              allow_retry = TRUE
+              ), 
+     question("There are overlapping distributions in this plot each filled with a different color. What variable in the dataset dictates the difference?",
+              answer("`element_name`"),
+              answer("`acid_base`", correct=TRUE),
+              answer("`atomic_mass`"),
+              answer("`number_of_protons`"),
+              answer("`periodic_table_period`"),
+              answer("`periodic_table_group`"),
+              answer("`atomic_radius`"),
+              answer("`electronegativity`"),
+              answer("`metal_type`"),
+              answer("`density`"),
+              answer("`specific_heat`"),
+            allow_retry = TRUE)
+  )
+```
+
+
+### Figure 8
+
+**Have you noticed a pattern recently? There is a pattern here!**
+
+```{r part4_figure8, echo=FALSE}
+ggplot(elements, aes(y = electronegativity,
+                     x = acid_base, 
+                     fill = acid_base)) + 
+  geom_violin(alpha = 0.6)+
+  labs(x = "Acid or base",
+       y = "Electronegativity") + 
+  theme(legend.position = "none") + 
+  scale_fill_brewer(palette = "Pastel1")
+
+quiz(caption = "",
+     question("What type of plot is this?",
+              answer("Histogram"),
+              answer("Scatterplot"),            
+              answer("Barplot"),
+              answer("Boxplot"),
+              answer("Density plot"),
+              answer("Violin plot", correct = TRUE),
+              answer("Strip (jitter) plot"),
+              allow_retry = TRUE
+              ),
+     question("What variable, if any, is on the X axis?",
+              answer("`element_name`"),
+              answer("`acid_base`", correct=TRUE),
+              answer("`atomic_mass`"),
+              answer("`number_of_protons`"),
+              answer("`periodic_table_period`"),
+              answer("`periodic_table_group`"),
+              answer("`atomic_radius`"),
+              answer("`electronegativity`"),
+              answer("`metal_type`"),
+              answer("`density`"),
+              answer("`specific_heat`"),
+              answer("None of the above: A statistical transformation is on the X-axis"),
+              allow_retry = TRUE
+              ),
+     question("What variable, if any, is on the Y axis?",
+              answer("`element_name`"),
+              answer("`acid_base`"),
+              answer("`atomic_mass`"),
+              answer("`number_of_protons`"),
+              answer("`periodic_table_period`"),
+              answer("`periodic_table_group`"),
+              answer("`atomic_radius`"),
+              answer("`electronegativity`", correct=TRUE),
+              answer("`metal_type`"),
+              answer("`density`"),
+              answer("`specific_heat`"),
+              answer("None of the above: A statistical transformation is on the Y-axis"),
+              allow_retry = TRUE
+              ), 
+     question("There are two distributions in this plot each filled with a different color. What variable in the dataset dictates the difference?",
+              answer("`element_name`"),
+              answer("`acid_base`", correct=TRUE),
+              answer("`atomic_mass`"),
+              answer("`number_of_protons`"),
+              answer("`periodic_table_period`"),
+              answer("`periodic_table_group`"),
+              answer("`atomic_radius`"),
+              answer("`electronegativity`"),
+              answer("`metal_type`"),
+              answer("`density`"),
+              answer("`specific_heat`"),
+            allow_retry = TRUE)
+  )
+```

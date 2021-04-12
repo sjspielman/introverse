@@ -1,0 +1,88 @@
+
+/* FROM DEFAULT
+https://github.com/rstudio/learnr/blob/master/inst/rmarkdown/templates/tutorial/resources/rstudio-theme.css
+
+h1, h2, h3, h4, h5, h6 {
+  color: inherit;
+  font-weight: 300; }
+
+h1 {
+  font-size: 2.4em;
+  margin: .75em 0 .5em 0; }
+
+h2 {
+  font-size: 2.0em;
+  margin: .75em 0 .5em 0; }
+
+h3 {
+  font-size: 1.6em;
+  margin: .75em 0 .5em 0; }
+
+h4 {
+  font-size: 1.2em;
+  margin: .75em 0 .5em 0; }
+
+p {
+  line-height: 1.6em;
+  margin-bottom: 1em; }
+*/
+
+/************************************************/
+/* I changed to: */
+h1 {
+  font-size: 2.0em;
+  margin: .75em 0 .5em 0; }
+
+h2 {
+  font-size: 1.5em;
+  margin: 1.5em 0 .5em 0; }
+
+h3 {
+  font-size: 1.3em;
+  margin: .75em 0 .5em 0; }
+
+h4 {
+  font-size: 1.2em;
+  margin: .75em 0 .5em 0; }
+  
+p {
+  line-height: 1.2em;
+  margin-bottom: 0.5em; 
+  font-size:1.15em;
+  margin-left:15px;
+}
+
+
+/************************************************/
+
+
+
+ol {
+  line-height: 1.2em;
+  font-size:1em;
+  margin-left: -10px;
+  padding-top: 30px;
+  padding-bottom:0px;
+}
+
+ul > ul {
+  line-height: 1.2em;
+  font-size:1em;
+  padding-top: 0px;
+}
+
+
+blockquote {
+  display: block;
+  line-height: 0.95em;
+  font-size: 0.8em;
+  color: #6b6b6b;
+  margin-left: 20px;
+  padding:0;
+}
+
+/*
+#TOC {
+  width:225px;
+}
+*/
