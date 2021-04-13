@@ -10,6 +10,19 @@ library(stringr)
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
+Write a regex that will match four numbers followed by three letters The regex should match all of these:
+
++ "4562ARE"
++ "1100llk"
++ "0000AbC"
+
+"\\d{4}[A-z]{3}"
+
+
+Similar to last question, write same regex making that this is not matched: `7251p_i`
+
+
+
 
 Write a regex matching the phrase "Regex module for beginners".
 
@@ -18,6 +31,7 @@ Write a regex matching the phrase "Regex module for beginners".
 ```
 
 ```{r regex1-solution}
+
 
 goal <- "Regex module for beginners"
 reg <- "^[A-z]+ [a-z]{6,} [a-z]{3,} [a-z]{9,}"
@@ -31,6 +45,10 @@ reg <- "[A-Z, a-z]+ [a-z]+ [a-z]+ [a-z]+"
 
 
 
+
+match any of these numbers "10.45", "11.325", "14.90192", "100.2421", "88.1" but not "90" .
+
+Hint: These are all numbers that have a decimal point with different amounts of digits before and after the decimal.
 
 Write a regex matching the number 17.993
 
@@ -49,7 +67,17 @@ reg <- "\\d{,3}\\.\\d+"
 ```
 
 
+write a regex that matches any sentence that contains five words and ends with a period, assuming sentences always start with a capital letter.
 
+
+
+
+"This should totally work well."
+"this one should not match!"
+"this can not match either."
+"This has way too many words too many"
+"Not enough."
+"CAPS CAN ALSO MATCH ALSO."
 
 Write a regex matching the phrase "8 hot dogs and 9 lemonades".
 
@@ -76,7 +104,7 @@ reg <- "^\\d\\.\\d{2,3}$"
 ```
 
 
-Write a regex matching the relationship between "I like coding" and "Coding is fun".
+Write a regex matches both "I like coding." and "Coding is fun".
 
 ```{r regex5, exercise=TRUE}
 goal <-
@@ -141,6 +169,7 @@ Write a regex searching and replacing every capital letter with its lowercase co
 ```{r regex11-solution}
 str_replace("She Has Science Homework", "([A-Z]+)[a-z]+ ([A-Z]+)[a-z]+ ([A-Z]+)[a-z]+ ([A-Z]+)[a-z]+", "\\[A-Z][a-z]")
 
+#str_to_lower("She Has Science Homework")
 
 ```
 
@@ -204,8 +233,11 @@ Write a regex expression searching and pattern matching the cities "las_vegas", 
 
 
 
+Change "Genus species" to "G. species"
 
 
+
+turn this DNA into RNA 
 
 
 
