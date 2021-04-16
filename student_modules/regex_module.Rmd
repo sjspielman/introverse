@@ -32,7 +32,7 @@ Similar to last question, write same regex making that this is not matched: `725
 ```
 
 ```{r regex1-solution}
-reg <- "\\d{4}[A-z]{1}\\.[A-z]{1}"
+reg <- "\\d{4}[A-z]{1}\\w[A-z]{1}"
 ```
 
 Write a regex matching all of these numbers "10.45", "11.325", "14.90192", "100.2421", "88.1" but not "90" .
@@ -134,7 +134,11 @@ goal <-
 reg <- "\\w{1,6} \\w{2,4} \\w{3,6}\\."
 ```
 
-Write 
+Write a regex matching any sentence with a price, followed by a word, followed by a number, followed by a word and ending in a period.
+
+"$12.98 for 7 flowers."
+"$20.00 with 3 purchases."
+
 
 ```{r regex8, exercise=TRUE}
 
@@ -142,106 +146,132 @@ Write
 ```
 
 ```{r regex8-solution}
-
+reg <- "\\$\\d+\\.\\d+ [A-z]+ \\d+ [A-z]+\\."
 
 ```
 
-Write a regex  extracting all lowercase letters from the city "New York City".
+Write a regex turning this strand of DNA into RNA.
+
+ATAGCTAGGCTATTCGTA
+
+> Hint: In RNA, the T's in DNA turn to U's. In other words, change the T's in the sequence above to U's.
 
 ```{r regex9, exercise=TRUE}
 
 ```
 
 ```{r regex9-solution}
-
-```
-Write a regex extracting all uppercase characters A-T and all lowercase letters a-t.
-
-```{r regex8, exercise=TRUE}
-
+str_replace("ATAGCTAGGCTATTCGTA", (([A])([T])([A])([G])([C])([T])([A])([G])([G])([C])([T])([A])([T])([T])([C])([G])([T])([A])), "\\2611131416U")
 ```
 
-Write a regex expression extracting all numbers from the phrase "I have 3 dogs and 4 cats".
-
-```{r regex9, exercise=TRUE}
-
-```
-
-Write a regex expression extracting all numbers from the phrase "I have 12 birds and 10 fish". (12 should print as "12" and not "1" "2")
+Write a regex extracting all lowercase letters a-t in the sentence: "This sentence contains some a's, t's, and everything in between!"
 
 ```{r regex10, exercise=TRUE}
 
 ```
 
+```{r regex10-solution}
+str_extract_all("This sentence contains some a's, t's, and everything in between!", "[a-t]")
+```
 
-Write a regex searching and replacing every capital letter with its lowercase counterpart in the phrase "She Has Science Homework".
+Write a regex expression extracting all numbers from the phrase "I have 3 dogs and 4 cats".
 
 ```{r regex11, exercise=TRUE}
 
 ```
 
 ```{r regex11-solution}
-str_replace("She Has Science Homework", "([A-Z]+)[a-z]+ ([A-Z]+)[a-z]+ ([A-Z]+)[a-z]+ ([A-Z]+)[a-z]+", "\\[A-Z][a-z]")
+str_extract_all("I have 3 dogs and 4 cats", "\\d+")
+```
 
-#str_to_lower("She Has Science Homework")
+
+
+Write a regex extracting all numbers from the phrase "I have 12 birds and 10 fish". (12 should print as "12" and not "1" "2")
+
+```{r regex12, exercise=TRUE}
+
+```
+
+```{r regex12-solution}
+str_extract_all("I have 12 birds and 10 fish", "\\d\\d")
+```
+
+Write a regex extracting all prices from the sentence: "We bought two flowers for $4.99 each and two pots for $2.99 each, so our total was $15.96."
+
+```{r regex13, exercise=TRUE}
+
+```
+
+```{r regex13-solution}
+str_extract_all("We bought two flowers for $4.99 each and two pots for $2.99 each, so our total was $15.96.", "\\$\\d+\\.\\d+")
 
 ```
 
 
 Write a regex expression to replace 9.0998 with 9.1.
 
-```{r regex12, exercise=TRUE}
+```{r regex14, exercise=TRUE}
+
+```
+
+```{r regex14-solution}
 str_replace("9.0998", "(\\d\\.).+", "\\11")
 
 str_replace("9.0998", "(\\d)\\..+", "\\1.1")
 ```
 
-Write a regex  searching and replacing the numbers in the phrase "I have 6 cats and 7 dogs" with the numbers spelled out. (e.g., 6 = six)
+Write a regex  searching and replacing the numbers in the phrase "I have 6 cats." with the numbers spelled out. (e.g., 6 = six)
 
-```{r regex13, exercise=TRUE}
+```{r regex15, exercise=TRUE}
 
 ```
 
+```{r regex15-solution}
+
+```
+
+
+
 Write a regex expression searching and replacing the word "cats" in the phrase "I have 2 cats" with the word "fish".
 
-```{r regex14, exercise=TRUE}
+```{r regex16, exercise=TRUE}
 str_replace("I have 2 cats", "[A-Z]+ [a-z]+ \\d+ ([a-z]+)", "\\1fish")
 ```
 
 
 Write a regex searching and replacing the lowercase letters are the beginning of each word in the city "las vegas" with their uppercase counterpart.
 
-```{r regex15, exercise=TRUE}
+```{r regex17, exercise=TRUE}
 str_replace("lax vegas", "([a-z]?)[a-z]+ ([a-z]?)[a-z]+", "\\12[A-Z]")
 ```
 
 Write a regex expression to add hyphens in the word "mother in law" where spaces are currently present.
 
-```{r regex16, exercise=TRUE}
+```{r regex18, exercise=TRUE}
 
 ```
 
 Write a regex expression searching and replacing hyphens in the cities "Las-Vegas" and "San-Juan" with spaces. 
 
-```{r regex17, exercise=TRUE}
+```{r regex19, exercise=TRUE}
 
 ```
 
 Write a regex expression joining the two components of the words "ear ring", "dish washer" and "earth worm" to create their individual compound words.
 
-```{r regex18, exercise=TRUE}
+```{r regex20, exercise=TRUE}
 
 ```
 
 Write a regex expression searching and pattern matching the decimals 12.624, 14.83 and 16.2838 to the format of 12.8.
 
-```{r regex19, exercise=TRUE}
+```{r regex21, exercise=TRUE}
 
 ```
 
 Write a regex expression searching and pattern matching the cities "las_vegas", "san_antonio", "san_juan" and "san_francisco" to match the format Los Angeles. 
 
-```{r regex20, exercise=TRUE}
+```{r regex22, exercise=TRUE}
 
 ```
 
