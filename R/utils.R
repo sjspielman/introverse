@@ -46,7 +46,7 @@ examples_header <- crayon::inverse("\n\nExamples:\n\n")
 
 #' Style text as code comment
 #'
-#' @param x Text to be styled as a code comment
+#' @param ... Text to be styled as a code comment
 style_comment <- function(...) {
   crayon::silver(...)
 }
@@ -54,7 +54,7 @@ style_comment <- function(...) {
 
 #' Style text as code
 #'
-#' @param x Text to be styled as code
+#' @param ... Text to be styled as code
 style_code <- function(...) {
   crayon::blue(...)
 }
@@ -63,4 +63,3 @@ style_code <- function(...) {
 #' My own penguins
 #' @noRd
 penguins <- palmerpenguins::penguins
-
