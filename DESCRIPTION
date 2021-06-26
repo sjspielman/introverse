@@ -7,7 +7,7 @@ Authors@R:
            role = c("aut", "cre"),
            email = "spielman@rowan.edu",
            comment = c(ORCID = "0000-0002-9090-4788"))
-Description: Has alternative docs and launches exercises, for now!
+Description: Has alternative docs, for now!
 License: CC BY 4.0
 Encoding: UTF-8
 LazyData: true
