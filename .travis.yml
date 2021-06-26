@@ -10,4 +10,8 @@ r:
   - devel
   
 r_packages:
- - testthat
+     - testthat
+     
+branches:
+  only:
+    - pkg
