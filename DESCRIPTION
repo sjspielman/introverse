@@ -16,7 +16,11 @@ RoxygenNote: 7.1.1
 Imports: 
     crayon,
     magrittr,
+    palmerpenguins,
     usethis
 Collate:
     'utils_operators.R'
     'fct_get-help.R'
+Suggests: 
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
