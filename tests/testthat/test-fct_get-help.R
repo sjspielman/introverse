@@ -9,10 +9,13 @@ test_that("show_topics() yields output",{
 test_that("get_help() works",{
   expect_output(get_help()) # null
   expect_message(get_help("faketopic"))
-
-  # Add topics here - implicitly tests the introverse_<f> functions...
-  expect_output(get_help("filter"))
-  expect_output(get_help("select"))
-  expect_output(get_help("mutate"))
+  expect_message(get_help(10))
+  
+  # each topic should give *output*
+  test_get_help <- function(x)
+  {
+    expect_output(get_help(x))
+  }
+  sapply(unlist(topic_list), test_get_help)
   
 })

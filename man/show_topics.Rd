@@ -13,5 +13,7 @@ Prints out available topics by package
 Show the topic list
 }
 \examples{
-`show_topics()`
+\dontrun{
+show_topics()
+}
 }
