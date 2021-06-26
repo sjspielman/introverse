@@ -43,31 +43,24 @@ head_space <- "\n"
 #' @noRd
 examples_header <- crayon::inverse("\n\nExamples:\n\n")
 
+
+#' Style text as code comment
+#'
+#' @param x Text to be styled as a code comment
+style_comment <- function(...) {
+  crayon::silver(...)
+}
+
+
+#' Style text as code
+#'
+#' @param x Text to be styled as code
+style_code <- function(...) {
+  crayon::blue(...)
+}
+
+
 #' My own penguins
 #' @noRd
 penguins <- palmerpenguins::penguins
 
-
-#' List of topics
-#' @noRd
-topic_list <- list(
-  "dplyr" = c("filter", "select", "mutate"),
-  "tidyr" = c("forthcoming")
-)
-
-#' Show the topic list
-print_topic_list <- function()
-{
-  full <- ""
-  for (pkg in names(topic_list))
-  {
-    full <- cat(full %+%
-      crayon::red(glue::glue({pkg}, "::"))
-    )
-    for (topic in topic_list[[pkg]])
-    {
-      full <- cat(full, "\n", glue::glue('"', {topic}, '"'))
-    }
-    full <- "\n"
-  }
-}

@@ -19,8 +19,10 @@ Imports:
     palmerpenguins,
     usethis
 Collate:
-    'utils_operators.R'
+    'utils.R'
+    'fct_topics.R'
     'fct_get-help.R'
+    'topics_dplyr.R'
 Suggests: 
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
