@@ -3,4 +3,4 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
 documentation_modules/
-^\.github$
+^\.travis\.yml$
