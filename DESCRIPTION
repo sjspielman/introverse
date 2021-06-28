@@ -21,9 +21,6 @@ Imports:
     usethis
 Collate:
     'utils.R'
-    'examples_dplyr.R'
-    'usage_dplyr.R'
-    'descriptions_dplyr.R'
     'fct_topics.R'
     'fct_get-help.R'
 Suggests: 
