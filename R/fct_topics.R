@@ -9,7 +9,9 @@ topic_list <- list(
               "distinct",
               "summarize",
               "group_by",
-              "ungroup") 
+              "ungroup", 
+              "rename") 
+  
               #"count")
               # _join
               # bind_

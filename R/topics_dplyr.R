@@ -134,7 +134,7 @@ introverse_select <- function() {
       "The `select()` function is part of the " %+% 
       crayon::bold("{dplyr} package") %+%
       ".\nConceptual usage: `tibble %>% select(columns, you, want, to, keep)`",
-    "\nConceptual usage: `tibble %>% select(-columns, -you, -want, -to, -remove)`" %+%
+    "\nConceptual usage: `tibble %>% select(-columns, -you, -want, -to, -remove)`\n\n" %+%
       "It is used to " %+% crayon::bold("keep, remove, and/or reorder columns") %+%
       " in tibbles (data frames)." %+%
       examples_header %+%
@@ -357,5 +357,39 @@ introverse_group_by <- function() {
       ) 
   )
 }
+
+
+
+#' Documentation for dplyr::rename
+#' @noRd
+introverse_rename <- function() {
+  cat(
+    head_space %+%
+      "The `rename()` function is part of the " %+% 
+      crayon::bold("{dplyr} package") %+%
+      "\nConceptual usage: `tibble %>% rename(new column name = old colunm name)`\n\n"%+%
+      "`rename()` is useful for quickly renaming columns in tibbles (data frames). No quotes are needed." %+%
+      examples_header %+%
+      ## Example 1
+      style_comment(
+        "# Rename the `species` column to `penguin_species`\n"
+      ) %+%
+      style_code(
+        "penguins %>%\n",
+        pipetab, "rename(penguin_species = species)"
+      ) %+% "\n\n" %+%
+      ## Example 2
+      style_comment(
+        "# Rename the `species` column to `penguin_species`, and rename the `flipper_length_mm` column to `flipper` \n"
+      ) %+%
+      style_code(
+        "penguins %>%\n",
+        pipetab, "rename(penguin_species = species,\n",
+        pipetab, pipetab, pipetab, "flipper = flipper_length_mm)"
+      )
+    ) 
+}
+
+
 
 
