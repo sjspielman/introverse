@@ -1,9 +1,9 @@
 #' Prints help and examples for a given function to the R Console
 #'
-#' @param f A function whose introverse quick docs to look up
-get_help <- function(f = NULL) {
+#' @param name_of_function A function whose introverse quick docs to look up
+get_help <- function(name_of_function = NULL) {
   
-  if (is.null(f))
+  if (is.null(name_of_function))
   {
     cat(
       crayon::bold(
@@ -18,7 +18,7 @@ get_help <- function(f = NULL) {
   } else
   {
     # Bad topic
-    if (!(f %in% unlist(topic_list)))
+    if (!(name_of_function %in% unlist(topic_list)))
     {
       message(
         crayon::bold(
@@ -28,12 +28,30 @@ get_help <- function(f = NULL) {
     } else 
     {  
       # Good topic
-      eval(
-        parse(
-          text =
-            glue::glue("introverse_{f}()")
-        )
-      )
+      reveal_help(name_of_function)
+      #eval(
+      #  parse(
+      #    text =
+      #      glue::glue("introverse_{f}()")
+      #  )
+      #)
     }
   }
+}
+
+
+#' Reveal help for a given function
+#' @param name_of_function A function whose introverse quick docs to look up
+#' @noRd
+reveal_help <- function(name_of_function) {
+  cat(
+    eval(parse(text = glue::glue("description_", {name_of_function}, "()"))) %+%
+      format_conceptual_usage(
+        eval(parse(text = glue::glue("conceptual_usage_", {name_of_function}, "()")))
+      ) %+%
+      examples_header %+%
+      format_examples(
+        eval(parse(text = glue::glue("examples_", {name_of_function}, "()")))
+      )
+  )
 }
