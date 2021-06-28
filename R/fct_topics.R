@@ -10,7 +10,21 @@ topic_list <- list(
               "summarize",
               "group_by",
               "ungroup", 
-              "rename") 
+              "rename", 
+              "glimpse"),
+  
+   "Base R" = c("head", 
+                "tail", 
+                "length", 
+                "nchar", 
+                "log", 
+                "sqrt", 
+                "summary", 
+                "mean",
+                "median",
+                "max",
+                "min",
+                "sd")
   
               #"count")
               # _join
