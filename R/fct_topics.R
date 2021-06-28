@@ -12,6 +12,15 @@ topic_list <- list(
               "ungroup", 
               "rename", 
               "glimpse"),
+  #"count")
+  # _join
+  # bind_
+  # tally
+  # n
+  # between
+  # if_else
+  # case_when
+  
   
    "Base R" = c("head", 
                 "tail", 
@@ -26,14 +35,7 @@ topic_list <- list(
                 "min",
                 "sd")
   
-              #"count")
-              # _join
-              # bind_
-              # tally
-              # n
-              # between
-              # if_else
-              # case_when
+
   
 )
 
