@@ -11,8 +11,8 @@ description_sum <- function()
 #' @noRd
 conceptual_usage_sum <- function()
 {
-  c("sum(an array you want to know the sumimum value of)",
-    "sum(an array with NAs you want to know the sumimum value of, na.rm = TRUE)")
+  c("sum(an array you want to know the sum value of)",
+    "sum(an array with NAs you want to know the sum value of, na.rm = TRUE)")
 }
 
 
@@ -31,7 +31,7 @@ examples_sum <- function()
     ),
     c(
       "Find the sum value of an array with NAs",
-      "sum(c(44, 55, NA, 66), na.rm = TRUE )"
+      "sum(c(44, 55, NA, 66), na.rm = TRUE)"
     )
   )
 }

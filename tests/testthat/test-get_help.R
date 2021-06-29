@@ -11,7 +11,7 @@ test_that("get_help() works",{
   expect_message(get_help("faketopic"))
   expect_message(get_help(10))
   
-  # each topic should give *output*
+  # each topic should give *output*, implicitly testing `reveal_help()`
   test_get_help <- function(x)
   {
     expect_output(get_help(x))

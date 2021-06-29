@@ -284,4 +284,72 @@ test_that("Code in as.factor/as.numeric/as.character examples works",{
   ) 
 })
 
+test_that("Code for mathematical operators works",{
 
+  expect_equal(
+    eval(parse(text = examples_math()[[1]][2])), 
+    5+8
+  )
+  expect_equal(
+    eval(parse(text = examples_math()[[2]][2])), 
+    5-8
+  )
+  expect_equal(
+    eval(parse(text = examples_math()[[3]][2])), 
+    5/8
+  )
+  expect_equal(
+    eval(parse(text = examples_math()[[4]][2])), 
+    5*8
+  )
+  expect_equal(
+    eval(parse(text = examples_math()[[5]][2])), 
+    5^8
+  )
+  expect_equal(
+    eval(parse(text = examples_math()[[6]][2])), 
+    5**8
+  )
+  expect_equal(
+    eval(parse(text = examples_math()[[7]][2])), 
+    5 + c(45, 65, 85, 105)
+  )
+  expect_equal(
+    eval(parse(text = examples_math()[[8]][2])), 
+    c(45, 65, 85, 105)^2
+  )
+  
+})
+
+
+test_that("Code for logical operators works",{
+  
+  expect_equal(
+    eval(parse(text = examples_logical()[[1]][2])), 
+    10 == 12
+  )
+  expect_equal(
+    eval(parse(text = examples_logical()[[2]][2])), 
+    14 > 13.5
+  )
+  expect_equal(
+    eval(parse(text = examples_logical()[[3]][2])), 
+    length( c(1, 1, 2, 3, 5, 8, 13)  ) == 6
+  )
+  expect_equal(
+    eval(parse(text = examples_logical()[[4]][2])), 
+    nchar('im a string being evaluated') <= 7
+  )
+  expect_equal(
+    eval(parse(text = examples_logical()[[5]][2])), 
+    nchar('!(55 > 27)') <= 7
+  )
+  expect_equal(
+    eval(parse(text = examples_logical()[[6]][2])), 
+    'elephant' %in% c('hippopotamus', 'giraffe', 'zebra', 'elephant')
+  )
+  expect_equal(
+    eval(parse(text = examples_logical()[[7]][2])), 
+    2003 %in% penguins$year
+  )
+})
