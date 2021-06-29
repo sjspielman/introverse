@@ -2,7 +2,7 @@
 #' @noRd
 description_log <- function()
 {
-  "The `log()` functions comes with R and is part of the {base} package.
+  "The `log()` function comes with R and is part of the {base} package.
   
   We use this function to calculate the log of a number or numeric array. By default, the function calculates the natural log (base e). Provide a second argument to change the base."
 }

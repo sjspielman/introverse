@@ -1,6 +1,12 @@
 #' List of available help topics
 #' @noRd
 topic_list <- list(
+  
+  #"operators" = c("math" 
+  #                "logical", 
+  #                "assignment",
+  #                "pipe"),
+  
   "dplyr" = c("filter", 
               "slice",
               "select", 
@@ -11,16 +17,16 @@ topic_list <- list(
               "group_by",
               "ungroup", 
               "rename", 
-              "glimpse"),
-  #"count")
+              "glimpse", 
+              "pull",
+              "tally", 
+              "count",
+              "n", 
+              "case_when", 
+              "if_else"),
   # _join
   # bind_
-  # tally
-  # n
   # between
-  # if_else
-  # case_when
-  
   
    "Base R" = c("head", 
                 "tail", 
@@ -33,10 +39,23 @@ topic_list <- list(
                 "median",
                 "max",
                 "min",
-                "sd")
-  
-
-  
+                "sum",
+                "sd",
+                "round", "ceiling", "floor",
+                "ifelse", 
+                "nrow", "ncol",
+                "table",
+                "levels", 
+                "class", 
+                "c", 
+                "data.frame",
+                "file.path", 
+                "file.exists", "dir.exists",
+                "as.numeric", "as.factor", "as.character", # "as.logical" probably not needed?
+                ##### DO NOT TEST EXAMPLES FOR THE REST #####
+                "library", "install.packages",
+                "getwd", "setwd") 
+                
 )
 
 #' Show the topic list

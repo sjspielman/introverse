@@ -12,7 +12,7 @@ get_help <- function(name_of_function = NULL) {
       "To get some help, provide an *argument* to the `get_help()` function in this format: " %+%
       style_code('get_help("name of function")') %+% 
       "\nFor example: " %+%  style_code('get_help("filter")') %+% 
-      "\n\n" %+% crayon::bold("Currently available help topics:\n") 
+      "\nMany help examples use the `penguins` tibble (data frame). Make sure you have explored this tibble first to fully understand all examples.\n\n" %+% crayon::bold("Currently available help topics:\n") 
     )
     show_topics()
   } else

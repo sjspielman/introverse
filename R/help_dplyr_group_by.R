@@ -20,7 +20,7 @@ description_ungroup <- function()
 conceptual_usage_group_by  <- function()
 {
   c("tibble %>% group_by(group subsequent steps on this column)",
-    "tibble %>% group_by(group, subsequent, steps, on, these, columns",
+    "tibble %>% group_by(group, subsequent, steps, on, these, columns)",
     "tibble that was previously grouped %>% ungroup()`"
   )
 }

@@ -1,3 +1,5 @@
+# mean -------------------------------------
+
 #' Description for base::mean()
 #' @noRd
 description_mean <- function()
