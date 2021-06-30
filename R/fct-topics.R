@@ -1,82 +1,78 @@
 # topic_list -------------------
-#' List of available help topics
-#' @noRd
+#' List of available help topics by category
 topic_list <- list(
-  "operators" = sort(
-    c("math",
-      "logical")
-  #    "assignment",
-  #    "pipe"),
-  ),
-  
   "dplyr" = sort(
-    c("filter", 
-     "slice",
-     "select", 
-     "mutate", 
-     "arrange", 
-     "distinct",
-     "summarize",
-     "group_by",
-     "ungroup", 
-     "rename", 
-     "glimpse", 
-     "pull",
-     "tally", 
-     "count",
-     "n", 
-     "case_when", 
-     "if_else")
-  ),
-  # _join
-  # bind_
-  # between
-  
-    # comes with R, affectionately termed base, even though some is not, it's all documented.
-   "base" = sort(
-     c("head", 
-        "tail", 
-        "length", 
-        "nchar", 
-        "log", 
-        "sqrt", 
-        "summary", 
-        "mean",
-        "median",
-        "max",
-        "min",
-        "sum",
-        "sd",
-        "round", "ceiling", "floor",
-        "ifelse", 
-        "nrow", "ncol",
-        "table",
-        "levels", 
-        "class", 
-        "c", 
-        "data.frame",
-        "file.path", 
-        "file.exists", "dir.exists",
-        "as.numeric", "as.factor", "as.character", # "as.logical" probably not needed?
-        ##### DO NOT TEST EXAMPLES FOR THE REST #####
-        "library", "install.packages",
-        "getwd", "setwd") 
-   )
-                
+    "filter"
+  )
 )
-
-# no_usage_topic_list -----------------------------------------
-#' Array of topics that _do not have conceptual usage_ sections
-#' @noRd
-no_usage_topic_list <- c("math", "logical")
-
-# output_description_topic_list -----------------------------------------
-#' Array of topics that do _have output for descriptions, not character_ sections
-#' @noRd
-output_description_topic_list <- c("logical")
+# Need to convert below to Rmd from current text garbage
+# topic_list <- list(
+#   "operators" = sort(
+#     c("math",
+#       "logical")
+#   #    "assignment",
+#   #    "pipe"),
+#   ),
+#   
+#   "dplyr" = sort(
+#     c("filter", 
+#      "slice",
+#      "select", 
+#      "mutate", 
+#      "arrange", 
+#      "distinct",
+#      "summarize",
+#      "group_by",
+#      "ungroup", 
+#      "rename", 
+#      "glimpse", 
+#      "pull",
+#      "tally", 
+#      "count",
+#      "n", 
+#      "case_when", 
+#      "if_else")
+#   ),
+#   # _join
+#   # bind_
+#   # between
+#   
+#     # comes with R, affectionately termed base, even though some is not, it's all documented.
+#    "base" = sort(
+#      c("head", 
+#         "tail", 
+#         "length", 
+#         "nchar", 
+#         "log", 
+#         "sqrt", 
+#         "summary", 
+#         "mean",
+#         "median",
+#         "max",
+#         "min",
+#         "sum",
+#         "sd",
+#         "round", "ceiling", "floor",
+#         "ifelse", 
+#         "nrow", "ncol",
+#         "table",
+#         "levels", 
+#         "class", 
+#         "c", 
+#         "data.frame",
+#         "file.path", 
+#         "file.exists", "dir.exists",
+#         "as.numeric", "as.factor", "as.character", # "as.logical" probably not needed?
+#         ##### DO NOT TEST EXAMPLES FOR THE REST #####
+#         "library", "install.packages",
+#         "getwd", "setwd") 
+#    )
+#                 
+# )
 
 #' Show the topic list
 #' 
+#' TODO: Should we reveal this in Console or Viewer?
 #' @param category If specified, gives only topics in the given category (name in topic_list)
 #' @returns Prints out available topics by package
 #' @export
@@ -139,6 +135,8 @@ show_topics <- function(category = NULL)
 
 
 #' Redirect user to the get_help() output if they entered a topic into `show_topics()`
+#' 
+#' TODO: Should we reveal this in Console or Viewer?
 #' @param topic The topic to whose help this function redirects to
 #' @noRd
 message_topic_to_help <- function(topic)
@@ -152,7 +150,33 @@ message_topic_to_help <- function(topic)
 }
 
 
+
+#' Function to identify a topic's category
+#' 
+#' @param topic The topic of interest
+#' @returns The category
+find_topic_category <- function(topic){
+  
+  gsub("\\d+$", "", 
+       names(unlist(topic_list)[unlist(topic_list) == topic])) -> category
+  
+  # Should no longer be NULL and should be a character
+  if ((!(typeof(category) == "character")) | is.null(category))
+  {
+    stop("\nERROR: Could not determine the category for the given topic.")
+  }
+  # Should only be ONE word
+  # TODO Eventually, if we have duplicates, can prompt for which one.
+  if (length(category) != 1)
+  {
+    stop("\nERROR: A unique category for the given topic could not be found.")
+  }
+  category
+}
+
 #' Show the list of topic categories
+#' 
+#' TODO: Should we reveal this in Console or Viewer?
 #' @returns Prints out available topic categories
 #' @export
 #' @examples 

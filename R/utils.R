@@ -26,72 +26,33 @@ NULL
 #' @return The combined `crayon` values
 NULL
 
-#' Head space at top of doc
+#' Penguins dataset
+#' 
 #' @keywords internal
+#' @export
+#' @importFrom palmerpenguins penguins
 #' @noRd
-head_space <- "\n"
+NULL
 
-#' Examples header
+
+#' Internal path to html topics
 #' @keywords internal
-#' @noRd
-examples_header <- crayon::inverse("\nExamples:\n")
+html_topics_path <- "html_topics"
+
+#' Internal path to Rmd topics
+#' @keywords internal
+rmd_topics_path <- "rmd_topics"
 
 
-#' Style text as code comment
-#'
-#' @param ... Text to be styled as a code comment
-style_comment <- function(...) 
+#' Viewer wrapper for showing the help docs
+#' 
+#' @param html_file The (temporary) HTML file containing the rendered help to view
+#' @keywords internal
+introverse_viewer <- function(html_file)
 {
-  crayon::silver("\n# " %+% ...)
+  viewer <- getOption("viewer")
+  rstudioapi::viewer(html_file)
 }
-
-
-#' Style text as code
-#'
-#' @param ... Text to be styled as code
-style_code <- function(...) {
-  crayon::blue("\n" %+% ...)
-}
-
-
-#' My own penguins
-#' @noRd
-penguins <- palmerpenguins::penguins
-
-
-
-#' Format conceptual usages
-#' @noRd
-format_conceptual_usage <- function(...)
-{
-  usage_array <- c(...)
-  print_usage <- "\n\n"  %+% crayon::inverse("Conceptual Usage:\n\n") 
-  
-  for (use_case in usage_array)
-  {
-    print_usage <- print_usage %+% 
-      "`" %+% 
-      crayon::yellow(use_case) %+% 
-      "`" %+% "\n"
-  }
-  print_usage
-}
-
-
-
-#' Format code examples
-#' @noRd
-#' @param example_list an unnamed list of examples. Each example should be an array `(comment string, code string)`
-format_examples <- function(example_list)
-{
-  full <- ""
-  for (x in example_list)
-  {
-    full <- full %+% style_comment(x[1]) %+% style_code(x[2]) %+% "\n"
-  }
-  full
-}
-
 
 
 

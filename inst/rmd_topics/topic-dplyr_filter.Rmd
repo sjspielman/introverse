@@ -1,0 +1,94 @@
+---
+title: "`dplyr::filter()`"
+author: "`{introverse}` quick docs"
+output: 
+  html_document:
+    theme: flatly
+    highlight: pygments
+---
+
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE, 
+                      warning = FALSE, 
+                      message = FALSE)
+# If your topic is from a library, load the INDIVIDUAL library here.
+# DO NOT, I REPEAT __DO NOT__, LOAD THE FULL TIDYVERSE. ONLY LOAD INDIVIDUAL LIBRARIES THAT ARE NEEDED.
+# IN OTHER WORDS, `library(tidyverse)` <-- ABSOLUTELY NOT!!!!!!!!!
+library(dplyr)
+library(palmerpenguins)
+```
+
+<br>
+
+## Description
+
+The [`filter()`](https://dplyr.tidyverse.org/reference/filter.html) function is part of the [`{dplyr}`](https://dplyr.tidyverse.org/) package, which is part of the [`{tidyverse}`](https://www.tidyverse.org/).
+
+It is used to **subset rows** from tibbles (data frames). Rows are kept if the given logical statement (code that gives `TRUE` or `FALSE`) is `TRUE`. Use this function if you only want to keep certain rows, aka certain observations."
+
+
+<!-- Add the following if the topic is a function that does NOT come with base R, and uncomment/fill in the subsequent multiline HTML comment: -->
+To use this function, you need to either first load the `{dplyr}` library, or always use the function with `dplyr::filter()` notation.
+
+```{r, eval=FALSE}
+# Load the library
+library(dplyr)
+# Or, load the full tidyverse:
+library(tidyverse)
+
+# Or, use :: notation
+dplyr::filter()
+```
+
+
+
+## Conceptual usage 
+
+```{r, eval=FALSE}
+tibble %>% 
+  filter(logical statement)
+
+tibble %>% 
+  filter(logical statement,
+         another logical statement,
+         and more logical statements that you want to all be TRUE)
+
+```
+
+## Examples
+
+
+```{r}
+# Subset penguins to keep only rows (observations) that are 'Gentoo' species (rows where it is TRUE that species == 'Gentoo')" 
+penguins %>% 
+  filter(species == "Gentoo")
+```
+
+<br>  <!-- Do not delete the <br>, and make sure to keep the previous and following lines blank. -->
+
+
+```{r}
+# Subset penguins to keep only rows with bill lengths greater than 45
+penguins %>%
+  filter(bill_length_mm > 45)
+```
+
+<br> 
+
+
+```{r}
+# Subset penguins to keep only rows where the species is 'Gentoo' and the island is 'Biscoe'
+penguins %>%
+  filter(species == "Gentoo", island == "Biscoe")
+```
+
+<br> 
+
+```{r}
+# Subset penguins to keep only rows where the species is _either_ 'Gentoo' or 'Adelie'
+# In other words, it should be TRUE that the species is %in% the array c("Gentoo", "Adelie"). 
+# Remember: We do _not_ use `==` when asking if a value is in an array.
+penguins %>%
+  filter(species %in% c("Gentoo", "Adelie"))
+```
