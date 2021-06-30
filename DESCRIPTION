@@ -15,14 +15,19 @@ Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
 Imports: 
     crayon,
+    dplyr (>= 1.0.0),
+    ggplot2 (>= 3.3.2),
+    tidyr (>= 1.0.0),
+    tidyselect,
     glue,
     magrittr,
     palmerpenguins,
+    rstudioapi,
     usethis
 Collate:
     'utils.R'
-    'fct_topics.R'
-    'fct_get-help.R'
+    'fct-topics.R'
+    'fct-get_help.R'
 Suggests: 
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
