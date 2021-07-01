@@ -5,8 +5,7 @@
 Want to learn more about R package development in general? 
 
 1. Official book: https://r-pkgs.org/
-2. Some good blog posts:
-  + https://www.pipinghotdata.com/posts/2020-10-25-your-first-r-package-in-1-hour/
+2. A good blog post walking you through your first package: https://www.pipinghotdata.com/posts/2020-10-25-your-first-r-package-in-1-hour/
 3. You will use the package `devtools` _a lot_ https://devtools.r-lib.org/
 
 
