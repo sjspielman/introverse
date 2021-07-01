@@ -2,5 +2,8 @@
 
 export("%+%")
 export("%>%")
+export(get_help)
+export(show_topic_categories)
+export(show_topics)
 importFrom(crayon,"%+%")
 importFrom(magrittr,"%>%")

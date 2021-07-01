@@ -1,7 +1,12 @@
 .onAttach <- function(libname, pkgname) {
-  packageStartupMessage("\nWelcome to the {introverse}! Please be aware that to use this package, you must be working with R from RStudio.")
+  packageStartupMessage(
+    "\nWelcome to the {introverse}! Please be aware that to use this package, you must be working with R from RStudio.\n\n" %+%
+    "Not sure where to start? You can...\n" %+%
+    "- Run the function " %+% crayon::inverse("TBD??") %+% " to learn about the built-in dataset called `pengs` used for examples.\n" %+% 
+    "- Run the function " %+% crayon::inverse("show_topics()") %+% " to see all the different topics you can ask for help for.\n" %+%
+    "- Ready to get some help? Use the function " %+% crayon::inverse('get_help("topic you want help on")') %+% " to get some help! For example, to get help using the `mean()` function, run:  " %+% crayon::inverse('get_help("mean")') %+% "."
+  )
 }
-
 #' Pipe operator
 #'
 #' See \code{magrittr::\link[magrittr:pipe]{\%>\%}} for details.
@@ -28,14 +33,6 @@ NULL
 #' @param lhs A `crayon` value
 #' @param rhs A `crayon` value
 #' @return The combined `crayon` values
-NULL
-
-#' Penguins dataset
-#' 
-#' @keywords internal
-#' @export
-#' @importFrom palmerpenguins penguins
-#' @noRd
 NULL
 
 

@@ -5,3 +5,5 @@
 documentation_modules/
 ^\.travis\.yml$
 inst/rmd_topics/*\.html$
+^CONTRIBUTING.html$
+^README.html$

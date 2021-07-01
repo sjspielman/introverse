@@ -280,79 +280,51 @@ pre code {
 </div>
 <div id="examples" class="section level2">
 <h2>Examples</h2>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Subset penguins to keep only rows (observations) that are &#39;Gentoo&#39; species (rows where it is TRUE that species == &#39;Gentoo&#39;)&quot; </span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>penguins <span class="sc">%&gt;%</span> </span>
+<blockquote>
+<p>Need a reminder of the dataset <code>pengs</code>? You can see the full dataset with <code>View(pengs)</code> and learn more about the dataset with <code>get_help(&quot;pengs&quot;)</code>.</p>
+</blockquote>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Subset pengs to keep only rows (observations) that are &#39;Gentoo&#39; species (rows where it is TRUE that species == &#39;Gentoo&#39;)&quot; </span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>pengs <span class="sc">%&gt;%</span> </span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(species <span class="sc">==</span> <span class="st">&quot;Gentoo&quot;</span>)</span></code></pre></div>
-<pre><code>## # A tibble: 124 x 8
-##    species island bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
-##    &lt;fct&gt;   &lt;fct&gt;           &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt;
-##  1 Gentoo  Biscoe           46.1          13.2               211        4500
-##  2 Gentoo  Biscoe           50            16.3               230        5700
-##  3 Gentoo  Biscoe           48.7          14.1               210        4450
-##  4 Gentoo  Biscoe           50            15.2               218        5700
-##  5 Gentoo  Biscoe           47.6          14.5               215        5400
-##  6 Gentoo  Biscoe           46.5          13.5               210        4550
-##  7 Gentoo  Biscoe           45.4          14.6               211        4800
-##  8 Gentoo  Biscoe           46.7          15.3               219        5200
-##  9 Gentoo  Biscoe           43.3          13.4               209        4400
-## 10 Gentoo  Biscoe           46.8          15.4               215        5150
-## # ... with 114 more rows, and 2 more variables: sex &lt;fct&gt;, year &lt;int&gt;</code></pre>
+<pre><code>## # A tibble: 2 x 5
+##   species island flipper_length_mm body_mass_g  year
+##   &lt;chr&gt;   &lt;chr&gt;              &lt;dbl&gt;       &lt;dbl&gt; &lt;dbl&gt;
+## 1 Gentoo  Biscoe               211        4500  2007
+## 2 Gentoo  Biscoe               230        5800  2008</code></pre>
 <p><br> <!-- Do not delete the <br>, and make sure to keep the previous and following lines blank. --></p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Subset penguins to keep only rows with bill lengths greater than 45</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>penguins <span class="sc">%&gt;%</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(bill_length_mm <span class="sc">&gt;</span> <span class="dv">45</span>)</span></code></pre></div>
-<pre><code>## # A tibble: 165 x 8
-##    species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
-##    &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt;
-##  1 Adelie  Torgersen           46            21.5               194        4200
-##  2 Adelie  Torgersen           45.8          18.9               197        4150
-##  3 Adelie  Biscoe              45.6          20.3               191        4600
-##  4 Gentoo  Biscoe              46.1          13.2               211        4500
-##  5 Gentoo  Biscoe              50            16.3               230        5700
-##  6 Gentoo  Biscoe              48.7          14.1               210        4450
-##  7 Gentoo  Biscoe              50            15.2               218        5700
-##  8 Gentoo  Biscoe              47.6          14.5               215        5400
-##  9 Gentoo  Biscoe              46.5          13.5               210        4550
-## 10 Gentoo  Biscoe              45.4          14.6               211        4800
-## # ... with 155 more rows, and 2 more variables: sex &lt;fct&gt;, year &lt;int&gt;</code></pre>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Subset pengs to keep only rows with flipper lengths greater than 200</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>pengs <span class="sc">%&gt;%</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(flipper_length_mm <span class="sc">&gt;</span> <span class="dv">200</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 2 x 5
+##   species island flipper_length_mm body_mass_g  year
+##   &lt;chr&gt;   &lt;chr&gt;              &lt;dbl&gt;       &lt;dbl&gt; &lt;dbl&gt;
+## 1 Gentoo  Biscoe               211        4500  2007
+## 2 Gentoo  Biscoe               230        5800  2008</code></pre>
 <p><br></p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Subset penguins to keep only rows where the species is &#39;Gentoo&#39; and the island is &#39;Biscoe&#39;</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>penguins <span class="sc">%&gt;%</span></span>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Subset pengs to keep only rows where the species is &#39;Gentoo&#39; and the island is &#39;Biscoe&#39;</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>pengs <span class="sc">%&gt;%</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(species <span class="sc">==</span> <span class="st">&quot;Gentoo&quot;</span>, island <span class="sc">==</span> <span class="st">&quot;Biscoe&quot;</span>)</span></code></pre></div>
-<pre><code>## # A tibble: 124 x 8
-##    species island bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
-##    &lt;fct&gt;   &lt;fct&gt;           &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt;
-##  1 Gentoo  Biscoe           46.1          13.2               211        4500
-##  2 Gentoo  Biscoe           50            16.3               230        5700
-##  3 Gentoo  Biscoe           48.7          14.1               210        4450
-##  4 Gentoo  Biscoe           50            15.2               218        5700
-##  5 Gentoo  Biscoe           47.6          14.5               215        5400
-##  6 Gentoo  Biscoe           46.5          13.5               210        4550
-##  7 Gentoo  Biscoe           45.4          14.6               211        4800
-##  8 Gentoo  Biscoe           46.7          15.3               219        5200
-##  9 Gentoo  Biscoe           43.3          13.4               209        4400
-## 10 Gentoo  Biscoe           46.8          15.4               215        5150
-## # ... with 114 more rows, and 2 more variables: sex &lt;fct&gt;, year &lt;int&gt;</code></pre>
+<pre><code>## # A tibble: 2 x 5
+##   species island flipper_length_mm body_mass_g  year
+##   &lt;chr&gt;   &lt;chr&gt;              &lt;dbl&gt;       &lt;dbl&gt; &lt;dbl&gt;
+## 1 Gentoo  Biscoe               211        4500  2007
+## 2 Gentoo  Biscoe               230        5800  2008</code></pre>
 <p><br></p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Subset penguins to keep only rows where the species is _either_ &#39;Gentoo&#39; or &#39;Adelie&#39;</span></span>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Subset pengs to keep only rows where the species is _either_ &#39;Gentoo&#39; or &#39;Adelie&#39;</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co"># In other words, it should be TRUE that the species is %in% the array c(&quot;Gentoo&quot;, &quot;Adelie&quot;). </span></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Remember: We do _not_ use `==` when asking if a value is in an array.</span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>penguins <span class="sc">%&gt;%</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>pengs <span class="sc">%&gt;%</span></span>
 <span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(species <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;Gentoo&quot;</span>, <span class="st">&quot;Adelie&quot;</span>))</span></code></pre></div>
-<pre><code>## # A tibble: 276 x 8
-##    species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
-##    &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt;
-##  1 Adelie  Torgersen           39.1          18.7               181        3750
-##  2 Adelie  Torgersen           39.5          17.4               186        3800
-##  3 Adelie  Torgersen           40.3          18                 195        3250
-##  4 Adelie  Torgersen           NA            NA                  NA          NA
-##  5 Adelie  Torgersen           36.7          19.3               193        3450
-##  6 Adelie  Torgersen           39.3          20.6               190        3650
-##  7 Adelie  Torgersen           38.9          17.8               181        3625
-##  8 Adelie  Torgersen           39.2          19.6               195        4675
-##  9 Adelie  Torgersen           34.1          18.1               193        3475
-## 10 Adelie  Torgersen           42            20.2               190        4250
-## # ... with 266 more rows, and 2 more variables: sex &lt;fct&gt;, year &lt;int&gt;</code></pre>
+<pre><code>## # A tibble: 7 x 5
+##   species island    flipper_length_mm body_mass_g  year
+##   &lt;chr&gt;   &lt;chr&gt;                 &lt;dbl&gt;       &lt;dbl&gt; &lt;dbl&gt;
+## 1 Adelie  Dream                   190        3450  2007
+## 2 Gentoo  Biscoe                  211        4500  2007
+## 3 Adelie  Torgersen               197        4150  2008
+## 4 Gentoo  Biscoe                  230        5800  2008
+## 5 Adelie  Dream                   185        3650  2009
+## 6 Adelie  Torgersen               198        3500  2009
+## 7 Adelie  Torgersen               195        4300  2009</code></pre>
 </div>
 
 

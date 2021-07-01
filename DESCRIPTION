@@ -28,6 +28,10 @@ Collate:
     'utils.R'
     'fct-topics.R'
     'fct-get_help.R'
+    'fct-render_rmd_topics_to_html.R'
+    'pengs.R'
 Suggests: 
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
+Depends: 
+    R (>= 2.10)

@@ -41,3 +41,8 @@ vignettes/*.pdf
 
 # R Environment Variables
 .Renviron
+
+
+# htmls
+README.html
+CONTRIBUTING.html

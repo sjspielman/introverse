@@ -16,7 +16,9 @@ knitr::opts_chunk$set(echo = TRUE,
 # DO NOT, I REPEAT __DO NOT__, LOAD THE FULL TIDYVERSE. ONLY LOAD INDIVIDUAL LIBRARIES THAT ARE NEEDED.
 # IN OTHER WORDS, `library(tidyverse)` <-- ABSOLUTELY NOT!!!!!!!!!
 library(dplyr)
-library(palmerpenguins)
+pengs <- readr::read_csv(
+  system.file("extdata", "pengs.csv", package = "introverse") 
+)
 ```
 
 <br>
@@ -58,10 +60,11 @@ tibble %>%
 
 ## Examples
 
+> Need a reminder of the dataset `pengs`? You can see the full dataset with `View(pengs)` and learn more about the dataset with `get_help("pengs")`.
 
 ```{r}
-# Subset penguins to keep only rows (observations) that are 'Gentoo' species (rows where it is TRUE that species == 'Gentoo')" 
-penguins %>% 
+# Subset pengs to keep only rows (observations) that are 'Gentoo' species (rows where it is TRUE that species == 'Gentoo')" 
+pengs %>% 
   filter(species == "Gentoo")
 ```
 
@@ -69,26 +72,26 @@ penguins %>%
 
 
 ```{r}
-# Subset penguins to keep only rows with bill lengths greater than 45
-penguins %>%
-  filter(bill_length_mm > 45)
+# Subset pengs to keep only rows with flipper lengths greater than 200
+pengs %>%
+  filter(flipper_length_mm > 200)
 ```
 
 <br> 
 
 
 ```{r}
-# Subset penguins to keep only rows where the species is 'Gentoo' and the island is 'Biscoe'
-penguins %>%
+# Subset pengs to keep only rows where the species is 'Gentoo' and the island is 'Biscoe'
+pengs %>%
   filter(species == "Gentoo", island == "Biscoe")
 ```
 
 <br> 
 
 ```{r}
-# Subset penguins to keep only rows where the species is _either_ 'Gentoo' or 'Adelie'
+# Subset pengs to keep only rows where the species is _either_ 'Gentoo' or 'Adelie'
 # In other words, it should be TRUE that the species is %in% the array c("Gentoo", "Adelie"). 
 # Remember: We do _not_ use `==` when asking if a value is in an array.
-penguins %>%
+pengs %>%
   filter(species %in% c("Gentoo", "Adelie"))
 ```
