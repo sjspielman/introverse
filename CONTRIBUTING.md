@@ -95,16 +95,18 @@ Install the package `introverse.templates` with `remotes::install_github("spielm
 
 6. Once you are satisfied with your doc page..
     + Again run `devtools::load_all(".")` to load up your doc page into the loaded `{introverse}`
-    + Run the command `render_rmd_topics_to_html()` to formally knit your docs in a way compatible with the package structure. It will add your knitted output to `inst/html_topics/`.  
+    + Run the command `render_rmd()` to formally knit your docs into _both_ standalone HTMLs and interactive learnr tutorials in a way compatible with the package structure. It will add your knitted outputs to `inst/html_topics/` and `inst/learnr_topics/`.  
         + This command will take will take longer and longer as the package grows, but it should never take very long.  
-    + Test out your docs with the command `get_help("whatever you called your topic")`. If the topic launches in the Viewer pane, you're all set!
-        + If this step doesn't work, return to *Step 5* to debug and resume development.
+    + Test out your docs with the following commands. 
+    	+ Test the standalone docs: `get_help("whatever you called your topic")`. 
+    	+ Test the interactive docs: `get_help("whatever you called your topic", interactive=TRUE)`
+        + If either version of the docs don't work, return to *Step 5* to debug and resume development.
   + If the `get_help()` works, test the whole package with `devtools::test()`. **If there are NO test FAILURES, you did it! You developed!!** Time for a pull request!
 
 
-### How to develop new `{introverse}` learnr modules
+### How to develop new `{introverse}` exercises
 
-Coming soon.
+Coming soon!
 
 
 
