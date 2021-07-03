@@ -25,7 +25,8 @@ Imports:
     rstudioapi,
     usethis,
     shiny,
-    learnr
+    learnr,
+    readr
 Collate:
     'utils.R'
     'fct-topics.R'

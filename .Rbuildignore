@@ -7,3 +7,4 @@ documentation_modules/
 inst/rmd_topics/*\.html$
 ^CONTRIBUTING.html$
 ^README.html$
+^data-raw$
