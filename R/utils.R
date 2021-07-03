@@ -44,6 +44,18 @@ html_topics_path <- "html_topics"
 #' @keywords internal
 rmd_topics_path <- "rmd_topics"
 
+#' Internal path to Rmd topics formatted as learnr. Keep this named `tutorials`, trust.
+#' @keywords internal
+learnr_topics_path <- "learnr_topics"
+
+#' String to add to an Rmd file to include the learnr library
+#' @keywords internal
+learnr_chunk_string <- "
+\n
+```{r load_learnr, include=FALSE}
+library(learnr)
+```
+\n"
 
 #' Viewer wrapper for showing the help docs
 #' 

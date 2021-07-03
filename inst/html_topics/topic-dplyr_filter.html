@@ -248,14 +248,14 @@ pre code {
 
 
 <h1 class="title toc-ignore"><code>dplyr::filter()</code></h1>
-<h4 class="author"><code>{introverse}</code> quick docs</h4>
+<h4 class="author">{introverse} quick docs</h4>
 
 </div>
 
 
 <p><br></p>
-<div id="description" class="section level2">
-<h2>Description</h2>
+<div id="description" class="section level3">
+<h3>Description</h3>
 <p>The <a href="https://dplyr.tidyverse.org/reference/filter.html"><code>filter()</code></a> function is part of the <a href="https://dplyr.tidyverse.org/"><code>{dplyr}</code></a> package, which is part of the <a href="https://www.tidyverse.org/"><code>{tidyverse}</code></a>.</p>
 <p>It is used to <strong>subset rows</strong> from tibbles (data frames). Rows are kept if the given logical statement (code that gives <code>TRUE</code> or <code>FALSE</code>) is <code>TRUE</code>. Use this function if you only want to keep certain rows, aka certain observations.&quot;</p>
 <!-- Add the following if the topic is a function that does NOT come with base R, and uncomment/fill in the subsequent multiline HTML comment: -->
@@ -268,8 +268,8 @@ pre code {
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Or, use :: notation</span></span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>dplyr<span class="sc">::</span><span class="fu">filter</span>()</span></code></pre></div>
 </div>
-<div id="conceptual-usage" class="section level2">
-<h2>Conceptual usage</h2>
+<div id="conceptual-usage" class="section level3">
+<h3>Conceptual usage</h3>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>tibble <span class="sc">%&gt;%</span> </span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(logical statement)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -278,53 +278,100 @@ pre code {
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>         another logical statement,</span>
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>         and more logical statements that you want to all be <span class="cn">TRUE</span>)</span></code></pre></div>
 </div>
-<div id="examples" class="section level2">
-<h2>Examples</h2>
+<div id="examples" class="section level3">
+<h3>Examples</h3>
 <blockquote>
 <p>Need a reminder of the dataset <code>pengs</code>? You can see the full dataset with <code>View(pengs)</code> and learn more about the dataset with <code>get_help(&quot;pengs&quot;)</code>.</p>
 </blockquote>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Subset pengs to keep only rows (observations) that are &#39;Gentoo&#39; species (rows where it is TRUE that species == &#39;Gentoo&#39;)&quot; </span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>pengs <span class="sc">%&gt;%</span> </span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(species <span class="sc">==</span> <span class="st">&quot;Gentoo&quot;</span>)</span></code></pre></div>
-<pre><code>## # A tibble: 2 x 5
-##   species island flipper_length_mm body_mass_g  year
-##   &lt;chr&gt;   &lt;chr&gt;              &lt;dbl&gt;       &lt;dbl&gt; &lt;dbl&gt;
-## 1 Gentoo  Biscoe               211        4500  2007
-## 2 Gentoo  Biscoe               230        5800  2008</code></pre>
+<pre><code>## # A tibble: 124 x 8
+##    species island bill_length_mm
+##    &lt;fct&gt;   &lt;fct&gt;           &lt;dbl&gt;
+##  1 Gentoo  Biscoe           46.1
+##  2 Gentoo  Biscoe           50  
+##  3 Gentoo  Biscoe           48.7
+##  4 Gentoo  Biscoe           50  
+##  5 Gentoo  Biscoe           47.6
+##  6 Gentoo  Biscoe           46.5
+##  7 Gentoo  Biscoe           45.4
+##  8 Gentoo  Biscoe           46.7
+##  9 Gentoo  Biscoe           43.3
+## 10 Gentoo  Biscoe           46.8
+## # … with 114 more rows, and 5 more
+## #   variables: bill_depth_mm &lt;dbl&gt;,
+## #   flipper_length_mm &lt;int&gt;,
+## #   body_mass_g &lt;int&gt;, sex &lt;fct&gt;,
+## #   year &lt;int&gt;</code></pre>
 <p><br> <!-- Do not delete the <br>, and make sure to keep the previous and following lines blank. --></p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Subset pengs to keep only rows with flipper lengths greater than 200</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>pengs <span class="sc">%&gt;%</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(flipper_length_mm <span class="sc">&gt;</span> <span class="dv">200</span>)</span></code></pre></div>
-<pre><code>## # A tibble: 2 x 5
-##   species island flipper_length_mm body_mass_g  year
-##   &lt;chr&gt;   &lt;chr&gt;              &lt;dbl&gt;       &lt;dbl&gt; &lt;dbl&gt;
-## 1 Gentoo  Biscoe               211        4500  2007
-## 2 Gentoo  Biscoe               230        5800  2008</code></pre>
+<pre><code>## # A tibble: 148 x 8
+##    species island    bill_length_mm
+##    &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;
+##  1 Adelie  Dream               35.7
+##  2 Adelie  Dream               41.1
+##  3 Adelie  Dream               40.8
+##  4 Adelie  Biscoe              41  
+##  5 Adelie  Torgersen           41.4
+##  6 Adelie  Torgersen           44.1
+##  7 Adelie  Dream               41.5
+##  8 Gentoo  Biscoe              46.1
+##  9 Gentoo  Biscoe              50  
+## 10 Gentoo  Biscoe              48.7
+## # … with 138 more rows, and 5 more
+## #   variables: bill_depth_mm &lt;dbl&gt;,
+## #   flipper_length_mm &lt;int&gt;,
+## #   body_mass_g &lt;int&gt;, sex &lt;fct&gt;,
+## #   year &lt;int&gt;</code></pre>
 <p><br></p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Subset pengs to keep only rows where the species is &#39;Gentoo&#39; and the island is &#39;Biscoe&#39;</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>pengs <span class="sc">%&gt;%</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(species <span class="sc">==</span> <span class="st">&quot;Gentoo&quot;</span>, island <span class="sc">==</span> <span class="st">&quot;Biscoe&quot;</span>)</span></code></pre></div>
-<pre><code>## # A tibble: 2 x 5
-##   species island flipper_length_mm body_mass_g  year
-##   &lt;chr&gt;   &lt;chr&gt;              &lt;dbl&gt;       &lt;dbl&gt; &lt;dbl&gt;
-## 1 Gentoo  Biscoe               211        4500  2007
-## 2 Gentoo  Biscoe               230        5800  2008</code></pre>
+<pre><code>## # A tibble: 124 x 8
+##    species island bill_length_mm
+##    &lt;fct&gt;   &lt;fct&gt;           &lt;dbl&gt;
+##  1 Gentoo  Biscoe           46.1
+##  2 Gentoo  Biscoe           50  
+##  3 Gentoo  Biscoe           48.7
+##  4 Gentoo  Biscoe           50  
+##  5 Gentoo  Biscoe           47.6
+##  6 Gentoo  Biscoe           46.5
+##  7 Gentoo  Biscoe           45.4
+##  8 Gentoo  Biscoe           46.7
+##  9 Gentoo  Biscoe           43.3
+## 10 Gentoo  Biscoe           46.8
+## # … with 114 more rows, and 5 more
+## #   variables: bill_depth_mm &lt;dbl&gt;,
+## #   flipper_length_mm &lt;int&gt;,
+## #   body_mass_g &lt;int&gt;, sex &lt;fct&gt;,
+## #   year &lt;int&gt;</code></pre>
 <p><br></p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Subset pengs to keep only rows where the species is _either_ &#39;Gentoo&#39; or &#39;Adelie&#39;</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co"># In other words, it should be TRUE that the species is %in% the array c(&quot;Gentoo&quot;, &quot;Adelie&quot;). </span></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Remember: We do _not_ use `==` when asking if a value is in an array.</span></span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>pengs <span class="sc">%&gt;%</span></span>
 <span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(species <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;Gentoo&quot;</span>, <span class="st">&quot;Adelie&quot;</span>))</span></code></pre></div>
-<pre><code>## # A tibble: 7 x 5
-##   species island    flipper_length_mm body_mass_g  year
-##   &lt;chr&gt;   &lt;chr&gt;                 &lt;dbl&gt;       &lt;dbl&gt; &lt;dbl&gt;
-## 1 Adelie  Dream                   190        3450  2007
-## 2 Gentoo  Biscoe                  211        4500  2007
-## 3 Adelie  Torgersen               197        4150  2008
-## 4 Gentoo  Biscoe                  230        5800  2008
-## 5 Adelie  Dream                   185        3650  2009
-## 6 Adelie  Torgersen               198        3500  2009
-## 7 Adelie  Torgersen               195        4300  2009</code></pre>
+<pre><code>## # A tibble: 276 x 8
+##    species island    bill_length_mm
+##    &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;
+##  1 Adelie  Torgersen           39.1
+##  2 Adelie  Torgersen           39.5
+##  3 Adelie  Torgersen           40.3
+##  4 Adelie  Torgersen           NA  
+##  5 Adelie  Torgersen           36.7
+##  6 Adelie  Torgersen           39.3
+##  7 Adelie  Torgersen           38.9
+##  8 Adelie  Torgersen           39.2
+##  9 Adelie  Torgersen           34.1
+## 10 Adelie  Torgersen           42  
+## # … with 266 more rows, and 5 more
+## #   variables: bill_depth_mm &lt;dbl&gt;,
+## #   flipper_length_mm &lt;int&gt;,
+## #   body_mass_g &lt;int&gt;, sex &lt;fct&gt;,
+## #   year &lt;int&gt;</code></pre>
 </div>
 
 

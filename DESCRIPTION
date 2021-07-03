@@ -23,7 +23,9 @@ Imports:
     magrittr,
     palmerpenguins,
     rstudioapi,
-    usethis
+    usethis,
+    shiny,
+    learnr
 Collate:
     'utils.R'
     'fct-topics.R'

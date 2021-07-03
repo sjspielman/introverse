@@ -1,10 +1,11 @@
 #' Prints help and examples for a given topic to the R Console
 #'
-#' @param name_of_topic A topic whose introverse quick docs to look up
+#' @param topic A topic whose introverse quick docs to look up
+#' @param interactiven Whether the docs should be interactive or not. Default: FALSE
 #' @export
-get_help <- function(name_of_topic = NULL) {
+get_help <- function(topic = NULL, interactive = FALSE) {
   
-  if (is.null(name_of_topic))
+  if (is.null(topic))
   {
     # output
     cat(
@@ -20,7 +21,7 @@ get_help <- function(name_of_topic = NULL) {
   } else
   {
     # Bad topic
-    if (!(name_of_topic %in% unlist(topic_list)))
+    if (!(topic %in% unlist(topic_list)))
     {
       # Keep this - do not change to an html so that we can expect an error in tests
       error(
@@ -33,20 +34,31 @@ get_help <- function(name_of_topic = NULL) {
     } else 
     {  
       # INVISIBLE!!!
-      # Good topic
-      reveal_help(name_of_topic)
+      # Good topic.
+      
+      # Find category
+      category <- paste0(find_topic_category(topic), "_")
+      
+      # standalone aka not interactive
+      if(!(interactive)) {
+        launch_standalone_help(topic, category)
+      } else {
+        # Launch the shiny
+        launch_interactive_help(topic, category)
+      }
+      
     }
   }
 }
 
 
 
-#' Reveal the help topic HTML content in the viewer pane
+#' Launch (show) the standalone help topic HTML content in the viewer pane
 #' 
-#' @param topic The topic to reveal
-reveal_help <- function(topic)
+#' @param topic The topic to launch
+#' @param category The topic to launch's category
+launch_standalone_help <- function(topic, category)
 {
-  category <- paste0(find_topic_category(topic), "_")
   html_topic_file <- system.file(html_topics_path, 
                                  glue::glue("topic-", {category}, {topic}, ".html"), 
                                  package = "introverse")
@@ -64,3 +76,17 @@ reveal_help <- function(topic)
 }
 
 
+
+#' Launch the learnr interactive help topic HTML
+#' 
+#' @param topic The topic to launch
+#' @param category The topic to launch's category
+launch_interactive_help <- function(topic, category)
+{
+  learnr_topic_file <- system.file(learnr_topics_path, 
+                                   glue::glue("topic-", {category}, {topic}, ".Rmd"), 
+                                   package = "introverse")
+  rmarkdown::run(learnr_topic_file)
+  # return invisible
+  return(invisible(topic))  
+}

@@ -5,7 +5,12 @@ output:
   html_document:
     highlight: pygments
     theme: flatly
+runtime: shiny_prerendered
 ---
+
+```{r load_learnr, include=FALSE}
+library(learnr)
+```
 
 
 ```{r setup, include = FALSE}
@@ -94,3 +99,4 @@ pengs %>%
 pengs %>%
   filter(species %in% c("Gentoo", "Adelie"))
 ```
+
