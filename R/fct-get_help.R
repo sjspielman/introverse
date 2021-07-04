@@ -37,14 +37,13 @@ get_help <- function(topic = NULL, interactive = FALSE) {
       # Good topic.
       
       # Find category
-      category <- paste0(find_topic_category(topic), "_")
+      category <- paste0(find_topic_category(topic))
       
       # standalone aka not interactive
       if(!(interactive)) {
         launch_standalone_help(topic, category)
       } else {
         # Launch the shiny
-        print("!!!!!!!!!!!!!!!!")
         launch_interactive_help(topic, category)
       }
       
@@ -61,8 +60,10 @@ get_help <- function(topic = NULL, interactive = FALSE) {
 launch_standalone_help <- function(topic, category)
 {
   html_topic_file <- system.file(html_topics_path, 
-                                 glue::glue("topic-", {category}, {topic}, ".html"), 
+                                 glue::glue({category}, "_", {topic}, ".html"), 
                                  package = "introverse")
+  print(html_topics_path)
+  print(glue::glue({category}, "_", {topic}, ".html"))
   # read html, write to tempfile so can be displayed in viewer
   html_topic_lines <- readr::read_lines(html_topic_file)
   tempDir <- tempfile()
@@ -85,7 +86,7 @@ launch_standalone_help <- function(topic, category)
 launch_interactive_help <- function(topic, category)
 {
   learnr_topic_file <- system.file(learnr_topics_path, 
-                                   glue::glue("topic-", {category}, {topic}, ".Rmd"), 
+                                   glue::glue({category}, "_", {topic}, ".Rmd"), 
                                    package = "introverse")
 
   unlink(glue::glue({learnr_topics_path}, "_cache", recursive = TRUE)) # knitr cache
