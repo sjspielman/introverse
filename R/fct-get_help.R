@@ -44,6 +44,7 @@ get_help <- function(topic = NULL, interactive = FALSE) {
         launch_standalone_help(topic, category)
       } else {
         # Launch the shiny
+        print("!!!!!!!!!!!!!!!!")
         launch_interactive_help(topic, category)
       }
       
@@ -86,6 +87,10 @@ launch_interactive_help <- function(topic, category)
   learnr_topic_file <- system.file(learnr_topics_path, 
                                    glue::glue("topic-", {category}, {topic}, ".Rmd"), 
                                    package = "introverse")
+
+  unlink(glue::glue({learnr_topics_path}, "_cache", recursive = TRUE)) # knitr cache
+  rmarkdown::shiny_prerendered_clean(learnr_topic_file)       
+  
   rmarkdown::run(learnr_topic_file)
   # return invisible
   return(invisible(topic))  

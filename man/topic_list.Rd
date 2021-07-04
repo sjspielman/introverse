@@ -6,11 +6,17 @@
 \title{List of available help topics by category}
 \format{
 An object of class \code{list} of length 1.
+
+An object of class \code{list} of length 1.
 }
 \usage{
 topic_list
+
+topic_list
 }
 \description{
+List of available help topics by category
+
 List of available help topics by category
 }
 \keyword{datasets}

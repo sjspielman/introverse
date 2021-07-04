@@ -2,7 +2,7 @@
 #' List of available help topics by category
 topic_list <- list(
   "dplyr" = sort(
-    "filter"
+    "poop"
   )
 )
 # Need to convert below to Rmd from current text garbage

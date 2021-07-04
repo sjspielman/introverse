@@ -44,7 +44,7 @@ html_topics_path <- "html_topics"
 #' @keywords internal
 rmd_topics_path <- "rmd_topics"
 
-#' Internal path to Rmd topics formatted as learnr. Keep this named `tutorials`, trust.
+#' Internal path to Rmd topics formatted as learnr. 
 #' @keywords internal
 learnr_topics_path <- "learnr_topics"
 

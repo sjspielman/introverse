@@ -5,14 +5,23 @@
 \title{Show the list of topic categories}
 \usage{
 show_topic_categories()
+
+show_topic_categories()
 }
 \value{
+Prints out available topic categories
+
 Prints out available topic categories
 }
 \description{
 TODO: Should we reveal this in Console or Viewer?
+
+TODO: Should we reveal this in Console or Viewer?
 }
 \examples{
+\dontrun{
+show_topic_categories()
+}
 \dontrun{
 show_topic_categories()
 }
