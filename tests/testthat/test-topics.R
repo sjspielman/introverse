@@ -1,9 +1,8 @@
 test_that("show_topics() yields output, message, or error appropriately",{
   expect_output(show_topics())
   expect_output(show_topics("dplyr"))
-
-  expect_error(show_topics("faketopic"))
   
+  expect_error(show_topics("faketopic"))
   expect_error(show_topics(c("dplyr", "faketopic")))
   
   ############################################################

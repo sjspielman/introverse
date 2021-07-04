@@ -1,0 +1,52 @@
+---
+title: "The `carnivores` dataset"
+author: "`{introverse}` quick docs"
+output: 
+  html_document:
+    theme: flatly
+    syntax: pygments
+---
+
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE, 
+                      warning = FALSE, 
+                      message = FALSE)
+library(DT)
+clean_nas <- function(df){
+  df %>%
+    dplyr::mutate(
+      dplyr::across(dplyr::everything(), ~tidyr::replace_na(.x, "NA"))
+    )  
+}
+```
+
+<br>
+
+
+## Description
+
+One of the `{introverse}` example datasets is called **`carnivores`**. This dataset is a tibble with 9 rows and 4 columns and contains information about mammalian species. 
+
+This dataset is a _subset_ of the `msleep` dataset, which comes from the `{ggplot2}` package. To learn more about `msleep`, use `get_help("msleep")`.
+
+You can directly explore the `carinvores` tibble in the Console, or you can interactively explore its contents below.
+
+### Explore `carnivores`
+
+Columns in `carnivores` include the following:
+
++ `name`: The common name of the mammal
++ `genus`: The Genus classification of the mammal species
++ `awake`: The amount of time spent awake, in hours
++ `brainwt`: The brain weight in kg
+
+Values in the data that are _NA_ indicate that the data are _missing and/or unknown._
+
+<br>
+```{r echo=FALSE}
+DT::datatable(clean_nas(carnivores), 
+              rownames=FALSE)
+```
+
+

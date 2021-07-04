@@ -1,9 +1,10 @@
 # topic_list -------------------
-#' List of available help topics by category
+#' List of available help topics by category, which is sometimes but not always a package.
 topic_list <- list(
-  "dplyr" = sort(
+  "datasets" = c("carnivores", "msleep"),
+  "dplyr" = sort(c(
     "filter"
-  )
+  ))
 )
 # Need to convert below to Rmd from current text garbage
 # topic_list <- list(

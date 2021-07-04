@@ -4,12 +4,10 @@
 \alias{get_help}
 \title{Prints help and examples for a given topic to the R Console}
 \usage{
-get_help(topic = NULL, interactive = FALSE)
+get_help(topic = NULL)
 }
 \arguments{
 \item{topic}{A topic whose introverse quick docs to look up}
-
-\item{interactiven}{Whether the docs should be interactive or not. Default: FALSE}
 }
 \description{
 Prints help and examples for a given topic to the R Console

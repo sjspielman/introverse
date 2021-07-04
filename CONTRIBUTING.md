@@ -90,7 +90,7 @@ Install the package `introverse.templates` with `remotes::install_github("spielm
     + If you get an error of any kind, it means you likely introduced a bug somewhere in the `introverse/R` directory (probably when adding to the `topic_list`). The error should be reasonably informative about how to track down the bug. Fix and re-run the `devtools::load_all(".")` command until it's all loaded
 
 5. Open a new Rmd introverse docs template file, and save it to the directory `introverse/inst/rmd_topics/`. Write your Rmd help page using the `introverse` template and existing Rmd help pages as guidance.
-    + If you are using the `pengs` dataset in your examples, there is code in the template that you should use to read it in.
+    + If you are using the `carnivores` or `msleep` datasets in your examples, there is templated code to show you how to include these datasets. _When you are done with this Step, DELETE those lines for testing._
     + Knit away as regular part of development, but never try to `git add` the knitted HTML output. We only want to be tracking the `Rmd` help. The knitted HTML will be added in a separate step later.
 
 6. Once you are satisfied with your doc page..

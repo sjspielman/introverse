@@ -11,14 +11,12 @@ output:
 ```{r setup, include = FALSE}
 knitr::opts_chunk$set(echo = TRUE, 
                       warning = FALSE, 
-                      message = FALSE, 
-                      exercise.lines = 6)
+                      message = FALSE)
 library(dplyr)
 ```
 
-<br>
 
-### Description
+## Description
 
 The [`filter()`](https://dplyr.tidyverse.org/reference/filter.html) function is part of the [`{dplyr}`](https://dplyr.tidyverse.org/) package, which is part of the [`{tidyverse}`](https://www.tidyverse.org/).
 
@@ -39,9 +37,7 @@ dplyr::filter()
 ```
 
 
-
-
-### Conceptual usage 
+## Conceptual usage 
 
 ```{r usage, eval=FALSE}
 tibble %>% 
@@ -54,11 +50,11 @@ tibble %>%
 
 ```
 
-### Examples
+## Examples
 
 > Run `get_help("carnivores")` for a refresher on the `carnivores` dataset.
 
-```{r q1, exercise = TRUE}
+```{r example1}
 # Subset carnivores to keep only rows that are the genus 'Panthera' 
 carnivores %>% 
   filter(genus ==  "Panthera")
@@ -67,7 +63,7 @@ carnivores %>%
 <br>  <!-- Do not delete the <br>, and make sure to keep the previous and following lines blank. -->
 
 
-```{r q2, exercise = TRUE}
+```{r example2}
 # Subset carnivores to keep only rows of carnivores awake for more than 13 hours
 carnivores %>%
   filter(awake > 13)
@@ -76,7 +72,7 @@ carnivores %>%
 <br> 
 
 
-```{r q3, exercise = TRUE}
+```{r example3}
 # Subset carnivores to keep only rows where the genus is 'Panthera' and they are awake for _less than_ 13 hours
 carnivores %>%
   filter(genus == "Panthera", awake < 13)
@@ -84,7 +80,7 @@ carnivores %>%
 
 <br> 
 
-```{r q4, exercise = TRUE}
+```{r example4}
 # Subset carnivores to keep only rows where the genus is _either_ 'Panthera' or 'Canis'
 # In other words, it should be TRUE that the genus is %in% the array c("Panthera", "Canis"). 
 # Remember: We do _not_ use `==` when asking if a value is in an array.

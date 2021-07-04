@@ -14,7 +14,6 @@
 #' @name %>%
 #' @rdname pipe
 #' @keywords internal
-#' @export
 #' @importFrom magrittr %>%
 #' @usage lhs \%>\% rhs
 #' @param lhs A value or the magrittr placeholder.
@@ -27,13 +26,13 @@ NULL
 #' @name %+%
 #' @rdname crayon_pipe
 #' @keywords internal
-#' @export
 #' @importFrom crayon %+%
 #' @usage lhs \%+\% rhs
 #' @param lhs A `crayon` value
 #' @param rhs A `crayon` value
 #' @return The combined `crayon` values
 NULL
+
 
 
 #' Internal path to html topics

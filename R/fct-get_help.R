@@ -1,9 +1,8 @@
 #' Prints help and examples for a given topic to the R Console
 #'
 #' @param topic A topic whose introverse quick docs to look up
-#' @param interactiven Whether the docs should be interactive or not. Default: FALSE
 #' @export
-get_help <- function(topic = NULL, interactive = FALSE) {
+get_help <- function(topic = NULL) {
   
   if (is.null(topic))
   {
@@ -33,37 +32,29 @@ get_help <- function(topic = NULL, interactive = FALSE) {
       )
     } else 
     {  
-      # INVISIBLE!!!
       # Good topic.
       
       # Find category
       category <- paste0(find_topic_category(topic))
       
-      # standalone aka not interactive
-      if(!(interactive)) {
-        launch_standalone_help(topic, category)
-      } else {
-        # Launch the shiny
-        launch_interactive_help(topic, category)
-      }
-      
+      # launch help
+      reveal_help(category, topic)
     }
   }
 }
 
 
 
-#' Launch (show) the standalone help topic HTML content in the viewer pane
+#' Reveal the standalone help topic HTML content in the viewer pane
 #' 
-#' @param topic The topic to launch
 #' @param category The topic to launch's category
-launch_standalone_help <- function(topic, category)
+#' @param topic The topic to launch
+reveal_help <- function(category, topic)
 {
   html_topic_file <- system.file(html_topics_path, 
                                  glue::glue({category}, "_", {topic}, ".html"), 
                                  package = "introverse")
-  print(html_topics_path)
-  print(glue::glue({category}, "_", {topic}, ".html"))
+
   # read html, write to tempfile so can be displayed in viewer
   html_topic_lines <- readr::read_lines(html_topic_file)
   tempDir <- tempfile()
@@ -78,21 +69,3 @@ launch_standalone_help <- function(topic, category)
 }
 
 
-
-#' Launch the learnr interactive help topic HTML
-#' 
-#' @param topic The topic to launch
-#' @param category The topic to launch's category
-launch_interactive_help <- function(topic, category)
-{
-  learnr_topic_file <- system.file(learnr_topics_path, 
-                                   glue::glue({category}, "_", {topic}, ".Rmd"), 
-                                   package = "introverse")
-
-  unlink(glue::glue({learnr_topics_path}, "_cache", recursive = TRUE)) # knitr cache
-  rmarkdown::shiny_prerendered_clean(learnr_topic_file)       
-  
-  rmarkdown::run(learnr_topic_file)
-  # return invisible
-  return(invisible(topic))  
-}

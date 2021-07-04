@@ -2,11 +2,11 @@
 % Please edit documentation in R/fct-render_rmd.R
 \name{render_rmd_topics}
 \alias{render_rmd_topics}
-\title{Render \emph{all} Rmd help topics into standalone and learnr tutorial HTML versions.}
+\title{Render \emph{all} Rmd help topics into HTML versions.}
 \usage{
 render_rmd_topics()
 }
 \description{
-Render \emph{all} Rmd help topics into standalone and learnr tutorial HTML versions.
+Render \emph{all} Rmd help topics into HTML versions.
 }
 \keyword{internal}
