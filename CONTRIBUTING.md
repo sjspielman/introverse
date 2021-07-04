@@ -78,7 +78,7 @@ Install the package `introverse.templates` with `remotes::install_github("spielm
 
 ### How to develop new `{introverse}` help docs
 
-1. In RStudio, open your `introverse/` Project session (recommended), or set your working directory to `introverse/`. 
+1. In RStudio, open your `introverse/` Project session (recommended), or set your working directory to `introverse/`. In the Console, run the command `options(width = 100)` - this will modify your current R session environment slightly to allow tibbles to be printed nicely in the docs you're about to develop.
 
 2. In Console, run the command: `devtools::load_all(".")` to _load_ the current version of the package into your R session. 
     + When the `{introverse}` loads, it will print a 2-paragraph welcome message to the Console that begins "Welcome to the {introverse}!". If you see this output, you will know the command worked.

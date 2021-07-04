@@ -3,7 +3,13 @@
 topic_list <- list(
   "datasets" = c("carnivores", "msleep"),
   "dplyr" = sort(c(
-    "filter"
+    "filter",
+    "slice",
+    "select", 
+    "mutate", 
+    "arrange", 
+    "distinct",
+    "summarize"
   ))
 )
 # Need to convert below to Rmd from current text garbage
@@ -24,7 +30,7 @@ topic_list <- list(
 #      "distinct",
 #      "summarize",
 #      "group_by",
-#      "ungroup", 
+#      "ungroup",
 #      "rename", 
 #      "glimpse", 
 #      "pull",

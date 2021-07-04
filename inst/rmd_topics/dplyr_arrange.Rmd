@@ -1,0 +1,90 @@
+---
+title: "`dplyr::arrange()`"
+author: "{introverse} quick docs"
+output: 
+  html_document:
+    highlight: pygments
+    theme: flatly
+---
+
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE, 
+                      warning = FALSE, 
+                      message = FALSE)
+library(dplyr)
+```
+
+
+## Description
+
+The [`arrange()`](https://dplyr.tidyverse.org/reference/arrange.html) function is part of the [`{dplyr}`](https://dplyr.tidyverse.org/) package, which is part of the [`{tidyverse}`](https://www.tidyverse.org/).
+
+It is used to arrange tibble rows in ascending order of the given column. To arrange by descending order, you need to use `desc()` around your column argument.
+
+
+<!-- Add the following if the topic is a function that does NOT come with base R, and uncomment/fill in the subsequent multiline HTML comment: -->
+To use this function, you need to either first load the `{dplyr}` library, or always use the function with `dplyr::arrange()` notation.
+
+```{r description, eval=FALSE}
+# Load the library
+library(dplyr)
+# Or, load the full tidyverse:
+library(tidyverse)
+
+# Or, use :: notation
+dplyr::arrange()
+```
+
+
+## Conceptual usage 
+
+```{r usage, eval=FALSE}
+# Sort in ascending order of the to given column
+tibble %>% 
+  arrange(column to sort by in ascending order)
+
+# Sort in descending order of the to given column
+tibble %>% 
+  arrange(desc(column to sort by in descending order))
+```
+
+## Examples
+
+> Run `get_help("carnivores")` for a refresher on the `carnivores` dataset.
+
+```{r example1}
+# Arrange in alphebetal order of genus
+carnivores %>% 
+  arrange(genus)
+```
+
+<br>  <!-- Do not delete the <br>, and make sure to keep the previous and following lines blank. -->
+
+
+```{r example2}
+# Arrange in reverse alphabetical order of genus
+carnivores %>%
+  arrange(desc(genus))
+```
+
+<br> 
+
+
+```{r example3}
+# Arrange in ascending order of awake
+carnivores %>%
+  arrange(awake)
+```
+
+<br> 
+
+```{r example4}
+# Arrange in descending order of awake.
+## Since awake is a _numeric_ column, there are two strategies to achieve this
+carnivores %>%
+  arrange(desc(awake)) # use desc()
+
+carnivores %>%
+  arrange(-awake) # use a minus sign: arrange in order of "negative awake"
+```
