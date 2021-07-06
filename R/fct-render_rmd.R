@@ -1,7 +1,8 @@
 #' Render _all_ Rmd help topics into HTML versions.
 #' 
 #' @keywords internal
-render_rmd_topics <- function() {
+#' @param verbose Whether to print rendered topics as we go.
+render_rmd_topics <- function(verbose = FALSE) {
   
   all_rmd_files <- list.files( 
                     system.file(rmd_topics_path, package = "introverse")
@@ -11,6 +12,7 @@ render_rmd_topics <- function() {
   for (rmd_file in all_rmd_files){
     # need this for learnr 
     html_file <- gsub(".Rmd$", ".html", rmd_file) # can be used for both standalone and learnr
+    if (verbose) print(rmd_file)
     
     # Convert to html
     rmarkdown::render(
