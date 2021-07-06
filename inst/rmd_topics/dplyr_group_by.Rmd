@@ -1,0 +1,65 @@
+---
+title: "`dplyr::group_by() and dplyr::ungroup()`"
+author: "{introverse} quick docs"
+output: 
+  html_document:
+    highlight: pygments
+    theme: flatly
+---
+
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE, 
+                      warning = FALSE, 
+                      message = FALSE)
+library(dplyr)
+```
+
+
+## Description
+
+The [`group_by()` and `ungroup()`](https://dplyr.tidyverse.org/reference/group_by.html) functions are part of the [`{dplyr}`](https://dplyr.tidyverse.org/) package, which is part of the [`{tidyverse}`](https://www.tidyverse.org/).
+
+`group_by()` establishes groupings of rows based on given columns for subsequent operations, and it is often (but not only!) used with the `{dplyr}` package `summarize()`. After you are done with your grouped operations, it is often a good idea use `ungroup()` (no arguments needed) to remove groupings and avoid unintended consequences of grouped data.
+
+
+
+<!-- Add the following if the topic is a function that does NOT come with base R, and uncomment/fill in the subsequent multiline HTML comment: -->
+To use this function, you need to either first load the `{dplyr}` library, or always use the function with `dplyr::group_by()` notation.
+
+```{r description, eval=FALSE}
+# Load the library
+library(dplyr)
+# Or, load the full tidyverse:
+library(tidyverse)
+
+# Or, use :: notation
+dplyr::group_by()
+dplyr::ungroup()
+```
+
+
+## Conceptual usage 
+
+```{r usage, eval=FALSE}
+tibble %>% 
+  group_by(group subsequent steps on this column)
+
+tibble %>% 
+  group_by(group, subsequent, steps, on, these, columns)
+
+tibble that was previously grouped %>% 
+  ungroup() # no arguments needed
+```
+
+## Examples
+
+> Run `get_help("msleep")` for a refresher on the `msleep` dataset.
+
+```{r example1}
+# Calculate the mean time spent awake for each vore group and ungroup when finished
+msleep %>% 
+  group_by(vore) %>%
+  summarize(mean_awake = mean(awake)) %>%
+  ungroup()
+```

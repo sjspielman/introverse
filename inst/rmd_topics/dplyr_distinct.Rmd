@@ -49,7 +49,7 @@ tibble %>%
 
 ```{r example1}
 # Keep only distinct rows in carnivores
-## All rows are already distinct, so all rows are kept
+# All rows are already distinct, so all rows are kept
 carnivores %>% 
   distinct()
 ```

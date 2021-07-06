@@ -72,18 +72,37 @@ carnivores %>%
 <br> 
 
 
-```{r example3}
+```{r example3, collapse=TRUE}
 # Subset carnivores to keep only rows where the genus is 'Panthera' and they are awake for _less than_ 13 hours
 carnivores %>%
   filter(genus == "Panthera", awake < 13)
+
+# Or, use & as "and"
+carnivores %>%
+  filter(genus == "Panthera" & awake < 13)
+```
+
+<br>
+
+```{r example4}
+# Subset rows to keep only where genus is 'Panthera' **or** brainwt < 0.05
+# Or, use | (vertical bar on \ key) as "or"
+carnivores %>%
+  filter(genus == "Panthera" | brainwt < 0.05)
 ```
 
 <br> 
 
-```{r example4}
+```{r example5, collapse=TRUE}
 # Subset carnivores to keep only rows where the genus is _either_ 'Panthera' or 'Canis'
 # In other words, it should be TRUE that the genus is %in% the array c("Panthera", "Canis"). 
 # Remember: We do _not_ use `==` when asking if a value is in an array.
 carnivores %>%
   filter(genus %in% c("Panthera", "Canis"))
+
+# Or, use | (vertical bar on \ key) as "or"
+carnivores %>%
+  filter(genus == "Panthera" | genus == "Canis")
 ```
+
+

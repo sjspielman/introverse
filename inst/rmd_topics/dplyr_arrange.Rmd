@@ -79,12 +79,15 @@ carnivores %>%
 
 <br> 
 
-```{r example4}
+```{r example4, collapse=TRUE}
 # Arrange in descending order of awake.
-## Since awake is a _numeric_ column, there are two strategies to achieve this
-carnivores %>%
-  arrange(desc(awake)) # use desc()
+# Since awake is a _numeric_ column, there are two strategies to achieve this
 
+# First, using `desc()`
 carnivores %>%
-  arrange(-awake) # use a minus sign: arrange in order of "negative awake"
+  arrange(desc(awake)) 
+
+# Second, using a minus sign as in "arrange in order of _negative awake_"
+carnivores %>%
+  arrange(-awake) 
 ```

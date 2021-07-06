@@ -1,0 +1,69 @@
+---
+title: "`dplyr::count()`"
+author: "{introverse} quick docs"
+output: 
+  html_document:
+    highlight: pygments
+    theme: flatly
+---
+
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE, 
+                      warning = FALSE, 
+                      message = FALSE)
+library(dplyr)
+```
+
+
+## Description
+
+The [`count()`](https://dplyr.tidyverse.org/reference/count.html) function is part of the [`{dplyr}`](https://dplyr.tidyverse.org/) package, which is part of the [`{tidyverse}`](https://www.tidyverse.org/).
+
+The function `count()` creates a new column (named `n` by default) in a tibble (data frame) that counts the number of rows in specified group. It is a convenient shortcut for: `group_by(column_name) %>% tally() %>% ungroup()`"
+
+
+<!-- Add the following if the topic is a function that does NOT come with base R, and uncomment/fill in the subsequent multiline HTML comment: -->
+To use this function, you need to either first load the `{dplyr}` library, or always use the function with `dplyr::count()` notation.
+
+```{r description, eval=FALSE}
+# Load the library
+library(dplyr)
+# Or, load the full tidyverse:
+library(tidyverse)
+
+# Or, use :: notation
+dplyr::count()
+```
+
+
+## Conceptual usage 
+
+```{r usage, eval=FALSE}
+tibble %>% 
+  count(column to count)
+
+tibble %>% 
+  count(first column to count,
+        second column to count in all combinations with the first,
+        etc. as needed)
+```
+
+## Examples
+
+> Run `get_help("msleep")` for a refresher on the `msleep` dataset.
+
+```{r example1}
+# Count the number of each vore category in `msleep`
+msleep %>%
+  count(vore)
+```
+
+<br>  <!-- Do not delete the <br>, and make sure to keep the previous and following lines blank. -->
+
+
+```{r example2}
+# Count the number of each combination of `vore` and `order` categories in `msleep`
+msleep %>%
+  count(vore, order)
+```

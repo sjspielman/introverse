@@ -74,7 +74,7 @@ carnivores %>%
 
 ```{r example3}
 # Create a new column `little_name` that contains the `name` values in lower case.
-## We'll use the function stringr::str_to_lower() to convert strings to lower case
+# We'll use the function stringr::str_to_lower() to convert strings to lower case
 carnivores %>%
   mutate(little_name = stringr::str_to_lower(name))
 ```

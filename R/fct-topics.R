@@ -9,7 +9,17 @@ topic_list <- list(
     "mutate", 
     "arrange", 
     "distinct",
-    "summarize"
+    "summarize",
+    "group_by", 
+    "ungroup",
+    "pull",
+    "rename",
+    "glimpse",
+    "if_else", 
+    "case_when", 
+    "n",
+    "count",
+    "tally"
   ))
 )
 # Need to convert below to Rmd from current text garbage
@@ -22,23 +32,9 @@ topic_list <- list(
 #   ),
 #   
 #   "dplyr" = sort(
-#     c("filter", 
-#      "slice",
-#      "select", 
-#      "mutate", 
-#      "arrange", 
-#      "distinct",
-#      "summarize",
-#      "group_by",
-#      "ungroup",
-#      "rename", 
-#      "glimpse", 
-#      "pull",
 #      "tally", 
 #      "count",
 #      "n", 
-#      "case_when", 
-#      "if_else")
 #   ),
 #   # _join
 #   # bind_

@@ -50,11 +50,11 @@ tibble %>%
 
 ## Examples
 
-> Run `get_help("carnivores")` for a refresher on the `carnivores` dataset.
+> Run `get_help("msleep")` for a refresher on the `msleep` dataset.
 
 ```{r example1}
 # Calculate the mean time spent awake
-carnivores %>% 
+msleep %>% 
   summarize(mean_awake = mean(awake))
 ```
 
@@ -62,19 +62,28 @@ carnivores %>%
 
 
 ```{r example2}
-# Calculate the mean time spent awake for each genus
-carnivores %>% 
-  group_by(genus) %>%
+# Calculate the mean time spent awake for each vore group
+msleep %>% 
+  group_by(vore) %>%
+  summarize(mean_awake = mean(awake))
+```
+
+<br> 
+
+```{r example3}
+# Calculate the mean time spent awake for each combination of vore and conservation groups
+msleep %>% 
+  group_by(vore, conservation) %>%
   summarize(mean_awake = mean(awake))
 ```
 
 <br> 
 
 
-```{r example3}
+```{r example4}
 # Calculate the median brainwt
 ## Caution! Because the brainwt column contains NAs, 
 ## we need to use the _argument_ `na.rm = TRUE` with `median()`
-carnivores %>% 
+msleep %>% 
   summarize(median_brainwt = median(brainwt, na.rm = TRUE))
 ```

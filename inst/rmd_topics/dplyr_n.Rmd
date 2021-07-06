@@ -1,0 +1,68 @@
+---
+title: "`dplyr::n()`"
+author: "{introverse} quick docs"
+output: 
+  html_document:
+    highlight: pygments
+    theme: flatly
+---
+
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE, 
+                      warning = FALSE, 
+                      message = FALSE)
+library(dplyr)
+```
+
+
+## Description
+
+The [`n()`](https://dplyr.tidyverse.org/reference/n.html) function is part of the [`{dplyr}`](https://dplyr.tidyverse.org/) package, which is part of the [`{tidyverse}`](https://www.tidyverse.org/).
+
+The function `n()` is a *helper function* that returns a number representing the total number of rows in a given grouping. It is most useful if you want to add an 'index column' in a tibble (data frame).
+
+
+<!-- Add the following if the topic is a function that does NOT come with base R, and uncomment/fill in the subsequent multiline HTML comment: -->
+To use this function, you need to either first load the `{dplyr}` library, or always use the function with `dplyr::n()` notation.
+
+```{r description, eval=FALSE}
+# Load the library
+library(dplyr)
+# Or, load the full tidyverse:
+library(tidyverse)
+
+# Or, use :: notation
+dplyr::n()
+```
+
+
+## Conceptual usage 
+
+```{r usage, eval=FALSE}
+tibble %>% 
+  mutate(column_ranging_1_to_n = 1:n())
+```
+
+## Examples
+
+> Run `get_help("carnivores")` for a refresher on the `carnivores` dataset.
+
+```{r example1}
+# Make a new column `one_to_n` that counts the rows 1-n in carnivores
+carnivores %>%
+  mutate(one_to_n = 1:n())
+```
+
+<br>  <!-- Do not delete the <br>, and make sure to keep the previous and following lines blank. -->
+
+
+```{r example2}
+# Make a new column `one_to_n` that counts the rows in carnivores, but
+# where the numbering restarts for each `genus` grouping
+carnivores %>%
+  group_by(genus) %>%
+  mutate(one_to_n = 1:n()) %>%
+  # arranging by genus to make the output easier to see
+  arrange(genus)
+```

@@ -1,0 +1,70 @@
+---
+title: "`dplyr::case_when()`"
+author: "{introverse} quick docs"
+output: 
+  html_document:
+    highlight: pygments
+    theme: flatly
+---
+
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE, 
+                      warning = FALSE, 
+                      message = FALSE)
+library(dplyr)
+```
+
+
+## Description
+
+The [`case_when()`](https://dplyr.tidyverse.org/reference/case_when.html) function is part of the [`{dplyr}`](https://dplyr.tidyverse.org/) package, which is part of the [`{tidyverse}`](https://www.tidyverse.org/).
+
+We use the function `case_when()` to *recode* a variable to different values. The `case_when()` function can be used when there are more than two conditions for recoding, in which case `if_else()` would be appropriate. We often use `case_when()` along with `mutate()` to create new data frame columns.
+
+Be patient with the `case_when()` syntax: It is tricky!
+
+
+<!-- Add the following if the topic is a function that does NOT come with base R, and uncomment/fill in the subsequent multiline HTML comment: -->
+To use this function, you need to either first load the `{dplyr}` library, or always use the function with `dplyr::case_when()` notation.
+
+```{r description, eval=FALSE}
+# Load the library
+library(dplyr)
+# Or, load the full tidyverse:
+library(tidyverse)
+
+# Or, use :: notation
+dplyr::case_when()
+```
+
+
+## Conceptual usage 
+
+```{r usage, eval=FALSE}
+case_when(a logical statement ~ return this value if this statement is TRUE,
+          a different logical statement ~ return this value if this statement is TRUE,
+          yet another logical statement ~ return this value if this statement is TRUE,
+          (...as many as you need...)
+          # optional
+          TRUE ~ value to return if condition was not ever met)
+
+```
+
+## Examples
+
+> Run `get_help("carnivores")` for a refresher on the `carnivores` dataset.
+
+```{r example1}
+# Use case_when to help create a new column called `how_awake` in `carnivores` that will be:
+## "alert" if awake >= 16
+## "medium" if awake < 16 and awake > 10
+## "sleepy" if awake <= 10
+carnivores %>%
+  mutate(how_awake = case_when(
+          # Spacing out code like this makes it easier to see, write, and use.
+          awake >= 16 ~ 'alert',
+          awake < 16 & awake > 10 ~ 'medium',
+          awake <= 10 ~ 'sleepy')
+    )
+```
