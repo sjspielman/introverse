@@ -1,0 +1,86 @@
+---
+title: "Summary statistics functions"
+author: "{introverse} quick docs"
+output: 
+  html_document:
+    highlight: pygments
+    theme: flatly
+---
+
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE, 
+                      warning = FALSE, 
+                      message = FALSE)
+```
+
+
+## Description
+
+R comes with several functions (in its `{base}` package) that are used to _calculate summary statistics_ from numeric arrays. The greatest hits of R summary statistics functions include the following:
+
+| Function | What it calculates |
+|:---------|:-------------------|
+| `mean()` | The arithmetic mean (average) of all values |
+| `median()` | The median of all values |
+| `sd()` | The standard deviation of all values |
+| `sum()` | The sum of all values |
+| `max()` | The maximum value among all values |
+| `min()` | The minimum value among all values |
+
+Note, there is no function to calculate the mode of a numeric array.
+
+<br> 
+
+By default, if the array you want to summarize contains any `NA` values, all functions above will return `NA`; R is very conservative when it encounters missing data. To _ignore `NA` values_ during calculations, provide the second argument `na.rm = TRUE` when using any of the functions.
+
+## Conceptual usage 
+
+```{r usage, eval=FALSE}
+mean(array to summarize)
+
+mean(array with NAs to summarize, na.rm = TRUE)
+```
+
+## Examples
+
+> Run `get_help("msleep")` for a refresher on the `msleep` dataset.
+
+
+```{r example1, collapse = TRUE}
+# Summarize an array directly
+mean( c(100, 125, 145, 167) )
+median( c(100, 125, 145, 167) )
+sd( c(100, 125, 145, 167) )
+sum( c(100, 125, 145, 167) )
+min( c(100, 125, 145, 167) )
+max( c(100, 125, 145, 167) )
+```
+
+<br>  <!-- Do not delete the <br>, and make sure to keep the previous and following lines blank. -->
+
+```{r example2, collapse = TRUE}
+# Calculate various summary statistics from the `awake` column in `msleep`
+# This column does not contain NAs
+
+mean(msleep$awake) 
+median(msleep$awake)
+sd(msleep$awake)
+sum(msleep$awake)
+min(msleep$awake)
+max(msleep$awake)
+```
+
+<br>  <!-- Do not delete the <br>, and make sure to keep the previous and following lines blank. -->
+
+```{r example3, collapse = TRUE}
+# Calculate various summary statistics from the `brainwt` column in `msleep`
+# This column _does_ contain NAs, so we need to use the argument `na.rm=TRUE`.
+
+mean(msleep$brainwt, na.rm = TRUE) 
+median(msleep$brainwt, na.rm = TRUE)
+sd(msleep$brainwt, na.rm = TRUE)
+sum(msleep$brainwt, na.rm = TRUE)
+min(msleep$brainwt, na.rm = TRUE)
+max(msleep$brainwt, na.rm = TRUE)
+```

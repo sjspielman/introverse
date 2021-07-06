@@ -1,0 +1,65 @@
+---
+title: "`base::ceiling()` and `base::floor()`"
+author: "{introverse} quick docs"
+output: 
+  html_document:
+    highlight: pygments
+    theme: flatly
+---
+
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE, 
+                      warning = FALSE, 
+                      message = FALSE)
+```
+
+
+## Description
+
+The `ceiling()` and `floor()` functions come with R and are part of the `{base}` package.
+  
+We use these functions to round decimals up (`ceiling()`) or down (`floor()`) to the closest integer.
+
+## Conceptual usage 
+
+```{r usage, eval=FALSE}
+ceiling(numeric value to round up)
+floor(numeric value to round down)
+
+ceiling(numeric array to round up)
+floor(numeric array to round down)
+```
+
+## Examples
+
+> Run `get_help("carnivores")` for a refresher on the `carnivores` dataset.
+
+```{r example1}
+# Round the number 5.355266335 up
+ceiling(5.355266335)
+```
+
+<br>
+
+```{r example2}
+# Round the number 5.355266335 down
+floor(5.355266335)
+```
+
+<br>
+
+```{r example3}
+# Round the array down
+some_decimals <- c(101.345, 102.298, 103.887)
+floor(some_decimals)
+```
+
+<br>
+
+```{r example4}
+# Round up values in the `carnivores` column `awake`
+carnivores %>%
+  mutate(awake_rounded_up = ceiling(awake))
+```
+

@@ -1,0 +1,57 @@
+---
+title: "`utils::sqrt()`"
+author: "{introverse} quick docs"
+output: 
+  html_document:
+    highlight: pygments
+    theme: flatly
+---
+
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE, 
+                      warning = FALSE, 
+                      message = FALSE)
+```
+
+
+## Description
+
+The `sqrt()` function comes with R and is part of the Base R `{base}` package.
+  
+We use this function to calculate the square root of a number or numeric array.
+
+
+
+
+## Conceptual usage 
+
+```{r usage, eval=FALSE}
+sqrt(number to get the sqrt of)
+
+sqrt(numeric array to get sqrt of all its values)
+```
+
+## Examples
+
+
+```{r example1}
+# Find the sqrt of 107
+sqrt(107)
+```
+
+<br>  <!-- Do not delete the <br>, and make sure to keep the previous and following lines blank. -->
+
+```{r example2}
+# Find the sqrt of a defined variable
+x <- 107
+sqrt(x)
+```
+
+<br>  <!-- Do not delete the <br>, and make sure to keep the previous and following lines blank. -->
+
+
+```{r example3}
+# Find the sqrt of all values in an array
+sqrt( c(100, 110, 120) )
+```

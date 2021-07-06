@@ -1,0 +1,52 @@
+---
+title: "`base::class()`"
+author: "{introverse} quick docs"
+output: 
+  html_document:
+    highlight: pygments
+    theme: flatly
+---
+
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE, 
+                      warning = FALSE, 
+                      message = FALSE)
+```
+
+
+## Description
+
+The `class()` function comes with R and is part of the Base R `{base}` package.
+  
+We use this function to determine what _type_ of value an object or value is, i.e. is the value a numeric, logical, character, etc.
+
+## Conceptual usage 
+
+```{r usage, eval=FALSE}
+class(variable or value of interest)
+```
+
+## Examples
+
+
+```{r example1}
+# Find the type of the value 5
+class(5)
+```
+
+<br>
+
+```{r example2}
+# Find the type of the value 'this is a string'
+class('this is a string')
+```
+
+<br>
+
+```{r example3}
+# Find the type of a previously defined variable
+x <- 75.5
+class(x)
+```
+

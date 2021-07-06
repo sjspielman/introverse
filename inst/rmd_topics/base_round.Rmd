@@ -1,0 +1,53 @@
+---
+title: "`base::round()`"
+author: "{introverse} quick docs"
+output: 
+  html_document:
+    highlight: pygments
+    theme: flatly
+---
+
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE, 
+                      warning = FALSE, 
+                      message = FALSE)
+```
+
+
+## Description
+
+The `round()` function comes with R and is part of the Base R `{base}` package.
+  
+We use this function to round numbers to a certain number of decimal places. 
+
+## Conceptual usage 
+
+```{r usage, eval=FALSE}
+round(numeric value to round, number of decimal places)
+round(numeric array to round, number of decimal places)
+```
+
+## Examples
+
+
+```{r example1}
+# Round the number 5.355266335 to 2 digits
+round(5.355266335, 2)
+```
+
+<br>
+
+```{r example2}
+# Round all values in the array to 3 digits
+round(c(3.55511, 6.2351, 7.29315327, 34.253620), 3)
+```
+
+<br>
+
+```{r example3}
+# Round all values in the `carnivores` column `brainwt` to 1 digit
+carnivores %>%
+  mutate(brainwt_rounded = round(brainwt, 1))
+```
+

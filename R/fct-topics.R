@@ -20,8 +20,49 @@ topic_list <- list(
     "n",
     "count",
     "tally"
-  ))
+    # _join
+    # bind_
+    # between
+  )),
+  # comes with R, affectionately termed base, even though some is not, it's all documented.
+  "base" = sort(c(
+    "length", 
+    "nchar", 
+    "log", 
+    "sqrt",
+    "summary", 
+    "round",
+    # Same page
+    "head", "tail", 
+    # Same page
+    "mean", "median", "max", "min", "sum", "sd",
+    # Same page
+    "ceiling", "floor",
+  #  "ifelse", 
+    # Same page
+    "nrow", "ncol",
+  #  "table",
+  #  "levels", 
+    "class", 
+  #  "c", 
+  #  "data.frame",
+    "file.path", 
+  #  # Same page
+    "file.exists", "dir.exists"
+  #  # Same page
+  #  "as.numeric", "as.factor", "as.character", 
+    ))
 )
+
+# TODO???
+#shared_topics <- list(
+# topic = topics that share its page???
+#  "mean" = c("median", "max", "min", "sum", "sd"),
+#  "ceiling" = c("ceiling", "floor"),
+#  "head" = c("head", "tail") 
+#)
+
+
 # Need to convert below to Rmd from current text garbage
 # topic_list <- list(
 #   "operators" = sort(
@@ -31,31 +72,9 @@ topic_list <- list(
 #   #    "pipe"),
 #   ),
 #   
-#   "dplyr" = sort(
-#      "tally", 
-#      "count",
-#      "n", 
 #   ),
-#   # _join
-#   # bind_
-#   # between
-#   
-#     # comes with R, affectionately termed base, even though some is not, it's all documented.
-#    "base" = sort(
-#      c("head", 
-#         "tail", 
-#         "length", 
-#         "nchar", 
-#         "log", 
-#         "sqrt", 
-#         "summary", 
-#         "mean",
-#         "median",
-#         "max",
-#         "min",
-#         "sum",
-#         "sd",
-#         "round", "ceiling", "floor",
+
+#         
 #         "ifelse", 
 #         "nrow", "ncol",
 #         "table",

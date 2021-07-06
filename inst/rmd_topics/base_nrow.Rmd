@@ -1,0 +1,45 @@
+---
+title: "`base::nrow()` and `base::ncol()`"
+author: "{introverse} quick docs"
+output: 
+  html_document:
+    highlight: pygments
+    theme: flatly
+---
+
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE, 
+                      warning = FALSE, 
+                      message = FALSE)
+```
+
+
+## Description
+
+The `nrow()` and `ncol()` functions come with R and are part of the `{base}` package.
+  
+We use these functions to get the number of rows (`nrow()`) or columns (`ncol()`) of an object, usually a tibble (data frame).
+
+## Conceptual usage 
+
+```{r usage, eval=FALSE}
+nrow(tibble)
+ncol(tibble)
+```
+
+## Examples
+
+> Run `get_help("carnivores")` for a refresher on the `carnivores` dataset.
+
+```{r example1}
+# Find the number of rows in carnivores
+nrow(carnivores)
+```
+
+<br>
+
+```{r example2}
+# Find the number of columns in carnivores
+ncol(carnivores)
+```

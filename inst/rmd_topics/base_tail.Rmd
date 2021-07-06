@@ -1,0 +1,59 @@
+---
+title: "`utils::head()` and `utils::tail()`"
+author: "{introverse} quick docs"
+output: 
+  html_document:
+    highlight: pygments
+    theme: flatly
+---
+
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE, 
+                      warning = FALSE, 
+                      message = FALSE)
+```
+
+
+## Description
+
+The `head()` and `tail()` functions come with R and are part of the Base R `{utils}` package.
+  
+We use these functions quickly to obtain the first (`head()`) or last (`tail()`) 6 rows of a given tibble (data frame), or more generally the first/last 6 entries in any array or list. With a second argument, you can change the default from 6 to a different value.
+
+
+
+## Conceptual usage 
+
+```{r usage, eval=FALSE}
+head(tibble)
+
+head(tibble, a different number of rows)
+
+tail(tibble)
+```
+
+## Examples
+
+> Run `get_help("carnivores")` for a refresher on the `carnivores` dataset.
+
+```{r example1}
+# See first 6 rows of carnivores
+head(carnivores)
+```
+
+<br>  <!-- Do not delete the <br>, and make sure to keep the previous and following lines blank. -->
+
+
+```{r example2}
+# See last 6 rows of carnivores
+tail(carnivores)
+```
+
+<br> 
+
+
+```{r example3, collapse=TRUE}
+# See first 3 rows of carnivores
+head(carnivores, 3)
+```
