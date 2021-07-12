@@ -1,0 +1,11 @@
+^LICENSE\.md$
+^CODE_OF_CONDUCT\.md$
+^.*\.Rproj$
+^\.Rproj\.user$
+documentation_modules/
+^\.travis\.yml$
+^inst/rmd_topics/*\.html$
+^inst/student_modules/*
+^CONTRIBUTING.html$
+^README.html$
+^data-raw$

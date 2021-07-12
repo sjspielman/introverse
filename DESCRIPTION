@@ -1,0 +1,39 @@
+Package: introverse
+Title: Provides Resources for Novices to Introduce the Tidyverse
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "Stephanie",
+           family = "Spielman",
+           role = c("aut", "cre"),
+           email = "spielman@rowan.edu",
+           comment = c(ORCID = "0000-0002-9090-4788"))
+Description: Has alternative docs, for now!
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.1
+Imports: 
+    crayon,
+    dplyr (>= 1.0.0),
+    ggplot2 (>= 3.3.2),
+    tidyr (>= 1.0.0),
+    tidyselect,
+    glue,
+    magrittr,
+    rstudioapi,
+    usethis,
+    readr,
+    DT
+Collate:
+    'utils.R'
+    'fct-topics.R'
+    'fct-get_help.R'
+    'fct-render_rmd.R'
+    'fct-topics.R'
+    'carnivores.R'
+Suggests: 
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
+Depends: 
+    R (>= 2.10)

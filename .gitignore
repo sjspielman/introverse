@@ -4,6 +4,8 @@ rsconnect/
 .Rhistory
 .Rapp.history
 
+*.Rproj
+
 # Session Data files
 .RData
 
@@ -39,3 +41,8 @@ vignettes/*.pdf
 
 # R Environment Variables
 .Renviron
+
+
+# htmls
+README.html
+CONTRIBUTING.html

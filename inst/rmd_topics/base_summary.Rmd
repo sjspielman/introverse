@@ -1,0 +1,45 @@
+---
+title: "`utils::summary()`"
+author: "{introverse} quick docs"
+output: 
+  html_document:
+    highlight: pygments
+    theme: flatly
+---
+
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE, 
+                      warning = FALSE, 
+                      message = FALSE)
+```
+
+
+## Description
+
+The `log()` function comes with R and are part of the Base R `{base}` package.
+  
+We use this function to generally summarize objects and variables. Most commonly, we summarize objects like tibbles/data frames, arrays, and statistical model output.
+
+
+## Conceptual usage 
+
+```{r usage, eval=FALSE}
+summary(object to summarize)
+```
+
+## Examples
+
+
+```{r example1}
+# Summarize the msleep tibble to get information about all columns
+summary(msleep)
+```
+
+<br>
+
+```{r example2}
+# Summarize an array
+summary(msleep$awake)
+```
+

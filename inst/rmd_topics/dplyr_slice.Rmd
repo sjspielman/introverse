@@ -1,0 +1,87 @@
+---
+title: "`dplyr::slice()`"
+author: "{introverse} quick docs"
+output: 
+  html_document:
+    highlight: pygments
+    theme: flatly
+---
+
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE, 
+                      warning = FALSE, 
+                      message = FALSE)
+library(dplyr)
+```
+
+
+## Description
+
+The [`slice()`](https://dplyr.tidyverse.org/reference/slice.html) function is part of the [`{dplyr}`](https://dplyr.tidyverse.org/) package, which is part of the [`{tidyverse}`](https://www.tidyverse.org/).
+
+It is used to subset rows from tibbles (data frames) based on _indices_, i.e. which row it is in the tibble.
+
+
+<!-- Add the following if the topic is a function that does NOT come with base R, and uncomment/fill in the subsequent multiline HTML comment: -->
+To use this function, you need to either first load the `{dplyr}` library, or always use the function with `dplyr::slice()` notation.
+
+```{r description, eval=FALSE}
+# Load the library
+library(dplyr)
+# Or, load the full tidyverse:
+library(tidyverse)
+
+# Or, use :: notation
+dplyr::slice()
+```
+
+
+## Conceptual usage 
+
+```{r usage, eval=FALSE}
+tibble %>% 
+  slice(range or index of row(s) to keep)
+
+tibble %>% 
+  slice(which, row, numbers, to, keep)
+
+tibble %>% 
+  slice(-which, -row, -numbers, -to, -remove)
+```
+
+## Examples
+
+> Run `get_help("carnivores")` for a refresher on the `carnivores` dataset.
+
+```{r example1}
+# Keep only the 4th row from carnivores 
+carnivores %>% 
+  slice(4)
+```
+
+<br>  <!-- Do not delete the <br>, and make sure to keep the previous and following lines blank. -->
+
+
+```{r example2}
+# Keep only the 3rd - 5th rows from carnivores 
+carnivores %>%
+  slice(3:5)
+```
+
+<br> 
+
+
+```{r example3}
+# Keep the 1st and 8th row from carnivores
+carnivores %>%
+  slice(1, 8)
+```
+
+<br> 
+
+```{r example4}
+# Remove the 8th row from carnivores
+carnivores %>%
+  slice(-8)
+```

@@ -1,0 +1,89 @@
+---
+title: "`dplyr::summarize()`"
+author: "{introverse} quick docs"
+output: 
+  html_document:
+    highlight: pygments
+    theme: flatly
+---
+
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE, 
+                      warning = FALSE, 
+                      message = FALSE)
+library(dplyr)
+```
+
+
+## Description
+
+The [`summarize()`](https://dplyr.tidyverse.org/reference/summarize.html) function is part of the [`{dplyr}`](https://dplyr.tidyverse.org/) package, which is part of the [`{tidyverse}`](https://www.tidyverse.org/).
+
+It is used to summarize tibbles (data frame), such that the resulting tibble has new column(s) and is smaller, retaining only what was needed for summarizing. This function is often used with `group_by()` to quickly summarize across different groupings at once.
+
+
+<!-- Add the following if the topic is a function that does NOT come with base R, and uncomment/fill in the subsequent multiline HTML comment: -->
+To use this function, you need to either first load the `{dplyr}` library, or always use the function with `dplyr::summarize()` notation.
+
+```{r description, eval=FALSE}
+# Load the library
+library(dplyr)
+# Or, load the full tidyverse:
+library(tidyverse)
+
+# Or, use :: notation
+dplyr::summarize()
+```
+
+
+## Conceptual usage 
+
+```{r usage, eval=FALSE}
+tibble %>% 
+  summarize(name_of_new_column = summary statistic calculation)
+
+tibble %>% 
+  group_by(grouping column) %>% 
+  summarize(name_of_new_column = summary statistic calculation)
+```
+
+## Examples
+
+> Run `get_help("msleep")` for a refresher on the `msleep` dataset.
+
+```{r example1}
+# Calculate the mean time spent awake
+msleep %>% 
+  summarize(mean_awake = mean(awake))
+```
+
+<br>  <!-- Do not delete the <br>, and make sure to keep the previous and following lines blank. -->
+
+
+```{r example2}
+# Calculate the mean time spent awake for each vore group
+msleep %>% 
+  group_by(vore) %>%
+  summarize(mean_awake = mean(awake))
+```
+
+<br> 
+
+```{r example3}
+# Calculate the mean time spent awake for each combination of vore and conservation groups
+msleep %>% 
+  group_by(vore, conservation) %>%
+  summarize(mean_awake = mean(awake))
+```
+
+<br> 
+
+
+```{r example4}
+# Calculate the median brainwt
+## Caution! Because the brainwt column contains NAs, 
+## we need to use the _argument_ `na.rm = TRUE` with `median()`
+msleep %>% 
+  summarize(median_brainwt = median(brainwt, na.rm = TRUE))
+```

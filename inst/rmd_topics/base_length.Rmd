@@ -1,0 +1,47 @@
+---
+title: "`utils::length()`"
+author: "{introverse} quick docs"
+output: 
+  html_document:
+    highlight: pygments
+    theme: flatly
+---
+
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE, 
+                      warning = FALSE, 
+                      message = FALSE)
+```
+
+
+## Description
+
+The `length()` function comes with R and is part of the Base R `{base}` package.
+  
+We use this function to determine the length of an object, most commonly of array or list objects. Note that this function WILL NOT tell you the length of a string, for which you must use `nchar()`.
+
+
+
+## Conceptual usage 
+
+```{r usage, eval=FALSE}
+length(array to find the length of)
+```
+
+## Examples
+
+
+```{r example1}
+# Find the length of an array directly
+length( c(44, 55, 66) )
+```
+
+<br>  <!-- Do not delete the <br>, and make sure to keep the previous and following lines blank. -->
+
+
+```{r example2}
+# Find the length of an array which has been defined as a variable
+my_array <- c(44, 55, 66)
+length(my_array)
+```

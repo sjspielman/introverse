@@ -1,0 +1,51 @@
+---
+title: "`base::file.path()`"
+author: "{introverse} quick docs"
+output: 
+  html_document:
+    highlight: pygments
+    theme: flatly
+---
+
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE, 
+                      warning = FALSE, 
+                      message = FALSE)
+```
+
+
+## Description
+
+The `file.path()` function comes with R and is part of the Base R `{base}` package.
+  
+We use this function to write paths to files or directories (even though it's called `file.path()`!), in a way where the path is guaranteed to work on any type of computer.
+
+## Conceptual usage 
+
+```{r usage, eval=FALSE}
+file.path('component', 'of', 'path', 'to', 'thing', 'of', 'interest')
+```
+
+## Examples
+
+
+```{r example1, eval=FALSE}
+# Format path to a file that lives in the relative path 'path/to/data/file.txt'
+file.path('path', 'to', 'data', 'file.txt')
+```
+
+<br>
+
+```{r example2, eval=FALSE}
+# Format path to a file that lives in the relative path '../path/to/data/file.txt'
+file.path('..', 'path', 'to', 'data', 'file.txt')
+```
+
+<br>
+
+```{r example3, eval=FALSE}
+# Format path to directory at the relative path '../../path/to/data/'
+file.path('..', '..', 'path', 'to', 'data')
+```
+

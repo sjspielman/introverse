@@ -1,0 +1,88 @@
+---
+title: "`dplyr::mutate()`"
+author: "{introverse} quick docs"
+output: 
+  html_document:
+    highlight: pygments
+    theme: flatly
+---
+
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE, 
+                      warning = FALSE, 
+                      message = FALSE)
+library(dplyr)
+```
+
+
+## Description
+
+The [`mutate()`](https://dplyr.tidyverse.org/reference/mutate.html) function is part of the [`{dplyr}`](https://dplyr.tidyverse.org/) package, which is part of the [`{tidyverse}`](https://www.tidyverse.org/).
+
+It is used to create new columns in tibbles (data frames). Since `mutate()` will also overwrite existing columns, you can also use it to modify existing columns in place.
+
+
+<!-- Add the following if the topic is a function that does NOT come with base R, and uncomment/fill in the subsequent multiline HTML comment: -->
+To use this function, you need to either first load the `{dplyr}` library, or always use the function with `dplyr::mutate()` notation.
+
+```{r description, eval=FALSE}
+# Load the library
+library(dplyr)
+# Or, load the full tidyverse:
+library(tidyverse)
+
+# Or, use :: notation
+dplyr::mutate()
+```
+
+
+## Conceptual usage 
+
+```{r usage, eval=FALSE}
+tibble %>% 
+  mutate(name_of_new_column = what to put in new column)
+
+tibble %>% 
+  mutate(name_of_first_new_column = what to put in this new column,
+         name_of_second_new_column =  what to put in this new column,          
+         etc. as needed)
+
+```
+
+## Examples
+
+> Run `get_help("carnivores")` for a refresher on the `carnivores` dataset.
+
+```{r example1}
+# Create a new column called `my_new_column` that literally contains the value `5` at all rows
+carnivores %>% 
+  mutate(my_new_column =  5)
+```
+
+<br>  <!-- Do not delete the <br>, and make sure to keep the previous and following lines blank. -->
+
+
+```{r example2}
+# Create a new column `brainwt_g` that contains brain weight in g, instead of kg.
+carnivores %>%
+  mutate(brainwt_g = brainwt * 1000) # multiply by 1000 to convert kg --> g
+```
+
+<br> 
+
+
+```{r example3}
+# Create a new column `little_name` that contains the `name` values in lower case.
+# We'll use the function stringr::str_to_lower() to convert strings to lower case
+carnivores %>%
+  mutate(little_name = stringr::str_to_lower(name))
+```
+
+<br> 
+
+```{r example4}
+# Use mutate() to change the column `genus` into a factor instead of character
+carnivores %>%
+  mutate(genus = as.factor(genus))
+```

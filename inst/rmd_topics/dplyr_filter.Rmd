@@ -1,0 +1,108 @@
+---
+title: "`dplyr::filter()`"
+author: "{introverse} quick docs"
+output: 
+  html_document:
+    highlight: pygments
+    theme: flatly
+---
+
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE, 
+                      warning = FALSE, 
+                      message = FALSE)
+library(dplyr)
+```
+
+
+## Description
+
+The [`filter()`](https://dplyr.tidyverse.org/reference/filter.html) function is part of the [`{dplyr}`](https://dplyr.tidyverse.org/) package, which is part of the [`{tidyverse}`](https://www.tidyverse.org/).
+
+It is used to **subset rows** from tibbles (data frames). Rows are kept if the given logical statement (code that gives `TRUE` or `FALSE`) is `TRUE`. Use this function if you only want to keep certain rows, aka certain observations."
+
+
+<!-- Add the following if the topic is a function that does NOT come with base R, and uncomment/fill in the subsequent multiline HTML comment: -->
+To use this function, you need to either first load the `{dplyr}` library, or always use the function with `dplyr::filter()` notation.
+
+```{r description, eval=FALSE}
+# Load the library
+library(dplyr)
+# Or, load the full tidyverse:
+library(tidyverse)
+
+# Or, use :: notation
+dplyr::filter()
+```
+
+
+## Conceptual usage 
+
+```{r usage, eval=FALSE}
+tibble %>% 
+  filter(logical statement)
+
+tibble %>% 
+  filter(logical statement,
+         another logical statement,
+         and more logical statements that you want to all be TRUE)
+
+```
+
+## Examples
+
+> Run `get_help("carnivores")` for a refresher on the `carnivores` dataset.
+
+```{r example1}
+# Subset carnivores to keep only rows that are the genus 'Panthera' 
+carnivores %>% 
+  filter(genus ==  "Panthera")
+```
+
+<br>  <!-- Do not delete the <br>, and make sure to keep the previous and following lines blank. -->
+
+
+```{r example2}
+# Subset carnivores to keep only rows of carnivores awake for more than 13 hours
+carnivores %>%
+  filter(awake > 13)
+```
+
+<br> 
+
+
+```{r example3, collapse=TRUE}
+# Subset carnivores to keep only rows where the genus is 'Panthera' and they are awake for _less than_ 13 hours
+carnivores %>%
+  filter(genus == "Panthera", awake < 13)
+
+# Or, use & as "and"
+carnivores %>%
+  filter(genus == "Panthera" & awake < 13)
+```
+
+<br>
+
+```{r example4}
+# Subset rows to keep only where genus is 'Panthera' **or** brainwt < 0.05
+# Or, use | (vertical bar on \ key) as "or"
+carnivores %>%
+  filter(genus == "Panthera" | brainwt < 0.05)
+```
+
+<br> 
+
+```{r example5, collapse=TRUE}
+# Subset carnivores to keep only rows where the genus is _either_ 'Panthera' or 'Canis'
+# In other words, it should be TRUE that the genus is %in% the array c("Panthera", "Canis"). 
+# Remember: We do _not_ use `==` when asking if a value is in an array.
+carnivores %>%
+  filter(genus %in% c("Panthera", "Canis"))
+
+# Or, use | (vertical bar on \ key) as "or"
+carnivores %>%
+  filter(genus == "Panthera" | genus == "Canis")
+```
+
+

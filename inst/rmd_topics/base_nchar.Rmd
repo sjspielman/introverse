@@ -1,0 +1,56 @@
+---
+title: "`utils::nchar()`"
+author: "{introverse} quick docs"
+output: 
+  html_document:
+    highlight: pygments
+    theme: flatly
+---
+
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE, 
+                      warning = FALSE, 
+                      message = FALSE)
+```
+
+
+## Description
+
+The `nchar()` function comes with R and is part of the Base R `{base}` package.
+  
+We use this function to determine the how many characters (**n**umber of **char**acters) in a string. Unfortunately, it is pronounced "en-char."
+
+
+
+
+## Conceptual usage 
+
+```{r usage, eval=FALSE}
+nchar(string to count number of characters in)
+```
+
+## Examples
+
+
+```{r example1}
+# Find the number of characters in a string directly
+nchar('word')
+```
+
+<br>  <!-- Do not delete the <br>, and make sure to keep the previous and following lines blank. -->
+
+
+```{r example2}
+# Find the number of characters in a string with multiple words
+nchar('This is a whole sentence.')
+```
+
+<br>  <!-- Do not delete the <br>, and make sure to keep the previous and following lines blank. -->
+
+
+```{r example3}
+# Find the number of characters in a string that was previously defined as a variable.
+my_string <- 'heyo!'
+nchar(my_string)
+```

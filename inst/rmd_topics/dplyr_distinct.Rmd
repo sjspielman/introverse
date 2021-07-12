@@ -1,0 +1,77 @@
+---
+title: "`dplyr::distinct()`"
+author: "{introverse} quick docs"
+output: 
+  html_document:
+    highlight: pygments
+    theme: flatly
+---
+
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE, 
+                      warning = FALSE, 
+                      message = FALSE)
+library(dplyr)
+```
+
+
+## Description
+
+The [`distinct()`](https://dplyr.tidyverse.org/reference/distinct.html) function is part of the [`{dplyr}`](https://dplyr.tidyverse.org/) package, which is part of the [`{tidyverse}`](https://www.tidyverse.org/).
+
+It is used to remove duplicate rows from tibbles (data frames). Only distinct rows are retained. No arguments are needed when using this fucntion.
+
+<!-- Add the following if the topic is a function that does NOT come with base R, and uncomment/fill in the subsequent multiline HTML comment: -->
+To use this function, you need to either first load the `{dplyr}` library, or always use the function with `dplyr::distinct()` notation.
+
+```{r description, eval=FALSE}
+# Load the library
+library(dplyr)
+# Or, load the full tidyverse:
+library(tidyverse)
+
+# Or, use :: notation
+dplyr::distinct()
+```
+
+
+## Conceptual usage 
+
+```{r usage, eval=FALSE}
+tibble %>% 
+  distinct()
+```
+
+## Examples
+
+> Run `get_help("carnivores")` for a refresher on the `carnivores` dataset.
+
+```{r example1}
+# Keep only distinct rows in carnivores
+# All rows are already distinct, so all rows are kept
+carnivores %>% 
+  distinct()
+```
+
+<br>  <!-- Do not delete the <br>, and make sure to keep the previous and following lines blank. -->
+
+
+```{r example2}
+# This example creates a tibble with non-unique rows for more demonstration:
+
+# Make a tibble with 3 rows using `tibble::tribble()` 
+new_tibble <- tibble::tribble(
+  ~col1, ~col2,
+  1, 5, 
+  1, 5, 
+  2, 6, 
+)
+
+# Show new_tibble
+new_tibble
+
+# Keep only unique rows from new_tibble
+new_tibble %>%
+  distinct()
+```

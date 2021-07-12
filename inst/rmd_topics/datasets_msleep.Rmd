@@ -1,0 +1,62 @@
+---
+title: "The `msleep` dataset"
+author: "`{introverse}` quick docs"
+output: 
+  html_document:
+    theme: flatly
+    syntax: pygments
+---
+
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE, 
+                      warning = FALSE, 
+                      message = FALSE)
+library(DT)
+clean_nas <- function(df){
+  df %>%
+    dplyr::mutate(
+      dplyr::across(dplyr::everything(), ~tidyr::replace_na(.x, "NA"))
+    )  
+}
+```
+
+<br>
+
+## Description
+
+One of the `{introverse}` example datasets is called **`msleep`**. This dataset is a tibble with 83 rows and 11 columns and contains information about mammalian species. This dataset comes from the `{ggplot2}` package.
+
+You can directly explore the `msleep` tibble in the Console, or you can interactively explore its contents below.
+
+
+### Explore `msleep`
+
+Columns in `msleep` include the following:
+
++ `name`: The common name of the mammal
++ `genus`: The Genus classification of the mammal species
++ `vore`: Whether the species is **carni**vore, **hervi**vore, **omni**vore, or **insecti**vore
++ `order`: The Order classification of the mammal species
++ `conservation`: The conservation status of the mammal species
+  + `lc`: "**l**east **c**oncern"
+  + `nt`: "**n**ot **t**hreatened"
+  + `en`: "**en**dangered"
+  + `cd`: "**c**onservation **d**ependent
+  + `domesticated`: domesticated
++ `sleep_total`: The total amount of sleep per day, in hours
++ `sleep_rem`: The amount of REM sleep per day, in hours
++ `sleep_cycle`: The length of a sleep cycle, in hours
++ `awake`: The amount of time spent awake, in hours
++ `brainwt`: The brain weight in kg
++ `bodywt`: The body weight in kg
+
+Values in the data that are _NA_ indicate that the data are _missing and/or unknown._
+
+<br>
+
+```{r echo=FALSE}
+DT::datatable(clean_nas(msleep), 
+              rownames=FALSE)
+```
+

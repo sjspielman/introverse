@@ -1,0 +1,95 @@
+---
+title: "`dplyr::tally()`"
+author: "{introverse} quick docs"
+output: 
+  html_document:
+    highlight: pygments
+    theme: flatly
+---
+
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE, 
+                      warning = FALSE, 
+                      message = FALSE)
+library(dplyr)
+```
+
+
+## Description
+
+The [`tally()`](https://dplyr.tidyverse.org/reference/tally.html) function is part of the [`{dplyr}`](https://dplyr.tidyverse.org/) package, which is part of the [`{tidyverse}`](https://www.tidyverse.org/).
+
+The function `tally()` creates a new column (named `n` by default) in a tibble (data frame) that tallies the number of rows (observations) in specified group.  If there is no grouping, `tally()` will give the total number of rows. This is similar to using base `nrow()` except, like many `{dplyr}` verbs, `tally()` returns a tibble. 
+
+Note that the `{dplyr}` function `count()` provides a shortcut for `group_by() %>% tally() %>% ungroup()`"
+
+<!-- Add the following if the topic is a function that does NOT come with base R, and uncomment/fill in the subsequent multiline HTML comment: -->
+To use this function, you need to either first load the `{dplyr}` library, or always use the function with `dplyr::tally()` notation.
+
+```{r description, eval=FALSE}
+# Load the library
+library(dplyr)
+# Or, load the full tidyverse:
+library(tidyverse)
+
+# Or, use :: notation
+dplyr::tally()
+```
+
+
+## Conceptual usage 
+
+```{r usage, eval=FALSE}
+# Summarize into tibble indicating total rows
+tibble %>% 
+  tally()
+
+tibble %>% 
+  tally(name = count) # specify a non-default output column name
+
+tibble %>% 
+  group_by(grouping column) %>% 
+  tally() %>% 
+  ungroup()
+```
+
+## Examples
+
+> Run `get_help("msleep")` for a refresher on the `msleep` dataset.
+
+```{r example1}
+# Count the total number of rows in msleep
+msleep %>%
+  tally()
+```
+
+<br>  <!-- Do not delete the <br>, and make sure to keep the previous and following lines blank. -->
+
+
+```{r example2}
+# Count the total number of rows in msleep and specify column name
+msleep %>%
+  tally(name = 'total')
+```
+
+<br> 
+
+
+```{r example3}
+# Count total number of rows for each vore. 
+# Note that this can also be done more simply with `dplyr::count()`
+msleep %>%
+  group_by(vore) %>%
+  tally()
+```
+
+<br> 
+
+```{r example4}
+# Subset carnivores to keep only rows where the genus is _either_ 'Panthera' or 'Canis'
+# In other words, it should be TRUE that the genus is %in% the array c("Panthera", "Canis"). 
+# Remember: We do _not_ use `==` when asking if a value is in an array.
+carnivores %>%
+  tally(genus %in% c("Panthera", "Canis"))
+```
