@@ -8,7 +8,8 @@ Help for tidyverse novices, led by [Stephanie J. Spielman, PhD](https://spielman
 stable](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental) 
 
 Student contributors:
-+ [Madeline ("Maddie") Greene](https://github.com/greenemadeline) (Fall 2020 - Present)
+<!--
++ [Madeline ("Maddie") Greene](https://github.com/greenemadeline) (Fall 2020 - Present) -->
 + [John ("Jake") Kovaleski](https://github.com/jakekova) (Fall 2020 - Present)
 + [Shemaiah Sotrah](https://github.com/shemaiah-s) (Summer 2020)
 + [Judith Evans](https://github.com/judithepevans) (Spring 2021 - Present)
