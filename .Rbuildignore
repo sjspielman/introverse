@@ -6,6 +6,7 @@ documentation_modules/
 ^\.travis\.yml$
 ^inst/rmd_topics/*\.html$
 ^inst/student_modules/*
+^CONTRIBUTING.md$
 ^CONTRIBUTING.html$
 ^README.html$
 ^data-raw$
