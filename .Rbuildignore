@@ -9,3 +9,4 @@ documentation_modules/
 ^CONTRIBUTING.html$
 ^README.html$
 ^data-raw$
+^\.github$
