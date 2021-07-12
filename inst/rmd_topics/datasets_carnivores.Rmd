@@ -46,7 +46,8 @@ Values in the data that are _NA_ indicate that the data are _missing and/or unkn
 <br>
 ```{r echo=FALSE}
 DT::datatable(clean_nas(carnivores), 
-              rownames=FALSE)
+              rownames=FALSE,
+              fillContainer = FALSE)
 ```
 
 
