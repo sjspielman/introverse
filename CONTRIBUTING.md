@@ -97,17 +97,14 @@ Install the package `introverse.templates` with `remotes::install_github("spielm
     + Knit away as regular part of development, but never try to `git add` the knitted HTML output. We only want to be tracking the `Rmd` help. The knitted HTML will be added in a separate step later.
 
 6. Once you are satisfied with your doc page..
-    + Did you remember to delete the `read_csv()` line(s) if you put dataset(s) in your examples! Quick, delete them!
-    + Again run `devtools::load_all()` to load up your doc page into the loaded `{introverse}`
-    + Run the command `render_rmd_topics(topic_file = "category_topic.Rmd")` to formally knit your docs and save the knitted outputs to `inst/html_topics/`. 
-      + For example, if you just developed `dplyr::filter()` and saved it to `inst/rmd_topics/dplyr_filter.Rmd`, you would run  `render_rmd_topics(topic_file = "dplyr_filter.Rmd")`
+    + Did you remember to delete the `read_csv()` line(s) if you used the dataset(s) in your examples! Quick, delete!
+    + Again run `devtools::load_all()` to load up your doc page.
     + Test out your docs with the command: `get_help("whatever you called your topic")`. 
       + If this did not work, return to *Step 5* to debug and resume development.
-  + If the `get_help()` works, test the whole package with `devtools::test()`. **If there are NO test FAILURES, you did it! You developed!!** Time for a pull request! Before filing the PR, make sure you've added/committed/pushed the following:
+    + If the `get_help()` works, test the whole package with `devtools::test()`. **If there are NO test FAILURES, you did it! You developed!!** Time for a pull request! Before filing the PR, make sure you've added/committed/pushed the following:
      + `R/fct-topics.R`
      + Your `Rmd` topic page in `inst/rmd_topics/`
-     + The final `html` topic page in `inst/html_topics/`
-
+     + Do not add any HTML files you may have created - github will ignore them.
 
 ### How to develop new `{introverse}` exercises
 
