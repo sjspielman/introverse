@@ -266,38 +266,30 @@ pre code {
 <h2>Examples</h2>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Summarize the msleep tibble to get information about all columns</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(msleep)</span></code></pre></div>
-<pre><code>##      name              genus               vore          
-##  Length:83          Length:83          Length:83         
-##  Class :character   Class :character   Class :character  
-##  Mode  :character   Mode  :character   Mode  :character  
-##                                                          
-##                                                          
-##                                                          
-##                                                          
-##     order           conservation        sleep_total   
-##  Length:83          Length:83          Min.   : 1.90  
-##  Class :character   Class :character   1st Qu.: 7.85  
-##  Mode  :character   Mode  :character   Median :10.10  
-##                                        Mean   :10.43  
-##                                        3rd Qu.:13.75  
-##                                        Max.   :19.90  
-##                                                       
-##    sleep_rem      sleep_cycle         awake          brainwt       
-##  Min.   :0.100   Min.   :0.1167   Min.   : 4.10   Min.   :0.00014  
-##  1st Qu.:0.900   1st Qu.:0.1833   1st Qu.:10.25   1st Qu.:0.00290  
-##  Median :1.500   Median :0.3333   Median :13.90   Median :0.01240  
-##  Mean   :1.875   Mean   :0.4396   Mean   :13.57   Mean   :0.28158  
-##  3rd Qu.:2.400   3rd Qu.:0.5792   3rd Qu.:16.15   3rd Qu.:0.12550  
-##  Max.   :6.600   Max.   :1.5000   Max.   :22.10   Max.   :5.71200  
-##  NA&#39;s   :22      NA&#39;s   :51                       NA&#39;s   :27       
-##      bodywt        
-##  Min.   :   0.005  
-##  1st Qu.:   0.174  
-##  Median :   1.670  
-##  Mean   : 166.136  
-##  3rd Qu.:  41.750  
-##  Max.   :6654.000  
-## </code></pre>
+<pre><code>##      name              genus               vore              order          
+##  Length:83          Length:83          Length:83          Length:83         
+##  Class :character   Class :character   Class :character   Class :character  
+##  Mode  :character   Mode  :character   Mode  :character   Mode  :character  
+##                                                                             
+##                                                                             
+##                                                                             
+##                                                                             
+##  conservation        sleep_total      sleep_rem      sleep_cycle    
+##  Length:83          Min.   : 1.90   Min.   :0.100   Min.   :0.1167  
+##  Class :character   1st Qu.: 7.85   1st Qu.:0.900   1st Qu.:0.1833  
+##  Mode  :character   Median :10.10   Median :1.500   Median :0.3333  
+##                     Mean   :10.43   Mean   :1.875   Mean   :0.4396  
+##                     3rd Qu.:13.75   3rd Qu.:2.400   3rd Qu.:0.5792  
+##                     Max.   :19.90   Max.   :6.600   Max.   :1.5000  
+##                                     NA&#39;s   :22      NA&#39;s   :51      
+##      awake          brainwt            bodywt        
+##  Min.   : 4.10   Min.   :0.00014   Min.   :   0.005  
+##  1st Qu.:10.25   1st Qu.:0.00290   1st Qu.:   0.174  
+##  Median :13.90   Median :0.01240   Median :   1.670  
+##  Mean   :13.57   Mean   :0.28158   Mean   : 166.136  
+##  3rd Qu.:16.15   3rd Qu.:0.12550   3rd Qu.:  41.750  
+##  Max.   :22.10   Max.   :5.71200   Max.   :6654.000  
+##                  NA&#39;s   :27</code></pre>
 <p><br></p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Summarize an array</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(msleep<span class="sc">$</span>awake)</span></code></pre></div>
