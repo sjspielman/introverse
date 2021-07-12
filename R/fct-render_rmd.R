@@ -5,7 +5,8 @@
 render_rmd_topics <- function(verbose = FALSE) {
   
   all_rmd_files <- list.files( 
-                    system.file(rmd_topics_path, package = "introverse")
+                    system.file(rmd_topics_path, package = "introverse"), 
+                    pattern = ".Rmd"
   )
   
   # Render each of them in a super duper efficient manner
