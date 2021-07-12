@@ -1,5 +1,5 @@
 ---
-title: "`base::class()`"
+title: "`class()`"
 author: "{introverse} quick docs"
 output: 
   html_document:

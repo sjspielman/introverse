@@ -1,5 +1,5 @@
 ---
-title: "`base::file.path()`"
+title: "`file.path()`"
 author: "{introverse} quick docs"
 output: 
   html_document:

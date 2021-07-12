@@ -1,5 +1,5 @@
 ---
-title: "`utils::head()` and `utils::tail()`"
+title: "`head()` and `tail()`"
 author: "{introverse} quick docs"
 output: 
   html_document:

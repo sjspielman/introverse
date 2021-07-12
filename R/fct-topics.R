@@ -101,8 +101,10 @@ topic_list <- list(
 #' @examples 
 #' \dontrun{
 #' show_topics() # Show a list of topics, organized by category
-#' show_topics(category = 'dplyr') # Show a list of topics in the `dplyr` category
-#' show_topics(category = c('dplyr', 'tidyr')) # Show a list of topics in the `dplyr` and `tidyr` categories
+#' # Show all topics in the `dplyr` category
+#' show_topics(category = 'dplyr') 
+#' # Show all topics in the `dplyr` and `tidyr` categories
+#' show_topics(category = c('dplyr', 'tidyr')) 
 #' }
 show_topics <- function(category = NULL)
 {
@@ -144,8 +146,7 @@ show_topics <- function(category = NULL)
   
   for (pkg in show_names)
   {
-    cat(crayon::bold(crayon::magenta(glue::glue({pkg}, "::")))
-    )
+    cat(crayon::bold(crayon::green(crayon::underline(glue::glue("{pkg} topics:")))))
     for (topic in topic_list[[pkg]])
     {
       # looping to add quotes to reinforce that the arguments need to be strings
@@ -164,10 +165,9 @@ show_topics <- function(category = NULL)
 message_topic_to_help <- function(topic)
 {
   message(
-    "\nHmm, it looks like you asked to get help for the " %+% 
-    crayon::underline("topic") %+% " " %+% crayon::bold(topic) %+% "?\n" %+%
-    "To see help for that function, try using: " %+% crayon::inverse(glue::glue('get_help("',
-                                                                                {topic}, '")\n\n'))
+    "\nHmm, it looks like you want to get help for the " %+% 
+    crayon::underline("topic") %+% " " %+% crayon::bold(topic) %+% "?
+  Run this instead to get help: " %+% crayon::inverse(glue::glue('get_help("',{topic}, '")\n\n'))
   )
 }
 

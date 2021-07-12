@@ -1,5 +1,5 @@
 ---
-title: "`base::file.exists()` and `base::dir.exists()`"
+title: "`file.exists()` and `dir.exists()`"
 author: "{introverse} quick docs"
 output: 
   html_document:

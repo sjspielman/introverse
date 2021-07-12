@@ -5,18 +5,12 @@
 \alias{topic_list}
 \title{List of available help topics by category, which is sometimes but not always a package.}
 \format{
-An object of class \code{list} of length 2.
-
-An object of class \code{list} of length 2.
+An object of class \code{list} of length 3.
 }
 \usage{
 topic_list
-
-topic_list
 }
 \description{
-List of available help topics by category, which is sometimes but not always a package.
-
 List of available help topics by category, which is sometimes but not always a package.
 }
 \keyword{datasets}

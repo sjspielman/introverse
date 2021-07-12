@@ -1,5 +1,5 @@
 ---
-title: "`base::nrow()` and `base::ncol()`"
+title: "`nrow()` and `ncol()`"
 author: "{introverse} quick docs"
 output: 
   html_document:

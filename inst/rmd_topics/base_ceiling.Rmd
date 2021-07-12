@@ -1,5 +1,5 @@
 ---
-title: "`base::ceiling()` and `base::floor()`"
+title: "`ceiling()` and `floor()`"
 author: "{introverse} quick docs"
 output: 
   html_document:

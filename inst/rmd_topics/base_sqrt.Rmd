@@ -1,5 +1,5 @@
 ---
-title: "`utils::sqrt()`"
+title: "`sqrt()`"
 author: "{introverse} quick docs"
 output: 
   html_document:

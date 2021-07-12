@@ -1,5 +1,5 @@
 ---
-title: "`utils::length()`"
+title: "`length()`"
 author: "{introverse} quick docs"
 output: 
   html_document:
