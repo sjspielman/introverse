@@ -4,7 +4,8 @@
 ^\.Rproj\.user$
 documentation_modules/
 ^\.travis\.yml$
-inst/rmd_topics/*\.html$
+^inst/rmd_topics/*\.html$
+^inst/student_modules/*
 ^CONTRIBUTING.html$
 ^README.html$
 ^data-raw$
