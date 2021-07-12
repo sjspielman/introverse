@@ -83,14 +83,14 @@ Install the package `introverse.templates` with `remotes::install_github("spielm
 
 1. In RStudio, open your `introverse/` Project session (recommended), or set your working directory to `introverse/`. In the Console, run the command `options(width = 100)` - this will modify your current R session environment slightly to allow tibbles to be printed nicely in the docs you're about to develop.
 
-2. In Console, run the command: `devtools::load_all(".")` to _load_ the current version of the package into your R session. 
+2. In Console, run the command: `devtools::load_all()` to _load_ the current version of the package into your R session. 
     + When the `{introverse}` loads, it will print a 2-paragraph welcome message to the Console that begins "Welcome to the {introverse}!". If you see this output, you will know the command worked.
 
 3. Add your topic to the appropriate place in the `topic_list` definition inside `R/fct-topics.R`. 
-    + You should _not be guessing_ the appropriate place. You should _already know how and where to do this._ If you don't know how and where to do this, file an [Issue](https://github.com/spielmanlab/introverse/issues) and use the label `quick-question`.
+    + You should _not be guessing_ the appropriate place. You should _already know how and where to do this._ If you don't know, stop and ask Spielman.
   
-4. Run `devtools::load_all(".")` again to update the loaded package with this code addition. 
-    + If you get an error of any kind, it means you likely introduced a bug somewhere in the `introverse/R` directory (probably when adding to the `topic_list`). The error should be reasonably informative about how to track down the bug. Fix and re-run the `devtools::load_all(".")` command until it's all loaded
+4. Run `devtools::load_all()` again to update the loaded package with this code addition. 
+    + If you get an error of any kind, it means you likely introduced a bug somewhere in the `introverse/R` directory (probably when adding to the `topic_list`). The error should be reasonably informative about how to track down the bug. Fix and re-run the `devtools::load_all()` command until it's all loaded
 
 5. Open a new Rmd introverse docs template file, and save it to the directory `introverse/inst/rmd_topics/`. Write your Rmd help page using the `introverse` template and existing Rmd help pages as guidance.
     + If you are using the `carnivores` or `msleep` datasets in your examples, there is templated code to show you how to include these datasets. _When you are done with this Step, DELETE those lines for testing._
@@ -98,12 +98,11 @@ Install the package `introverse.templates` with `remotes::install_github("spielm
 
 6. Once you are satisfied with your doc page..
     + Did you remember to delete the `read_csv()` line(s) if you put dataset(s) in your examples! Quick, delete them!
-    + Again run `devtools::load_all(".")` to load up your doc page into the loaded `{introverse}`
-    + Run the command `render_rmd_topics()` to formally knit your docs and save the knitted outputs to `inst/html_topics/`.  
-        + This command will take will take longer and longer as the package grows, but it should never take very long.  
-    + Test out your docs with the following commands. 
-    	+ Test the standalone docs: `get_help("whatever you called your topic")`. 
-        + If either version of the docs don't work, return to *Step 5* to debug and resume development.
+    + Again run `devtools::load_all()` to load up your doc page into the loaded `{introverse}`
+    + Run the command `render_rmd_topics(topic_file = "category_topic.Rmd")` to formally knit your docs and save the knitted outputs to `inst/html_topics/`. 
+      + For example, if you just developed `dplyr::filter()` and saved it to `inst/rmd_topics/dplyr_filter.Rmd`, you would run  `render_rmd_topics(topic_file = "dplyr_filter.Rmd")`
+    + Test out your docs with the command: `get_help("whatever you called your topic")`. 
+      + If this did not work, return to *Step 5* to debug and resume development.
   + If the `get_help()` works, test the whole package with `devtools::test()`. **If there are NO test FAILURES, you did it! You developed!!** Time for a pull request! Before filing the PR, make sure you've added/committed/pushed the following:
      + `R/fct-topics.R`
      + Your `Rmd` topic page in `inst/rmd_topics/`

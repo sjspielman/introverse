@@ -29,7 +29,7 @@ Collate:
     'utils.R'
     'fct-topics.R'
     'fct-get_help.R'
-    'fct-render_rmd.R'
+    'fct-render_rmd_topics.R'
     'fct-topics.R'
     'carnivores.R'
     'msleep.R'
