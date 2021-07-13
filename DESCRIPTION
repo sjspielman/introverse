@@ -20,6 +20,7 @@ Imports:
     tidyr (>= 1.0.0),
     tidyselect,
     stringr,
+    purrr,
     glue,
     magrittr,
     rstudioapi,
