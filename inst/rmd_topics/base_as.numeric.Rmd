@@ -1,0 +1,68 @@
+---
+title: "`as.numeric()`"
+author: "`{introverse}` quick docs"
+output: 
+  html_document:
+    highlight: pygments
+    theme: flatly
+---
+
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE, 
+                      warning = FALSE, 
+                      message = FALSE)
+```
+
+
+## Description
+
+The `as.numeric()` function comes with R and is part of the Base R `{base}` package.
+  
+We use this function to _coerce_ a value or variable to be a numeric, i.e. change the variable's type into a numeric type. 
+
+Not all values can be changed to numeric, and this function will return `NA` if the value could not be coerced.
+
+
+
+
+## Conceptual usage 
+
+```{r usage, eval=FALSE}
+as.numeric(value to coerce into numeric type)
+```
+
+## Examples
+
+
+```{r example1}
+# Convert the string "10" to the number 10
+as.numeric("10")
+```
+
+<br>  <!-- Do not delete the <br>, and make sure to keep the previous and following lines blank. -->
+
+```{r example2, warning=TRUE}
+# This example will return NA since there is no natural way to coerce the argument into a numeric
+# It will also reveal a warning message telling you the coercion wasn't possible
+as.numeric("you can't make strings into numbers")
+```
+
+<br>  <!-- Do not delete the <br>, and make sure to keep the previous and following lines blank. -->
+
+
+```{r example3}
+# The logical `TRUE` turns into 1 when coerced to be a number. 
+# This is consistent across all programming languages that allow coersion.
+as.numeric(TRUE)
+```
+
+
+<br>  <!-- Do not delete the <br>, and make sure to keep the previous and following lines blank. -->
+
+
+```{r example4}
+# The logical `FALSE` turns into 0 when coerced to be a number. 
+# This is consistent across all programming languages that allow coersion.
+as.numeric(FALSE)
+```

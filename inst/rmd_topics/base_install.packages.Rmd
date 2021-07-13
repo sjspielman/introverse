@@ -1,0 +1,42 @@
+---
+title: "`install.packages()`"
+author: "`{introverse}` quick docs"
+output: 
+  html_document:
+    highlight: pygments
+    theme: flatly
+---
+
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE, 
+                      warning = FALSE, 
+                      message = FALSE)
+```
+
+
+## Description
+
+The `install.packages()` function comes with R and is part of the Base R `{base}` package.
+  
+We use this function to install packages, aka libraries, onto your computer. Libraries only need to be installed one time. To _load_ an installed library, use the function `library()`. 
+
+If you need to install a package from a non-default database (i.e. not CRAN), this function may or may not work.
+
+
+
+## Conceptual usage 
+
+```{r usage, eval=FALSE}
+install.packages("name of package to install in quotes")
+
+install.packages(c("array", "of", "package", "names", "to", "install"))
+```
+
+## Examples
+
+
+```{r example1, eval = FALSE}
+# Install the viridis package
+install.packages("viridis")
+```

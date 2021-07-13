@@ -1,0 +1,100 @@
+---
+title: "Mathematical operators"
+author: "`{introverse}` quick docs"
+output: 
+  html_document:
+    highlight: pygments
+    theme: flatly
+---
+
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE, 
+                      warning = FALSE, 
+                      message = FALSE)
+```
+
+
+## Description
+
+Mathematical operators (symbols to do math with) in R include the following:
+  
+
+| Operator | What it does 
+|:-----------|:-------------
+|  `+`      | Addition 
+|  `-`      | Subtraction 
+|  `*`      | Multiplication 
+|  `/`      | Division 
+|  `^`      | Exponentiation  
+|  `**`     | Exponentiation (no space in between the `**`) 
+|  `%%`     | Modulo: Find the remainder from "long division"
+
+All operators can be used on individual numbers or with numeric arrays.
+
+<br>
+
+## Examples
+
+
+```{r example1}
+# Add two numbers
+5+8
+```
+
+<br>
+
+```{r example2}
+# Subtract two numbers
+5-8
+```
+
+<br>
+
+```{r example3}
+# Divide two numbers
+5/8
+```
+
+<br>
+
+```{r example4}
+# Multiply two numbers
+5*8
+```
+
+<br>
+
+```{r example5}
+# Raise 5 to the 8th power
+5^8
+```
+
+
+<br>
+
+```{r example6}
+# Raise 5 to the 8th power
+5**8
+```
+
+<br>
+
+```{r example7}
+# Find the remainder of 8 divided by 5
+8 %% 5
+```
+
+<br>
+
+```{r example8}
+# Add the number 5 to every value in a numeric array
+5 + c(45, 65, 85, 105)
+```
+
+<br>
+
+```{r example9}
+# Cube every number in a numeric array
+c(45, 65, 85, 105)^3
+```

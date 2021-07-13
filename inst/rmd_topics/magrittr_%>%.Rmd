@@ -1,0 +1,151 @@
+---
+title: "The {magrittr} pipe `%>%`"
+author: "`{introverse}` quick docs"
+output: 
+  html_document:
+    highlight: pygments
+    theme: flatly
+---
+
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE, 
+                      warning = FALSE, 
+                      message = FALSE, 
+                      collapse = TRUE)
+library(dplyr)
+```
+
+
+## Description
+
+The combined symbol [`%>%`](https://magrittr.tidyverse.org/reference/pipe.html) is an operator in the [`{magrittr}`](https://magrittr.tidyverse.org/) package, which is part of the [`{tidyverse}`](https://www.tidyverse.org/). This operator is referred to as "pipe," but it should not be confused with the symbol `|` (on backslash key), which is also known as pipe.
+
+The `%>%` operator "sends in" input to a given function. It provides a convenient approach to constructing _pipelines_, where the output from one command can be seamlessly provided into the next command. 
+
+To use the pipe, you need to either first load the `{tidyverse}`, or one of the core `{tidyverse}` libraries.
+
+```{r description, eval=FALSE}
+# Load the tidyverse (most common)
+library(tidyverse)
+
+# Or load a core tidyverse library such as dplyr
+library(dplyr)
+```
+
+
+## Conceptual usage 
+
+```{r usage, eval=FALSE}
+# Non-pipe version of code:
+some_function(argument)
+
+# Pipe version of code:
+argument %>%
+  some_function()
+    
+#############################
+
+# Non-pipe version of code:
+some_function(argument1, argument2)
+
+# Pipe version of code:
+argument1 %>%
+  some_function(argument2)
+    
+############################
+
+# Non-pipe version of code:
+some_other_other_function(some_other_function(some_function(argument1, argument2)))
+
+# Or, a different way to write that non-pipe code:
+output1 <- some_function(argument1, argument2)
+output2 <- some_other_function(output1)
+output3 <- some_other_other_function(output2)
+  
+# Pipe version of code:
+argument1 %>%
+  some_function(argument2) %>%
+  some_other_function() %>%
+  some_other_other_function()
+```
+
+## Examples
+
+> Run `get_help("carnivores")` for a refresher on the `carnivores` dataset.
+
+```{r example1}
+# Calculate the natural log of 5
+
+# Non-pipe version of code:
+log(5)
+
+# Pipe version of code:
+5 %>%
+  log()
+```
+
+<br>  <!-- Do not delete the <br>, and make sure to keep the previous and following lines blank. -->
+
+
+```{r example2}
+# Calculate the log of 5 in base 7
+
+# Non-pipe version of code:
+log(5, 7)
+
+# Pipe version of code:
+5 %>%
+  log(7)
+```
+<br> 
+
+
+
+```{r example3}
+# Calculate the log of 5 in base 7, and THEN calculate the sqrt of the result.
+
+# Non-pipe version of code:
+sqrt( log(5, 7) )
+
+# Or, a different non-pipe version:
+step1 <- log(5,7)
+sqrt(step1)
+
+# Pipe version of code:
+5 %>%
+  log(7) %>%
+  sqrt()
+```
+
+<br> 
+
+```{r example4, collapse=TRUE}
+# Use dplyr::mutate to add a new column to carnivores called `new_col`
+
+# Non-pipe version of code. _This is NOT recommended._
+mutate(carnivores, new_col = 7)
+
+# Pipe version of code. _This IS recommended._
+carnivores %>%
+  mutate(new_col = 7)
+```
+
+<br> 
+
+```{r example5, collapse=TRUE}
+# Use dplyr::mutate to add a new column to carnivores called `new_col`
+# and then use dplyr::select to keep only `name` and `new_col` columns.
+
+# Non-pipe version of code. _This is NOT recommended._
+select(mutate(carnivores, new_col = 7), name, new_col)
+
+# Or, a different non-pipe version (also NOT recommended):
+carnivores2 <- mutate(carnivores, new_col = 7)
+select(carnivores2, name, new_col)
+
+# Pipe version of code. _This IS recommended._
+carnivores %>%
+  mutate(new_col = 7) %>%
+  select(name, new_col)
+```

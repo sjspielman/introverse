@@ -1,6 +1,6 @@
 ---
 title: "`dplyr::if_else()`"
-author: "{introverse} quick docs"
+author: "`{introverse}` quick docs"
 output: 
   html_document:
     highlight: pygments

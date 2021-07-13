@@ -1,6 +1,6 @@
 ---
 title: "`dplyr::group_by() and dplyr::ungroup()`"
-author: "{introverse} quick docs"
+author: "`{introverse}` quick docs"
 output: 
   html_document:
     highlight: pygments

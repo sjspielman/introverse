@@ -1,0 +1,52 @@
+---
+title: "`as.factor()`"
+author: "`{introverse}` quick docs"
+output: 
+  html_document:
+    highlight: pygments
+    theme: flatly
+---
+
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE, 
+                      warning = FALSE, 
+                      message = FALSE)
+library(dplyr)
+```
+
+
+## Description
+
+The `as.factor()` function comes with R and is part of the Base R `{base}` package.
+  
+We use this function to _coerce_ a value or variable array to be a factor, i.e. change the variable's type into a factor type. 
+
+
+
+## Conceptual usage 
+
+```{r usage, eval=FALSE}
+as.factor(array to coerce into factor type)
+
+as.factor(factor array to get factor of all its values)
+```
+
+## Examples
+
+
+> Run `get_help("carnivores")` for a refresher on the `carnivores` dataset.
+
+
+```{r example1}
+# Convert the character array to a factor array
+as.factor( c("a", "b", "b", "c", "c", "c") )
+```
+
+<br>  <!-- Do not delete the <br>, and make sure to keep the previous and following lines blank. -->
+
+```{r example2, warning=TRUE}
+# Coerce the character `genus` column in carnivores into a factor column
+carnivores %>%
+  mutate(genus = as.factor(genus))
+```
