@@ -68,11 +68,19 @@ test_that("contents of rmd_topics match topics_list", {
 
 
 
-test_that("logical and mathematical operators redirect", {
+test_that("logical, math, assignment operators redirect", {
   
   purrr::map(operators, convert_operator_into_topic) -> converted
   expect_true(all(converted %in% topic_list[["operators"]]))
   expect_error(convert_operator_into_topic("should not work"))
+  
+})
+
+test_that("magrittr redirect", {
+  
+  expect_true(convert_magrittr_into_topic("%>%") == "pipe")
+  expect_true(convert_magrittr_into_topic("%<>%") == "apipe")
+  expect_error(convert_magrittr_into_topic("should not work"))
   
 })
 

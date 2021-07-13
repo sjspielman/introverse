@@ -17,10 +17,9 @@ get_help <- function(topic = NULL) {
   } else
   {
     # Operator?
-    if (topic %in% operators) 
-    {
-      topic <- convert_operator_into_topic(topic)
-    }
+    if (topic %in% operators) topic <- convert_operator_into_topic(topic)
+    # Magrittr?
+    if (topic %in% magrittr_operators) topic <- convert_magrittr_into_topic(topic)
     
     # Bad topic
     if (!(topic %in% unlist(topic_list)))

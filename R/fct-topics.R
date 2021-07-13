@@ -65,15 +65,15 @@ topic_list <- list(
   "base" = base_topics,
   "datasets" = c("carnivores", "msleep"),
   "dplyr" = dplyr_topics,
-  "magrittr" = c("%<>%", "%>%"), # keep assignment first
+  "magrittr" = c("apipe", "pipe"), # keep assignment first
   "operators" = c("assignment", "logical", "mathematical") # alphabetical
 )
 
 #' Operators documented in logical, math, or assignment help pages
+#' @keywords internal
 #' @noRd
 operators <- c("+", "-", "*", "/" ,"**", "^", "%", "->", "<-",
                "==", ">", "<", ">=", "<=", "!=", "!", "&", "|") 
-
 
 #' Obtain correct category and topic for any operator get_help() arguments 
 #' @keywords internal
@@ -110,10 +110,23 @@ convert_operator_into_topic <- function(operator)
 }
   
   
+#' Magrittr operators
+#' @keywords internal
+#' @noRd
+magrittr_operators <- c("%<>%", "%>%")
+
+#' Obtain correct docs word for magrittr pipes
+#' @keywords internal
+#' @noRd
+convert_magrittr_into_topic <- function(pipe)
+{
+  word <- NA
+  if (pipe == "%>%") word <- "pipe"
+  if (pipe == "%<>%") word <- "apipe"
+  stopifnot(!(is.na(word)))
   
-  
-  
-  
+  word
+}
   
   
   

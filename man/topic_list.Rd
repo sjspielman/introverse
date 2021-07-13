@@ -3,14 +3,14 @@
 \docType{data}
 \name{topic_list}
 \alias{topic_list}
-\title{List of available help topics by category, which is sometimes but not always a package.}
+\title{List of available help topics by category ordered alphabetically, which is sometimes but not always a package.}
 \format{
-An object of class \code{list} of length 3.
+An object of class \code{list} of length 5.
 }
 \usage{
 topic_list
 }
 \description{
-List of available help topics by category, which is sometimes but not always a package.
+List of available help topics by category ordered alphabetically, which is sometimes but not always a package.
 }
-\keyword{datasets}
+\keyword{internal}
