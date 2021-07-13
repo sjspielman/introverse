@@ -16,11 +16,3 @@ msleep %>%
 # Save both
 usethis::use_data(carnivores, overwrite = TRUE)
 usethis::use_data(msleep, overwrite = TRUE)
-
-## Write them to extdata which is needed for Rmd topic *development*
-proj_root <- rprojroot::find_root(rprojroot::has_dir(".git"))
-path_to_extdata <- file.path(proj_root, "inst", "extdata")
-readr::write_csv(carnivores, 
-                 file.path(path_to_extdata, "carnivores.csv")) 
-readr::write_csv(msleep, 
-                 file.path(path_to_extdata, "msleep.csv")) 
