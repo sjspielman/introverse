@@ -68,6 +68,14 @@ test_that("contents of rmd_topics match topics_list", {
 
 
 
+test_that("logical and mathematical operators redirect", {
+  
+  purrr::map(operators, convert_operator_into_topic) -> converted
+  expect_true(all(converted %in% topic_list[["operators"]]))
+  expect_error(convert_operator_into_topic("should not work"))
+  
+})
+
 test_that("get_help() reveals help aka returns invisible", {
   ##### Check first that we are in an RStudio session.
   skip_if_not(rstudioapi::isAvailable())

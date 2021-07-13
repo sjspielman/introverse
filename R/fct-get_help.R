@@ -4,6 +4,7 @@
 #' @export
 get_help <- function(topic = NULL) {
   
+  
   if (is.null(topic))
   {
     # output
@@ -15,6 +16,12 @@ get_help <- function(topic = NULL) {
     show_topics()
   } else
   {
+    # Operator?
+    if (topic %in% operators) 
+    {
+      topic <- convert_operator_into_topic(topic)
+    }
+    
     # Bad topic
     if (!(topic %in% unlist(topic_list)))
     {

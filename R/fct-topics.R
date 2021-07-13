@@ -46,11 +46,13 @@ base_topics <- sort(c(
   "data.frame",
   "file.path", 
   "library",
-  #  
-  "file.exists", "dir.exists" # Same page
- # "as.numeric", 
-  #"as.factor", 
- # "as.character" 
+  "install.packages",
+  "getwd", 
+  "setwd",
+  "file.exists", "dir.exists", # Same page
+  "as.numeric", 
+  "as.factor", 
+  "as.character" 
 ))
 
 
@@ -62,8 +64,64 @@ base_topics <- sort(c(
 topic_list <- list(
   "base" = base_topics,
   "datasets" = c("carnivores", "msleep"),
-  "dplyr" = dplyr_topics
+  "dplyr" = dplyr_topics,
+  "magrittr" = c("%<>%", "%>%"), # keep assignment first
+  "operators" = c("assignment", "logical", "mathematical") # alphabetical
 )
+
+#' Operators documented in logical, math, or assignment help pages
+#' @noRd
+operators <- c("+", "-", "*", "/" ,"**", "^", "%", "->", "<-",
+               "==", ">", "<", ">=", "<=", "!=", "!", "&", "|") 
+
+
+#' Obtain correct category and topic for any operator get_help() arguments 
+#' @keywords internal
+#' @noRd
+convert_operator_into_topic <- function(operator)
+{
+  dplyr::case_when(
+    ########## Math ###########
+    operator == "+" ~ "mathematical",
+    operator == "-" ~ "mathematical",
+    operator == "*" ~ "mathematical",
+    operator == "/" ~ "mathematical",
+    operator == "**" ~ "mathematical",
+    operator == "^" ~ "mathematical",
+    operator == "%" ~ "mathematical",
+    ######### Logical ##########
+    operator == "==" ~ "logical",
+    operator == "!=" ~ "logical",
+    operator == ">" ~ "logical",
+    operator == "<" ~ "logical",
+    operator == ">=" ~ "logical",
+    operator == "<=" ~ "logical",
+    operator == "!" ~ "logical",
+    operator == "&" ~ "logical",
+    operator == "|" ~ "logical",
+    ######## Assignment #######
+    operator == "<-" ~ "assignment",
+    operator == "->" ~ "assignment",
+  ) -> topic
+  
+  if (is.na(topic)) stop("\n\nERROR: Unknown operator.")
+  
+  topic
+}
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
 
 
 #' Show the topic list
