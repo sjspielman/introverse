@@ -28,6 +28,7 @@ crayon::bold('get_help("msleep")') %+% " to learn
 #' @name %>%
 #' @rdname pipe
 #' @keywords internal
+#' @noRd
 #' @importFrom magrittr %>%
 #' @usage lhs \%>\% rhs
 #' @param lhs A value or the magrittr placeholder.
@@ -40,6 +41,7 @@ NULL
 #' @name %+%
 #' @rdname crayon_pipe
 #' @keywords internal
+#' @noRd
 #' @importFrom crayon %+%
 #' @usage lhs \%+\% rhs
 #' @param lhs A `crayon` value
