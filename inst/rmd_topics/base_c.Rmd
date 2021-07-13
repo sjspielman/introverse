@@ -1,0 +1,58 @@
+---
+title: "`c()`"
+author: "{introverse} quick docs"
+output: 
+  html_document:
+    highlight: pygments
+    theme: flatly
+---
+
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE, 
+                      warning = FALSE, 
+                      message = FALSE)
+```
+
+
+## Description
+
+The `c()` function comes with R and is part of the Base R `{base}` package.
+  
+We use this function to create arrays. Recall that all values in arrays must have the same type. 
+
+If you are using colon syntax to create an array (e.g. `1:5` to create an array with values 1,2,3,4,5, you do not need to use `c()`.
+
+
+## Conceptual usage 
+
+```{r usage, eval=FALSE}
+c(first value in array, second value in array, etc.)
+```
+
+## Examples
+
+
+```{r example1}
+# Define an array with all numeric values as shown, and reveal output
+new_array <- c(8, 5, 3, 6, 1, 2, 7, 88)
+new_array
+```
+
+<br>
+
+```{r example2}
+# Define an array with all character values as shown, and reveal output
+new_array <- c('a', 'e', 'i', 'o', 'u', 'y')
+new_array
+```
+
+<br>
+
+```{r example3}
+# Defining an array with both numeric and character values will turn
+#  all values into characters
+new_array <- c('a', 'e', 'i', 'o', 'u', 'y', 1, 2, 3, 4, 5)
+new_array
+```
+

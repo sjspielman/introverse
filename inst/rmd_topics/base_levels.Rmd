@@ -1,0 +1,49 @@
+---
+title: "`levels()`"
+author: "{introverse} quick docs"
+output: 
+  html_document:
+    highlight: pygments
+    theme: flatly
+---
+
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE, 
+                      warning = FALSE, 
+                      message = FALSE)
+```
+
+
+## Description
+
+The `levels()` function comes with R and is part of the Base R `{base}` package.
+  
+We use this function to find the levels, aka ordered categories, of a factor variable. Any `NA` values will be ignored and not considered separate levels. If the provided value is not a factor type, the result will be `NULL`.
+
+## Conceptual usage 
+
+```{r usage, eval=FALSE}
+levels(factor variable)
+```
+
+## Examples
+
+> Run `get_help("msleep")` for a refresher on the `msleep` dataset.
+
+
+```{r example1}
+# Define a factor for the example from the character variable `msleep$vore`
+my_factor <- as.factor(msleep$vore)
+
+# Show levels of the factor variable:
+levels(my_factor)
+```
+
+<br>
+
+```{r example2}
+# Trying to find the levels of a non-factor results in NULL
+# msleep$vore is a character column
+levels(msleep$vore)
+```

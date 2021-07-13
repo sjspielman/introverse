@@ -1,96 +1,70 @@
-# topic_list -------------------
-#' List of available help topics by category, which is sometimes but not always a package.
+#' All the dplyr topics
+#' @keywords internal
+#' @noRd
+dplyr_topics <- sort(c(
+  "filter",
+  "slice",
+  "select", 
+  "mutate", 
+  "arrange", 
+  "distinct",
+  "summarize",
+  "group_by", 
+  "ungroup",
+  "pull",
+  "rename",
+  "glimpse",
+  "if_else", 
+  "case_when", 
+  "n",
+  "count",
+  "tally"
+  # _join
+  # bind_
+  # between
+))
+
+#' All the base R topics
+#' @keywords internal
+#' @noRd
+base_topics <- sort(c(
+  "length", 
+  "nchar", 
+  "log", 
+  "sqrt",
+  "summary", 
+  "round",
+  "head", "tail", # Same page
+  "mean", "median", "max", "min", "sum", "sd", # Same page
+  "ceiling", "floor", # Same page
+  "ifelse", 
+  "nrow", "ncol", # Same page
+  "table",
+  "levels", 
+  "class", 
+  "c", 
+  "data.frame",
+  "file.path", 
+  "library",
+  #  
+  "file.exists", "dir.exists" # Same page
+ # "as.numeric", 
+  #"as.factor", 
+ # "as.character" 
+))
+
+
+
+#' List of available help topics by category ordered alphabetically, which is sometimes but not always a package.
+#' @keywords internal
+#' @noRd
+#' !!! ALERT!!!! Do not directly add topics to this list! Instead, add new topics to the appropriate array above For example, to add a `dplyr` topic, put in into the `dplyr_topics` definition!!
 topic_list <- list(
+  "base" = base_topics,
   "datasets" = c("carnivores", "msleep"),
-  "dplyr" = sort(c(
-    "filter",
-    "slice",
-    "select", 
-    "mutate", 
-    "arrange", 
-    "distinct",
-    "summarize",
-    "group_by", 
-    "ungroup",
-    "pull",
-    "rename",
-    "glimpse",
-    "if_else", 
-    "case_when", 
-    "n",
-    "count",
-    "tally"
-    # _join
-    # bind_
-    # between
-  )),
-  # comes with R, affectionately termed base, even though some is not, it's all documented.
-  "base" = sort(c(
-    "length", 
-    "nchar", 
-    "log", 
-    "sqrt",
-    "summary", 
-    "round",
-    # Same page
-    "head", "tail", 
-    # Same page
-    "mean", "median", "max", "min", "sum", "sd",
-    # Same page
-    "ceiling", "floor",
-    "ifelse", 
-    # Same page
-    "nrow", "ncol",
-    "table",
-  #  "levels", 
-    "class", 
-  #  "c", 
-  #  "data.frame",
-    "file.path", 
-  #  # Same page
-    "file.exists", "dir.exists"
-  #  # Same page
-  #  "as.numeric", "as.factor", "as.character", 
-    ))
+  "dplyr" = dplyr_topics
 )
 
-# TODO???
-#shared_topics <- list(
-# topic = topics that share its page???
-#  "mean" = c("median", "max", "min", "sum", "sd"),
-#  "ceiling" = c("ceiling", "floor"),
-#  "head" = c("head", "tail") 
-#)
-
-
-# Need to convert below to Rmd from current text garbage
-# topic_list <- list(
-#   "operators" = sort(
-#     c("math",
-#       "logical")
-#   #    "assignment",
-#   #    "pipe"),
-#   ),
-#   
-#   ),
-
-#         
-#         "ifelse", 
-#         "nrow", "ncol",
-#         "table",
-#         "levels", 
-#         "class", 
-#         "c", 
-#         "data.frame",
-#         "file.path", 
-#         "file.exists", "dir.exists",
-#         "as.numeric", "as.factor", "as.character", # "as.logical" probably not needed?
-#         ##### DO NOT TEST EXAMPLES FOR THE REST #####
-#         "library", "install.packages",
-#         "getwd", "setwd") 
-#    )
-#                 
-# )
 
 #' Show the topic list
 #' 

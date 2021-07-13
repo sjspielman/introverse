@@ -1,0 +1,44 @@
+---
+title: "`library()`"
+author: "{introverse} quick docs"
+output: 
+  html_document:
+    highlight: pygments
+    theme: flatly
+---
+
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE, 
+                      warning = FALSE, 
+                      message = FALSE)
+```
+
+
+## Description
+
+The `library()` function comes with R and is part of the Base R `{base}` package.
+  
+We use this function to load libraries into the R session. This function will _not install libraries for you_, which is (usually) done with the `{base}` R function `install.packages()`.
+
+Sometimes libraries show messages when they load to tell you about some aspect of its behavior. These are generally _not errors_!
+
+## Examples
+
+
+```{r example1, eval=F}
+# Load the ggplot2 library
+library(ggplot2)
+
+# You can also use quotes - it makes no difference
+library("ggplot2")
+```
+
+<br>
+
+```{r example2, error=T}
+# If you try to load a library that isn't installed OR you have a typo, 
+# you will see this error message:
+library(definitely.a.fake.library)
+```
+

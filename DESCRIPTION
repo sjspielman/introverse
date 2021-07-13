@@ -19,6 +19,7 @@ Imports:
     ggplot2 (>= 3.3.2),
     tidyr (>= 1.0.0),
     tidyselect,
+    stringr,
     glue,
     magrittr,
     rstudioapi,
