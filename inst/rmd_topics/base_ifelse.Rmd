@@ -1,0 +1,65 @@
+---
+title: "`ifelse()`"
+author: "{introverse} quick docs"
+output: 
+  html_document:
+    highlight: pygments
+    theme: flatly
+---
+
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE, 
+                      warning = FALSE, 
+                      message = FALSE)
+library(dplyr)
+```
+
+
+## Description
+
+The `ifelse()` function comes with R and is part of the Base R `{base}` package.
+  
+We use this function to assign a value based on whether a logical statement is `TRUE` or `FALSE`. 
+
+Note that there is a `{dplyr}` package version of this function ([`dplyr::if_else()`](https://dplyr.tidyverse.org/reference/if_else.html), with an underscore) that can be used in exactly the same way, but the `{dplyr}` version enforces that the resulting values must always be the same type.
+
+
+## Conceptual usage 
+
+```{r usage, eval=FALSE}
+ifelse(logical statement, 
+       value to use if statement is `TRUE`, 
+       value to useif statement is `FALSE`)
+}
+```
+
+## Examples
+
+> Run `get_help("carnivores")` for a refresher on the `carnivores` dataset.
+
+
+```{r example1}
+# Return the value 5 if it is TRUE that 10 < 4. 
+# Otherwise, return the value 7.
+ifelse(10 < 4, 5, 7)
+```
+
+<br>
+
+```{r example2}
+# Return the value 5 if it is TRUE that 10 < 100. 
+# Otherwise, return the value 'string'. 
+# Note: This will *not work* with the {dplyr} version `if_else()` since 5 is a number but 'string' is character (different types!)
+ifelse(10 < 100, 5, 'string')
+```
+
+<br>
+
+```{r example3}
+# Use ifelse to create a new column `sleeps_alot` that will contain
+# "yes" if `awake` <= 10, and "no" otherwise
+carnivores %>%
+  mutate(sleeps_alot = ifelse(awake <= 10, "yes", "no"))
+```
+

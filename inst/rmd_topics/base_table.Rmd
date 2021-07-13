@@ -1,0 +1,57 @@
+---
+title: "`table()`"
+author: "{introverse} quick docs"
+output: 
+  html_document:
+    highlight: pygments
+    theme: flatly
+---
+
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE, 
+                      warning = FALSE, 
+                      message = FALSE)
+```
+
+
+## Description
+
+The `table()` function comes with R and is part of the Base R `{base}` package.
+  
+This function summarizes counts in categorical variables to quickly make a contingency table. All NAs will be *ignored*."
+
+
+## Conceptual usage 
+
+```{r usage, eval=FALSE}
+table(categorical array)
+
+table(categorical array, another categorical array)
+```
+
+## Examples
+
+> Run `get_help("msleep")` for a refresher on the `msleep` dataset.
+
+
+```{r example1}
+# Tabulate msleep `vore`s (which itself is a categorical column)"
+table(msleep$vore)
+```
+
+<br>  <!-- Do not delete the <br>, and make sure to keep the previous and following lines blank. -->
+
+
+```{r example2}
+# Tabulate msleep `vore`s and `order`s together, with `vore` in rows and `order` in columns
+table(msleep$vore, msleep$order)
+```
+
+<br>  <!-- Do not delete the <br>, and make sure to keep the previous and following lines blank. -->
+
+
+```{r example3}
+# Tabulate msleep `vore`s and `order`s together, but with `order` in rows and `vore` in columns
+table(msleep$order, msleep$vore)
+```

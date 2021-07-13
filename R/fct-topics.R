@@ -38,10 +38,10 @@ topic_list <- list(
     "mean", "median", "max", "min", "sum", "sd",
     # Same page
     "ceiling", "floor",
-  #  "ifelse", 
+    "ifelse", 
     # Same page
     "nrow", "ncol",
-  #  "table",
+    "table",
   #  "levels", 
     "class", 
   #  "c", 

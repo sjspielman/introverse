@@ -62,16 +62,16 @@ reveal_help <- function(category, topic)
   dir.create(tempDir)
   htmlFile <- file.path(tempDir, "index.html")
   
-  rmarkdown::render(
-    system.file(rmd_topics_path, 
-                glue::glue("{category}_{topic}.Rmd"), 
-                package = "introverse"),
-    output_file = htmlFile,
-    quiet = TRUE
+  withr::with_options(c(width = topic_width),
+    rmarkdown::render(
+      system.file(rmd_topics_path, 
+                  glue::glue("{category}_{topic}.Rmd"), 
+                  package = "introverse"),
+      output_file = htmlFile,
+      quiet = TRUE)
   )  
   
   introverse_viewer(htmlFile)
-  
   # return invisible
   return(invisible(topic))
 }

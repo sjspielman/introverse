@@ -51,6 +51,10 @@ NULL
 #' @keywords internal
 rmd_topics_path <- "rmd_topics"
 
+#' Internal options width for HTML size
+#' @keywords internal
+topic_width <- 75
+
 #' Viewer wrapper for showing the help docs
 #' 
 #' @param html_file The (temporary) HTML file containing the rendered help to view

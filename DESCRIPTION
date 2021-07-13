@@ -24,6 +24,7 @@ Imports:
     rstudioapi,
     usethis,
     readr,
+    withr,
     rmarkdown,
     DT
 Collate:

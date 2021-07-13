@@ -81,7 +81,7 @@ Install the package `introverse.templates` with `remotes::install_github("spielm
 > You must be in a new feature branch first!! Scroll back up to the command line as needed! 
 
 
-1. In RStudio, open your `introverse/` Project session (recommended), or set your working directory to `introverse/`. In the Console, run the command `options(width = 100)` - this will modify your current R session environment slightly to allow tibbles to be printed nicely in the docs you're about to develop.
+1. In RStudio, open your `introverse/` Project session (recommended), or set your working directory to `introverse/`.
 
 2. In Console, run the command: `devtools::load_all()` to _load_ the current version of the package into your R session. 
     + When the `{introverse}` loads, it will print a 2-paragraph welcome message to the Console that begins "Welcome to the {introverse}!". If you see this output, you will know the command worked.
@@ -92,19 +92,15 @@ Install the package `introverse.templates` with `remotes::install_github("spielm
 4. Run `devtools::load_all()` again to update the loaded package with this code addition. 
     + If you get an error of any kind, it means you likely introduced a bug somewhere in the `introverse/R` directory (probably when adding to the `topic_list`). The error should be reasonably informative about how to track down the bug. Fix and re-run the `devtools::load_all()` command until it's all loaded
 
-5. Open a new Rmd introverse docs template file, and save it to the directory `introverse/inst/rmd_topics/`. Write your Rmd help page using the `introverse` template and existing Rmd help pages as guidance.
-    + If you are using the `carnivores` or `msleep` datasets in your examples, there is templated code to show you how to include these datasets. _When you are done with this Step, DELETE those lines for testing._
-    + Knit away as regular part of development, but never try to `git add` the knitted HTML output. We only want to be tracking the `Rmd` help. The knitted HTML will be added in a separate step later.
+5. Open a new Rmd introverse docs template file, and save it to the directory `introverse/inst/rmd_topics/`. Write your Rmd help page using the `introverse` template and existing Rmd help pages as guidance. 
+    + **You cannot and should not knit this document like normal!!** Instead, you have to interactively re-load the package and use `get_help()` to see the output. **TO KNIT:**
+        + `devtools::load_all()`
+        + `get_help("thing youre developing")`
+    + As long as you are developing in the right steps, the `carnivores` and `msleep` datasets should automatically be available without any need to read them in.
 
-6. Once you are satisfied with your doc page..
-    + Did you remember to delete the `read_csv()` line(s) if you used the dataset(s) in your examples! Quick, delete!
-    + Again run `devtools::load_all()` to load up your doc page.
-    + Test out your docs with the command: `get_help("whatever you called your topic")`. 
-      + If this did not work, return to *Step 5* to debug and resume development.
-    + If the `get_help()` works, test the whole package with `devtools::test()`. **If there are NO test FAILURES, you did it! You developed!!** Time for a pull request! Before filing the PR, make sure you've added/committed/pushed the following:
+6. Once you are satisfied with your doc page, it's time to test the package with `devtools::test()`. **If there are NO test FAILURES, you did it! You developed!!** Time for a pull request! Before filing the PR, make sure you've added/committed/pushed the following:
      + `R/fct-topics.R`
      + Your `Rmd` topic page in `inst/rmd_topics/`
-     + Do not add any HTML files you may have created - github will ignore them.
 
 ### How to develop new `{introverse}` exercises
 
