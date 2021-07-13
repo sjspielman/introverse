@@ -120,19 +120,23 @@ show_topics <- function(category = NULL)
         # Did they accidentally provide a topic?? Help them out!
         # the only message in the function
         if (categ %in% unlist(topic_list)) {
-          message_topic_to_help(categ)
+          message_get_help(categ)
           next
         }
         
         # Totally wrong
         # the only stop in the function
         stop(
+          # SPACING IS GOOD KEEP IT!
           glue::glue(
-            crayon::red("\n\nSorry, I don't have that category.") %+% "\n\nYour provided category '", 
-            {categ}, 
-            "' is either spelled wrong, or it isn't an available category. To see all available topic categories, run " %+% 
-            crayon::black(crayon::bgWhite("show_topic_categories()")) %+% "."
-          )
+    '
+  \n\nSorry, your provided category "{category}" is not available. 
+  Is it spelled correctly? 
+  You can also run ' %+% 
+  crayon::bold("show_categories()") %+% 
+  " to see all available 
+  introverse help categories."
+           )
         )
       }
       # add it to the list if passed
@@ -162,15 +166,30 @@ show_topics <- function(category = NULL)
 #' TODO: Should we reveal this in Console or Viewer?
 #' @param topic The topic to whose help this function redirects to
 #' @noRd
-message_topic_to_help <- function(topic)
+message_get_help <- function(topic)
 {
   message(
-    "\nHmm, it looks like you want to get help for the " %+% 
-    crayon::underline("topic") %+% " " %+% crayon::bold(topic) %+% "?
-  Run this instead to get help: " %+% crayon::inverse(glue::glue('get_help("',{topic}, '")\n\n'))
+    "\n\nI think you want to get help for the " %+% 
+      crayon::underline("topic") %+% " " %+% crayon::bold(topic) %+% "?
+Run this instead: " %+% crayon::bold(glue::glue('get_help("',{topic}, '")\n\n'))
   )
 }
 
+
+#' Redirect user to the `show_topics()` output if they entered a category into `get_help()`
+#' 
+#' TODO: Should we reveal this in Console or Viewer?
+#' @param category The category to whose topics this function reveals
+#' @noRd
+message_show_categories <- function(category)
+{
+  message(
+  "\n\nI think you want to get help for the " %+% 
+  crayon::underline("category") %+% " " %+% crayon::bold(category) %+% "?
+Run this instead to see all topics in this category
+that you can get help for: " %+% crayon::bold(glue::glue('show_topics("',{category}, '")\n\n'))
+  )
+}
 
 
 #' Function to identify a topic's category
@@ -203,9 +222,9 @@ find_topic_category <- function(topic){
 #' @export
 #' @examples 
 #' \dontrun{
-#' show_topic_categories()
+#' show_categories()
 #' }
-show_topic_categories <- function()
+show_categories <- function()
 {
   for (topic in sort(names(topic_list)))
   {

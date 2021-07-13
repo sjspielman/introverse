@@ -8,8 +8,8 @@ get_help <- function(topic = NULL) {
   {
     # output
     cat("To get some help, provide an argument in quotation marks to the `get_help()` function in this format: " %+%
-        crayon::inverse('get_help("name of function")') %+% 
-      "\nFor example: " %+%  crayon::inverse('get_help("filter")') %+% 
+        crayon::bold('get_help("name of function")') %+% 
+      "\nFor example: " %+%  crayon::bold('get_help("filter")') %+% 
       "\nMany help examples use the `penguins` tibble (data frame). Make sure you have explored this tibble first to fully understand all examples.\n\n" %+% crayon::bold("Currently available help topics:\n") 
     )
     show_topics()
@@ -18,13 +18,24 @@ get_help <- function(topic = NULL) {
     # Bad topic
     if (!(topic %in% unlist(topic_list)))
     {
-      # Keep this so that we can expect an error in tests
-      stop(
-        "Sorry, that topic isn't available. Maybe check your spelling? You can also run " %+% 
-        crayon::black(crayon::bgWhite("show_topics()")) %+% 
-        " to see all topics.\n\n\n
-        Or, do you think this topic is missing and it _should_ be a topic in the {introverse}? Let us know by filing an issue at: " %+% crayon::underline("https://github.com/spielmanlab/introverse/issues") %+% ". Thanks for the feedback!\n"
-      )
+      # They asked for a category
+      if (topic %in% names(topic_list))
+      {
+        message_show_categories(topic)
+      } else {
+        #totally wrong
+          # Keep this so that we can expect an error in tests. KEEP THE SPACING TOO!!
+          stop(
+          "\n\nSorry, that topic is not available. Is it spelled correctly? 
+    You can also run " %+% 
+    crayon::bold("show_topics()") %+% " to see all available introverse topics.
+          
+    Or, do you think this topic is missing and would 
+    be helpful to include in the introverse? 
+    
+    Let us know by filing an issue here:\n" %+% crayon::underline("https://github.com/spielmanlab/introverse/issues") %+% "
+    Thanks for the feedback!")
+      }
     } else 
     {  
       # Good topic.
