@@ -20,30 +20,29 @@ knitr::opts_chunk$set(echo = TRUE,
 # Load any INDIVIDUAL libraries here.
 # NEVER load the full tidyverse - In other words `library(tidyverse)` => ABSOLUTELY NOT!!!! Load only what you need, _one at a time_.
 
-# If you need one or both of these datasets, uncomment the relevant line(s).
-# _When you are done development and ready to test your file, RE-DELETE THE LINES!!
-
-# Optional DEVELOPMENT-ONLY code to read in msleep. Delete before testing.
-#msleep <- readr::read_csv("../extdata/msleep.csv")
-
-# Optional DEVELOPMENT-ONLY code to read in carnivores Delete before testing.
-#carnivores <- readr::read_csv("../extdata/carnivores.csv")
+# Do NOT read in any datasets (carnivores/msleep)!!! It's taken care of, as long as you develop as follows instead of knitting (really, no knitting!) - 
+# 1) devtools::load_all()
+# 2) get_help("topic youre currently developing")
 ```
 
 
 ## Description
 
-The text should be replaced with a plain English and clear description of when and why we use the given topic.
+The [`bind_cols()`](https://dplyr.tidyverse.org/reference/bind.html) function is part of the [`{dplyr}`](https://dplyr.tidyverse.org/) package, which is part of the [`{tidyverse}`](https://www.tidyverse.org/).
+
+This function is used to bind the columns of two data frames into one. This requires every column to be of equal length.
 
 <!-- Add the following if the topic is a function that does NOT come with base R, and uncomment/fill in the subsequent multiline HTML comment: -->
-<!--To use this function, you need to either first load the `{NAMEOFPACKAGE}` library, or always use the function with `library::function()` notation.
+To use this function, you need to either first load the `{dplyr}` library, or always use the function with `dplyr::bind_cols()` notation.
 
 ```{r, eval=FALSE}
 # Load the library
-library(REPLACE THIS WITH NAME OF LIBRARY!)
+library(dplyr)
+# Or, load the full tidyverse:
+library(tidyverse)
 
 # Or, use :: notation
-PUT THE LIBRARY NAME HERE::PUT FUNCTION NAME HERE WITH PARENTHESES AT THE END()
+dplyr::bind_cols()
 ```
 -->
 
@@ -51,7 +50,7 @@ PUT THE LIBRARY NAME HERE::PUT FUNCTION NAME HERE WITH PARENTHESES AT THE END()
 ## Conceptual usage 
 
 ```{r, eval=FALSE}
-# Pseudocode examples of use cases, with more appropriate-than-this comments
+bind_cols(first data frame, second data frame)
 ```
 
 
@@ -61,7 +60,6 @@ PUT THE LIBRARY NAME HERE::PUT FUNCTION NAME HERE WITH PARENTHESES AT THE END()
 > Need a refresher on the `carnivores` dataset? Run `get_help("carnivores)` for more information.
 -->
 
-<!-- Add this line if your examples use msleep (but delete this instruction!):
 > Need a refresher on the `msleep` dataset? Run `get_help("msleep)` for more information.
 -->
 
