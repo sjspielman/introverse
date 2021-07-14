@@ -89,15 +89,12 @@ test_that("magrittr redirect", {
 })
 
 test_that("get_help() reveals help aka returns invisible", {
-  ##### Check first that we are in an RStudio session.
-  skip_if_not(rstudioapi::isAvailable())
   
   # each topic should return invisible, implicitly testing `reveal_help()`
-    test_get_help <- function(x)
-    {
-      expect_invisible(get_help(x))
-    }
-    sapply(unlist(topic_list), test_get_help)
-
+  test_get_help <- function(x)
+  {
+    expect_invisible(get_help(x))
+  }
+  sapply(unlist(topic_list), test_get_help)
 })
 
