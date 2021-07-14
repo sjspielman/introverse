@@ -1,0 +1,87 @@
+---
+title: "`dplyr::bind_cols()`"
+author: "`{introverse}` quick docs"
+output: 
+  html_document:
+    theme: flatly
+    syntax: pygments
+---
+
+<!-- Welcome to the template! This comment is here to help you get started. The HTML comments will help you fill it out. Please make sure to do the following:
+- make the YAML `title` the topic name. For example, the `filter()` docs are titled `dplyr::filter()` (with backticks since it's code!)
+- name the final Rmd file "packagethetopiccomesfrom_topic.Rmd". For example, the `filter()` file is named `dplyr_filter.Rmd`
+- If you are considering documenting MULTIPLE TOPICS in a single help Rmd, STOP and CONSULT FIRST with Spielman!!
+-->
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE, 
+                      warning = FALSE, 
+                      message = FALSE)
+# Load any INDIVIDUAL libraries here.
+# NEVER load the full tidyverse - In other words `library(tidyverse)` => ABSOLUTELY NOT!!!! Load only what you need, _one at a time_.
+
+# If you need one or both of these datasets, uncomment the relevant line(s).
+# _When you are done development and ready to test your file, RE-DELETE THE LINES!!
+
+# Optional DEVELOPMENT-ONLY code to read in msleep. Delete before testing.
+#msleep <- readr::read_csv("../extdata/msleep.csv")
+
+# Optional DEVELOPMENT-ONLY code to read in carnivores Delete before testing.
+#carnivores <- readr::read_csv("../extdata/carnivores.csv")
+```
+
+
+## Description
+
+The text should be replaced with a plain English and clear description of when and why we use the given topic.
+
+<!-- Add the following if the topic is a function that does NOT come with base R, and uncomment/fill in the subsequent multiline HTML comment: -->
+<!--To use this function, you need to either first load the `{NAMEOFPACKAGE}` library, or always use the function with `library::function()` notation.
+
+```{r, eval=FALSE}
+# Load the library
+library(REPLACE THIS WITH NAME OF LIBRARY!)
+
+# Or, use :: notation
+PUT THE LIBRARY NAME HERE::PUT FUNCTION NAME HERE WITH PARENTHESES AT THE END()
+```
+-->
+
+
+## Conceptual usage 
+
+```{r, eval=FALSE}
+# Pseudocode examples of use cases, with more appropriate-than-this comments
+```
+
+
+## Examples
+
+<!-- Add this line if your examples use carnivores (but delete this instruction!):
+> Need a refresher on the `carnivores` dataset? Run `get_help("carnivores)` for more information.
+-->
+
+<!-- Add this line if your examples use msleep (but delete this instruction!):
+> Need a refresher on the `msleep` dataset? Run `get_help("msleep)` for more information.
+-->
+
+<!-- Add a <br> if there is NO DATASET REFRESHER!! Otherwise the refresher takes up enough space. -->
+
+```{r example1}
+# Brief comment explaining what this example does
+
+
+```
+
+<br>  <!-- Do not delete the <br>, and make sure to keep the previous and following lines blank. There should be a <br> tab between each example -->
+
+
+```{r example2}
+# Brief comment explaining what this example does
+
+```
+
+<br> <!-- Do not delete the <br>, and make sure to keep the previous and following lines blank. -->
+
+<!-- If needed, add more example chunks below WITH NAMES (example3, example4, etc.), making sure to have a <br> tag in between each example for nicer spacing. If you don't need more examples, don't add any! -->
+
