@@ -81,6 +81,10 @@ test_that("magrittr redirect", {
   expect_true(convert_magrittr_into_topic("%>%") == "pipe")
   expect_true(convert_magrittr_into_topic("%<>%") == "apipe")
   expect_error(convert_magrittr_into_topic("should not work"))
+
+  expect_true(convert_topic_into_magrittr("pipe") == "%>%")
+  expect_true(convert_topic_into_magrittr("apipe") == "%<>%")
+  expect_error(convert_topic_into_magrittr("should not work"))
   
 })
 

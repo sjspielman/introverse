@@ -86,7 +86,7 @@ Install the package `introverse.templates` with `remotes::install_github("spielm
 2. In Console, run the command: `devtools::load_all()` to _load_ the current version of the package into your R session. 
     + When the `{introverse}` loads, it will print a 2-paragraph welcome message to the Console that begins "Welcome to the {introverse}!". If you see this output, you will know the command worked.
 
-3. Add your topic to the appropriate place in the `topic_list` definition inside `R/fct-topics.R`. 
+3. Add your topic to the appropriate place in the `topic_list` definition inside `R/utils-topics.R`. 
     + You should _not be guessing_ the appropriate place. You should _already know how and where to do this._ If you don't know, stop and ask Spielman.
   
 4. Run `devtools::load_all()` again to update the loaded package with this code addition. 
