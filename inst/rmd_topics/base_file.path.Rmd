@@ -1,6 +1,6 @@
 ---
-title: "`base::file.path()`"
-author: "{introverse} quick docs"
+title: "`file.path()`"
+author: "`{introverse}` quick docs"
 output: 
   html_document:
     highlight: pygments

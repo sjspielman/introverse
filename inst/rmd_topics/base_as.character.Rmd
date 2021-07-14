@@ -1,0 +1,46 @@
+---
+title: "`as.character()`"
+author: "`{introverse}` quick docs"
+output: 
+  html_document:
+    highlight: pygments
+    theme: flatly
+---
+
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE, 
+                      warning = FALSE, 
+                      message = FALSE)
+```
+
+
+## Description
+
+The `as.character()` function comes with R and is part of the Base R `{base}` package.
+  
+We use this function to _coerce_ a value or variable to be a character, i.e. change the variable's type into a character type. 
+
+
+
+## Conceptual usage 
+
+```{r usage, eval=FALSE}
+as.character(value to coerce into character type)
+```
+
+## Examples
+
+
+```{r example1}
+# Convert the number 10 into character "10"
+as.character(10)
+```
+
+<br>  <!-- Do not delete the <br>, and make sure to keep the previous and following lines blank. -->
+
+```{r example2}
+# Convert the logical value `TRUE` (no quotes!) into a character type  
+# containing the literal letters (in quotes!) "TRUE".
+as.character(TRUE)
+```

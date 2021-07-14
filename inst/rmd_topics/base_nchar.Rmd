@@ -1,6 +1,6 @@
 ---
-title: "`utils::nchar()`"
-author: "{introverse} quick docs"
+title: "`nchar()`"
+author: "`{introverse}` quick docs"
 output: 
   html_document:
     highlight: pygments

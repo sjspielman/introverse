@@ -1,6 +1,6 @@
 ---
-title: "`base::round()`"
-author: "{introverse} quick docs"
+title: "`round()`"
+author: "`{introverse}` quick docs"
 output: 
   html_document:
     highlight: pygments

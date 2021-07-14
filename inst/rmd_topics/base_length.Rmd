@@ -1,6 +1,6 @@
 ---
-title: "`utils::length()`"
-author: "{introverse} quick docs"
+title: "`length()`"
+author: "`{introverse}` quick docs"
 output: 
   html_document:
     highlight: pygments

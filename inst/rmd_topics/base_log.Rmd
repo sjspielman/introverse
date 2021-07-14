@@ -1,6 +1,6 @@
 ---
-title: "`utils::log()`"
-author: "{introverse} quick docs"
+title: "`log()`"
+author: "`{introverse}` quick docs"
 output: 
   html_document:
     highlight: pygments

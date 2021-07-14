@@ -1,0 +1,68 @@
+---
+title: "Assignment operators"
+author: "`{introverse}` quick docs"
+output: 
+  html_document:
+    highlight: pygments
+    theme: flatly
+---
+
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE, 
+                      warning = FALSE, 
+                      message = FALSE)
+```
+
+
+## Description
+
+We define new variables in R using an _assignment operator_: One of `->` or `<-`, which look like _arrows_ and are comprised of a minus sign and either a greater or less than symbol. Assignment is always directed _from the value TOWARDS the variable_.
+
+Although your code will still likely work if you use `=` to assign values to variables, this is not the preferred style and may incur certain risks.
+
+When we are working to assign aspects of a variable (i.e. create a new column in a data frame or tibble), we use `=`.
+
+<br>
+
+## Conceptual Usage
+
+```{r eval=F}
+# Point the arrow FROM the value TO the variable
+variable_name <- value to assign to variable_name
+
+value to assign to variable_name -> variable_name
+```
+## Examples
+
+
+```{r example1}
+# Define the variable x with the value 12, and show the value of x
+x <- 12
+x
+```
+
+<br>
+
+```{r example2}
+# Define the variable x with the value 12, and show the value of x
+12 -> x
+```
+
+<br>
+
+```{r example3, error=TRUE}
+# This will result in an error because the pointing is backwards!
+12 <- x
+```
+
+<br>
+
+```{r example4}
+# We use <- to create the variable, but = to define aspects internal to the variable
+my_new_data_frame <- data.frame(
+  first_column  = c(1,2),
+  second_column = c("A", "B")
+)
+my_new_data_frame
+```

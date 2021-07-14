@@ -1,6 +1,6 @@
 ---
-title: "`utils::summary()`"
-author: "{introverse} quick docs"
+title: "`summary()`"
+author: "`{introverse}` quick docs"
 output: 
   html_document:
     highlight: pygments

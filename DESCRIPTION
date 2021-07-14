@@ -19,22 +19,24 @@ Imports:
     ggplot2 (>= 3.3.2),
     tidyr (>= 1.0.0),
     tidyselect,
+    stringr,
+    purrr,
     glue,
     magrittr,
     rstudioapi,
     usethis,
     readr,
+    withr,
+    rmarkdown,
     DT
 Collate:
     'utils.R'
     'fct-topics.R'
     'fct-get_help.R'
-    'fct-render_rmd.R'
-    'fct-topics.R'
     'carnivores.R'
     'msleep.R'
 Suggests: 
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
 Depends: 
-    R (>= 2.10)
+    R (>= 3.50)

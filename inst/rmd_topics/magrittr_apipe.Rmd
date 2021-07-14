@@ -1,0 +1,65 @@
+---
+title: "The `{magrittr}` assignment pipe `%>%`"
+author: "`{introverse}` quick docs"
+output: 
+  html_document:
+    highlight: pygments
+    theme: flatly
+---
+
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE, 
+                      warning = FALSE, 
+                      message = FALSE, 
+                      collapse = TRUE)
+library(dplyr)
+`%<>%` <- magrittr::`%<>%`
+```
+
+
+## Description
+
+The combined symbol [`%<>%`](https://magrittr.tidyverse.org/reference/compound.html) is an operator in the [`{magrittr}`](https://magrittr.tidyverse.org/) package, which is part of the [`{tidyverse}`](https://www.tidyverse.org/). This operator simultaneously pipes _and_ redefines the first input as the result. It is useful for simultaneously wrangling and modifying tibbles (data frames) in place.
+
+To learn more about `magrittr` piping, run `get_help("%>%")`.
+
+To use the assignment pipe, you need to either first load the `{tidyverse}` or the `{magrittr}` library.
+
+```{r description, eval=FALSE}
+# Load the tidyverse (most common)
+library(tidyverse)
+
+# Or load magrittr
+library(magrittr)
+```
+
+## Conceptual usage 
+
+```{r usage, eval=FALSE}
+tibble %<>%
+  mutate(new_column = contents of new column)
+
+# The above is equivalent to:
+tibble %>%
+  mutate(new_column = contents of new column) -> tibble
+```
+
+## Examples
+
+> Run `get_help("carnivores")` for a refresher on the `carnivores` dataset.
+
+```{r example1}
+# Simultaneously rename the column `name` to `species` and redefine carnivores
+carnivores %<>%
+  rename(species = name)
+
+carnivores
+```
+
+
+```{r, include=FALSE, echo=FALSE}
+# reassign in case
+carnivores %<>%
+  rename(name = species)
+```

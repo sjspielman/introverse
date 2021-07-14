@@ -1,6 +1,6 @@
 ---
-title: "`base::ceiling()` and `base::floor()`"
-author: "{introverse} quick docs"
+title: "`ceiling()` and `floor()`"
+author: "`{introverse}` quick docs"
 output: 
   html_document:
     highlight: pygments

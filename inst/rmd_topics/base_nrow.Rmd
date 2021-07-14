@@ -1,6 +1,6 @@
 ---
-title: "`base::nrow()` and `base::ncol()`"
-author: "{introverse} quick docs"
+title: "`nrow()` and `ncol()`"
+author: "`{introverse}` quick docs"
 output: 
   html_document:
     highlight: pygments

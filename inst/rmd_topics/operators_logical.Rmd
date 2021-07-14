@@ -1,0 +1,106 @@
+---
+title: "Logical operators"
+author: "`{introverse}` quick docs"
+output: 
+  html_document:
+    highlight: pygments
+    theme: flatly
+---
+
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE, 
+                      warning = FALSE, 
+                      message = FALSE)
+```
+
+
+## Description
+
+Logical operators are symbols you can make comparisons with **that tell you `TRUE` or `FALSE`**. _Logical statement_ is any piece of code that evaluates to `TRUE` or `FALSE`, i.e. it contained a logical operator. Note that in other computing languages, these operators and statements are often called "boolean" (boo-lee-an) and not logical
+
+Logical operators in R include the following, using placeholders `X` and `Y` to represent values/variables being compared:
+
+
+| Operator | What it asks |
+|:----------|:-------------|
+|  `X == Y` | Is `X` equal to `Y`? |
+|  `X < Y` | Is `X` less than `Y`? |
+| `X > Y` | Is `X` greater than `Y`? |
+| `X <= Y` | Is `X` less than or equal to `Y`? |
+| `X >= Y` | Is `X` greater than or equal to `Y`? |
+| `X != Y` | Is `X` not equal to `Y`? |
+| `!(X < Y)` | Is `X` not less than `Y`? |
+| `!(X > Y)` | Is `X` not greater than `Y`? |
+| `X %in% Y_ARRAY` | Is the value `X` present in the array `Y_ARRAY`? |
+| `&` | Used to combine multiple logical statements with "and," which means _all_ statements must be `TRUE` to achieve `TRUE`. |
+| `|` |  Used to combine multiple logical statements with "or," which means _at least one_ statement must be `TRUE` to achieve `TRUE`. This symbol is known as "pipe" and is located on the backslash key above the return/enter key on your keyboard. |
+
+
+<br>
+
+## Examples
+
+> Run `get_help("carnivores")` for a refresher on the `carnivores` dataset.
+
+
+```{r example1}
+# Is 10 equal to 12?
+10 == 12
+```
+
+<br>
+
+```{r example2}
+# Is 14 greater than 13.5?
+14 > 13.5
+```
+
+<br>
+
+```{r example3}
+# Is the length of this array equal to 6? 
+length( c(1, 1, 2, 3, 5, 8, 13)  ) == 6
+```
+
+<br>
+
+```{r example4}
+# Does the following string have less than or equal to 7 characters?
+nchar("im a string being evaluated") <= 7
+```
+
+<br>
+
+```{r example5}
+# Is 10 greater than 5 _and_ 11 less than 10?
+10 > 5 & 11 < 10
+```
+
+<br>
+
+```{r example6}
+# Is 10 greater than 5 _or_ 11 less than 10?
+10 > 5 | 11 < 10
+```
+
+<br>
+
+```{r example7}
+# Is 55 not equal to 27?
+55 != 27
+```
+
+<br>
+
+```{r example8}
+# Is the word "elephant" in the following array?
+"elephant" %in% c("hippopotamus", "giraffe", "zebra", "elephant")
+```
+
+<br>
+
+```{r example9}
+# Is 'Panthera' in the genus column of carnivores?
+"Panthera" %in% carnivores$genus
+```

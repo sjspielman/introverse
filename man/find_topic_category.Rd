@@ -5,19 +5,13 @@
 \title{Function to identify a topic's category}
 \usage{
 find_topic_category(topic)
-
-find_topic_category(topic)
 }
 \arguments{
 \item{topic}{The topic of interest}
 }
 \value{
 The category
-
-The category
 }
 \description{
-Function to identify a topic's category
-
 Function to identify a topic's category
 }

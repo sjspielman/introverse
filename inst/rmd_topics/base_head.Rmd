@@ -1,6 +1,6 @@
 ---
-title: "`utils::head()` and `utils::tail()`"
-author: "{introverse} quick docs"
+title: "`head()` and `tail()`"
+author: "`{introverse}` quick docs"
 output: 
   html_document:
     highlight: pygments

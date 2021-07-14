@@ -1,0 +1,28 @@
+---
+title: "`setwd()`"
+author: "`{introverse}` quick docs"
+output: 
+  html_document:
+    highlight: pygments
+    theme: flatly
+---
+
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE, 
+                      warning = FALSE, 
+                      message = FALSE)
+```
+
+
+## Description
+
+The `setwd()` function comes with R and is part of the Base R `{base}` package.
+  
+We use this function to set the working directory for an R session.
+
+## Conceptual usage 
+
+```{r usage, eval=FALSE}
+setwd("path/to/desired/working/directory")
+```

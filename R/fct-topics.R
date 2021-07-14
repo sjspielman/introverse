@@ -1,96 +1,141 @@
-# topic_list -------------------
-#' List of available help topics by category, which is sometimes but not always a package.
+#' All the dplyr topics
+#' @keywords internal
+#' @noRd
+dplyr_topics <- sort(c(
+  "filter",
+  "slice",
+  "select", 
+  "mutate", 
+  "arrange", 
+  "distinct",
+  "summarize",
+  "group_by", 
+  "ungroup",
+  "pull",
+  "rename",
+  "glimpse",
+  "if_else", 
+  "case_when", 
+  "n",
+  "count",
+  "tally"
+  # _join
+  # bind_
+  # between
+))
+
+#' All the base R topics
+#' @keywords internal
+#' @noRd
+base_topics <- sort(c(
+  "length", 
+  "nchar", 
+  "log", 
+  "sqrt",
+  "summary", 
+  "round",
+  "head", "tail", # Same page
+  "mean", "median", "max", "min", "sum", "sd", # Same page
+  "ceiling", "floor", # Same page
+  "ifelse", 
+  "nrow", "ncol", # Same page
+  "table",
+  "levels", 
+  "class", 
+  "c", 
+  "data.frame",
+  "file.path", 
+  "library",
+  "install.packages",
+  "getwd", 
+  "setwd",
+  "file.exists", "dir.exists", # Same page
+  "as.numeric", 
+  "as.factor", 
+  "as.character" 
+))
+
+
+
+#' List of available help topics by category ordered alphabetically, which is sometimes but not always a package.
+#' @keywords internal
+#' @noRd
+#' !!! ALERT!!!! Do not directly add topics to this list! Instead, add new topics to the appropriate array above For example, to add a `dplyr` topic, put in into the `dplyr_topics` definition!!
 topic_list <- list(
+  "base" = base_topics,
   "datasets" = c("carnivores", "msleep"),
-  "dplyr" = sort(c(
-    "filter",
-    "slice",
-    "select", 
-    "mutate", 
-    "arrange", 
-    "distinct",
-    "summarize",
-    "group_by", 
-    "ungroup",
-    "pull",
-    "rename",
-    "glimpse",
-    "if_else", 
-    "case_when", 
-    "n",
-    "count",
-    "tally"
-    # _join
-    # bind_
-    # between
-  )),
-  # comes with R, affectionately termed base, even though some is not, it's all documented.
-  "base" = sort(c(
-    "length", 
-    "nchar", 
-    "log", 
-    "sqrt",
-    "summary", 
-    "round",
-    # Same page
-    "head", "tail", 
-    # Same page
-    "mean", "median", "max", "min", "sum", "sd",
-    # Same page
-    "ceiling", "floor",
-  #  "ifelse", 
-    # Same page
-    "nrow", "ncol",
-  #  "table",
-  #  "levels", 
-    "class", 
-  #  "c", 
-  #  "data.frame",
-    "file.path", 
-  #  # Same page
-    "file.exists", "dir.exists"
-  #  # Same page
-  #  "as.numeric", "as.factor", "as.character", 
-    ))
+  "dplyr" = dplyr_topics,
+  "magrittr" = c("apipe", "pipe"), # keep assignment first
+  "operators" = c("assignment", "logical", "mathematical") # alphabetical
 )
 
-# TODO???
-#shared_topics <- list(
-# topic = topics that share its page???
-#  "mean" = c("median", "max", "min", "sum", "sd"),
-#  "ceiling" = c("ceiling", "floor"),
-#  "head" = c("head", "tail") 
-#)
+#' Operators documented in logical, math, or assignment help pages
+#' @keywords internal
+#' @noRd
+operators <- c("+", "-", "*", "/" ,"**", "^", "%", "->", "<-",
+               "==", ">", "<", ">=", "<=", "!=", "!", "&", "|") 
+
+#' Obtain correct category and topic for any operator get_help() arguments 
+#' @keywords internal
+#' @noRd
+convert_operator_into_topic <- function(operator)
+{
+  dplyr::case_when(
+    ########## Math ###########
+    operator == "+" ~ "mathematical",
+    operator == "-" ~ "mathematical",
+    operator == "*" ~ "mathematical",
+    operator == "/" ~ "mathematical",
+    operator == "**" ~ "mathematical",
+    operator == "^" ~ "mathematical",
+    operator == "%" ~ "mathematical",
+    ######### Logical ##########
+    operator == "==" ~ "logical",
+    operator == "!=" ~ "logical",
+    operator == ">" ~ "logical",
+    operator == "<" ~ "logical",
+    operator == ">=" ~ "logical",
+    operator == "<=" ~ "logical",
+    operator == "!" ~ "logical",
+    operator == "&" ~ "logical",
+    operator == "|" ~ "logical",
+    ######## Assignment #######
+    operator == "<-" ~ "assignment",
+    operator == "->" ~ "assignment",
+  ) -> topic
+  
+  if (is.na(topic)) stop("\n\nERROR: Unknown operator.")
+  
+  topic
+}
+  
+  
+#' Magrittr operators
+#' @keywords internal
+#' @noRd
+magrittr_operators <- c("%<>%", "%>%")
+
+#' Obtain correct docs word for magrittr pipes
+#' @keywords internal
+#' @noRd
+convert_magrittr_into_topic <- function(pipe)
+{
+  word <- NA
+  if (pipe == "%>%") word <- "pipe"
+  if (pipe == "%<>%") word <- "apipe"
+  stopifnot(!(is.na(word)))
+  
+  word
+}
+  
+  
+  
+  
+  
+  
+  
 
 
-# Need to convert below to Rmd from current text garbage
-# topic_list <- list(
-#   "operators" = sort(
-#     c("math",
-#       "logical")
-#   #    "assignment",
-#   #    "pipe"),
-#   ),
-#   
-#   ),
-
-#         
-#         "ifelse", 
-#         "nrow", "ncol",
-#         "table",
-#         "levels", 
-#         "class", 
-#         "c", 
-#         "data.frame",
-#         "file.path", 
-#         "file.exists", "dir.exists",
-#         "as.numeric", "as.factor", "as.character", # "as.logical" probably not needed?
-#         ##### DO NOT TEST EXAMPLES FOR THE REST #####
-#         "library", "install.packages",
-#         "getwd", "setwd") 
-#    )
-#                 
-# )
 
 #' Show the topic list
 #' 
@@ -101,8 +146,10 @@ topic_list <- list(
 #' @examples 
 #' \dontrun{
 #' show_topics() # Show a list of topics, organized by category
-#' show_topics(category = 'dplyr') # Show a list of topics in the `dplyr` category
-#' show_topics(category = c('dplyr', 'tidyr')) # Show a list of topics in the `dplyr` and `tidyr` categories
+#' # Show all topics in the `dplyr` category
+#' show_topics(category = 'dplyr') 
+#' # Show all topics in the `dplyr` and `tidyr` categories
+#' show_topics(category = c('dplyr', 'tidyr')) 
 #' }
 show_topics <- function(category = NULL)
 {
@@ -118,19 +165,23 @@ show_topics <- function(category = NULL)
         # Did they accidentally provide a topic?? Help them out!
         # the only message in the function
         if (categ %in% unlist(topic_list)) {
-          message_topic_to_help(categ)
+          message_get_help(categ)
           next
         }
         
         # Totally wrong
         # the only stop in the function
         stop(
+          # SPACING IS GOOD KEEP IT!
           glue::glue(
-            crayon::red("\n\nSorry, I don't have that category.") %+% "\n\nYour provided category '", 
-            {categ}, 
-            "' is either spelled wrong, or it isn't an available category. To see all available topic categories, run " %+% 
-            crayon::black(crayon::bgWhite("show_topic_categories()")) %+% "."
-          )
+    '
+  \n\nSorry, your provided category "{category}" is not available. 
+  Is it spelled correctly? 
+  You can also run ' %+% 
+  crayon::bold("show_categories()") %+% 
+  " to see all available 
+  introverse help categories."
+           )
         )
       }
       # add it to the list if passed
@@ -144,8 +195,7 @@ show_topics <- function(category = NULL)
   
   for (pkg in show_names)
   {
-    cat(crayon::bold(crayon::magenta(glue::glue({pkg}, "::")))
-    )
+    cat(crayon::bold(crayon::green(crayon::underline(glue::glue("{pkg} topics:")))))
     for (topic in topic_list[[pkg]])
     {
       # looping to add quotes to reinforce that the arguments need to be strings
@@ -161,16 +211,30 @@ show_topics <- function(category = NULL)
 #' TODO: Should we reveal this in Console or Viewer?
 #' @param topic The topic to whose help this function redirects to
 #' @noRd
-message_topic_to_help <- function(topic)
+message_get_help <- function(topic)
 {
   message(
-    "\nHmm, it looks like you asked to get help for the " %+% 
-    crayon::underline("topic") %+% " " %+% crayon::bold(topic) %+% "?\n" %+%
-    "To see help for that function, try using: " %+% crayon::inverse(glue::glue('get_help("',
-                                                                                {topic}, '")\n\n'))
+    "\n\nI think you want to get help for the " %+% 
+      crayon::underline("topic") %+% " " %+% crayon::bold(topic) %+% "?
+Run this instead: " %+% crayon::bold(glue::glue('get_help("',{topic}, '")\n\n'))
   )
 }
 
+
+#' Redirect user to the `show_topics()` output if they entered a category into `get_help()`
+#' 
+#' TODO: Should we reveal this in Console or Viewer?
+#' @param category The category to whose topics this function reveals
+#' @noRd
+message_show_categories <- function(category)
+{
+  message(
+  "\n\nI think you want to get help for the " %+% 
+  crayon::underline("category") %+% " " %+% crayon::bold(category) %+% "?
+Run this instead to see all topics in this category
+that you can get help for: " %+% crayon::bold(glue::glue('show_topics("',{category}, '")\n\n'))
+  )
+}
 
 
 #' Function to identify a topic's category
@@ -203,9 +267,9 @@ find_topic_category <- function(topic){
 #' @export
 #' @examples 
 #' \dontrun{
-#' show_topic_categories()
+#' show_categories()
 #' }
-show_topic_categories <- function()
+show_categories <- function()
 {
   for (topic in sort(names(topic_list)))
   {

@@ -1,6 +1,6 @@
 ---
-title: "`utils::sqrt()`"
-author: "{introverse} quick docs"
+title: "`sqrt()`"
+author: "`{introverse}` quick docs"
 output: 
   html_document:
     highlight: pygments

@@ -1,10 +1,24 @@
 .onAttach <- function(libname, pkgname) {
   packageStartupMessage(
-    "\nWelcome to the {introverse}! Please be aware that to use this package, you must be working with R from RStudio.\n\n" %+%
-    "Not sure where to start? You can...\n" %+%
-    "- Run the function " %+% crayon::inverse("TBD??") %+% " to learn about the built-in dataset called `pengs` used for examples.\n" %+% 
-    "- Run the function " %+% crayon::inverse("show_topics()") %+% " to see all the different topics you can ask for help for.\n" %+%
-    "- Ready to get some help? Use the function " %+% crayon::inverse('get_help("topic you want help on")') %+% " to get some help! For example, to get help using the `mean()` function, run:  " %+% crayon::inverse('get_help("mean")') %+% "."
+## DO NOT MESS WITH THE SPACING ##
+    "\nWelcome to the {introverse}!\n\n" %+%
+    "Not sure where to start? You can...\n\n" %+%
+    "- Run " %+% crayon::bold("show_topics()") %+% " to see all the different functions 
+  and topics you can ask for help with.
+  
+- Run " %+% crayon::bold('show_topics("library or category of interest")') %+% " to see 
+  all the different functions within a certain library/category 
+  of interest. For example, to see all help topics for {dplyr}
+  functions and topics, run: " %+% crayon::bold('show_topics("dplyr")') %+% ".
+
+- Run " %+% crayon::bold('get_help("carnivores")') %+% " and " %+% 
+crayon::bold('get_help("msleep")') %+% " to learn 
+  about the datasets used in examples.
+    
+- Run the function " %+% crayon::bold('get_help()') %+% " to see the {introverse} docs
+  for a function or topic. For example, to get help using 
+  the `length()` function, run: " %+% crayon::bold('get_help("length")') %+% ".
+  Don't forget quotation marks around the argument to " %+% crayon::bold('get_help()') %+% "!"
   )
 }
 #' Pipe operator
@@ -14,6 +28,7 @@
 #' @name %>%
 #' @rdname pipe
 #' @keywords internal
+#' @noRd
 #' @importFrom magrittr %>%
 #' @usage lhs \%>\% rhs
 #' @param lhs A value or the magrittr placeholder.
@@ -26,6 +41,7 @@ NULL
 #' @name %+%
 #' @rdname crayon_pipe
 #' @keywords internal
+#' @noRd
 #' @importFrom crayon %+%
 #' @usage lhs \%+\% rhs
 #' @param lhs A `crayon` value
@@ -33,28 +49,13 @@ NULL
 #' @return The combined `crayon` values
 NULL
 
-
-
-#' Internal path to html topics
-#' @keywords internal
-html_topics_path <- "html_topics"
-
 #' Internal path to Rmd topics
 #' @keywords internal
 rmd_topics_path <- "rmd_topics"
 
-#' Internal path to Rmd topics formatted as learnr. 
+#' Internal options width for HTML size
 #' @keywords internal
-learnr_topics_path <- "learnr_topics"
-
-#' String to add to an Rmd file to include the learnr library
-#' @keywords internal
-learnr_chunk_string <- "
-\n
-```{r load_learnr, include=FALSE}
-library(learnr)
-```
-\n"
+topic_width <- 75
 
 #' Viewer wrapper for showing the help docs
 #' 
