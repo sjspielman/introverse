@@ -17,7 +17,7 @@ dplyr_topics <- sort(c(
   "case_when", 
   "n",
   "count",
-  "tally"
+  "tally",
   "bind_cols"
   # _join
   # bind_
