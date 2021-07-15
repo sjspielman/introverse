@@ -1,85 +1,3 @@
-<<<<<<< HEAD
-#' All the dplyr topics
-#' @keywords internal
-#' @noRd
-dplyr_topics <- sort(c(
-  "filter",
-  "slice",
-  "select", 
-  "mutate", 
-  "arrange", 
-  "distinct",
-  "summarize",
-  "group_by", 
-  "ungroup",
-  "pull",
-  "rename",
-  "glimpse",
-  "if_else", 
-  "case_when", 
-  "n",
-  "count",
-  "tally",
-  "bind_cols"
-  # _join
-  # bind_
-  # between
-))
-
-#' All the base R topics
-#' @keywords internal
-#' @noRd
-base_topics <- sort(c(
-  "length", 
-  "nchar", 
-  "log", 
-  "sqrt",
-  "summary", 
-  "round",
-  "head", "tail", # Same page
-  "mean", "median", "max", "min", "sum", "sd", # Same page
-  "ceiling", "floor", # Same page
-  "ifelse", 
-  "nrow", "ncol", # Same page
-  "table",
-  "levels", 
-  "class", 
-  "c", 
-  "data.frame",
-  "file.path", 
-  "library",
-  "install.packages",
-  "getwd", 
-  "setwd",
-  "file.exists", "dir.exists", # Same page
-  "as.numeric", 
-  "as.factor", 
-  "as.character" 
-))
-
-
-
-#' List of available help topics by category ordered alphabetically, which is sometimes but not always a package.
-#' @keywords internal
-#' @noRd
-#' !!! ALERT!!!! Do not directly add topics to this list! Instead, add new topics to the appropriate array above For example, to add a `dplyr` topic, put in into the `dplyr_topics` definition!!
-topic_list <- list(
-  "base" = base_topics,
-  "datasets" = c("carnivores", "msleep"),
-  "dplyr" = dplyr_topics,
-  "magrittr" = c("apipe", "pipe"), # keep assignment first
-  "operators" = c("assignment", "logical", "mathematical") # alphabetical
-)
-
-#' Operators documented in logical, math, or assignment help pages
-#' @keywords internal
-#' @noRd
-operators <- c("+", "-", "*", "/" ,"**", "^", "%", "->", "<-",
-               "==", ">", "<", ">=", "<=", "!=", "!", "&", "|") 
-=======
->>>>>>> 4e68432c4624e36e5c411ba348ed7772e3bc2b86
-
-
 #' Obtain correct docs word for magrittr pipes
 #' @keywords internal
 convert_magrittr_into_topic <- function(pipe)
@@ -105,11 +23,6 @@ convert_topic_into_magrittr <- function(topic)
   operator
 }
 
-  
-  
-  
-  
-  
 
 
 
