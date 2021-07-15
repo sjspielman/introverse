@@ -31,7 +31,7 @@ library(dplyr)
 
 The [`bind_cols()`](https://dplyr.tidyverse.org/reference/bind.html) function is part of the [`{dplyr}`](https://dplyr.tidyverse.org/) package, which is part of the [`{tidyverse}`](https://www.tidyverse.org/).
 
-This function is used to *bind* the columns of two tibbles (data frames) or arrays into just tibble (data frame). This requires every column to be of equal length.
+This function is used to *bind* the columns of two tibbles (data frames) or arrays into one tibble (data frame). This requires every column to be of equal length.
 
 <!-- Add the following if the topic is a function that does NOT come with base R, and uncomment/fill in the subsequent multiline HTML comment: -->
 To use this function, you need to either first load the `{dplyr}` library, or always use the function with `dplyr::bind_cols()` notation.
