@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #' All the dplyr topics
 #' @keywords internal
 #' @noRd
@@ -75,50 +76,12 @@ topic_list <- list(
 #' @noRd
 operators <- c("+", "-", "*", "/" ,"**", "^", "%", "->", "<-",
                "==", ">", "<", ">=", "<=", "!=", "!", "&", "|") 
+=======
+>>>>>>> 4e68432c4624e36e5c411ba348ed7772e3bc2b86
 
-#' Obtain correct category and topic for any operator get_help() arguments 
-#' @keywords internal
-#' @noRd
-convert_operator_into_topic <- function(operator)
-{
-  dplyr::case_when(
-    ########## Math ###########
-    operator == "+" ~ "mathematical",
-    operator == "-" ~ "mathematical",
-    operator == "*" ~ "mathematical",
-    operator == "/" ~ "mathematical",
-    operator == "**" ~ "mathematical",
-    operator == "^" ~ "mathematical",
-    operator == "%" ~ "mathematical",
-    ######### Logical ##########
-    operator == "==" ~ "logical",
-    operator == "!=" ~ "logical",
-    operator == ">" ~ "logical",
-    operator == "<" ~ "logical",
-    operator == ">=" ~ "logical",
-    operator == "<=" ~ "logical",
-    operator == "!" ~ "logical",
-    operator == "&" ~ "logical",
-    operator == "|" ~ "logical",
-    ######## Assignment #######
-    operator == "<-" ~ "assignment",
-    operator == "->" ~ "assignment",
-  ) -> topic
-  
-  if (is.na(topic)) stop("\n\nERROR: Unknown operator.")
-  
-  topic
-}
-  
-  
-#' Magrittr operators
-#' @keywords internal
-#' @noRd
-magrittr_operators <- c("%<>%", "%>%")
 
 #' Obtain correct docs word for magrittr pipes
 #' @keywords internal
-#' @noRd
 convert_magrittr_into_topic <- function(pipe)
 {
   word <- NA
@@ -130,6 +93,18 @@ convert_magrittr_into_topic <- function(pipe)
 }
   
   
+#' Obtain correct operator for topic pipe words
+#' @keywords internal
+convert_topic_into_magrittr <- function(topic)
+{
+  operator <- NA
+  if (topic == "pipe") operator <- "%>%"
+  if (topic == "apipe") operator <- "%<>%"
+  stopifnot(!(is.na(operator)))
+  
+  operator
+}
+
   
   
   
@@ -200,7 +175,14 @@ show_topics <- function(category = NULL)
     for (topic in topic_list[[pkg]])
     {
       # looping to add quotes to reinforce that the arguments need to be strings
-      cat("\n", glue::glue('  "', {topic}, '"'))
+      # magrittr conversion:
+      this_topic <- topic
+      if (topic %in% magrittr_topics)
+      {
+        this_topic <- convert_topic_into_magrittr(topic)
+      }
+
+      cat("\n", glue::glue('  "', {this_topic}, '"'))
     }
     cat("\n")
   }
@@ -272,10 +254,10 @@ find_topic_category <- function(topic){
 #' }
 show_categories <- function()
 {
-  for (topic in sort(names(topic_list)))
+  for (category in sort(names(topic_list)))
   {
     # looping to add quotes to reinforce that the arguments need to be strings
-    cat(glue::glue('"', {topic}, '"\n\n'))
+    cat(glue::glue('"', {category}, '"\n\n'))
   }
 }
 

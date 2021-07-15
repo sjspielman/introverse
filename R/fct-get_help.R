@@ -77,7 +77,13 @@ reveal_help <- function(category, topic)
       quiet = TRUE)
   )  
   
-  introverse_viewer(htmlFile)
+  if (rstudioapi::isAvailable())
+  {
+    introverse_viewer(htmlFile)
+  } else {
+    utils::browseURL(htmlFile)
+  }
+  
   # return invisible
   return(invisible(topic))
 }
