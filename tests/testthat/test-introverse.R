@@ -81,19 +81,20 @@ test_that("magrittr redirect", {
   expect_true(convert_magrittr_into_topic("%>%") == "pipe")
   expect_true(convert_magrittr_into_topic("%<>%") == "apipe")
   expect_error(convert_magrittr_into_topic("should not work"))
+
+  expect_true(convert_topic_into_magrittr("pipe") == "%>%")
+  expect_true(convert_topic_into_magrittr("apipe") == "%<>%")
+  expect_error(convert_topic_into_magrittr("should not work"))
   
 })
 
 test_that("get_help() reveals help aka returns invisible", {
-  ##### Check first that we are in an RStudio session.
-  skip_if_not(rstudioapi::isAvailable())
   
   # each topic should return invisible, implicitly testing `reveal_help()`
-    test_get_help <- function(x)
-    {
-      expect_invisible(get_help(x))
-    }
-    sapply(unlist(topic_list), test_get_help)
-
+  test_get_help <- function(x)
+  {
+    expect_invisible(get_help(x))
+  }
+  sapply(unlist(topic_list), test_get_help)
 })
 
