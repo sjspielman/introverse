@@ -19,7 +19,7 @@ dplyr_topics <- sort(c(
   "n",
   "count",
   "tally",
-  "bind_col"
+  "bind_cols"
   # _join
   # bind_
   # between
