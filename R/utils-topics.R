@@ -35,16 +35,31 @@ ggplot2_topics <- sort(c(
   "geom_point",
   "geom_smooth"
 ))
-# geom_histogram
-# geom_boxplot
-# geom_point
 # geom_jitter
 # geom_line <--- need a dataset
-# 
 # geom_bar
 # geom_count
+# theme - this should also document theme_bw(), etc.
+# labs
+# scale_fc_manual
+# scale_fc_brewer
+# scale_fc_distiller
+# facet
 
 
+#' All the tidyr topics
+#' @keywords internal
+tidyr_topics <- sort(c(
+  "drop_na",
+  "separate",
+  "unite"
+))
+# pivot_longer
+# pivot_wider
+
+
+  
+  
 #' All the base R topics
 #' @keywords internal
 base_topics <- sort(c(
@@ -81,12 +96,13 @@ base_topics <- sort(c(
 #' @keywords internal
 topic_list <- list(
   # ALERT!!!! Do not directly add topics to this list! Instead, add new topics to the appropriate array above For example, to add a `dplyr` topic, put in into the `dplyr_topics` definition!!
-  "base" = base_topics,
-  "datasets" = c("carnivores", "msleep"),
-  "dplyr" = dplyr_topics,
-  "ggplot2" = ggplot2_topics,
-  "magrittr" = c("apipe", "pipe"), # keep assignment first
-  "operators" = c("assignment", "logical", "mathematical") # alphabetical
+  "base"      = base_topics,
+  "datasets"  = c("carnivores", "msleep"),
+  "dplyr"     = dplyr_topics,
+  "ggplot2"   = ggplot2_topics,
+  "magrittr"  = c("apipe", "pipe"), # keep assignment first
+  "operators" = c("assignment", "logical", "mathematical"), # alphabetical
+  "tidyr"     = tidyr_topics
 )
 
 #' Operators documented in logical, math, or assignment help pages
