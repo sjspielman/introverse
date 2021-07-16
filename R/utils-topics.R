@@ -52,11 +52,10 @@ ggplot2_topics <- sort(c(
 tidyr_topics <- sort(c(
   "drop_na",
   "separate",
-  "unite"
+  "unite",
+  "pivot_longer",
+  "pivot_wider"
 ))
-# pivot_longer
-# pivot_wider
-
 
   
   
