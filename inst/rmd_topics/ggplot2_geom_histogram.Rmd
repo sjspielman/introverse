@@ -1,0 +1,116 @@
+---
+title: "`ggplot2::geom_histogram()`"
+author: "`{introverse}` quick docs"
+output: 
+  html_document:
+    highlight: pygments
+    theme: flatly
+---
+
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE, 
+                      warning = FALSE, 
+                      message = TRUE)
+library(ggplot2)
+```
+
+
+## Description
+
+The [`geom_histogram()`](https://ggplot2.tidyverse.org/reference/geom_histogram.html) function is part of the [`{ggplot2}`](https://ggplot2.tidyverse.org/) package, which is part of the [`{tidyverse}`](https://www.tidyverse.org/).
+
+The `geom_histogram()` function is used within `{ggplot2}` plots to create a histogram, which shows the distribution of a _numeric continuous_ variable. The x-axis shows values of the variable, and the y-axis shows binned counts of how often values in a given range occur. By default, `geom_histogram()` uses 30 bins.
+
+#### Required aesthetics:
+
++ `x`: The numeric variable whose distribution the histogram visualizes. 
+  + Note that it is also allowed to make a horizontal histogram by providing a `y` aesthetic instead of an `x` (but never both)
+
+#### Commonly used optional aesthetics:
+
++ `color` (`colour`): The outline color for the histogram bars
++ `fill`: The fill color for the histogram bars
++ `size`: The width of the histogram bar outlines
++ `bins`: How many bins should be used (will be overridden by `binwidth` if both are provided)
++ `binwidth`: The width of each bin (will override `bins` if both are provided)
+
+<!-- Add the following if the topic is a function that does NOT come with base R, and uncomment/fill in the subsequent multiline HTML comment: -->
+To use this function, you need to either first load the `{ggplot2}` library, or always use the function with `ggplot2::geom_histogram()` notation.
+
+```{r description, eval=FALSE}
+# Load the library
+library(ggplot2)
+# Or, load the full tidyverse:
+library(tidyverse)
+
+# Or, use :: notation
+ggplot2::geom_histogram()
+```
+
+
+
+## Examples
+
+> Run `get_help("msleep")` for a refresher on the `msleep` dataset.
+
+```{r, example1}
+# By default, histograms have no color outline, are filled with dark gray, and use 30 bins
+# If you do not specify binning, you will get a _normal_ message telling you 30 were chosen
+ggplot(msleep) + 
+  aes(x = awake) + 
+  geom_histogram()
+```
+
+<br>
+
+```{r, example2}
+# Change the binning with `bins`
+ggplot(msleep) + 
+  aes(x = awake) + 
+  geom_histogram(bins = 10)
+```
+
+<br>
+
+```{r, example3}
+# Change the binning with `binwidth`
+ggplot(msleep) + 
+  aes(x = awake) + 
+  geom_histogram(binwidth = 0.5)
+```
+
+<br>
+
+```{r, example4}
+# Include custom fill and color
+ggplot(msleep) + 
+  aes(x = awake) + 
+  geom_histogram(color = "black", fill = "purple")
+```
+
+
+<br>
+
+```{r, example5}
+# Include custom fill and color, with a larger outline size
+# When you have many arguments, placing on separate lines makes code easier to read and work with
+ggplot(msleep) + 
+  aes(x = awake) + 
+  geom_histogram(color = "black", 
+                 fill = "purple", 
+                 size = 2)
+```
+
+
+
+<br>
+
+```{r, example6}
+# A horizontal histogram using y instead of x aesthetic
+ggplot(msleep) + 
+  aes(y = awake) + 
+  geom_histogram()
+```
+
+

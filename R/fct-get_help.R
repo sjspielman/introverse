@@ -65,7 +65,6 @@ get_help <- function(topic = NULL, browser = FALSE) {
 #' @param browser Whether to display in browser. By default, when in an RStudio session, it is displayed in the Viewer pane
 reveal_help <- function(category, topic, browser)
 {
-
   tempDir <- tempfile()
   dir.create(tempDir)
   htmlFile <- file.path(tempDir, "index.html")

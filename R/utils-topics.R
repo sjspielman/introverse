@@ -24,8 +24,26 @@ dplyr_topics <- sort(c(
   "inner_join",
   "anti_join"
   # bind_
-  # between
 ))
+
+#' All the ggplot2 topics
+#' @keywords internal
+ggplot2_topics <- sort(c(
+  "geom_histogram",
+  "geom_density",
+  "geom_boxplot", 
+  "geom_point",
+  "geom_smooth"
+))
+# geom_histogram
+# geom_boxplot
+# geom_point
+# geom_jitter
+# geom_line <--- need a dataset
+# 
+# geom_bar
+# geom_count
+
 
 #' All the base R topics
 #' @keywords internal
@@ -66,6 +84,7 @@ topic_list <- list(
   "base" = base_topics,
   "datasets" = c("carnivores", "msleep"),
   "dplyr" = dplyr_topics,
+  "ggplot2" = ggplot2_topics,
   "magrittr" = c("apipe", "pipe"), # keep assignment first
   "operators" = c("assignment", "logical", "mathematical") # alphabetical
 )

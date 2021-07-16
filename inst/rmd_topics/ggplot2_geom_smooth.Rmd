@@ -1,0 +1,115 @@
+---
+title: "`ggplot2::geom_smooth()`"
+author: "`{introverse}` quick docs"
+output: 
+  html_document:
+    highlight: pygments
+    theme: flatly
+---
+
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE, 
+                      warning = FALSE, 
+                      message = TRUE)
+library(ggplot2)
+msleep %>% tidyr::drop_na(sleep_rem, awake) -> msleep
+```
+
+
+## Description
+
+The [`geom_smooth()`](https://ggplot2.tidyverse.org/reference/geom_smooth.html) function is part of the [`{ggplot2}`](https://ggplot2.tidyverse.org/) package, which is part of the [`{tidyverse}`](https://www.tidyverse.org/).
+
+The `geom_smooth()` function is used to add a _trendline_ to a plot, commonly to a scatterplot. 
+
+#### Required aesthetics:
+
++ `x`: The x-axis coordinates to build the trendline from
++ `y`: The y-axis coordinates to build the trendline from
+
+
+#### Commonly used optional aesthetics:
+
++ `color` (`colour`): The color of the trendline
++ `fill`: The fill of the confidence interval band
++ `se`: Whether to include a confidence interval band in the trendline (specify `TRUE` or `FALSE`)
++ `method`: Which statistical formula to use to create the trendline. **To specify a linear trend line, use `method = "lm"`**, where "lm" stands for **l**inear **m**odel. `{ggplot2}` will always print a message telling you which statistical formula was used.
+
+
+<!-- Add the following if the topic is a function that does NOT come with base R, and uncomment/fill in the subsequent multiline HTML comment: -->
+To use this function, you need to either first load the `{ggplot2}` library, or always use the function with `ggplot2::geom_smooth()` notation.
+
+```{r description, eval=FALSE}
+# Load the library
+library(ggplot2)
+# Or, load the full tidyverse:
+library(tidyverse)
+
+# Or, use :: notation
+ggplot2::geom_smooth()
+```
+
+
+
+## Examples
+
+> Run `get_help("msleep")` for a refresher on the `msleep` dataset.
+
+```{r, example1}
+# Scatterplot of awake against sleep_rem ("y against x") with a linear model trendline
+ggplot(msleep) + 
+  aes(x = sleep_rem, y = awake) + 
+  geom_point() + 
+  geom_smooth(method = "lm")
+```
+
+<br>
+
+```{r, example2}
+# Scatterplot of awake against sleep_rem with custom linear trendline color and fill
+ggplot(msleep) + 
+  aes(x = sleep_rem, y = awake) + 
+  geom_point() + 
+  geom_smooth(method = "lm", 
+              color = "goldenrod",
+              fill = "blue")
+```
+
+<br>
+
+```{r, example3}
+# Scatterplot of awake against sleep_rem with confidence interval turned off
+ggplot(msleep) + 
+  aes(x = sleep_rem, y = awake) + 
+  geom_point() + 
+  geom_smooth(method = "lm", 
+              se=FALSE)
+```
+
+<br>
+
+```{r, example4}
+# Points are colored by vore, specified in the shared `aes()`.
+# geom_smooth inherits this aesthetic to create separate trendlines for each vore
+ggplot(msleep) + 
+  aes(x = sleep_rem, y = awake, color = vore) + 
+  geom_point() + 
+  geom_smooth(method = "lm")
+```
+
+<br>
+
+```{r, example5}
+# Points are colored by vore, specified in `geom_point()` only.
+# geom_smooth will NOT inherit this aesthetic, and it creates a single trendline
+ggplot(msleep) + 
+  aes(x = sleep_rem, y = awake) + 
+  geom_point(aes(color = vore)) + 
+  geom_smooth(method = "lm")
+```
+
+
+```{r, returnmsleep, echo=F, include=F}
+msleep <- introverse::msleep
+```
