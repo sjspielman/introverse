@@ -4,10 +4,12 @@
 \alias{get_help}
 \title{Prints help and examples for a given topic to the R Console}
 \usage{
-get_help(topic = NULL)
+get_help(topic = NULL, browser = FALSE)
 }
 \arguments{
 \item{topic}{A topic whose introverse quick docs to look up}
+
+\item{browser}{Whether to display in browser. By default, when in an RStudio session, it is displayed in the Viewer pane}
 }
 \description{
 Prints help and examples for a given topic to the R Console
