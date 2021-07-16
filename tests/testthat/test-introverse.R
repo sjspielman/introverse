@@ -96,5 +96,8 @@ test_that("get_help() reveals help aka returns invisible", {
     expect_invisible(get_help(x))
   }
   sapply(unlist(topic_list), test_get_help)
+  
+  # Test for browser=TRUE
+  expect_invisible(get_help("filter", browser=TRUE))
 })
 
