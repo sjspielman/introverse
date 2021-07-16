@@ -1,8 +1,9 @@
 #' Prints help and examples for a given topic to the R Console
 #'
 #' @param topic A topic whose introverse quick docs to look up
+#' @param browser Whether to display in browser. By default, when in an RStudio session, it is displayed in the Viewer pane
 #' @export
-get_help <- function(topic = NULL) {
+get_help <- function(topic = NULL, browser = FALSE) {
   
   
   if (is.null(topic))
@@ -50,7 +51,7 @@ get_help <- function(topic = NULL) {
       category <- paste0(find_topic_category(topic))
       
       # launch help
-      reveal_help(category, topic)
+      reveal_help(category, topic, browser)
     }
   }
 }
@@ -61,7 +62,8 @@ get_help <- function(topic = NULL) {
 #' 
 #' @param category The topic to launch's category
 #' @param topic The topic to launch
-reveal_help <- function(category, topic)
+#' @param browser Whether to display in browser. By default, when in an RStudio session, it is displayed in the Viewer pane
+reveal_help <- function(category, topic, browser)
 {
 
   tempDir <- tempfile()
@@ -77,7 +79,7 @@ reveal_help <- function(category, topic)
       quiet = TRUE)
   )  
   
-  if (rstudioapi::isAvailable())
+  if (rstudioapi::isAvailable() & !(browser))
   {
     introverse_viewer(htmlFile)
   } else {

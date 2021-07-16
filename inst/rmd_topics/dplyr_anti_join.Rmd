@@ -1,0 +1,82 @@
+---
+title: "`dplyr::anti_join()`"
+author: "`{introverse}` quick docs"
+output: 
+  html_document:
+    highlight: pygments
+    theme: flatly
+---
+
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE, 
+                      warning = FALSE, 
+                      message = FALSE)
+library(dplyr)
+```
+
+
+## Description
+
+The [`anti_join()`](https://dplyr.tidyverse.org/reference/anti_join.html) function is part of the [`{dplyr}`](https://dplyr.tidyverse.org/) package, which is part of the [`{tidyverse}`](https://www.tidyverse.org/).
+
+The `anti_join()` function merges _two relational datasets_ to retain only information that is not shared between them. In order to merge relational datasets, there must be at least one column name in common.
+
+Specifically, `anti_join()` retains all rows from the left tibble (data frame) which are not present in the right tibble (data frame):
+
+
+```{r tidyexplain, echo=F, out.width = "25%"}
+knitr::include_graphics("../tidyexplain_gifs/anti-join.gif")
+```
+
+
+<!-- Add the following if the topic is a function that does NOT come with base R, and uncomment/fill in the subsequent multiline HTML comment: -->
+To use this function, you need to either first load the `{dplyr}` library, or always use the function with `dplyr::anti_join()` notation.
+
+```{r description, eval=FALSE}
+# Load the library
+library(dplyr)
+# Or, load the full tidyverse:
+library(tidyverse)
+
+# Or, use :: notation
+dplyr::anti_join()
+```
+
+
+## Conceptual usage 
+
+```{r usage, eval=FALSE}
+anti_join(left tibble, right tibble)
+
+# or with piping:
+left tibble %>%
+  anti_join(right tibble)
+```
+
+## Examples
+
+Consider the following example datasets, These two tibbles have column names `name` and `vore` in common. They both contain rows for "Dog", "Pig", and "Rabbit", but `first_tibble` also contains "Tiger" and `second_tibble` also contains "Sheep".
+
+```{r show_example_data, collapse=TRUE}
+first_tibble
+
+second_tibble
+```
+
+<br>
+
+
+```{r example1}
+# anti_join with first_tibble on the left and second_tibble on the right
+first_tibble %>%
+  anti_join(second_tibble)
+```
+
+<br>
+
+```{r example2}
+# anti_join with second_tibble on the left and first_tibble on the right
+second_tibble %>%
+  anti_join(first_tibble)
+```

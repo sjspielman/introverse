@@ -17,8 +17,12 @@ dplyr_topics <- sort(c(
   "case_when", 
   "n",
   "count",
-  "tally"
-  # _join
+  "tally",
+  "left_join",
+  "right_join",
+  "full_join",
+  "inner_join",
+  "anti_join"
   # bind_
   # between
 ))

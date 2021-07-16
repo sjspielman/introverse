@@ -1,0 +1,87 @@
+---
+title: "`dplyr::full_join()`"
+author: "`{introverse}` quick docs"
+output: 
+  html_document:
+    highlight: pygments
+    theme: flatly
+---
+
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE, 
+                      warning = FALSE, 
+                      message = FALSE)
+library(dplyr)
+```
+
+
+## Description
+
+The [`full_join()`](https://dplyr.tidyverse.org/reference/full_join.html) function is part of the [`{dplyr}`](https://dplyr.tidyverse.org/) package, which is part of the [`{tidyverse}`](https://www.tidyverse.org/).
+
+The `full_join()` function merges _two relational datasets_. Specifically, `full_join()` retains all rows from _both_ the left and right tibbles (data frames). Missing row information becomes `NA` in the final output, represented in the GIF below by the blank cells.
+
+```{r tidyexplain, echo=F, out.width = "25%"}
+knitr::include_graphics("../tidyexplain_gifs/full-join.gif")
+```
+
+
+<!-- Add the following if the topic is a function that does NOT come with base R, and uncomment/fill in the subsequent multiline HTML comment: -->
+To use this function, you need to either first load the `{dplyr}` library, or always use the function with `dplyr::full_join()` notation.
+
+```{r description, eval=FALSE}
+# Load the library
+library(dplyr)
+# Or, load the full tidyverse:
+library(tidyverse)
+
+# Or, use :: notation
+dplyr::full_join()
+```
+
+
+## Conceptual usage 
+
+```{r usage, eval=FALSE}
+full_join(left tibble, right tibble)
+# is equivalent to:
+full_join(right tibble, left tibble)
+
+
+# or with piping:
+left tibble %>%
+  full_join(right tibble)
+# is equivalent to:
+right tibble %>%
+  full_join(left tibble)
+```
+
+## Examples
+
+Consider the following example datasets, These two tibbles have column names `name` and `vore` in common. They both contain rows for "Dog", "Pig", and "Rabbit", but `first_tibble` also contains "Tiger" and `second_tibble` also contains "Sheep".
+
+```{r show_example_data, collapse=TRUE}
+first_tibble
+
+second_tibble
+```
+
+<br>
+
+
+```{r example1}
+# full_join to merge tibbles together. 
+# Left/right order does not matter except to determine final column order
+first_tibble %>%
+  full_join(second_tibble)
+```
+
+<br>
+
+```{r example2}
+# full_join to merge tibbles together.
+# Left/right order does not matter except to determine final column order
+second_tibble %>%
+  full_join(first_tibble)
+```
