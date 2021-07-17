@@ -3,7 +3,7 @@
 \docType{data}
 \name{base_topics}
 \alias{base_topics}
-\title{All the base R topics}
+\title{All the forcats topics}
 \format{
 An object of class \code{character} of length 34.
 }
@@ -11,6 +11,11 @@ An object of class \code{character} of length 34.
 base_topics
 }
 \description{
-All the base R topics
+All the forcats topics
 }
+\keyword{All}
+\keyword{R}
+\keyword{base}
 \keyword{internal}
+\keyword{the}
+\keyword{topics}
