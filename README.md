@@ -1,7 +1,7 @@
 # introverse
 Help for tidyverse novices, led by [Stephanie J. Spielman, PhD](https://spielmanlab.github.io). 
 
-**UNDER DEVELOPMENT**
+**_EXTREMELY_ UNDER DEVELOPMENT**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Lifecycle:
