@@ -11,6 +11,8 @@ Want to learn more about R package development in general?
 
 ## How to contribute to the `{introverse}`
 
+**First, please file an issue requesting to document a certain topic!** This will make sure work is not duplicated. 
+
 ### The whole terminal experience
 
 You'll begin by navigating in the terminal with `cd` to the directory where you have your local `introverse` clone. 
