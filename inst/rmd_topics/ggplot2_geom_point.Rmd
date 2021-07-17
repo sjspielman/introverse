@@ -104,6 +104,22 @@ ggplot(msleep) +
 
 
 
+```{r, example5}
+# Advanced example showing use of geom_point to make a non-scatterplot.
+# A lollipop plot of mean time spent awake across vores
+
+# Wrangle:
+msleep %>%
+  tidyr::drop_na(vore) %>%
+  dplyr::group_by(vore) %>%
+  dplyr::summarize(mean_awake = mean(awake)) %>%
+  # Pipe into ggplot:
+  ggplot() + 
+  aes(x = forcats::fct_reorder(vore, mean_awake),  # order x-axis by mean_awake value
+      y = mean_awake) +
+  geom_point(size = 5)
+```
+
 
 ```{r, returnmsleep, echo=F, include=F}
 msleep <- introverse::msleep
