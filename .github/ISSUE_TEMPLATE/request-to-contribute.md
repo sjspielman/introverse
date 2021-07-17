@@ -1,6 +1,6 @@
 ---
 name: Request to Contribute
-about: Request to contribute an introverse help doc
+about: Click here to file an issue requesting to contribute an introverse help doc
 title: Request to Contribute
 labels: contribution-request
 assignees: sjspielman
