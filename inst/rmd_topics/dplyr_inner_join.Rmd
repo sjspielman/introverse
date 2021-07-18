@@ -23,7 +23,7 @@ The [`inner_join()`](https://dplyr.tidyverse.org/reference/inner_join.html) func
 The `inner_join()` function merges _two relational datasets_ to retain only information that is shared by _both_ tibbles (data frames). Specifically, `inner_join()` retains only rows that are present in _both_ the left and right tibbles (data frames):
 
 
-```{r tidyexplain, echo=F, out.width = "25%"}
+```{r tidyexplain, echo=F, out.width = "50%"}
 knitr::include_graphics("../tidyexplain_gifs/inner-join.gif")
 ```
 

@@ -25,7 +25,7 @@ The `anti_join()` function merges _two relational datasets_ to retain only infor
 Specifically, `anti_join()` retains all rows from the left tibble (data frame) which are not present in the right tibble (data frame):
 
 
-```{r tidyexplain, echo=F, out.width = "25%"}
+```{r tidyexplain, echo=F, out.width = "50%"}
 knitr::include_graphics("../tidyexplain_gifs/anti-join.gif")
 ```
 

@@ -29,6 +29,7 @@ dplyr_topics <- sort(c(
 #' All the ggplot2 topics
 #' @keywords internal
 ggplot2_topics <- sort(c(
+  "aes",
   "geom_histogram",
   "geom_density",
   "geom_boxplot", 

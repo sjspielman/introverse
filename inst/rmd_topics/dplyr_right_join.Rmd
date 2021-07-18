@@ -22,7 +22,7 @@ The [`right_join()`](https://dplyr.tidyverse.org/reference/right_join.html) func
 
 The `right_join()` function merges _two relational datasets_. Specifically, `right_join()` retains all rows from the right tibble (data frame) and incorporates columns from the left tibble (data frame): It merges the _right into the left._ Missing row information becomes `NA` in the final output, represented in the GIF below by the blank cell.
 
-```{r tidyexplain, echo=F, out.width = "25%"}
+```{r tidyexplain, echo=F, out.width = "50%"}
 knitr::include_graphics("../tidyexplain_gifs/right-join.gif")
 ```
 

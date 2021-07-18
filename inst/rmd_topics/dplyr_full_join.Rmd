@@ -22,7 +22,7 @@ The [`full_join()`](https://dplyr.tidyverse.org/reference/full_join.html) functi
 
 The `full_join()` function merges _two relational datasets_. Specifically, `full_join()` retains all rows from _both_ the left and right tibbles (data frames). Missing row information becomes `NA` in the final output, represented in the GIF below by the blank cells.
 
-```{r tidyexplain, echo=F, out.width = "25%"}
+```{r tidyexplain, echo=F, out.width = "50%"}
 knitr::include_graphics("../tidyexplain_gifs/full-join.gif")
 ```
 
