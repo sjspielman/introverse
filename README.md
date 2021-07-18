@@ -124,5 +124,4 @@ Please note that the `{introverse}` project is released with a [Contributor Code
 #### Undergraduate student contributors:
 
 + [John ("Jake") Kovaleski](https://github.com/jakekova) (Fall 2020 - Present)
-+ [Shemaiah Sotrah](https://github.com/shemaiah-s) (Summer 2020)
 + [Judith Evans](https://github.com/judithepevans) (Spring 2021 - Present)
