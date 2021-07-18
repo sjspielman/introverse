@@ -15,3 +15,4 @@ The category
 \description{
 Function to identify a topic's category
 }
+\keyword{internal}

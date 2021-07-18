@@ -35,7 +35,6 @@ convert_topic_into_magrittr <- function(topic)
 
 #' Show the topic list
 #' 
-#' TODO: Should we reveal this in Console or Viewer?
 #' @param category If specified, gives only topics in the given category (name in topic_list)
 #' @returns Prints out available topics by package
 #' @export
@@ -111,7 +110,6 @@ show_topics <- function(category = NULL)
 
 #' Redirect user to the get_help() output if they entered a topic into `show_topics()`
 #' 
-#' TODO: Should we reveal this in Console or Viewer?
 #' @param topic The topic to whose help this function redirects to
 #' @noRd
 message_get_help <- function(topic)
@@ -126,9 +124,8 @@ Run this instead: " %+% crayon::bold(glue::glue('get_help("',{topic}, '")\n\n'))
 
 #' Redirect user to the `show_topics()` output if they entered a category into `get_help()`
 #' 
-#' TODO: Should we reveal this in Console or Viewer?
+#' @keywords internal
 #' @param category The category to whose topics this function reveals
-#' @noRd
 message_show_categories <- function(category)
 {
   message(
@@ -142,6 +139,7 @@ that you can get help for: " %+% crayon::bold(glue::glue('show_topics("',{catego
 
 #' Function to identify a topic's category
 #' 
+#' @keywords internal
 #' @param topic The topic of interest
 #' @returns The category
 find_topic_category <- function(topic){
@@ -169,7 +167,6 @@ find_topic_category <- function(topic){
 
 #' Show the list of topic categories
 #' 
-#' TODO: Should we reveal this in Console or Viewer?
 #' @returns Prints out available topic categories
 #' @export
 #' @examples 
