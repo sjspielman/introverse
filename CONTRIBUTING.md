@@ -1,22 +1,42 @@
-# Contributing to the `{introverse}` package development
+> Please be aware: These instructions are written for a primary audience of _student contributors in the [Spielman lab](https://spielmanlab.github.io/)_. However, anyone is welcome to contribute. Please file an issue using "Request to Contribute" first to ensure efforts are not duplicated.
+ 
+# Contributing to `{introverse}` package development
 
 ## Before you begin...
 
 Want to learn more about R package development in general? 
 
-1. Official book: https://r-pkgs.org/
+1. Official book : https://r-pkgs.org/
 2. A good blog post walking you through your first package: https://www.pipinghotdata.com/posts/2020-10-25-your-first-r-package-in-1-hour/
-3. You will use the package `devtools` _a lot_ https://devtools.r-lib.org/
+3. You will use the packages `devtools` and `usethis` _a lot_
+    + https://devtools.r-lib.org/
+    + https://usethis.r-lib.org/
 
 
-## How to contribute to the `{introverse}`
+
+## When to file issues in the `{introverse}`
+
+> You will see templates when you [open a new issue](https://github.com/spielmanlab/introverse/issues/new/choose).
+
+
+1. File an issue when you **have suggestions to improve or address bugs in the documentation**, using the "Feedback for existing introverse docs" template.
+
+2. File an issue when you **want to make a contribution**, using the "Request to Contribute" template. 
+
+3. File an issue when you **want to request a new topic be added to the introverse**, using the "Feature request.
+  
+
+
+## How to contribute to the `{introverse}` docs
 
 **First, please file an issue requesting to document a certain topic!** This will make sure work is not duplicated. 
 
 ### The whole terminal experience
 
-You'll begin by navigating in the terminal with `cd` to the directory where you have your local `introverse` clone. 
-```
+You'll begin by navigating in the terminal with `cd` to the directory where you have your local `introverse` clone.
+
+
+```bash
 # Navigating to the directory where you have your local `introverse` clone. 
 cd wherever/that/directory/is/introverse 
 
@@ -58,7 +78,7 @@ When you're done coding and developing, all your tests have passed, and you're r
 
 #### Merging back up after you PR has been accepted
 
-```
+```bash
 # again, navigate with cd (and confirm with pwd) to your introverse directory
 
 # Leave your development branch and go back to your main branch
@@ -83,26 +103,39 @@ Install the package `introverse.templates` with `remotes::install_github("spielm
 > You must be in a new feature branch first!! Scroll back up to the command line as needed! 
 
 
-1. In RStudio, open your `introverse/` Project session (recommended), or set your working directory to `introverse/`.
+1. In RStudio, open your `introverse/` Project session (recommended), where your *R working directory* should be at the top-level of your `introverse/` directory.
 
-2. In Console, run the command: `devtools::load_all()` to _load_ the current version of the package into your R session. 
-    + When the `{introverse}` loads, it will print a 2-paragraph welcome message to the Console that begins "Welcome to the {introverse}!". If you see this output, you will know the command worked.
+<br>
 
-3. Add your topic to the appropriate place in the `topic_list` definition inside `R/utils-topics.R`. 
+2. Add your topic to the appropriate place inside `R/utils-topics.R`, making sure to not introduce bugs in the process!
     + You should _not be guessing_ the appropriate place. You should _already know how and where to do this._ If you don't know, stop and ask Spielman.
-  
-4. Run `devtools::load_all()` again to update the loaded package with this code addition. 
-    + If you get an error of any kind, it means you likely introduced a bug somewhere in the `introverse/R` directory (probably when adding to the `topic_list`). The error should be reasonably informative about how to track down the bug. Fix and re-run the `devtools::load_all()` command until it's all loaded
 
-5. Open a new Rmd introverse docs template file, and save it to the directory `introverse/inst/rmd_topics/`. Write your Rmd help page using the `introverse` template and existing Rmd help pages as guidance. 
+<br>
+
+  
+3. In R Console, run the command: `devtools::load_all()` to _load_ the current version of the package into your R session. 
+    + When the `{introverse}` loads, it will print a short welcome message to the Console that begins "Welcome to the {introverse}!". If you see this output, you will know the command worked.
+    + If you get an error of any kind, it means you likely introduced a bug somewhere when adding your topic. Go de-bug until `devtools::load_all()` works.
+
+<br>
+
+
+4. Open a new Rmd introverse docs template file, and save it to the directory `introverse/inst/rmd_topics/`. Write your Rmd help page using the `introverse` template and existing Rmd help pages as guidance. 
+    + Your file **must be named** `category_topic.Rmd`, reflecting what you added to `R/utils-topics.R`.
     + **You cannot and should not knit this document like normal!!** Instead, you have to interactively re-load the package and use `get_help()` to see the output. **TO KNIT:**
         + `devtools::load_all()`
-        + `get_help("thing youre developing")`
+        + `get_help("topic")` (replace topic with your topic, of course)
     + As long as you are developing in the right steps, the `carnivores` and `msleep` datasets should automatically be available without any need to read them in.
 
-6. Once you are satisfied with your doc page, it's time to test the package with `devtools::test()`. **If there are NO test FAILURES, you did it! You developed!!** Time for a pull request! Before filing the PR, make sure you've added/committed/pushed the following:
-     + `R/fct-topics.R`
-     + Your `Rmd` topic page in `inst/rmd_topics/`
+<br>
+
+
+5. Once you are satisfied with your doc page, it's time to test the package with `devtools::test()`. **If there are NO test FAILURES, you did it! You developed!!** Time for a pull request! Before filing the PR, make sure you've added/committed/pushed the following:
+     + `R/utils-topics.R`
+     + Your `Rmd` topic page at `inst/rmd_topics/category_topic.Rmd`
+
+<br>
+
 
 ### How to develop new `{introverse}` exercises
 

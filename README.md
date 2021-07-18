@@ -28,13 +28,13 @@ The `{introverse}` package provides alternate documentation for commonly-used fu
 First, install the `{introverse}` package by copy/pasting this code into an R Console. You only need to run this _once_!
 
 ```
-remotes::install_github("introverse")
+remotes::install_github("spielmanlab/introverse")
 ```
 
 If you run this line of code and receive the error, 
 > Error in loadNamespace(name) : there is no package called ‘remotes’
 
-This error means you first need to install the `{remotes}` package to be able to install the `{introverse}`. Copy/paste the line of code below into an R Console, and then try the code `remotes::install_github("introverse")` again.
+This error means you first need to install the `{remotes}` package to be able to install the `{introverse}`. Copy/paste the line of code below into an R Console, and then try the code `remotes::install_github("spielmanlab/introverse")` again.
 
 ```
 install.packages("remotes") 
