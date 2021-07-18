@@ -1,6 +1,6 @@
 # introverse
 
-Approachable, beginner-oriented help for getting started in R and [`tidyverse`](https://www.tidyverse.org/), led by [Stephanie J. Spielman, PhD](https://spielmanlab.github.io). 
+Approachable, beginner-oriented help for getting started in R and the [`tidyverse`](https://www.tidyverse.org/), led by [Stephanie J. Spielman, PhD](https://spielmanlab.github.io). 
 
 **_EXTREMELY_ UNDER DEVELOPMENT**
 
@@ -9,6 +9,8 @@ Approachable, beginner-oriented help for getting started in R and [`tidyverse`](
 stable](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental) 
 [![R-CMD-check](https://github.com/spielmanlab/introverse/workflows/R-CMD-check/badge.svg)](https://github.com/spielmanlab/introverse/actions)
 
+
+![]("inst/introverse_logo.png"){width:150px;}
 
 
 #### Student contributors:
