@@ -1,0 +1,111 @@
+---
+title: "`ggplot2::geom_jitter()`"
+author: "`{introverse}` quick docs"
+output: 
+  html_document:
+    highlight: pygments
+    theme: flatly
+---
+
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE, 
+                      warning = FALSE, 
+                      message = TRUE)
+library(ggplot2)
+```
+
+
+## Description
+
+The [`geom_jitter()`](https://ggplot2.tidyverse.org/reference/geom_jitter.html) function is part of the [`{ggplot2}`](https://ggplot2.tidyverse.org/) package, which is part of the [`{tidyverse}`](https://www.tidyverse.org/).
+
+The `geom_jitter()` function is used within `{ggplot2}` plots to create strip plots, also know as jitter plots. (Note that `geom_jitter()` is technically a shortcut for `geom_point(position = position_jitter())`.)
+
+#### Required aesthetics:
+
++ `x`: The x-axis coordinate(s) for the points (pre-jittering)
++ `y`: The y-axis coordinate(s) for the points (pre-jittering)
+ 
+
+#### Commonly used optional aesthetics:
+
++ `color` (`colour`): The point color
++ `fill`: The point fill, when the shape is specified to allow a fill 
++ `size`: The point size
++ `shape`: The point shape
++ `stroke`: The point outline size, when the shape is specified to allow a fill 
++ `alpha`: Point transparency, ranging from 0-1 where 0 is fully transparent and 1 is fully opaque.
++ `width`: The separation between jitter distributions. _It is good practice to always find an appropriate width for your data!_
+
+#### Options for point shapes in R
+
+The default point shape used for plotting is **20**.
+
+```{r pch, echo=F}
+knitr::include_graphics("../img/r_pch.png")
+```
+
+
+
+<!-- Add the following if the topic is a function that does NOT come with base R, and uncomment/fill in the subsequent multiline HTML comment: -->
+To use this function, you need to either first load the `{ggplot2}` library, or always use the function with `ggplot2::geom_jitter()` notation.
+
+```{r description, eval=FALSE}
+# Load the library
+library(ggplot2)
+# Or, load the full tidyverse:
+library(tidyverse)
+
+# Or, use :: notation
+ggplot2::geom_jitter()
+```
+
+
+
+## Examples
+
+> Run `get_help("msleep")` for a refresher on the `msleep` dataset.
+
+```{r, example1}
+# Jitter plot of awake against vore, colored by vore for clarity
+# Note to remove NAs, you must manipulate the data first
+ggplot(msleep) + 
+  aes(x = vore, y = awake, color = vore) + 
+  geom_jitter()
+```
+
+<br>
+
+```{r, example2}
+# Modify the spacing along the x-axis with the width argument
+# Note to remove NAs, you must manipulate the data first
+ggplot(msleep) + 
+  aes(x = vore, y = awake, color = vore) + 
+  geom_jitter(width = 0.1)
+```
+
+<br>
+
+```{r, example3}
+# Examples of further point modifications, shown comprehensively
+# Note to remove NAs, you must manipulate the data first
+ggplot(msleep) + 
+  aes(x = vore, y = awake) + 
+  geom_jitter(width = 0.15,
+              shape = 22,
+              size = 4,
+              stroke = 2, # point outline width
+              color = "orange",
+              fill = "blue",
+              alpha = 0.5)
+```
+
+<br>
+
+```{r, example4}
+# To make a single jitter plot containing all values, use aes(x = "")
+ggplot(msleep) + 
+  aes(x = "", y = awake) + 
+  geom_jitter(width = 0.2)
+```

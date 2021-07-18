@@ -34,7 +34,10 @@ The `geom_point()` function is used within `{ggplot2}` plots to create points in
 + `color` (`colour`): The point color
 + `fill`: The point fill, when the shape is specified to allow a fill 
 + `size`: The point size
++ `stroke`: The point outline size, when the shape is specified to allow a fill 
 + `shape`: The point shape
++ `alpha`: Point transparency, ranging from 0-1 where 0 is fully transparent and 1 is fully opaque.
+
 
 #### Options for point shapes in R
 
@@ -94,6 +97,20 @@ ggplot(msleep) +
 
 <br>
 
+```{r, example3.5}
+# Scatterplot of awake against sleep_rem, with point shape changed to 21 to allow for color and fill
+# Additional point modifications are shown:
+ggplot(msleep) + 
+  aes(x = sleep_rem, y = awake) + 
+  geom_point(shape = 21, 
+             fill = "goldenrod", 
+             color = "blue", 
+             size = 5, # size of point
+             stroke = 3,# size of point outline
+             alpha = 0.6) # some transparency
+```
+
+<br>
 ```{r, example4}
 # Scatterplot of awake against sleep_rem, with points colored by vore
 # Note to remove NAs, you must manipulate the data first
@@ -107,7 +124,6 @@ ggplot(msleep) +
 ```{r, example5}
 # Advanced example showing use of geom_point to make a non-scatterplot.
 # A lollipop plot of mean time spent awake across vores
-
 # Wrangle:
 msleep %>%
   tidyr::drop_na(vore) %>%

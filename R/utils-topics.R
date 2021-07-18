@@ -30,13 +30,14 @@ dplyr_topics <- sort(c(
 #' @keywords internal
 ggplot2_topics <- sort(c(
   "aes",
+  "labs",
   "geom_histogram",
   "geom_density",
   "geom_boxplot", 
   "geom_point",
-  "geom_smooth"
+  "geom_smooth",
+  "geom_jitter"
 ))
-# geom_jitter
 # geom_line <--- need a dataset
 # geom_bar
 # geom_count
