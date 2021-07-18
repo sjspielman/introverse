@@ -10,7 +10,9 @@ stable](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https:/
 [![R-CMD-check](https://github.com/spielmanlab/introverse/workflows/R-CMD-check/badge.svg)](https://github.com/spielmanlab/introverse/actions)
 
 
-![]("inst/introverse_logo.png"){width:150px;}
+
+<img src="inst/introverse_logo.png" height="200px"/>
+
 
 
 #### Student contributors:
