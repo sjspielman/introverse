@@ -79,9 +79,14 @@ bind_cols(column1 = array1, column2 = array2)
 ```{r example2}
 # This example is similar to the first, but now using tibbles (data frames) derived from the data set `msleep`.
 
-tibble1 <- select(msleep, name:vore) 
-# dplyr::select() is extracting just the columns "name" to "vore", which includes "genus"
-tibble2 <- select(msleep, order:sleep_total)
+msleep %>% 
+  select(name:vore) -> tibble1 # Using a colon between column names includes columns between them.
+
+msleep %>% 
+  select(order, sleep_total) -> tibble1 # Using a comma selects individual columns to *select*
+
+
+# Unfamiliar with pipes (%>%)? - run get_help("%>%")
 
 bind_cols(tibble1, tibble2)
 ```
