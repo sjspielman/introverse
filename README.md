@@ -24,9 +24,11 @@ The `{introverse}` package provides alternate documentation for commonly-used fu
 
 <br><br>
 
-## Getting help in the `{introverse}`
+## Obtaining the `{introverse}`
 
-1. First, install the `{introverse}` package by copy/pasting this code into an R Console:
+#### Step 1: Install the package
+
+First, install the `{introverse}` package by copy/pasting this code into an R Console. You only need to run this _once_!
 
 ```
 remotes::install_github("introverse")
@@ -43,20 +45,22 @@ install.packages("remotes")
 
 If you did not receive that error, `{introverse}` has been installed! Good job!
 
-<br>
+<br><br>
  
-2. Now that the `{introverse}` is installed, you are ready to use it! From the R Console, _load the package_ with the code. After you run this, you will be greeted with a welcome prompt that tells you some basic usage of the `{introverse}`.
+#### Step 2: Load the package. 
+Now that the `{introverse}` is installed, you are ready to use it! From the R Console, _load the package_ with the code. After you run this, you will be greeted with a welcome prompt that tells you some basic usage of the `{introverse}`.
 
 ```
 library(introverse)
 ```
 
-<br>
+<br><br>
 
-3. **What topics can I get help on?**
+## Getting help in the `{introverse}`
 
-To see all currently available help topics, run:
+#### What topics can I get help on?
 
+To see all currently available help topics, run the following command. The function `show_topics()` will print all topic _categories_ and all associated topics within each category. 
 
 ```
 show_topics()
@@ -64,9 +68,8 @@ show_topics()
 
 <br>
 
-This command will print all topic _categories_ and all associated topics within each category. 
 
-4. **Woah, there's a lot of topics! Can I just see categories first?**
+#### Woah, there's a lot of topics! Can I just see the topic categories to narrow it down?
 
 Yes, you can! Use this function:
 
@@ -76,7 +79,7 @@ show_categores()
 
 <br>
 
-5. **I know I want help using `{dplyr}`. Can I see only the `{dplyr}` help topics?**
+#### I know I want help using `{dplyr}`. Can I see only the `{dplyr}` help topics?
 
 Absolutely! You can see _only_ those topics for a given category with `show_topics("category of interest")`. For example, to see the `{dplyr}` topics, you would run...
 
@@ -86,7 +89,7 @@ show_topics("dplyr") # Don't forget to use quotes!
 
 <br>
 
-6. **I know the topic I want help for! Show me how to get help already!**
+#### I know the topic I want help for! Show me how to get help already!!
 
 Use the function `get_help()` to get help for a particular topic. For example, to get help using the `filter()` function in `{dplyr}`, you can run:
 
