@@ -13,7 +13,7 @@ stable](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https:/
 
 <img src="logo.png" height="200px"/>
 
-(Thanks for the [CC0 tidyverse hex sticker](https://github.com/rstudio/hex-stickers), RStudio folks! You are the best!)
+Note: This package is _not_ affiliated with [RStudio](https://www.rstudio.com/) or the [`tidyverse`](https://www.tidyverse.org/), but their [CC0 hex-stickers](https://github.com/rstudio/hex-stickers) are simply fantastic.
 
 
 
