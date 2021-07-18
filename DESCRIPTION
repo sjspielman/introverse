@@ -17,6 +17,7 @@ Imports:
     crayon,
     dplyr (>= 1.0.0),
     ggplot2 (>= 3.3.2),
+    forcats,
     tidyr (>= 1.0.0),
     tidyselect,
     stringr,
