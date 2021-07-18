@@ -65,6 +65,8 @@ To see all currently available help topics, run the following command. The funct
 ```
 show_topics()
 ```
+Or, all currently available topics can be seen [here](https://spielmanlab.github.io/introverse/articles/available_topics.html).
+
 
 <br>
 
