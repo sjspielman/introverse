@@ -1,0 +1,140 @@
+---
+title: "`forcats::fct_reorder()`"
+author: "`{introverse}` quick docs"
+output: 
+  html_document:
+    highlight: pygments
+    theme: flatly
+---
+
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE, 
+                      warning = FALSE, 
+                      message = FALSE)
+library(forcats)
+library(dplyr)
+library(ggplot2)
+library(tidyr)
+```
+
+
+## Description
+
+The [`fct_reorder()`](https://forcats.tidyverse.org/reference/fct_reorder.html) function is part of the [`{forcats}`](https://forcats.tidyverse.org/) package, which is part of the [`{tidyverse}`](https://www.tidyverse.org/).
+
+We use the `fct_reorder()` function to quickly _reorder_ of categories (levels) in a factor variable _based on the order of values in another variable._ 
+
+Changing the order of factor levels is commonly performed to change axis order of a factor variable when using plotting with the `{ggplot2}` library.
+
+<!-- Add the following if the topic is a function that does NOT come with base R, and uncomment/fill in the subsequent multiline HTML comment: -->
+To use this function, you need to either first load the `{forcats}` library, or always use the function with `forcats::fct_reorder()` notation.
+
+```{r description, eval=FALSE}
+# Load the library
+library(forcats)
+# Or, load the full tidyverse:
+library(tidyverse)
+
+# Or, use :: notation
+forcats::fct_reorder()
+```
+
+
+## Conceptual usage 
+
+```{r usage, eval=FALSE}
+fct_reorder(factor variable to change order of, other variable to order by)
+
+fct_reorder(factor variable to change order of, 
+            other variable to order by, 
+            # Commonly used optional arguments:
+            .fun = how to transform the other variable for re-ordering, 
+            .desc = TRUE or FALSE) # Ordered in descending order, by default
+```
+
+## Examples
+
+> Run `get_help("msleep")` for a refresher on the `msleep` dataset.
+
+```{r factorize}
+# For examples, we must first create a new version of `msleep` that contains a 
+#  factor variable. We will convert `vore` to a factor with base R function`as.factor()`.
+msleep %>%
+  drop_na(vore) %>%                  # Remove any NAs from the vore column with tidyr::drop_na()
+  mutate(vore = as.factor(vore)) %>% # Make the vore column factor type with dplyr::mutate() 
+  #Make the `vore` column appear first for easier viewing with dplyr::select() and tidyselect::everything()
+  select(vore, everything()) -> msleep_fctvore
+
+# Show the example dataset, which now shows `vore` as <fct> (factor!) type
+msleep_fctvore
+
+# Show the default order (alphabetical!) of the factor vore column.
+# Examples below will use fct_reorder() to manipulate this order:
+levels(msleep_fctvore$vore)
+
+# Show the values of mean(awake) per vore. Examples will reorder based on mean(awake), so this shows what to expect
+msleep_fctvore %>%
+  group_by(vore) %>%
+  summarize(mean_awake = mean(awake)) %>%
+  arrange(mean_awake)
+```
+
+<br><br>
+
+```{r example1}
+# reorder the order of `vore` levels according to _mean_ values of _awake_
+msleep_fctvore %>%
+  mutate(vore = fct_reorder(vore, 
+                            awake, 
+                            # This argument tells forcats to order vore by MEAN awake
+                            .fun = mean)) -> msleep_fctvore_ex1
+
+# Show new levels to confirm they are updated
+levels(msleep_fctvore_ex1$vore)
+```
+
+<br>
+
+```{r example2}
+# reorder the order of `vore` levels according to _mean_ values of _awake_, but in descending order
+msleep_fctvore %>%
+  mutate(vore = fct_reorder(vore, 
+                            awake, 
+                            .fun = mean, # order vore by MEAN awake
+                            .desc = TRUE)) -> msleep_fctvore_ex2
+
+# Show new levels to confirm they are updated
+levels(msleep_fctvore_ex2$vore)
+```
+
+<br>
+
+```{r example3}
+# reorder the order of `vore` levels according to _mean_ values of _awake_, 
+# Here, we first summarize the data so we need only to reorder by `mean_awake`, without needing a `.fun` argument
+msleep_fctvore %>%
+  group_by(vore) %>%
+  summarize(mean_awake = mean(awake)) %>%
+  mutate(vore = fct_reorder(vore, mean_awake)) -> msleep_fctvore_ex3
+
+# Show new levels to confirm they are updated
+levels(msleep_fctvore_ex3$vore)
+```
+
+
+<br>
+
+```{r example4}
+# Without re-writing the column, change the levels for _plotting purposes only_
+# Provide fct_reorder(VARIABLE, OTHER VARIABLE, ...) to ggplot2::aes() to order in your plot
+# This affects the x-axis labeling, so it is best practice to clean up with `labs()`
+
+# For this plot, we'll reorder `vore` based on MINIMUM AWAKE values
+# Recall: The R function to calculate minimums is `min()`
+ggplot(msleep_fctvore) +
+  aes(x = fct_reorder(vore, awake, .fun = min), 
+      y = awake) + 
+  geom_boxplot() + 
+  labs(x = "vore")
+```

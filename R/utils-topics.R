@@ -60,16 +60,14 @@ tidyr_topics <- sort(c(
   
 #' All the forcats topics
 #' @keywords internal
-#forcats_topics <- sort(c(
-  #"fct_relevel",
-  #"fct_rev"
-  #"fct_reorder",
-  #"fct_infreq",
-#### these should be the same page ###
-  #"fct_lump_n", 
-  #"fct_lump_prop",
-  #"fct_lump_min"
-#))
+forcats_topics <- sort(c(
+  "fct_relevel",
+  "fct_rev",
+  "fct_infreq",
+  "fct_reorder",
+  # Same page:
+  "fct_lump_n", "fct_lump_prop", "fct_lump_min"
+))
   
 #' All the base R topics
 #' @keywords internal
@@ -110,8 +108,8 @@ topic_list <- list(
   "base"      = base_topics,
   "datasets"  = c("carnivores", "msleep"),
   "dplyr"     = dplyr_topics,
+  "forcats"   = forcats_topics,
   "ggplot2"   = ggplot2_topics,
-  #"forcats"   = forcats_topics,
   "magrittr"  = c("apipe", "pipe"), # keep assignment first
   "operators" = c("assignment", "logical", "mathematical"), # alphabetical
   "tidyr"     = tidyr_topics
