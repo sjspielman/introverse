@@ -17,6 +17,8 @@ Not sure what help you need? Use " %+%  crayon::bold('show_topics()') %+% " to s
     
   } else
   {
+    # Make sure its lowercase
+    topic <- toLower(topic)
     # Operator?
     if (topic %in% operators) topic <- convert_operator_into_topic(topic)
     # Magrittr?
