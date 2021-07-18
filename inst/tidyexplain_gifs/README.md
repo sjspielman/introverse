@@ -1,0 +1,1 @@
+Much thanks to (tidyexplain)[https://github.com/gadenbuie/tidyexplain/] maintainers and their generous contribution of these GIFs to the public domain!

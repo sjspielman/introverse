@@ -139,8 +139,12 @@ that you can get help for: " %+% crayon::bold(glue::glue('show_topics("',{catego
 #' @returns The category
 find_topic_category <- function(topic){
   
-  gsub("\\d+$", "", 
-       names(unlist(topic_list)[unlist(topic_list) == topic])) -> category
+  raw_category <- names(unlist(topic_list)[unlist(topic_list) == topic])
+  if (stringr::str_detect(raw_category, "ggplot")) {
+    category <- "ggplot2"
+  } else {
+    category <- stringr::str_replace(raw_category, "\\d+$", "")
+  }
   
   # Should no longer be NULL and should be a character
   if ((!(typeof(category) == "character")) | is.null(category))

@@ -1,0 +1,142 @@
+---
+title: "`forcats::fct_relevel()`"
+author: "`{introverse}` quick docs"
+output: 
+  html_document:
+    highlight: pygments
+    theme: flatly
+---
+
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE, 
+                      warning = FALSE, 
+                      message = FALSE)
+library(forcats)
+library(dplyr)
+library(ggplot2)
+library(tidyr)
+```
+
+
+## Description
+
+The [`fct_relevel()`](https://forcats.tidyverse.org/reference/fct_relevel.html) function is part of the [`{forcats}`](https://forcats.tidyverse.org/) package, which is part of the [`{tidyverse}`](https://www.tidyverse.org/).
+
+We use the `fct_relevel()` function to change the _order_ of categories (levels) in a factor variable based on your custom ordering, using a variety of flexible syntaxes. 
+
+Changing the order of factor levels is commonly performed to change axis order of a factor variable when using plotting with the `{ggplot2}` library.
+
+<!-- Add the following if the topic is a function that does NOT come with base R, and uncomment/fill in the subsequent multiline HTML comment: -->
+To use this function, you need to either first load the `{forcats}` library, or always use the function with `forcats::fct_relevel()` notation.
+
+```{r description, eval=FALSE}
+# Load the library
+library(forcats)
+# Or, load the full tidyverse:
+library(tidyverse)
+
+# Or, use :: notation
+forcats::fct_relevel()
+```
+
+
+## Conceptual usage 
+
+> See examples for what sorts of additional arguments one can provide.
+
+```{r usage, eval=FALSE}
+fct_relevel(factor variable to relevel, 
+            ..additional arguments for how to relevel..)
+```
+
+## Examples
+
+> Run `get_help("msleep")` for a refresher on the `msleep` dataset.
+
+```{r factorize}
+# For examples, we must first create a new version of `msleep` that contains a 
+#  factor variable. We will convert `vore` to a factor with base R function`as.factor()`.
+msleep %>%
+  drop_na(vore) %>%                  # Remove any NAs from the vore column with tidyr::drop_na()
+  mutate(vore = as.factor(vore)) %>% # Make the vore column factor type with dplyr::mutate() 
+  #Make the `vore` column appear first for easier viewing with dplyr::select() and tidyselect::everything()
+  select(vore, everything()) -> msleep_fctvore
+
+# Show the example dataset, which now shows `vore` as <fct> (factor!) type
+msleep_fctvore
+
+# Show the default order (alphabetical!) of the factor vore column.
+# Examples below will use fct_relevel() to manipulate this order:
+levels(msleep_fctvore$vore)
+```
+
+<br><br>
+
+```{r example1}
+# Re-write the `vore` column, releveled to make "omni" come first
+msleep_fctvore %>%
+  mutate(vore = fct_relevel(vore, "omni")) -> msleep_fctvore_ex1
+
+# Show new levels to confirm "omni" is now first
+levels(msleep_fctvore_ex1$vore)
+```
+
+<br>  <!-- Do not delete the <br>, and make sure to keep the previous and following lines blank. -->
+
+
+```{r example2}
+# Re-write the `vore` column, releveled as: "omni", "herbi", "carni", "insecti"
+# You can freely list out the additional arguments inside `fct_relevel()`
+msleep_fctvore %>%
+  mutate(vore = fct_relevel(vore, 
+                            "omni", "herbi", "carni", "insecti")) -> msleep_fctvore_ex2
+
+# Show new levels to confirm new order
+levels(msleep_fctvore_ex2$vore)
+```
+
+
+<br>  <!-- Do not delete the <br>, and make sure to keep the previous and following lines blank. -->
+
+
+```{r example3}
+# Re-write the `vore` column, releveled to make "insect" second, aka:
+# "insecti" should come _after_ the first (1) level. (Note: there is no alternative `before` argument.)
+# This fct_relevel approach is helpful when you want to move one level without listing all the levels out
+msleep_fctvore %>%
+  mutate(vore = fct_relevel(vore, "insecti", after = 1)) -> msleep_fctvore_ex3
+
+# Show new levels to confirm new order
+levels(msleep_fctvore_ex3$vore)
+```
+
+
+<br>
+
+
+```{r example4}
+# Re-write the `vore` column, releveled to make "insect" LAST, using `Inf` ("infinity")
+# "insecti" should come _after_ the first level
+# This fct_relevel approach is helpful when you want to move one level without listing all the levels out
+
+msleep_fctvore %>%
+  mutate(vore = fct_relevel(vore, "insecti", after = Inf)) -> msleep_fctvore_ex4
+
+# Show new levels to confirm new order
+levels(msleep_fctvore_ex4$vore)
+```
+
+<br>
+
+```{r example5}
+# Without re-writing the column, reorder the levels for _plotting purposes only_
+# Provide fct_relevel(VARIABLE) to ggplot2::aes() to order in your plot
+# This affects the x-axis labeling, so it is best practice to clean up with `labs()`
+ggplot(msleep_fctvore) +
+                            # Order we want `vore` to appear in
+  aes(x = fct_relevel(vore, "insecti", "carni", "omni", "herbi"), 
+      y = awake) + 
+  geom_boxplot() + 
+  labs(x = "vore")
+```

@@ -50,7 +50,7 @@ test_that("contents of rmd_topics match topics_list", {
     system.file("rmd_topics", package = "introverse"), 
     pattern = ".Rmd"
   )
-  list_names <- sort(unique(stringr::str_match(rmd_files, "^([a-z]+)_")[,2]))
+  list_names <- sort(unique(stringr::str_match(rmd_files, "^([a-z]+2*)_")[,2]))  #2* in regex for ggplot2
   
   pername <- function(name)
   {
@@ -96,5 +96,8 @@ test_that("get_help() reveals help aka returns invisible", {
     expect_invisible(get_help(x))
   }
   sapply(unlist(topic_list), test_get_help)
+  
+  # Test for browser=TRUE
+  expect_invisible(get_help("filter", browser=TRUE))
 })
 

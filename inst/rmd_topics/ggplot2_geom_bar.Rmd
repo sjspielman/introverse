@@ -1,0 +1,167 @@
+---
+title: "`ggplot2::geom_bar()`"
+author: "`{introverse}` quick docs"
+output: 
+  html_document:
+    highlight: pygments
+    theme: flatly
+---
+
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE, 
+                      warning = FALSE, 
+                      message = TRUE)
+library(ggplot2)
+library(forcats)
+```
+
+
+## Description
+
+The [`geom_bar()`](https://ggplot2.tidyverse.org/reference/geom_bar.html) function is part of the [`{ggplot2}`](https://ggplot2.tidyverse.org/) package, which is part of the [`{tidyverse}`](https://www.tidyverse.org/).
+
+The `geom_bar()` function is used within `{ggplot2}` plots to create barplots of _counts_ of a given categorical variable. When you call `geom_bar()`, `{ggplot2}` will automatically count the number of observations in each category of your primary variable and then plot that calculated value.
+
+To instead plot bars whose height equals an existing literal column in the dataset, it is recommended to use `ggplot2::geom_col()`.
+
+
+#### Required aesthetics:
+
++ `x`: A categorical variable to visualize bars showing counts of
+  + Note that it is also allowed to make a horizontal barplot by providing a `y` aesthetic instead of an `x` (_but never both_)
+  
+#### Commonly used optional aesthetics:
+
++ `color` (`colour`): The outline color for the bars
++ `fill`: The fill for the bars
++ `size`: The width of the bar outlines
+
+
+<!-- Add the following if the topic is a function that does NOT come with base R, and uncomment/fill in the subsequent multiline HTML comment: -->
+To use this function, you need to either first load the `{ggplot2}` library, or always use the function with `ggplot2::geom_bar()` notation.
+
+```{r description, eval=FALSE}
+# Load the library
+library(ggplot2)
+# Or, load the full tidyverse:
+library(tidyverse)
+
+# Or, use :: notation
+ggplot2::geom_bar()
+```
+
+
+
+## Examples
+
+> Run `get_help("msleep")` for a refresher on the `msleep` dataset.
+
+```{r example1}
+# Barplot of counts of categories in the vore column
+# Note to remove the NAs, you must manipulate the data first
+ggplot(msleep) + 
+  aes(x = vore) + 
+  geom_bar()
+```
+
+<br>
+
+```{r example2}
+# Barplot of counts of categories in the vore column, with added custom color, size, and fill
+# Note to remove the NAs, you must manipulate the data first
+ggplot(msleep) + 
+  aes(x = vore) + 
+  geom_bar(color = "goldenrod",
+           size = 2, 
+           fill = "blue")
+```
+
+<br>
+
+
+```{r example3}
+# Barplot of counts of categories in the vore column, fill mapped to vore
+# Note to remove the NAs, you must manipulate the data first
+ggplot(msleep) + 
+  aes(x = vore, fill = vore) + 
+  geom_bar()
+```
+
+
+<br>
+
+```{r example4}
+# Barplot of counts of categories in the vore column, using forcats::fct_infreq() to automatically order vores by frequency on the x-axis
+# It best practice to also update the x-axis title 
+# Note to remove the NAs, you must manipulate the data first
+ggplot(msleep) + 
+  aes(x = fct_infreq(vore)) + 
+  geom_bar() + 
+  labs(x = "vore")
+```
+
+<br>
+
+```{r example5, error=TRUE}
+## CAUTION!! `geom_bar()` can only take either `x` or `y` in its default (non-advanced) usage 
+## This code therefore does not work and results in blank canvas with an error
+ggplot(msleep) + 
+  aes(x = vore, y = awake) + 
+  geom_bar() 
+```
+
+<br>
+
+```{r example6, error=TRUE}
+## CAUTION!! `geom_bar()` is used to plot categorical data, NOT numeric data!
+## Plotting a numeric continuous variable results in confusion. 
+## When plotting continuous data as bars, use `ggplot2::geom_histogram()` instead
+ggplot(msleep) + 
+  aes(x = awake) + 
+  geom_bar() 
+```
+
+
+
+<br>
+
+```{r example7}
+# Combined barplot of vore and conservation, in default "stacked" layout
+ggplot(msleep) + 
+  aes(x = vore, fill = conservation) + # Change the fill for a grouped barplot
+  geom_bar()
+```
+```{r example8}
+# Combined barplot of vore and conservation, in default "stacked" layout
+ggplot(msleep) + 
+  aes(x = conservation, fill = vore) + # Flipped from previous example
+  geom_bar()
+```
+
+<br>
+
+```{r example9}
+# Use the "dodged" position for grouped barplot instead of default "stacked"
+ggplot(msleep) + 
+  aes(x = conservation, fill = vore) +
+  geom_bar(position = position_dodge()) # This argument makes bars side-by-side, taking up all the space by default
+```
+
+<br>
+
+```{r example10}
+# Use the "dodged" position for grouped barplot instead of default "stacked"
+# Include the argument preserve = "single" to make all bars the same width
+ggplot(msleep) + 
+  aes(x = conservation, fill = vore) +
+  geom_bar(position = position_dodge(preserve = "single")) 
+```
+
+<br>
+```{r example11}
+# Example of a horizontal barplot: Use `y` instead of `x`
+ggplot(msleep) + 
+  aes(y = vore, fill = vore) + 
+  geom_bar()
+```

@@ -1,0 +1,112 @@
+---
+title: "`tidyr::separate()`"
+author: "`{introverse}` quick docs"
+output: 
+  html_document:
+    highlight: pygments
+    theme: flatly
+---
+
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE, 
+                      warning = FALSE, 
+                      message = FALSE)
+library(tidyr)
+tibble::tribble(
+  ~full_name, 
+  "Rosalind Franklin", 
+  "Lynn Margulis",
+  "Barbara McClintock"
+) -> biologists
+
+tibble::tribble(
+  ~food,~price, 
+  "banana", 1.15,
+  "pomegranate", 3.85,
+  "avocado", 2.20
+) -> food_prices
+
+```
+
+
+## Description
+
+The [`separate()`](https://tidyr.tidyverse.org/reference/separate.html) function is part of the [`{tidyr}`](https://tidyr.tidyverse.org/) package, which is part of the [`{tidyverse}`](https://www.tidyverse.org/).
+
+
+We use `separate()` to separate a column in a tibble (data frame) into two columns. It is commonly used to tidy a dataset when multiple variables are stored in one instead of two columns. The function is usually good at detecting how to separate the columns, but you can also specify with the `sep` argument. By default, the newly created columns are always _character type_, which can be changed as shown in the Examples below.
+
+<!-- Add the following if the topic is a function that does NOT come with base R, and uncomment/fill in the subsequent multiline HTML comment: -->
+To use this function, you need to either first load the `{tidyr}` library, or always use the function with `tidyr::separate()` notation.
+
+```{r description, eval=FALSE}
+# Load the library
+library(tidyr)
+# Or, load the full tidyverse:
+library(tidyverse)
+
+# Or, use :: notation
+tidyr::separate()
+```
+
+
+## Conceptual usage 
+
+```{r usage, eval=FALSE}
+tibble %>% 
+  separate(column to separate, 
+           into = c("first new column", "second new column"))
+
+tibble %>% 
+  separate(column to separate, 
+           into = c("first new column", "second new column"), 
+           sep = "character to separate columns on in case `separate()` guesses poorly")
+```
+
+## Examples
+
+The first two examples use this dataset, which contains some names of notable biologists:
+
+```{r exdata}
+biologists
+```
+
+```{r example1}
+# Separate `full_name` into `first_name` and `last_name`
+biologists %>% 
+  separate(full_name, into = c("first_name", "last_name"))
+```
+
+<br>  <!-- Do not delete the <br>, and make sure to keep the previous and following lines blank. -->
+
+```{r example2}
+# Separate `full_name` into `first_name` and `last_name`, and KEEP `full_name`
+biologists %>% 
+  separate(full_name, into = c("first_name", "last_name"), 
+           remove = FALSE)
+```
+
+<br>
+
+The next two examples use this dataset, which contains some (made-up) prices of foods:
+
+```{r exdata2}
+food_prices
+```
+
+```{r example3}
+# Separate `price` into `dollars` and `cents`
+food_prices %>% 
+  separate(price, into = c("dollars", "cents"))
+```
+
+<br>  <!-- Do not delete the <br>, and make sure to keep the previous and following lines blank. -->
+
+```{r example4}
+# Separate `price` into `dollars` and `cents`, 
+# AND ensure new columns are properly made into numerics
+food_prices %>% 
+  separate(price, into = c("dollars", "cents"), 
+           convert = TRUE)
+```

@@ -1,9 +1,9 @@
 # introverse
 Help for tidyverse novices, led by [Stephanie J. Spielman, PhD](https://spielmanlab.github.io). 
 
-**UNDER DEVELOPMENT**
+**_EXTREMELY_ UNDER DEVELOPMENT**
 
-[![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Lifecycle:
 stable](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental) 
 [![R-CMD-check](https://github.com/spielmanlab/introverse/workflows/R-CMD-check/badge.svg)](https://github.com/spielmanlab/introverse/actions)

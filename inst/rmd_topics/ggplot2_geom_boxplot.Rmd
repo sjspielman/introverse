@@ -1,0 +1,105 @@
+---
+title: "`ggplot2::geom_boxplot()`"
+author: "`{introverse}` quick docs"
+output: 
+  html_document:
+    highlight: pygments
+    theme: flatly
+---
+
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE, 
+                      warning = FALSE, 
+                      message = TRUE)
+library(ggplot2)
+```
+
+
+## Description
+
+The [`geom_boxplot()`](https://ggplot2.tidyverse.org/reference/geom_boxplot.html) function is part of the [`{ggplot2}`](https://ggplot2.tidyverse.org/) package, which is part of the [`{tidyverse}`](https://www.tidyverse.org/).
+
+The `geom_boxplot()` function is used within `{ggplot2}` plots to create a boxplot, which visualizes summary statistics of a _numeric continuous_ variable collapsed into its summary statistics: minimum, median, maximum, 1st and 3rd quartiles, with any outliers shown beyond minimum and maximum. Boxplots are often used to _compare_ different distributions across a categorical variable.
+
+#### Required aesthetics:
+
++ `x`: A categorical variable to visualize boxplots across
++ `y`: A numeric variable to visualize distributions of
+  + Note that these can be switched for a horizontal boxplot
+
+#### Commonly used optional aesthetics:
+
++ `color` (`colour`): The outline color for the boxplot
++ `fill`: The fill for the boxplot
++ `size`: The width of the boxplot outlines
++ `outlier.size`: The size of outlier points
++ `outlier.color` (`outlier.colour`): The color of outlier points
++ `outlier.shape`: The shape of outlier points
++ `outlier.fill`: The fill of outlier points, when the shape is specified to allow a fill
+
+
+<!-- Add the following if the topic is a function that does NOT come with base R, and uncomment/fill in the subsequent multiline HTML comment: -->
+To use this function, you need to either first load the `{ggplot2}` library, or always use the function with `ggplot2::geom_boxplot()` notation.
+
+```{r description, eval=FALSE}
+# Load the library
+library(ggplot2)
+# Or, load the full tidyverse:
+library(tidyverse)
+
+# Or, use :: notation
+ggplot2::geom_boxplot()
+```
+
+
+
+## Examples
+
+> Run `get_help("msleep")` for a refresher on the `msleep` dataset.
+
+```{r example1}
+# Distribution of awake across vore categories
+# Note to remove the NAs, you must manipulate the data first
+ggplot(msleep) + 
+  aes(x = vore, y = awake) + 
+  geom_boxplot()
+```
+
+<br>
+
+```{r example2}
+# Distribution of awake across vore categories with all boxplots filled the same
+ggplot(msleep) + 
+  aes(x = vore, y = awake) + 
+  geom_boxplot(fill = "orange")
+```
+
+<br>
+
+
+```{r example2.5}
+# Distribution of awake across vore categories, filled by vore
+ggplot(msleep) + 
+  aes(x = vore, y = awake, fill = vore) + 
+  geom_boxplot()
+```
+
+<br>
+
+```{r example3}
+# Distribution of awake across vore categories, filled by vore, with customized outliers
+ggplot(msleep) + 
+  aes(x = vore, y = awake, fill = vore) + 
+  geom_boxplot(outlier.size = 0.5, outlier.color = "red")
+```
+
+
+<br>
+
+```{r example4}
+# To visualize a single boxplot for all values, use x = "" instead of providing a variable
+ggplot(msleep) + 
+  aes(x = "", y = awake) + 
+  geom_boxplot()
+```
