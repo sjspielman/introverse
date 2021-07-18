@@ -13,6 +13,8 @@ stable](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https:/
 
 <img src="inst/introverse_logo.png" height="200px"/>
 
+(Thanks for the [CC0 tidyverse hex sticker](https://github.com/rstudio/hex-stickers), RStudio folks! You are the best!)
+
 
 
 #### Student contributors:
