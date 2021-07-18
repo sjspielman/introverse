@@ -36,18 +36,25 @@ ggplot2_topics <- sort(c(
   "geom_boxplot", 
   "geom_point",
   "geom_smooth",
-  "geom_jitter"
+  "geom_jitter",
+  "geom_bar",
+  "geom_col"
 ))
 # geom_line <--- need a dataset
-# geom_bar
-# geom_count
 # theme - this should also document theme_bw(), etc.
-# labs
 # scale_fc_manual
 # scale_fc_brewer
 # scale_fc_distiller
 # facet
 
+
+#' All the tibble topics
+#' @keywords internal
+tibble_topics <- sort(c(
+  "as_tibble",
+  # same page:
+  "tibble","tribble"
+))
 
 #' All the tidyr topics
 #' @keywords internal
@@ -114,6 +121,7 @@ topic_list <- list(
   "ggplot2"   = ggplot2_topics,
   "magrittr"  = c("apipe", "pipe"), # keep assignment first
   "operators" = c("assignment", "logical", "mathematical"), # alphabetical
+  "tibble"    = tibble_topics,
   "tidyr"     = tidyr_topics
 )
 

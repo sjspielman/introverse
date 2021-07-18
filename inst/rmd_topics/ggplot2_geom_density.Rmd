@@ -30,7 +30,7 @@ The `geom_density()` function is used within `{ggplot2}` plots to create a densi
 #### Commonly used optional aesthetics:
 
 + `color` (`colour`): The outline color for the density plot
-+ `fill`: The fill color for the density plot
++ `fill`: The fill for the density plot
 + `alpha`: Transparency for the density plot fill, ranging from 0-1 where 0 is fully transparent and 1 is fully opaque.
 + `size`: The width of the density plot outline
 
@@ -54,7 +54,7 @@ ggplot2::geom_density()
 
 > Run `get_help("msleep")` for a refresher on the `msleep` dataset.
 
-```{r, example1}
+```{r example1}
 ggplot(msleep) + 
   aes(x = awake) + 
   geom_density()
@@ -62,7 +62,7 @@ ggplot(msleep) +
 
 <br>
 
-```{r, example2}
+```{r example2}
 # Include custom fill and color
 ggplot(msleep) + 
   aes(x = awake) + 
@@ -72,7 +72,7 @@ ggplot(msleep) +
 <br>
 
 
-```{r, example2.5}
+```{r example2.5}
 # Include custom fill, color, and outline size
 # When you have many arguments, placing on separate lines makes code easier to read and work with
 ggplot(msleep) + 
@@ -84,7 +84,7 @@ ggplot(msleep) +
 
 <br>
 
-```{r, example3}
+```{r example3}
 # Show overlapping density plots in a single panel
 # Important to use `alpha` (find a good one with trial/error) so data is not hidden
 # Note: to remove NAs, you must manipulate the data first
@@ -96,7 +96,7 @@ ggplot(msleep) +
 
 <br>
 
-```{r, example4}
+```{r example4}
 # A horizontal density plot using y instead of x aesthetic
 ggplot(msleep) + 
   aes(y = awake) + 

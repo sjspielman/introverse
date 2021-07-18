@@ -57,7 +57,7 @@ ggplot(tibble to plot) +
 
 > Run `get_help("msleep")` for a refresher on the `msleep` dataset.
 
-```{r, example1}
+```{r example1}
 # Place `vore` on the x-axis and `awake` on the y-axis, giving aes() to ggplot()
 # Note, to remove NAs, you must manipulate the data first
 ggplot(msleep, 
@@ -67,7 +67,7 @@ ggplot(msleep,
 
 <br>
 
-```{r, example2}
+```{r example2}
 # Place `vore` on the x-axis and `awake` on the y-axis, with aes() on its own
 # Note, to remove NAs, you must manipulate the data first
 ggplot(msleep) + 
@@ -77,7 +77,7 @@ ggplot(msleep) +
 
 <br>
 
-```{r, example3}
+```{r example3}
 # Place `vore` on the x-axis and `awake` on the y-axis, with aes() on its own
 # Also _fill_ the boxplots based on the values in the `vore` column
 # Note, to remove NAs, you must manipulate the data first
@@ -89,7 +89,7 @@ ggplot(msleep) +
 <br>
 
 
-```{r, example4, error=TRUE}
+```{r example4, error=TRUE}
 ## CAUTION! This example code results in an error because `vore` is a column but it was not placed into `aes()`
 # Note, to remove NAs, you must manipulate the data first
 ggplot(msleep) + 
@@ -99,7 +99,7 @@ ggplot(msleep) +
 
 <br>
 
-```{r, example4.5}
+```{r example4.5}
 ## CAUTION! This example code results in _an inappropriate legend_ and _wrong colors_ because a non-column is provided to `aes()`
 # Note, to remove NAs, you must manipulate the data first
 ggplot(msleep) + 
@@ -109,7 +109,7 @@ ggplot(msleep) +
 
 <br>
 
-```{r, example5}
+```{r example5}
 # When using multiple geoms, all will inherit mappings from an initial aes() call
 # Note, to remove NAs, you must manipulate the data first
 ggplot(msleep) + 
@@ -123,7 +123,7 @@ ggplot(msleep) +
 
 <br>
 
-```{r, example6}
+```{r example6}
 # When using multiple geoms, you can decide which geoms get which aesthetic:
 # Note, to remove NAs, you must manipulate the data first
 ggplot(msleep) + 
@@ -131,7 +131,7 @@ ggplot(msleep) +
   geom_jitter(aes(color = vore), pch = 21) + # ONLY the jitter geom gets the color mapping. Using pch=21, we see points are NOT filled, only colored
   geom_boxplot(aes(fill = vore), alpha = 0.5)   # ONLY the boxplot gets the fill mapping. Its color remains default black. Add alpha for transparency
 ```
-```{r, example7}
+```{r example7}
 # Another example with multiple geoms: All geoms inherit the aes() mappings. 
 # Each vore has its own `geom_smooth()` trendline _because of the color mapping_
 # Note, to remove NAs, you must manipulate the data first
@@ -143,7 +143,7 @@ ggplot(msleep) +
 
 <br>
 
-```{r, example8}
+```{r example8}
 # Another example with multiple geoms: Choose which geoms use which aesthetic
 # Note, to remove NAs, you must manipulate the data first
 ggplot(msleep) + 
@@ -154,7 +154,7 @@ ggplot(msleep) +
 
 <br>
 
-```{r, example9}
+```{r example9}
 # Another example with multiple geoms: Choose which geoms use which aesthetic
 # Note, to remove NAs, you must manipulate the data first
 ggplot(msleep) + 
@@ -167,6 +167,6 @@ ggplot(msleep) +
 
 
 
-```{r, returnmsleep, echo=F, include=F}
+```{r returnmsleep, echo=F, include=F}
 msleep <- introverse::msleep
 ```

@@ -31,7 +31,7 @@ The `geom_boxplot()` function is used within `{ggplot2}` plots to create a boxpl
 #### Commonly used optional aesthetics:
 
 + `color` (`colour`): The outline color for the boxplot
-+ `fill`: The fill color for the boxplot
++ `fill`: The fill for the boxplot
 + `size`: The width of the boxplot outlines
 + `outlier.size`: The size of outlier points
 + `outlier.color` (`outlier.colour`): The color of outlier points
@@ -58,7 +58,7 @@ ggplot2::geom_boxplot()
 
 > Run `get_help("msleep")` for a refresher on the `msleep` dataset.
 
-```{r, example1}
+```{r example1}
 # Distribution of awake across vore categories
 # Note to remove the NAs, you must manipulate the data first
 ggplot(msleep) + 
@@ -68,7 +68,7 @@ ggplot(msleep) +
 
 <br>
 
-```{r, example2}
+```{r example2}
 # Distribution of awake across vore categories with all boxplots filled the same
 ggplot(msleep) + 
   aes(x = vore, y = awake) + 
@@ -78,7 +78,7 @@ ggplot(msleep) +
 <br>
 
 
-```{r, example2.5}
+```{r example2.5}
 # Distribution of awake across vore categories, filled by vore
 ggplot(msleep) + 
   aes(x = vore, y = awake, fill = vore) + 
@@ -87,7 +87,7 @@ ggplot(msleep) +
 
 <br>
 
-```{r, example3}
+```{r example3}
 # Distribution of awake across vore categories, filled by vore, with customized outliers
 ggplot(msleep) + 
   aes(x = vore, y = awake, fill = vore) + 
@@ -97,7 +97,7 @@ ggplot(msleep) +
 
 <br>
 
-```{r, example4}
+```{r example4}
 # To visualize a single boxplot for all values, use x = "" instead of providing a variable
 ggplot(msleep) + 
   aes(x = "", y = awake) + 

@@ -30,7 +30,7 @@ The `geom_histogram()` function is used within `{ggplot2}` plots to create a his
 #### Commonly used optional aesthetics:
 
 + `color` (`colour`): The outline color for the histogram bars
-+ `fill`: The fill color for the histogram bars
++ `fill`: The fill for the histogram bars
 + `size`: The width of the histogram bar outlines
 + `bins`: How many bins should be used (will be overridden by `binwidth` if both are provided)
 + `binwidth`: The width of each bin (will override `bins` if both are provided)
@@ -54,7 +54,7 @@ ggplot2::geom_histogram()
 
 > Run `get_help("msleep")` for a refresher on the `msleep` dataset.
 
-```{r, example1}
+```{r example1}
 # By default, histograms have no color outline, are filled with dark gray, and use 30 bins
 # If you do not specify binning, you will get a _normal_ message telling you 30 were chosen
 ggplot(msleep) + 
@@ -64,7 +64,7 @@ ggplot(msleep) +
 
 <br>
 
-```{r, example2}
+```{r example2}
 # Change the binning with `bins`
 ggplot(msleep) + 
   aes(x = awake) + 
@@ -73,7 +73,7 @@ ggplot(msleep) +
 
 <br>
 
-```{r, example3}
+```{r example3}
 # Change the binning with `binwidth`
 ggplot(msleep) + 
   aes(x = awake) + 
@@ -82,7 +82,7 @@ ggplot(msleep) +
 
 <br>
 
-```{r, example4}
+```{r example4}
 # Include custom fill and color
 ggplot(msleep) + 
   aes(x = awake) + 
@@ -92,7 +92,7 @@ ggplot(msleep) +
 
 <br>
 
-```{r, example5}
+```{r example5}
 # Include custom fill and color, with a larger outline size
 # When you have many arguments, placing on separate lines makes code easier to read and work with
 ggplot(msleep) + 
@@ -106,7 +106,7 @@ ggplot(msleep) +
 
 <br>
 
-```{r, example6}
+```{r example6}
 # A horizontal histogram using y instead of x aesthetic
 ggplot(msleep) + 
   aes(y = awake) + 

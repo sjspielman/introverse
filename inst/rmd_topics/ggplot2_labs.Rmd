@@ -55,7 +55,7 @@ ggplot2::labs()
 
 > Run `get_help("msleep")` for a refresher on the `msleep` dataset.
 
-```{r, example1}
+```{r example1}
 # A fully labeled scatterplot of awake against sleep_rem
 ggplot(msleep) + 
   aes(x = sleep_rem, y = awake) + 
@@ -69,7 +69,7 @@ ggplot(msleep) +
 
 <br>
 
-```{r, example2}
+```{r example2}
 # Labeling the legend created by the `color` aesthetic
 # Note to remove NAs, you must manipulate the data first
 ggplot(msleep) + 
@@ -83,7 +83,7 @@ ggplot(msleep) +
 <br>
 
 
-```{r, example3}
+```{r example3}
 # Labeling the legend created by the `fill` aesthetic
 # Note to remove NAs, you must manipulate the data first
 ggplot(msleep) + 
@@ -97,7 +97,7 @@ ggplot(msleep) +
 
 <br>
 
-```{r, example4}
+```{r example4}
 ## CAUTION!! This legend title is buggy and does not appear,
 # since the plot doesn't contain a fill aesthetic - it contains a color
 # The default legend title is used.

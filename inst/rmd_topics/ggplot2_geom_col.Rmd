@@ -1,0 +1,133 @@
+---
+title: "`ggplot2::geom_col()`"
+author: "`{introverse}` quick docs"
+output: 
+  html_document:
+    highlight: pygments
+    theme: flatly
+---
+
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE, 
+                      warning = FALSE, 
+                      message = TRUE)
+library(ggplot2)
+library(forcats)
+```
+
+
+## Description
+
+The [`geom_col()`](https://ggplot2.tidyverse.org/reference/geom_col.html) function is part of the [`{ggplot2}`](https://ggplot2.tidyverse.org/) package, which is part of the [`{tidyverse}`](https://www.tidyverse.org/).
+
+The `geom_col()` function is used within `{ggplot2}` plots to create barplots where the bar heights' are directly taken from a variable in the dataset. When you call `geom_col()`, `{ggplot2}` will automatically count the number of observations in each category of your primary variable and then plot that calculated value.
+
+To instead plot bars whose heights are equal to _the counted number of categories_, it is recommended to use `ggplot2::geom_bar()`.
+
+
+#### Required aesthetics:
+
++ `x`: A categorical variable to visualize bars across
++ `y`: A variable that determines the height of the bars
+  + Note that these can be switched for a horizontal bar plot
+
+#### Commonly used optional aesthetics:
+
++ `color` (`colour`): The outline color for the bars
++ `fill`: The fill for the bars
++ `size`: The width of the bar outlines
+
+
+<!-- Add the following if the topic is a function that does NOT come with base R, and uncomment/fill in the subsequent multiline HTML comment: -->
+To use this function, you need to either first load the `{ggplot2}` library, or always use the function with `ggplot2::geom_col()` notation.
+
+```{r description, eval=FALSE}
+# Load the library
+library(ggplot2)
+# Or, load the full tidyverse:
+library(tidyverse)
+
+# Or, use :: notation
+ggplot2::geom_col()
+```
+
+
+
+## Examples
+
+> Run `get_help("msleep")` for a refresher on the `msleep` dataset, and run `get_help("carnivores")` for a refresher on the `carnivores` dataset.
+
+
+```{r example1}
+# Plot the literal values of `awake` for each mammal in carnivores
+ggplot(carnivores) + 
+  aes(x = name, y = awake) + 
+  geom_col()
+```
+
+<br>
+
+
+```{r example2}
+# Plot the literal values of `awake` for each mammal in carnivores, with additional stylings
+ggplot(carnivores) + 
+  aes(x = name, y = awake) + 
+  geom_col(color = "goldenrod",
+           size = 2,
+           fill = "blue")
+```
+
+<br>
+```{r example3}
+# Horizontally plot the literal values of `awake` for each mammal in carnivores
+ggplot(carnivores) + 
+  aes(x = awake, y = name) + # note that these were switched to make it horizontal
+  geom_col()
+```
+
+<br>
+
+```{r example4}
+# Use forcats::fct_reorder() to order the names by their awake values for a cleaner look
+# It best practice to also update the x-axis title 
+ggplot(carnivores) + 
+  aes(x = fct_reorder(name, awake), 
+      y = awake) + 
+  geom_col() + 
+  labs(x = "name")
+```
+
+
+<br>
+
+```{r example4}
+# colplot of counts of categories in the vore column, using forcats::fct_infreq() to automatically order vores by frequency on the x-axis
+# It best practice to also update the x-axis title 
+# Note to remove the NAs, you must manipulate the data first
+ggplot(msleep) + 
+  aes(x = fct_infreq(vore)) + 
+  geom_col() + 
+  labs(x = "vore")
+```
+
+<br>
+
+```{r example5, error=TRUE}
+## CAUTION!! `geom_col()` can only take either `x` or `y` in its default (non-advanced) usage 
+## This code therefore does not work and results in blank canvas with an error
+ggplot(msleep) + 
+  aes(x = vore, y = awake) + 
+  geom_col() 
+```
+
+<br>
+
+```{r example6, error=TRUE}
+## CAUTION!! `geom_col()` is used to plot categorical data, NOT numeric data!
+## Plotting a numeric continuous variable results in confusion. 
+## When plotting continuous data as cols, use `ggplot2::geom_histogram()` instead
+ggplot(msleep) + 
+  aes(x = awake) + 
+  geom_col() 
+```

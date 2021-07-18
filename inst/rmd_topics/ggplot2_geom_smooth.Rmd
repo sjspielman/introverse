@@ -56,7 +56,7 @@ ggplot2::geom_smooth()
 
 > Run `get_help("msleep")` for a refresher on the `msleep` dataset.
 
-```{r, example1}
+```{r example1}
 # Scatterplot of awake against sleep_rem ("y against x") with a linear model trendline
 ggplot(msleep) + 
   aes(x = sleep_rem, y = awake) + 
@@ -66,7 +66,7 @@ ggplot(msleep) +
 
 <br>
 
-```{r, example2}
+```{r example2}
 # Scatterplot of awake against sleep_rem with custom linear trendline color and fill
 ggplot(msleep) + 
   aes(x = sleep_rem, y = awake) + 
@@ -78,7 +78,7 @@ ggplot(msleep) +
 
 <br>
 
-```{r, example3}
+```{r example3}
 # Scatterplot of awake against sleep_rem with confidence interval turned off
 ggplot(msleep) + 
   aes(x = sleep_rem, y = awake) + 
@@ -89,7 +89,7 @@ ggplot(msleep) +
 
 <br>
 
-```{r, example4}
+```{r example4}
 # Points are colored by vore, specified in the shared `aes()`.
 # geom_smooth inherits this aesthetic to create separate trendlines for each vore
 ggplot(msleep) + 
@@ -100,7 +100,7 @@ ggplot(msleep) +
 
 <br>
 
-```{r, example5}
+```{r example5}
 # Points are colored by vore, specified in `geom_point()` only.
 # geom_smooth will NOT inherit this aesthetic, and it creates a single trendline
 ggplot(msleep) + 
