@@ -98,36 +98,3 @@ ggplot(carnivores) +
   labs(x = "name")
 ```
 
-
-<br>
-
-```{r example5}
-# colplot of counts of categories in the vore column, using forcats::fct_infreq() to automatically order vores by frequency on the x-axis
-# It best practice to also update the x-axis title 
-# Note to remove the NAs, you must manipulate the data first
-ggplot(msleep) + 
-  aes(x = fct_infreq(vore)) + 
-  geom_col() + 
-  labs(x = "vore")
-```
-
-<br>
-
-```{r example6, error=TRUE}
-## CAUTION!! `geom_col()` can only take either `x` or `y` in its default (non-advanced) usage 
-## This code therefore does not work and results in blank canvas with an error
-ggplot(msleep) + 
-  aes(x = vore, y = awake) + 
-  geom_col() 
-```
-
-<br>
-
-```{r example7, error=TRUE}
-## CAUTION!! `geom_col()` is used to plot categorical data, NOT numeric data!
-## Plotting a numeric continuous variable results in confusion. 
-## When plotting continuous data as cols, use `ggplot2::geom_histogram()` instead
-ggplot(msleep) + 
-  aes(x = awake) + 
-  geom_col() 
-```
