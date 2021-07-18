@@ -17,15 +17,6 @@ stable](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https:/
 
 
 
-#### Student contributors:
-<!--
-+ [Madeline ("Maddie") Greene](https://github.com/greenemadeline) (Fall 2020 - Present) -->
-+ [John ("Jake") Kovaleski](https://github.com/jakekova) (Fall 2020 - Present)
-+ [Shemaiah Sotrah](https://github.com/shemaiah-s) (Summer 2020)
-+ [Judith Evans](https://github.com/judithepevans) (Spring 2021 - Present)
-
-
-
 The `{introverse}` package provides alternate documentation for commonly-used functions in base R and in the `tidyverse`. The provided resources are meant to _complement, not replace_ official documentation and existing R resources. Therefore, the goal of the `{introverse}` is to provide beginner-oriented help for most _introductory_ topics within R and the tidyverse, _not_ to provide comprehensive help about using all of R. We hope `{introverse}` can help you (and/or your students!) get up-and-running within R and the `tidyverse`, so that once you get your bearings you can eventually "graduate" from the `{introverse}` and take advantage of the official comprehensive documentation/resources.
 
 <br><br>
@@ -126,3 +117,9 @@ Or, directly type `msleep` and/or `carnivores` into the R Console to see the dat
 ## Code of Conduct
 
 Please note that the `{introverse}` project is released with a [Contributor Code of Conduct](https://contributor-covenant.org/version/2/0/CODE_OF_CONDUCT.html). By contributing to this project, you agree to abide by its terms.
+
+#### Undergraduate student contributors:
+
++ [John ("Jake") Kovaleski](https://github.com/jakekova) (Fall 2020 - Present)
++ [Shemaiah Sotrah](https://github.com/shemaiah-s) (Summer 2020)
++ [Judith Evans](https://github.com/judithepevans) (Spring 2021 - Present)

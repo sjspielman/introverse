@@ -12,3 +12,6 @@ documentation_modules/
 ^data-raw$
 ^\.github$
 ^inst/introverse_logo.png$
+^_pkgdown\.yml$
+^docs$
+^pkgdown$

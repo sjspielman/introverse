@@ -3,7 +3,7 @@
 \docType{data}
 \name{msleep}
 \alias{msleep}
-\title{An updated and expanded version of the mammals sleep dataset}
+\title{Dataset: An updated and expanded version of the mammals sleep dataset, exported from \code{ggplot2}}
 \format{
 A tibble (data frame) with 83 rows and 11 variables:
 \describe{

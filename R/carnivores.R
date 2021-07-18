@@ -1,4 +1,4 @@
-#' Information about 9 species of carnivores
+#' Dataset: Information about 9 species of carnivores, derived from `msleep`
 #'
 #' A dataset containing information about 9 species of carnivores. This dataset was derived from ggplot2::msleep. 
 #'

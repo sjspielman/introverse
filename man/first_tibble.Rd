@@ -3,7 +3,7 @@
 \docType{data}
 \name{first_tibble}
 \alias{first_tibble}
-\title{Small tibble used to demonstrate joins}
+\title{Dataset: A small tibble used to demonstrate the dplyr join functions, derived from \code{msleep}}
 \format{
 A tibble (data frame) with 4 rows and 3 variables:
 \describe{

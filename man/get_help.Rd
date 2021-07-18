@@ -2,7 +2,7 @@
 % Please edit documentation in R/fct-get_help.R
 \name{get_help}
 \alias{get_help}
-\title{Prints help and examples for a given topic to the R Console}
+\title{Use this function to get help on a topic of interest}
 \usage{
 get_help(topic = NULL, browser = FALSE)
 }
@@ -12,5 +12,5 @@ get_help(topic = NULL, browser = FALSE)
 \item{browser}{Whether to display in browser. By default, when in an RStudio session, it is displayed in the Viewer pane}
 }
 \description{
-Prints help and examples for a given topic to the R Console
+Use this function to get help on a topic of interest
 }

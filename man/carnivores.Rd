@@ -3,7 +3,7 @@
 \docType{data}
 \name{carnivores}
 \alias{carnivores}
-\title{Information about 9 species of carnivores}
+\title{Dataset: Information about 9 species of carnivores, derived from \code{msleep}}
 \format{
 A tibble (data frame) with 9 rows and 4 variables:
 \describe{

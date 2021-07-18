@@ -1,4 +1,4 @@
-#' Prints help and examples for a given topic to the R Console
+#' Use this function to get help on a topic of interest
 #'
 #' @param topic A topic whose introverse quick docs to look up
 #' @param browser Whether to display in browser. By default, when in an RStudio session, it is displayed in the Viewer pane
@@ -9,12 +9,12 @@ get_help <- function(topic = NULL, browser = FALSE) {
   if (is.null(topic))
   {
     # output
-    cat("To get some help, provide an argument in quotation marks to the `get_help()` function in this format: " %+%
-        crayon::bold('get_help("name of function")') %+% 
-      "\nFor example: " %+%  crayon::bold('get_help("filter")') %+% 
-      "\nMany help examples use the `penguins` tibble (data frame). Make sure you have explored this tibble first to fully understand all examples.\n\n" %+% crayon::bold("Currently available help topics:\n") 
+    cat("To get some help, provide an argument in quotation marks to
+the " %+% crayon::bold('get_help()') %+% " function in this format: " %+% crayon::bold('get_help("name of function")') %+% ".
+
+Not sure what help you need? Use " %+%  crayon::bold('show_topics()') %+% " to see all available topics."
     )
-    show_topics()
+    
   } else
   {
     # Operator?
@@ -60,9 +60,11 @@ get_help <- function(topic = NULL, browser = FALSE) {
 
 #' Reveal the standalone help topic HTML content in the viewer pane
 #' 
+#' @keywords internal
 #' @param category The topic to launch's category
 #' @param topic The topic to launch
 #' @param browser Whether to display in browser. By default, when in an RStudio session, it is displayed in the Viewer pane
+#' @returns invisible topic
 reveal_help <- function(category, topic, browser)
 {
   tempDir <- tempfile()

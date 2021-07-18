@@ -1,4 +1,4 @@
-#' An updated and expanded version of the mammals sleep dataset
+#' Dataset: An updated and expanded version of the mammals sleep dataset, exported from `ggplot2`
 #'
 #' This is the msleep dataset exported from the `ggplot2` package version 3.3.5. For more information, see `?ggplot2::msleep`.
 #'
