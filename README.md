@@ -109,6 +109,20 @@ If you prefer for the help to automatically appear in your browser instead of in
 get_help("filter", browser = TRUE)  # Don't forget to use quotes!
 ```
 
+#### Can I learn a little more about the example datasets?
+
+Definitely! We use the dataset `msleep` from the `{ggplot2}` package, as well as a subsetted version of this dataset called `carnivores`, for many of the `{introverse}` docs examples. Learn more about these datasets by getting help for them with:
+
+```
+get_help("msleep")
+# and
+get_help("carnivores")
+```
+
+Or, directly type `msleep` and/or `carnivores` into the R Console to see the datasets directly.
+
+<br><br><br>
+
 ## Code of Conduct
 
-Please note that the introverse project is released with a [Contributor Code of Conduct](https://contributor-covenant.org/version/2/0/CODE_OF_CONDUCT.html). By contributing to this project, you agree to abide by its terms.
+Please note that the `{introverse}` project is released with a [Contributor Code of Conduct](https://contributor-covenant.org/version/2/0/CODE_OF_CONDUCT.html). By contributing to this project, you agree to abide by its terms.
