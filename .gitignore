@@ -45,3 +45,6 @@ vignettes/*.pdf
 
 # htmls
 README.html
+inst/doc
+/doc/
+/Meta/

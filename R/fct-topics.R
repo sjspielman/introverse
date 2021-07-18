@@ -90,7 +90,7 @@ show_topics <- function(category = NULL)
   
   for (pkg in show_names)
   {
-    cat(crayon::bold(crayon::green(crayon::underline(glue::glue("{pkg} topics:")))))
+    if(length(show_names) > 1) cat(crayon::bold(crayon::green(crayon::underline(glue::glue("{pkg} topics:")))))
     for (topic in topic_list[[pkg]])
     {
       # looping to add quotes to reinforce that the arguments need to be strings
@@ -101,7 +101,7 @@ show_topics <- function(category = NULL)
         this_topic <- convert_topic_into_magrittr(topic)
       }
 
-      cat("\n", glue::glue('  "', {this_topic}, '"'))
+      cat("\n", glue::glue('  "', {this_topic}, '"\n'))
     }
     cat("\n")
   }
