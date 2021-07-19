@@ -19,6 +19,8 @@ For example,
 - [x] This is checked
 - [ ] This is unchecked 
 
+--------------------------------------
+
 - [ ] There is a typo in the textual explanations and/or conceptual usage
 - [ ] There is a bug in the example code or comments
 - [ ] You find at least one existing code example is unclear
