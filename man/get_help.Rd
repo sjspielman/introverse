@@ -11,6 +11,15 @@ get_help(topic = NULL, browser = FALSE)
 
 \item{browser}{Whether to display in browser. By default, when in an RStudio session, it is displayed in the Viewer pane}
 }
+\value{
+invisible topic
+}
 \description{
 Use this function to get help on a topic of interest
+}
+\examples{
+\dontrun{ 
+# Get help with the `filter()` function from `{dplyr}`
+get_help("dplyr")
+}
 }

@@ -3,7 +3,7 @@
 \docType{data}
 \name{msleep}
 \alias{msleep}
-\title{Dataset: An updated and expanded version of the mammals sleep dataset, exported from \code{ggplot2}}
+\title{An updated and expanded version of the mammals sleep dataset, exported from \code{ggplot2}}
 \format{
 A tibble (data frame) with 83 rows and 11 variables:
 \describe{
@@ -28,5 +28,10 @@ msleep
 }
 \description{
 This is the msleep dataset exported from the \code{ggplot2} package version 3.3.5. For more information, see \code{?ggplot2::msleep}.
+}
+\examples{
+\dontrun{
+  msleep
+}
 }
 \keyword{datasets}

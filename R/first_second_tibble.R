@@ -1,4 +1,4 @@
-#' Dataset: A small tibble used to demonstrate the dplyr join functions, derived from `msleep`
+#' A small tibble used to demonstrate the `{dplyr}` join functions, derived from `msleep`
 #'
 #' A dataset containing name, vore, and conservation for 4 mammal species, obtained from `msleep`
 #'
@@ -9,9 +9,13 @@
 #'   \item{conservation}{conservation status}
 #' }
 #' @source \url{https://ggplot2.tidyverse.org/}
+#' @examples
+#' \dontrun{
+#'   first_tibble
+#' }
 "first_tibble"
 
-#' Dataset: A small tibble used to demonstrate the dplyr join functions, derived from `msleep`
+#' A small tibble used to demonstrate the `{dplyr}` join functions, derived from `msleep`
 #'
 #' A dataset containing name, vore, and order for 4 mammal species, obtained from `msleep`
 #'
@@ -22,4 +26,8 @@
 #'   \item{order}{taxonomic order}
 #' }
 #' @source \url{https://ggplot2.tidyverse.org/}
+#' @examples
+#' \dontrun{
+#'   second_tibble
+#' }
 "second_tibble"

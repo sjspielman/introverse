@@ -3,7 +3,7 @@
 \docType{data}
 \name{second_tibble}
 \alias{second_tibble}
-\title{Dataset: A small tibble used to demonstrate the dplyr join functions, derived from \code{msleep}}
+\title{A small tibble used to demonstrate the \code{{dplyr}} join functions, derived from \code{msleep}}
 \format{
 A tibble (data frame) with 4 rows and 3 variables:
 \describe{
@@ -20,5 +20,10 @@ second_tibble
 }
 \description{
 A dataset containing name, vore, and order for 4 mammal species, obtained from \code{msleep}
+}
+\examples{
+\dontrun{
+  second_tibble
+}
 }
 \keyword{datasets}

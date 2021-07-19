@@ -108,32 +108,22 @@ show_topics <- function(category = NULL)
 }
 
 
-#' Redirect user to the get_help() output if they entered a topic into `show_topics()`
-#' 
-#' @param topic The topic to whose help this function redirects to
-#' @noRd
-message_get_help <- function(topic)
-{
-  message(
-    "\n\nI think you want to get help for the " %+% 
-      crayon::underline("topic") %+% " " %+% crayon::bold(topic) %+% "?
-Run this instead: " %+% crayon::bold(glue::glue('get_help("',{topic}, '")\n\n'))
-  )
-}
 
-
-#' Redirect user to the `show_topics()` output if they entered a category into `get_help()`
+#' Show the list of topic categories
 #' 
-#' @keywords internal
-#' @param category The category to whose topics this function reveals
-message_show_categories <- function(category)
+#' @returns Prints out available topic categories
+#' @export
+#' @examples 
+#' \dontrun{
+#' show_categories()
+#' }
+show_categories <- function()
 {
-  message(
-  "\n\nI think you want to get help for the " %+% 
-  crayon::underline("category") %+% " " %+% crayon::bold(category) %+% "?
-Run this instead to see all topics in this category
-that you can get help for: " %+% crayon::bold(glue::glue('show_topics("',{category}, '")\n\n'))
-  )
+  for (category in sort(names(topic_list)))
+  {
+    # looping to add quotes to reinforce that the arguments need to be strings
+    cat(glue::glue('"', {category}, '"\n\n'))
+  }
 }
 
 
@@ -165,22 +155,33 @@ find_topic_category <- function(topic){
   category
 }
 
-#' Show the list of topic categories
+
+
+
+#' Redirect user to the get_help() output if they entered a topic into `show_topics()`
 #' 
-#' @returns Prints out available topic categories
-#' @export
-#' @examples 
-#' \dontrun{
-#' show_categories()
-#' }
-show_categories <- function()
+#' @param topic The topic to whose help this function redirects to
+#' @noRd
+message_get_help <- function(topic)
 {
-  for (category in sort(names(topic_list)))
-  {
-    # looping to add quotes to reinforce that the arguments need to be strings
-    cat(glue::glue('"', {category}, '"\n\n'))
-  }
+  message(
+    "\n\nI think you want to get help for the " %+% 
+      crayon::underline("topic") %+% " " %+% crayon::bold(topic) %+% "?
+Run this instead: " %+% crayon::bold(glue::glue('get_help("',{topic}, '")\n\n'))
+  )
 }
 
 
-
+#' Redirect user to the `show_topics()` output if they entered a category into `get_help()`
+#' 
+#' @keywords internal
+#' @param category The category to whose topics this function reveals
+message_show_categories <- function(category)
+{
+  message(
+    "\n\nI think you want to get help for the " %+% 
+      crayon::underline("category") %+% " " %+% crayon::bold(category) %+% "?
+Run this instead to see all topics in this category
+that you can get help for: " %+% crayon::bold(glue::glue('show_topics("',{category}, '")\n\n'))
+  )
+}

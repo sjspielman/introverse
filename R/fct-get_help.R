@@ -2,6 +2,12 @@
 #'
 #' @param topic A topic whose introverse quick docs to look up
 #' @param browser Whether to display in browser. By default, when in an RStudio session, it is displayed in the Viewer pane
+#' @returns invisible topic
+#' @examples
+#' \dontrun{ 
+#' # Get help with the `filter()` function from `{dplyr}`
+#' get_help("dplyr")
+#' }
 #' @export
 get_help <- function(topic = NULL, browser = FALSE) {
   

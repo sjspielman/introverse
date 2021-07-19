@@ -1,0 +1,15 @@
+reference:
+- title: Functions
+  desc:  Functions you can use to get help in the introverse.
+- contents:
+  - get_help
+  - show_topics
+  - show_categories
+- title: Datasets
+  desc:  Datasets used in most introverse help docs.
+- contents:
+  - msleep
+  - carnivores
+  - first_tibble
+  - second_tibble
+  
