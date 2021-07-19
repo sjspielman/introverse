@@ -1,0 +1,91 @@
+---
+title: "Getting help in the `{introverse}`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Getting help in the `{introverse}`}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+
+Before you get started, make sure the library is loaded into your R session by running `library(introverse)`. Once loaded, you'll see welcome prompt showing some basic usage. 
+
+```{r setup}
+library(introverse)
+```
+
+
+
+## What topics can I get help on?
+
+To see all currently available help topics, run the following command. The function `show_topics()` will print all topic _categories_ and all associated topics within each category. 
+
+```{r, eval=F}
+show_topics()
+```
+Or, all currently available topics can be seen [here](https://spielmanlab.github.io/introverse/articles/available_topics.html).
+
+
+<br>
+
+
+## Woah, there's a lot of topics! Can I just see the topic categories to narrow it down?
+
+Yes, you can! Use this function:
+
+```{r, eval=F}
+show_categores()
+```
+
+<br>
+
+## I know I want help using `{dplyr}`. Can I see only the `{dplyr}` help topics?
+
+Absolutely! You can see _only_ those topics for a given category with `show_topics("category of interest")`. For example, to see the `{dplyr}` topics, you would run...
+
+```{r, eval=F}
+show_topics("dplyr") # Don't forget to use quotes!
+```
+
+<br>
+
+## I know the topic I want help for! Show me how to get help already!!
+
+Use the function `get_help()` to get help for a particular topic. For example, to get help using the [`filter()`](https://dplyr.tidyverse.org/reference/filter.html) function in `{dplyr}`, you can run:
+
+```{r, eval=F}
+get_help("filter")  # Don't forget to use quotes!
+```
+
+If you prefer for the help to automatically appear in your browser instead of in the RStudio Viewer pane, you can use the _second argument_ `browser = TRUE` when using `get_help()`. For example:
+
+```{r, eval=F}
+get_help("filter", browser = TRUE)  # Don't forget to use quotes!
+```
+
+<br>
+
+## Can I learn a little more about the example datasets?
+
+Definitely! We use the dataset `msleep` from the `{ggplot2}` package, as well as a subsetted version of this dataset called `carnivores`, for many of the `{introverse}` docs examples. Learn more about these datasets by getting help for them with:
+
+```{r, eval=F}
+get_help("msleep")
+# and
+get_help("carnivores")
+```
+
+Or, directly type `msleep` and/or `carnivores` into the R Console to see the datasets directly.
+
+<br>
+
+## This is all a little confusing. What if I get lost?
+
+Don't worry, the `{introverse}` is here to help! We try to provide helpful feedback as much as possible if you use one of the `{introverse}` functions incorrectly or provide a "bad" argument. Read all of the messages you get carefully, and if you're still confused, let us know how we can improve by filing an [issue](https://github.com/spielmanlab/introverse/issues)!

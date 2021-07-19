@@ -1,13 +1,13 @@
 Package: introverse
-Title: Provides Resources for Novices to Introduce the Tidyverse
-Version: 0.0.0.9000
+Title: Resources for Beginners Learning R and the Tidyverse
+Version: 0.0.0.9
 Authors@R: 
     person(given = "Stephanie",
            family = "Spielman",
            role = c("aut", "cre"),
            email = "spielman@rowan.edu",
            comment = c(ORCID = "0000-0002-9090-4788"))
-Description: Has alternative docs, for now!
+Description: Introverse currently offers function and topic documentation that are oriented towards R/tidyverse novices. The provided documentation is complementary to official package and function documentation, which is more comprehensive and oriented towards experienced R programmers.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
@@ -17,6 +17,7 @@ Imports:
     crayon,
     dplyr (>= 1.0.0),
     ggplot2 (>= 3.3.2),
+    forcats,
     tidyr (>= 1.0.0),
     tidyselect,
     stringr,
@@ -36,8 +37,14 @@ Collate:
     'fct-get_help.R'
     'carnivores.R'
     'msleep.R'
+    'first_second_tibble.R'
 Suggests: 
+    knitr,
+    lubridate,
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
 Depends: 
     R (>= 3.50)
+VignetteBuilder: knitr
+BugReports: https://github.com/spielmanlab/introverse/issues
+URL: https://github.com/spielmanlab/introverse

@@ -1,0 +1,53 @@
+---
+title: "`tibble::as_tibble()`"
+author: "`{introverse}` quick docs"
+output: 
+  html_document:
+    highlight: pygments
+    theme: flatly
+---
+
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE, 
+                      warning = FALSE, 
+                      message = FALSE)
+library(tibble)
+```
+
+
+## Description
+
+The [`as_tibble()`](https://tibble.tidyverse.org/reference/as_tibble.html) function is part of the [`{tibble}`](https://tibble.tidyverse.org/) package, which is part of the [`{tidyverse}`](https://www.tidyverse.org/).
+
+We use the `as_tibble()` function to _coerce_ a variable into being a tibble. Usually, we use this to coerce a data frame into a tibble to achieve improved printing and other tibble behaviors.
+
+<!-- Add the following if the topic is a function that does NOT come with base R, and uncomment/fill in the subsequent multiline HTML comment: -->
+To use this function, you need to either first load the `{tibble}` library, or always use the function with `tibble::as_tibble()` notation.
+
+```{r description, eval=FALSE}
+# Load the library
+library(tibble)
+# Or, load the full tidyverse:
+library(tidyverse)
+
+# Or, use :: notation
+tibble::as_tibble()
+```
+
+
+## Conceptual usage 
+
+```{r usage, eval=FALSE}
+as_tibble(variable to coerce into a tibble)
+```
+
+## Examples
+
+<br>
+```{r example1}
+# Coerce the built-in data frame iris into a tibble
+iris_tibble <- as_tibble(iris)
+
+iris_tibble
+```

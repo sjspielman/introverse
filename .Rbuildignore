@@ -6,8 +6,14 @@ documentation_modules/
 ^\.travis\.yml$
 ^inst/rmd_topics/*\.html$
 ^inst/student_modules/*
-^CONTRIBUTING.md$
+^CONTRIBUTING.Rmd$
 ^CONTRIBUTING.html$
 ^README.html$
 ^data-raw$
 ^\.github$
+^logo.png$
+^_pkgdown\.yml$
+^docs$
+^pkgdown$
+^doc$
+^Meta$

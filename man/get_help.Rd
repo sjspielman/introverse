@@ -2,13 +2,24 @@
 % Please edit documentation in R/fct-get_help.R
 \name{get_help}
 \alias{get_help}
-\title{Prints help and examples for a given topic to the R Console}
+\title{Use this function to get help on a topic of interest}
 \usage{
-get_help(topic = NULL)
+get_help(topic = NULL, browser = FALSE)
 }
 \arguments{
 \item{topic}{A topic whose introverse quick docs to look up}
+
+\item{browser}{Whether to display in browser. By default, when in an RStudio session, it is displayed in the Viewer pane}
+}
+\value{
+invisible topic
 }
 \description{
-Prints help and examples for a given topic to the R Console
+Use this function to get help on a topic of interest
+}
+\examples{
+\dontrun{ 
+# Get help with the `filter()` function from `{dplyr}`
+get_help("dplyr")
+}
 }

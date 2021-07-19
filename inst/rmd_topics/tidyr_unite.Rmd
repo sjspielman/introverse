@@ -1,0 +1,101 @@
+---
+title: "`tidyr::unite()`"
+author: "`{introverse}` quick docs"
+output: 
+  html_document:
+    highlight: pygments
+    theme: flatly
+---
+
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE, 
+                      warning = FALSE, 
+                      message = FALSE)
+library(tidyr)
+tibble::tribble(
+  ~first_name, ~last_name, 
+  "Rosalind", "Franklin", 
+  "Lynn",  "Margulis",
+  "Barbara", "McClintock"
+) -> biologists
+
+```
+
+
+## Description
+
+The [`unite()`](https://tidyr.tidyverse.org/reference/unite.html) function is part of the [`{tidyr}`](https://tidyr.tidyverse.org/) package, which is part of the [`{tidyverse}`](https://www.tidyverse.org/).
+
+
+We use `unite()` to combine two columns in a tibble (data frame) into a single columns. By default, column values are united with an underscore (`_`), but this can be changed with the `sep` argument.
+
+<!-- Add the following if the topic is a function that does NOT come with base R, and uncomment/fill in the subsequent multiline HTML comment: -->
+To use this function, you need to either first load the `{tidyr}` library, or always use the function with `tidyr::unite()` notation.
+
+```{r description, eval=FALSE}
+# Load the library
+library(tidyr)
+# Or, load the full tidyverse:
+library(tidyverse)
+
+# Or, use :: notation
+tidyr::unite()
+```
+
+
+## Conceptual usage 
+
+```{r usage, eval=FALSE}
+tibble %>% 
+  unite(name of new column, 
+        first column to unite, 
+        second column to unite)
+
+tibble %>% 
+  unite(name of new column, 
+        first column to unite, 
+        second column to unite, 
+        sep = "optional character saying how to unite the values")
+```
+
+## Examples
+
+The first two examples use this dataset, which contains some names of notable biologists:
+
+```{r exdata}
+biologists
+```
+
+```{r example1}
+# Combine `first_name` and `last_name` into `full_name`
+biologists %>% 
+  unite(full_name, first_name, last_name)
+```
+
+<br>  <!-- Do not delete the <br>, and make sure to keep the previous and following lines blank. -->
+
+```{r example2}
+# Combine `first_name` and `last_name` into `full_name`, and KEEP the two originals
+biologists %>% 
+  unite(full_name, first_name, last_name,
+        remove = FALSE)
+```
+
+```{r example3}
+# Combine `first_name` and `last_name` into `full_name`, 
+# but separate with a space instead of underscore
+biologists %>% 
+  unite(full_name, first_name, last_name,
+        sep = " ")
+```
+
+<br>  <!-- Do not delete the <br>, and make sure to keep the previous and following lines blank. -->
+
+```{r example4}
+# Combine `first_name` and `last_name` into `full_name_reverse`, a different format
+# Note the order of arguments and the separator used
+biologists %>% 
+  unite(full_name_reverse, last_name, first_name,
+        sep = ", ")
+```

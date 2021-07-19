@@ -1,0 +1,67 @@
+---
+title: "`tidyr::pivot_longer()`"
+author: "`{introverse}` quick docs"
+output: 
+  html_document:
+    highlight: pygments
+    theme: flatly
+---
+
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE, 
+                      warning = FALSE, 
+                      message = FALSE)
+library(tidyr)
+tb_cases_wide <- tidyr::table4a
+```
+
+
+## Description
+
+The [`pivot_longer()`](https://tidyr.tidyverse.org/reference/pivot_longer.html) function is part of the [`{tidyr}`](https://tidyr.tidyverse.org/) package, which is part of the [`{tidyverse}`](https://www.tidyverse.org/).
+
+We use this function to convert a _wide_ tibble (data frame) into a _long_ tibble (data frame). 
+
+When using `pivot_longer()`, you must specify the columns to be pivoted, which may require the use of some `{tidyselect}` helper functions. To get help with `{tidyselect}` from the `{introverse}`, use `show_topics("tidyselect")` to see available docs.
+
+To use this function, you need to either first load the `{tidyr}` library, or always use the function with `tidyr::pivot_longer()` notation.
+
+```{r description, eval=FALSE}
+# Load the library
+library(tidyr)
+# Or, load the full tidyverse:
+library(tidyverse)
+
+# Or, use :: notation
+tidyr::pivot_longer()
+```
+
+
+## Conceptual usage 
+
+```{r usage, eval=FALSE}
+tibble %>% 
+  pivot_longer(columns to pivot from wide to long,
+               names_to = "name of new column that will contain the old column names",
+               values_to = "name of new column that will contain the values from the old columns")
+
+```
+
+## Examples
+
+
+This example uses the dataset `tb_cases_wide`, which is a wide tibble showing how many cases of Tuberculosis were recorded in each country in the given year.
+
+```{r exdata}
+tb_cases_wide
+```
+
+```{r example1}
+# Pivot tb_cases longer.
+# Use backticks `` or quotes "" to refer to columns whose names start with a number
+tb_cases_wide %>% 
+  pivot_longer(`1999`:`2000`, # we want to pivot columns 1999 and 2000
+               names_to = "year",  # this column will contain 1999 and 2000
+               values_to = "number_of_tb_cases") # will contain information previously in columns 1999 and 2000
+```

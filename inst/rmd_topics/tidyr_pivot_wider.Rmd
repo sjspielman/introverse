@@ -1,0 +1,63 @@
+---
+title: "`tidyr::pivot_wider()`"
+author: "`{introverse}` quick docs"
+output: 
+  html_document:
+    highlight: pygments
+    theme: flatly
+---
+
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE, 
+                      warning = FALSE, 
+                      message = FALSE)
+library(tidyr)
+library(dplyr)
+tb_cases_long <- tidyr::table1 %>% select(-population) 
+```
+
+
+## Description
+
+The [`pivot_wider()`](https://tidyr.tidyverse.org/reference/pivot_wider.html) function is part of the [`{tidyr}`](https://tidyr.tidyverse.org/) package, which is part of the [`{tidyverse}`](https://www.tidyverse.org/).
+
+We use this function to convert a _long_ tibble (data frame) into a _wide_ tibble (data frame). 
+
+To use this function, you need to either first load the `{tidyr}` library, or always use the function with `tidyr::pivot_wider()` notation.
+
+```{r description, eval=FALSE}
+# Load the library
+library(tidyr)
+# Or, load the full tidyverse:
+library(tidyverse)
+
+# Or, use :: notation
+tidyr::pivot_wider()
+```
+
+
+## Conceptual usage 
+
+```{r usage, eval=FALSE}
+tibble %>% 
+  pivot_wider(names_from = "column whose values will become new column names",
+              values_from = "column whose values will be in those new columns")
+
+```
+
+## Examples
+
+
+This example uses the dataset `tb_cases_long`, a long tibble which shows how many cases of Tuberculosis were recorded in each country in the given year.
+
+```{r exdata}
+tb_cases_long
+```
+
+```{r example1}
+# Pivot tb_cases wider
+tb_cases_long %>% 
+  pivot_wider(names_from = "year", # new columns will be created from values in `year`
+              values_from = "cases") # those new columns contain values from `cases`
+```

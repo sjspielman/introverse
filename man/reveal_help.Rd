@@ -4,13 +4,19 @@
 \alias{reveal_help}
 \title{Reveal the standalone help topic HTML content in the viewer pane}
 \usage{
-reveal_help(category, topic)
+reveal_help(category, topic, browser)
 }
 \arguments{
 \item{category}{The topic to launch's category}
 
 \item{topic}{The topic to launch}
+
+\item{browser}{Whether to display in browser. By default, when in an RStudio session, it is displayed in the Viewer pane}
+}
+\value{
+invisible topic
 }
 \description{
 Reveal the standalone help topic HTML content in the viewer pane
 }
+\keyword{internal}

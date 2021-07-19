@@ -1,0 +1,98 @@
+---
+title: "`tibble::tibble()` and `tibble::tribble()`"
+author: "`{introverse}` quick docs"
+output: 
+  html_document:
+    highlight: pygments
+    theme: flatly
+---
+
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE, 
+                      warning = FALSE, 
+                      message = FALSE)
+library(tibble)
+example_tibble <- tribble(
+  ~food,         ~color,     ~food_type,
+  "cucumber",    "green",    "fruit",
+  "pomegranate", "red",      "fruit",
+  "carrot",      "orange",    "root")
+```
+
+
+## Description
+
+The [`tibble()`](https://tibble.tidyverse.org/reference/tibble.html) and [`tribble()`](https://tibble.tidyverse.org/reference/tribble.html) functions are part of the [`{tibble}`](https://tibble.tidyverse.org/) package, which is part of the [`{tidyverse}`](https://www.tidyverse.org/).
+
+We use the functions `tibble()` and `tribble()` functions to quickly create tibbles from scratch within R. You can use either function depending on your personal preference 
+
+
+<!-- Add the following if the topic is a function that does NOT come with base R, and uncomment/fill in the subsequent multiline HTML comment: -->
+To use these functions, you need to either first load the `{tibble}` library, or always use the function with `tibble::` notation.
+
+```{r description, eval=FALSE}
+# Load the library
+library(tibble)
+# Or, load the full tidyverse:
+library(tidyverse)
+
+# Or, use :: notation
+tibble::tibble()
+tibble::tribble()
+```
+
+
+## Conceptual usage 
+
+```{r usage, eval=FALSE}
+# We give arrays to the tibble() function. 
+# Arrays should be of the same length and will become the columns
+tibble(column_name1 = values for column 1,
+       column_name2 = values for column 2,
+       etc.)
+
+
+# We use special syntax for tribble that writes the data "appearing like a table"
+# The tildes `~` are used to indicate column names
+tribble(
+  ~column_name1,         ~column_name2,        ~etc for more columns,
+  first row of column1,  first row of column2,  etc., 
+  second row of column1, second row of column2, etc.
+)
+```
+
+## Examples
+
+
+<br>
+```{r showexample}
+# The examples below use tibble::tibble() and tibble::tribble to recreate this tibble:
+example_tibble
+```
+
+
+<br>
+
+```{r example1}
+# Re-create example_tibble with tibble::tibble()
+tibble(
+  food = c("cucumber", "pomegranate", "carrot"),
+  color = c("green", "red", "orange"),
+  food_type = c("fruit", "fruit", "root")
+)
+```
+
+<br>
+
+```{r example2}
+# Re-create example_tibble with tibble::tribble()
+# Use *spacing* to help guide yourself
+
+tribble(
+  ~food,         ~color,     ~food_type,
+  "cucumber",    "green",    "fruit",
+  "pomegranate", "red",      "fruit",
+  "carrot",      "orange",    "root")
+```
+

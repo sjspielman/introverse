@@ -1,0 +1,172 @@
+---
+title: "`ggplot2::aes()`"
+author: "`{introverse}` quick docs"
+output: 
+  html_document:
+    highlight: pygments
+    theme: flatly
+---
+
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE, 
+                      warning = FALSE, 
+                      message = TRUE)
+library(ggplot2)
+msleep %>% tidyr::drop_na(sleep_rem, awake) -> msleep
+```
+
+
+## Description
+
+The [`aes()`](https://ggplot2.tidyverse.org/reference/aes.html) function is part of the [`{ggplot2}`](https://ggplot2.tidyverse.org/) package, which is part of the [`{tidyverse}`](https://www.tidyverse.org/).
+
+The `aes()` function is used within `{ggplot2}` plots to **establish aesthetic _mappings_** between visual features in the plot and _columns_ in the tibble (data frame) being plotted. The `aes()` function should be used _only_ to map columns to aesthetics. Other stylings can be directly provided to geoms, without enclosing them in `aes()`.
+
+
+<!-- Add the following if the topic is a function that does NOT come with base R, and uncomment/fill in the subsequent multiline HTML comment: -->
+To use this function, you need to either first load the `{ggplot2}` library, or always use the function with `ggplot2::aes()` notation.
+
+```{r description, eval=FALSE}
+# Load the library
+library(ggplot2)
+# Or, load the full tidyverse:
+library(tidyverse)
+
+# Or, use :: notation
+ggplot2::aes()
+```
+
+## Conceptual Usage
+
+```{r usage, eval=FALSE}
+# Provide aes() to initial ggplot call so that all geoms inherit
+ggplot(tibble to plot, 
+       aes(aspect of plot = column name in tibble, etc.))
+
+# Provide aes on its own so that all geoms inherit
+ggplot(tibble to plot) +
+  aes(aspect of plot = column name in tibble, etc.)
+
+# Provide aes to a geom directly
+ggplot(tibble to plot) +
+  geom_whatever(aes(aspect of plot = column name in tibble, etc.))
+```
+
+## Examples
+
+> Run `get_help("msleep")` for a refresher on the `msleep` dataset.
+
+```{r example1}
+# Place `vore` on the x-axis and `awake` on the y-axis, giving aes() to ggplot()
+# Note, to remove NAs, you must manipulate the data first
+ggplot(msleep, 
+       aes(x = vore, y = awake)) + 
+  geom_boxplot()
+```
+
+<br>
+
+```{r example2}
+# Place `vore` on the x-axis and `awake` on the y-axis, with aes() on its own
+# Note, to remove NAs, you must manipulate the data first
+ggplot(msleep) + 
+  aes(x = vore, y = awake) + 
+  geom_boxplot()
+```
+
+<br>
+
+```{r example3}
+# Place `vore` on the x-axis and `awake` on the y-axis, with aes() on its own
+# Also _fill_ the boxplots based on the values in the `vore` column
+# Note, to remove NAs, you must manipulate the data first
+ggplot(msleep) + 
+  aes(x = vore, y = awake, fill = vore) + 
+  geom_boxplot()
+```
+
+<br>
+
+
+```{r example4, error=TRUE}
+## CAUTION! This example code results in an error because `vore` is a column but it was not placed into `aes()`
+# Note, to remove NAs, you must manipulate the data first
+ggplot(msleep) + 
+  aes(x = vore, y = awake) + 
+  geom_boxplot(fill = vore)
+```
+
+<br>
+
+```{r example4.5}
+## CAUTION! This example code results in _an inappropriate legend_ and _wrong colors_ because a non-column is provided to `aes()`
+# Note, to remove NAs, you must manipulate the data first
+ggplot(msleep) + 
+  aes(x = vore, y = awake) + 
+  geom_boxplot(aes(fill = "blue")) # "blue" is not a column. It's just a fill specification without mapping, and the fill isn't even blue!
+```
+
+<br>
+
+```{r example5}
+# When using multiple geoms, all will inherit mappings from an initial aes() call
+# Note, to remove NAs, you must manipulate the data first
+ggplot(msleep) + 
+  aes(x = vore, 
+      y = awake, 
+      fill = vore,
+      color = vore) +
+  geom_jitter()  +  # also inherits x, y, color, and fill mappings
+  geom_boxplot()    # inherits x, y, color, and fill mappings
+```
+
+<br>
+
+```{r example6}
+# When using multiple geoms, you can decide which geoms get which aesthetic:
+# Note, to remove NAs, you must manipulate the data first
+ggplot(msleep) + 
+  aes(x = vore, y = awake) +       # All geoms inherit the x/y mapping
+  geom_jitter(aes(color = vore), pch = 21) + # ONLY the jitter geom gets the color mapping. Using pch=21, we see points are NOT filled, only colored
+  geom_boxplot(aes(fill = vore), alpha = 0.5)   # ONLY the boxplot gets the fill mapping. Its color remains default black. Add alpha for transparency
+```
+```{r example7}
+# Another example with multiple geoms: All geoms inherit the aes() mappings. 
+# Each vore has its own `geom_smooth()` trendline _because of the color mapping_
+# Note, to remove NAs, you must manipulate the data first
+ggplot(msleep) + 
+  aes(x = sleep_rem, y = awake, color = vore) +       
+  geom_point() +  
+  geom_smooth(method = "lm", se=FALSE) # Linear trendline without confidence interval, for clarity
+```
+
+<br>
+
+```{r example8}
+# Another example with multiple geoms: Choose which geoms use which aesthetic
+# Note, to remove NAs, you must manipulate the data first
+ggplot(msleep) + 
+  aes(x = sleep_rem, y = awake) +       
+  geom_point(aes(color = vore)) +  
+  geom_smooth(method = "lm", se=FALSE) # Does NOT separate trendlines by color: Single trendline for all vores
+```
+
+<br>
+
+```{r example9}
+# Another example with multiple geoms: Choose which geoms use which aesthetic
+# Note, to remove NAs, you must manipulate the data first
+ggplot(msleep) + 
+  aes(x = sleep_rem, y = awake) +       
+  geom_point() +   # Does NOT show points by color
+  geom_smooth(aes(color = vore), # Separate trendline for all vores
+              method = "lm", 
+              se = FALSE) 
+```
+
+
+
+```{r returnmsleep, echo=F, include=F}
+msleep <- introverse::msleep
+```

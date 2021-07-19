@@ -1,0 +1,115 @@
+---
+title: "`ggplot2::labs()`"
+author: "`{introverse}` quick docs"
+output: 
+  html_document:
+    highlight: pygments
+    theme: flatly
+---
+
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE, 
+                      warning = FALSE, 
+                      message = TRUE)
+library(ggplot2)
+library(dplyr)
+msleep %>% tidyr::drop_na(sleep_rem, awake) -> msleep
+```
+
+
+## Description
+
+The [`labs()`](https://ggplot2.tidyverse.org/reference/labs.html) function is part of the [`{ggplot2}`](https://ggplot2.tidyverse.org/) package, which is part of the [`{tidyverse}`](https://www.tidyverse.org/).
+
+The `labs()` function is used within `{ggplot2}` plots to add _labels_, including the following types of labels:
+
+
+| Label type | Usage as argument to `labs()` |
+|:----------|:-------------|
+| X-axis label | `labs(x = "x-axis label")` |
+| Y-axis label | `labs(y = "y-axis label")` |
+| Plot title | `labs(title = "plot title")` |
+| Plot subtitle | `labs(subtitle = "plot subtitle")` |
+| Plot caption | `labs(caption = "plot caption")` |
+| Legend title | `labs(type of aesthetic in legend = "name of legend")` <br> A type of aesthetic may be `fill`, `color`, etc. |
+
+
+
+<!-- Add the following if the topic is a function that does NOT come with base R, and uncomment/fill in the subsequent multiline HTML comment: -->
+To use this function, you need to either first load the `{ggplot2}` library, or always use the function with `ggplot2::labs()` notation.
+
+```{r description, eval=FALSE}
+# Load the library
+library(ggplot2)
+# Or, load the full tidyverse:
+library(tidyverse)
+
+# Or, use :: notation
+ggplot2::labs()
+```
+
+
+
+## Examples
+
+> Run `get_help("msleep")` for a refresher on the `msleep` dataset.
+
+```{r example1}
+# A fully labeled scatterplot of awake against sleep_rem
+ggplot(msleep) + 
+  aes(x = sleep_rem, y = awake) + 
+  geom_point() +
+  labs(x = "Time in REM sleep (hours)",
+       y = "Time spent awake (hours)",
+       title = "Plot of REM sleep against awake time",
+       subtitle = "What a great scatterplot subtitle this is!",
+       caption = "Captions are a good place to include the Plot Author")
+```
+
+<br>
+
+```{r example2}
+# Labeling the legend created by the `color` aesthetic
+# Note to remove NAs, you must manipulate the data first
+ggplot(msleep) + 
+  aes(x = sleep_rem, y = awake, color = vore) + 
+  geom_point() +
+  labs(x = "Time in REM sleep (hours)",
+       y = "Time spent awake (hours)",
+       color = "Custom legend title for vore color mapping")
+```
+
+<br>
+
+
+```{r example3}
+# Labeling the legend created by the `fill` aesthetic
+# Note to remove NAs, you must manipulate the data first
+ggplot(msleep) + 
+  aes(x = sleep_rem, y = awake, fill = vore) + 
+  geom_point(shape = 21) +
+  labs(x = "Time in REM sleep (hours)",
+       y = "Time spent awake (hours)",
+       fill = "Custom legend title for vore fill mapping")
+```
+
+
+<br>
+
+```{r example4}
+## CAUTION!! This legend title is buggy and does not appear,
+# since the plot doesn't contain a fill aesthetic - it contains a color
+# The default legend title is used.
+ggplot(msleep) + 
+  aes(x = sleep_rem, y = awake, color = vore) + 
+  geom_point() +
+  labs(x = "Time in REM sleep (hours)",
+       y = "Time spent awake (hours)",
+       fill = "This title isn't going to appear since there is no fill aes")
+```
+
+
+```{r, returnmsleep, echo=F, include=F}
+msleep <- introverse::msleep
+```

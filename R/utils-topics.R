@@ -18,12 +18,71 @@ dplyr_topics <- sort(c(
   "n",
   "count",
   "tally",
+<<<<<<< HEAD
   "bind_cols"
   # _join
+=======
+  "left_join",
+  "right_join",
+  "full_join",
+  "inner_join",
+  "anti_join"
+>>>>>>> 010a20a3fa8f6e7477d7d5e07eec3784d5b9fb40
   # bind_
-  # between
 ))
 
+#' All the ggplot2 topics
+#' @keywords internal
+ggplot2_topics <- sort(c(
+  "aes",
+  "labs",
+  "geom_histogram",
+  "geom_density",
+  "geom_boxplot", 
+  "geom_point",
+  "geom_smooth",
+  "geom_jitter",
+  "geom_bar",
+  "geom_col"
+))
+# geom_line <--- need a dataset
+# theme - this should also document theme_bw(), etc.
+# scale_fc_manual
+# scale_fc_brewer
+# scale_fc_distiller
+# facet
+
+
+#' All the tibble topics
+#' @keywords internal
+tibble_topics <- sort(c(
+  "as_tibble",
+  # same page:
+  "tibble","tribble"
+))
+
+#' All the tidyr topics
+#' @keywords internal
+tidyr_topics <- sort(c(
+  "drop_na",
+  "separate",
+  "unite",
+  "pivot_longer",
+  "pivot_wider"
+))
+
+  
+#' All the forcats topics
+#' @keywords internal
+forcats_topics <- sort(c(
+  "fct_relevel",
+  "fct_rev",
+  "fct_infreq",
+  "fct_reorder",
+  # Same page:
+  "fct_lump_n", "fct_lump_prop", "fct_lump_min"
+))
+  
 #' All the base R topics
 #' @keywords internal
 base_topics <- sort(c(
@@ -60,11 +119,15 @@ base_topics <- sort(c(
 #' @keywords internal
 topic_list <- list(
   # ALERT!!!! Do not directly add topics to this list! Instead, add new topics to the appropriate array above For example, to add a `dplyr` topic, put in into the `dplyr_topics` definition!!
-  "base" = base_topics,
-  "datasets" = c("carnivores", "msleep"),
-  "dplyr" = dplyr_topics,
-  "magrittr" = c("apipe", "pipe"), # keep assignment first
-  "operators" = c("assignment", "logical", "mathematical") # alphabetical
+  "base"      = base_topics,
+  "datasets"  = c("carnivores", "msleep"),
+  "dplyr"     = dplyr_topics,
+  "forcats"   = forcats_topics,
+  "ggplot2"   = ggplot2_topics,
+  "magrittr"  = c("apipe", "pipe"), # keep assignment first
+  "operators" = c("assignment", "logical", "mathematical"), # alphabetical
+  "tibble"    = tibble_topics,
+  "tidyr"     = tidyr_topics
 )
 
 #' Operators documented in logical, math, or assignment help pages

@@ -1,21 +1,30 @@
-#' Prints help and examples for a given topic to the R Console
+#' Use this function to get help on a topic of interest
 #'
 #' @param topic A topic whose introverse quick docs to look up
+#' @param browser Whether to display in browser. By default, when in an RStudio session, it is displayed in the Viewer pane
+#' @returns invisible topic
+#' @examples
+#' \dontrun{ 
+#' # Get help with the `filter()` function from `{dplyr}`
+#' get_help("dplyr")
+#' }
 #' @export
-get_help <- function(topic = NULL) {
+get_help <- function(topic = NULL, browser = FALSE) {
   
   
   if (is.null(topic))
   {
     # output
-    cat("To get some help, provide an argument in quotation marks to the `get_help()` function in this format: " %+%
-        crayon::bold('get_help("name of function")') %+% 
-      "\nFor example: " %+%  crayon::bold('get_help("filter")') %+% 
-      "\nMany help examples use the `penguins` tibble (data frame). Make sure you have explored this tibble first to fully understand all examples.\n\n" %+% crayon::bold("Currently available help topics:\n") 
+    cat("To get some help, provide an argument in quotation marks to
+the " %+% crayon::bold('get_help()') %+% " function in this format: " %+% crayon::bold('get_help("name of function")') %+% ".
+
+Not sure what help you need? Use " %+%  crayon::bold('show_topics()') %+% " to see all available topics."
     )
-    show_topics()
+    
   } else
   {
+    # Make sure its lowercase
+    topic <- tolower(topic)
     # Operator?
     if (topic %in% operators) topic <- convert_operator_into_topic(topic)
     # Magrittr?
@@ -50,7 +59,7 @@ get_help <- function(topic = NULL) {
       category <- paste0(find_topic_category(topic))
       
       # launch help
-      reveal_help(category, topic)
+      reveal_help(category, topic, browser)
     }
   }
 }
@@ -59,11 +68,13 @@ get_help <- function(topic = NULL) {
 
 #' Reveal the standalone help topic HTML content in the viewer pane
 #' 
+#' @keywords internal
 #' @param category The topic to launch's category
 #' @param topic The topic to launch
-reveal_help <- function(category, topic)
+#' @param browser Whether to display in browser. By default, when in an RStudio session, it is displayed in the Viewer pane
+#' @returns invisible topic
+reveal_help <- function(category, topic, browser)
 {
-
   tempDir <- tempfile()
   dir.create(tempDir)
   htmlFile <- file.path(tempDir, "index.html")
@@ -77,7 +88,7 @@ reveal_help <- function(category, topic)
       quiet = TRUE)
   )  
   
-  if (rstudioapi::isAvailable())
+  if (rstudioapi::isAvailable() & !(browser))
   {
     introverse_viewer(htmlFile)
   } else {

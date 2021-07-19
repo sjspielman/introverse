@@ -10,7 +10,7 @@ show_categories()
 Prints out available topic categories
 }
 \description{
-TODO: Should we reveal this in Console or Viewer?
+Show the list of topic categories
 }
 \examples{
 \dontrun{

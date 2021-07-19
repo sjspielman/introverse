@@ -3,7 +3,7 @@
 \docType{data}
 \name{carnivores}
 \alias{carnivores}
-\title{Information about 9 species of carnivores}
+\title{Information about 9 species of carnivores, derived from \code{msleep}}
 \format{
 A tibble (data frame) with 9 rows and 4 variables:
 \describe{
@@ -21,5 +21,10 @@ carnivores
 }
 \description{
 A dataset containing information about 9 species of carnivores. This dataset was derived from ggplot2::msleep.
+}
+\examples{
+\dontrun{
+  carnivores
+}
 }
 \keyword{datasets}

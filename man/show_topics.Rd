@@ -13,7 +13,7 @@ show_topics(category = NULL)
 Prints out available topics by package
 }
 \description{
-TODO: Should we reveal this in Console or Viewer?
+Show the topic list
 }
 \examples{
 \dontrun{

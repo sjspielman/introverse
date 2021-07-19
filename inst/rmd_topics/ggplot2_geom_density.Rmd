@@ -1,0 +1,104 @@
+---
+title: "`ggplot2::geom_density()`"
+author: "`{introverse}` quick docs"
+output: 
+  html_document:
+    highlight: pygments
+    theme: flatly
+---
+
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE, 
+                      warning = FALSE, 
+                      message = TRUE)
+library(ggplot2)
+```
+
+
+## Description
+
+The [`geom_density()`](https://ggplot2.tidyverse.org/reference/geom_density.html) function is part of the [`{ggplot2}`](https://ggplot2.tidyverse.org/) package, which is part of the [`{tidyverse}`](https://www.tidyverse.org/).
+
+The `geom_density()` function is used within `{ggplot2}` plots to create a density plot, which shows the distribution of a _numeric continuous_ variable with the appearance of a "smoothened histogram." The x-axis shows values of the variable, and the y-axis shows the statistical density calculation (this is not a matched value in the dataset!).
+
+#### Required aesthetics:
+
++ `x`: The numeric variable whose distribution to visualize
+  + Note that it is also allowed to make a horizontal density plot by providing a `y` aesthetic instead of an `x` (but never both)
+
+#### Commonly used optional aesthetics:
+
++ `color` (`colour`): The outline color for the density plot
++ `fill`: The fill for the density plot
++ `alpha`: Transparency for the density plot fill, ranging from 0-1 where 0 is fully transparent and 1 is fully opaque.
++ `size`: The width of the density plot outline
+
+
+<!-- Add the following if the topic is a function that does NOT come with base R, and uncomment/fill in the subsequent multiline HTML comment: -->
+To use this function, you need to either first load the `{ggplot2}` library, or always use the function with `ggplot2::geom_density()` notation.
+
+```{r description, eval=FALSE}
+# Load the library
+library(ggplot2)
+# Or, load the full tidyverse:
+library(tidyverse)
+
+# Or, use :: notation
+ggplot2::geom_density()
+```
+
+
+
+## Examples
+
+> Run `get_help("msleep")` for a refresher on the `msleep` dataset.
+
+```{r example1}
+ggplot(msleep) + 
+  aes(x = awake) + 
+  geom_density()
+```
+
+<br>
+
+```{r example2}
+# Include custom fill and color
+ggplot(msleep) + 
+  aes(x = awake) + 
+  geom_density(fill = "purple", color = "orange")
+```
+
+<br>
+
+
+```{r example2.5}
+# Include custom fill, color, and outline size
+# When you have many arguments, placing on separate lines makes code easier to read and work with
+ggplot(msleep) + 
+  aes(x = awake) + 
+  geom_density(fill = "purple", 
+               color = "orange",
+               size = 2)
+```
+
+<br>
+
+```{r example3}
+# Show overlapping density plots in a single panel
+# Important to use `alpha` (find a good one with trial/error) so data is not hidden
+# Note: to remove NAs, you must manipulate the data first
+ggplot(msleep) + 
+  aes(x = awake, fill = vore) + 
+  geom_density(alpha = 0.6)
+```
+
+
+<br>
+
+```{r example4}
+# A horizontal density plot using y instead of x aesthetic
+ggplot(msleep) + 
+  aes(y = awake) + 
+  geom_density(fill = "purple")
+```

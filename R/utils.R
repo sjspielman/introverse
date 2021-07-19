@@ -9,7 +9,7 @@
 - Run " %+% crayon::bold('show_topics("library or category of interest")') %+% " to see 
   all the different functions within a certain library/category 
   of interest. For example, to see all help topics for {dplyr}
-  functions and topics, run: " %+% crayon::bold('show_topics("dplyr")') %+% ".
+  functions, run: " %+% crayon::bold('show_topics("dplyr")') %+% ".
 
 - Run " %+% crayon::bold('get_help("carnivores")') %+% " and " %+% 
 crayon::bold('get_help("msleep")') %+% " to learn 

@@ -28,7 +28,6 @@ convert_topic_into_magrittr <- function(topic)
 
 #' Show the topic list
 #' 
-#' TODO: Should we reveal this in Console or Viewer?
 #' @param category If specified, gives only topics in the given category (name in topic_list)
 #' @returns Prints out available topics by package
 #' @export
@@ -84,7 +83,7 @@ show_topics <- function(category = NULL)
   
   for (pkg in show_names)
   {
-    cat(crayon::bold(crayon::green(crayon::underline(glue::glue("{pkg} topics:")))))
+    if(length(show_names) > 1) cat(crayon::bold(crayon::green(crayon::underline(glue::glue("{pkg} topics:")))))
     for (topic in topic_list[[pkg]])
     {
       # looping to add quotes to reinforce that the arguments need to be strings
@@ -95,70 +94,16 @@ show_topics <- function(category = NULL)
         this_topic <- convert_topic_into_magrittr(topic)
       }
 
-      cat("\n", glue::glue('  "', {this_topic}, '"'))
+      cat("\n", glue::glue('  "', {this_topic}, '"\n'))
     }
     cat("\n")
   }
 }
 
 
-#' Redirect user to the get_help() output if they entered a topic into `show_topics()`
-#' 
-#' TODO: Should we reveal this in Console or Viewer?
-#' @param topic The topic to whose help this function redirects to
-#' @noRd
-message_get_help <- function(topic)
-{
-  message(
-    "\n\nI think you want to get help for the " %+% 
-      crayon::underline("topic") %+% " " %+% crayon::bold(topic) %+% "?
-Run this instead: " %+% crayon::bold(glue::glue('get_help("',{topic}, '")\n\n'))
-  )
-}
-
-
-#' Redirect user to the `show_topics()` output if they entered a category into `get_help()`
-#' 
-#' TODO: Should we reveal this in Console or Viewer?
-#' @param category The category to whose topics this function reveals
-#' @noRd
-message_show_categories <- function(category)
-{
-  message(
-  "\n\nI think you want to get help for the " %+% 
-  crayon::underline("category") %+% " " %+% crayon::bold(category) %+% "?
-Run this instead to see all topics in this category
-that you can get help for: " %+% crayon::bold(glue::glue('show_topics("',{category}, '")\n\n'))
-  )
-}
-
-
-#' Function to identify a topic's category
-#' 
-#' @param topic The topic of interest
-#' @returns The category
-find_topic_category <- function(topic){
-  
-  gsub("\\d+$", "", 
-       names(unlist(topic_list)[unlist(topic_list) == topic])) -> category
-  
-  # Should no longer be NULL and should be a character
-  if ((!(typeof(category) == "character")) | is.null(category))
-  {
-    stop("\nERROR: Could not determine the category for the given topic.")
-  }
-  # Should only be ONE word
-  # TODO Eventually, if we have duplicates, can prompt for which one.
-  if (length(category) != 1)
-  {
-    stop("\nERROR: A unique category for the given topic could not be found.")
-  }
-  category
-}
 
 #' Show the list of topic categories
 #' 
-#' TODO: Should we reveal this in Console or Viewer?
 #' @returns Prints out available topic categories
 #' @export
 #' @examples 
@@ -175,4 +120,61 @@ show_categories <- function()
 }
 
 
+#' Function to identify a topic's category
+#' 
+#' @keywords internal
+#' @param topic The topic of interest
+#' @returns The category
+find_topic_category <- function(topic){
+  
+  raw_category <- names(unlist(topic_list)[unlist(topic_list) == topic])
+  if (stringr::str_detect(raw_category, "ggplot")) {
+    category <- "ggplot2"
+  } else {
+    category <- stringr::str_replace(raw_category, "\\d+$", "")
+  }
+  
+  # Should no longer be NULL and should be a character
+  if ((!(typeof(category) == "character")) | is.null(category))
+  {
+    stop("\nERROR: Could not determine the category for the given topic.")
+  }
+  # Should only be ONE word
+  # TODO Eventually, if we have duplicates, can prompt for which one.
+  if (length(category) != 1)
+  {
+    stop("\nERROR: A unique category for the given topic could not be found.")
+  }
+  category
+}
 
+
+
+
+#' Redirect user to the get_help() output if they entered a topic into `show_topics()`
+#' 
+#' @param topic The topic to whose help this function redirects to
+#' @noRd
+message_get_help <- function(topic)
+{
+  message(
+    "\n\nI think you want to get help for the " %+% 
+      crayon::underline("topic") %+% " " %+% crayon::bold(topic) %+% "?
+Run this instead: " %+% crayon::bold(glue::glue('get_help("',{topic}, '")\n\n'))
+  )
+}
+
+
+#' Redirect user to the `show_topics()` output if they entered a category into `get_help()`
+#' 
+#' @keywords internal
+#' @param category The category to whose topics this function reveals
+message_show_categories <- function(category)
+{
+  message(
+    "\n\nI think you want to get help for the " %+% 
+      crayon::underline("category") %+% " " %+% crayon::bold(category) %+% "?
+Run this instead to see all topics in this category
+that you can get help for: " %+% crayon::bold(glue::glue('show_topics("',{category}, '")\n\n'))
+  )
+}
