@@ -56,7 +56,7 @@ library(introverse)
 
 ## Ready to start?
 
-Head over [here](https://spielmanlab.github.io/introverse/)!
+Head over [here](https://spielmanlab.github.io/introverse/articles/introverse.html)!
 
 
 ## Code of Conduct
