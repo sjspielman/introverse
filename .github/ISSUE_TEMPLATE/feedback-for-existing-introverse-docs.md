@@ -14,15 +14,18 @@ assignees: sjspielman
 
 
 **Place an X in the appropriate column:**
-<!-- For example, 
-[X] This is checked
-[ ] This is unchecked -->
 
-[ ] There is a typo in the textual explanations and/or conceptual usage
-[ ] There is a bug in the example code or comments
-[ ] You find at least one existing code example is unclear
-[ ] You have suggestion(s) for additional code example(s) that would improve the docs
-[ ] Parts of the textual explanations are unclear
+For example, 
+- [x] This is checked
+- [ ] This is unchecked 
+
+--------------------------------------
+
+- [ ] There is a typo in the textual explanations and/or conceptual usage
+- [ ] There is a bug in the example code or comments
+- [ ] You find at least one existing code example is unclear
+- [ ] You have suggestion(s) for additional code example(s) that would improve the docs
+- [ ] Parts of the textual explanations are unclear
 
 
 **Explain your feedback and any suggested changes.**
