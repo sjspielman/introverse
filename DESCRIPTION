@@ -46,3 +46,5 @@ Config/testthat/edition: 3
 Depends: 
     R (>= 3.50)
 VignetteBuilder: knitr
+BugReports: https://github.com/spielmanlab/introverse/issues
+URL: https://github.com/spielmanlab/introverse

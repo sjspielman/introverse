@@ -4,11 +4,12 @@ Accessible and beginner-oriented help for getting started in R and the [`tidyver
 
 **_EXTREMELY_ UNDER DEVELOPMENT**
 
+<!-- badges: start --> 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Lifecycle:
 stable](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental) 
 [![R-CMD-check](https://github.com/spielmanlab/introverse/workflows/R-CMD-check/badge.svg)](https://github.com/spielmanlab/introverse/actions)
-
+<!-- badges: end -->
 
 
 <img src="logo.png" height="200px"/>
@@ -53,71 +54,10 @@ library(introverse)
 
 <br>
 
-## Getting help in the `{introverse}`
+## Ready to start?
 
-> Before you get started, make sure the library is loaded into your R session by running `library(introverse)`.
-> Once loaded, `{introverse}` will provide a short welcome prompt showing some basic usage.
+Head over [here](https://spielmanlab.github.io/introverse/)!
 
-#### What topics can I get help on?
-
-To see all currently available help topics, run the following command. The function `show_topics()` will print all topic _categories_ and all associated topics within each category. 
-
-```
-show_topics()
-```
-Or, all currently available topics can be seen [here](https://spielmanlab.github.io/introverse/articles/available_topics.html).
-
-
-<br>
-
-
-#### Woah, there's a lot of topics! Can I just see the topic categories to narrow it down?
-
-Yes, you can! Use this function:
-
-```
-show_categores()
-```
-
-<br>
-
-#### I know I want help using `{dplyr}`. Can I see only the `{dplyr}` help topics?
-
-Absolutely! You can see _only_ those topics for a given category with `show_topics("category of interest")`. For example, to see the `{dplyr}` topics, you would run...
-
-```
-show_topics("dplyr") # Don't forget to use quotes!
-```
-
-<br>
-
-#### I know the topic I want help for! Show me how to get help already!!
-
-Use the function `get_help()` to get help for a particular topic. For example, to get help using the `filter()` function in `{dplyr}`, you can run:
-
-```
-get_help("filter")  # Don't forget to use quotes!
-```
-
-If you prefer for the help to automatically appear in your browser instead of in the RStudio Viewer pane, you can use the _second argument_ `browser = TRUE` when using `get_help()`. For example:
-
-```
-get_help("filter", browser = TRUE)  # Don't forget to use quotes!
-```
-
-#### Can I learn a little more about the example datasets?
-
-Definitely! We use the dataset `msleep` from the `{ggplot2}` package, as well as a subsetted version of this dataset called `carnivores`, for many of the `{introverse}` docs examples. Learn more about these datasets by getting help for them with:
-
-```
-get_help("msleep")
-# and
-get_help("carnivores")
-```
-
-Or, directly type `msleep` and/or `carnivores` into the R Console to see the datasets directly.
-
-<br><br><br>
 
 ## Code of Conduct
 

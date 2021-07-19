@@ -51,6 +51,9 @@
   </a>
 </li>
 <li>
+  <a href="articles/introverse.html">Get started</a>
+</li>
+<li>
   <a href="reference/index.html">Reference</a>
 </li>
 <li class="dropdown">
@@ -66,7 +69,14 @@
   </ul>
 </li>
       </ul>
-<ul class="nav navbar-nav navbar-right"></ul>
+<ul class="nav navbar-nav navbar-right">
+<li>
+  <a href="https://github.com/spielmanlab/introverse/">
+    <span class="fab fa-github fa-lg"></span>
+     
+  </a>
+</li>
+      </ul>
 </div>
 <!--/.nav-collapse -->
   </div>
@@ -81,12 +91,13 @@
 <div id="introverse" class="section level1">
 <div class="page-header"><h1 class="hasAnchor">
 <a href="#introverse" class="anchor"></a>introverse</h1></div>
-<p>Approachable, beginner-oriented help for getting started in R and the <a href="https://www.tidyverse.org/"><code>tidyverse</code></a>, led by <a href="https://spielmanlab.github.io">Stephanie J. Spielman, PhD</a>.</p>
+<p>Accessible and beginner-oriented help for getting started in R and the <a href="https://www.tidyverse.org/"><code>tidyverse</code></a>, led by <a href="https://spielmanlab.github.io">Stephanie J. Spielman, PhD</a>.</p>
 <p><strong><em>EXTREMELY</em> UNDER DEVELOPMENT</strong></p>
-<p><a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License: MIT"></a> <a href="https://www.tidyverse.org/lifecycle/#experimental"><img src="https://img.shields.io/badge/lifecycle-experimental-orange.svg" alt="Lifecycle: stable"></a> <a href="https://github.com/spielmanlab/introverse/actions"><img src="https://github.com/spielmanlab/introverse/workflows/R-CMD-check/badge.svg" alt="R-CMD-check"></a></p>
+<!-- badges: start -->
+<p><a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License: MIT"></a> <a href="https://www.tidyverse.org/lifecycle/#experimental"><img src="https://img.shields.io/badge/lifecycle-experimental-orange.svg" alt="Lifecycle: stable"></a> <a href="https://github.com/spielmanlab/introverse/actions"><img src="https://github.com/spielmanlab/introverse/workflows/R-CMD-check/badge.svg" alt="R-CMD-check"></a> <!-- badges: end --></p>
 <p><img src="logo.png" height="200px"></p>
 <p>Note: This package is <em>not</em> affiliated with <a href="https://www.rstudio.com/">RStudio</a> or the <a href="https://www.tidyverse.org/"><code>tidyverse</code></a>, but their <a href="https://github.com/rstudio/hex-stickers">CC0 hex-stickers</a> are simply fantastic.</p>
-<p>The <code>{introverse}</code> package provides alternate documentation for commonly-used functions in base <code>R</code> and in the <code>tidyverse</code>. The provided resources are meant to <em>complement, not replace</em> official documentation and existing <code>R</code> resources. Therefore, the goal of the <code>{introverse}</code> is to provide beginner-oriented help for most <em>introductory</em> topics within <code>R</code> and the tidyverse, <em>not</em> to provide comprehensive help about using all of R. We hope <code>{introverse}</code> can help you (and/or your students!) get up-and-running within R and the <code>tidyverse</code>, so that once you get your bearings you can eventually “graduate” from the <code>{introverse}</code> and take advantage of the official comprehensive documentation/resources.</p>
+<p>The <a href="https://github.com/spielmanlab/introverse">introverse</a> package provides alternate documentation for commonly-used functions in base <code>R</code> and in the <code>tidyverse</code>. The provided resources are meant to <em>complement, not replace</em> official documentation and existing <code>R</code> resources. Therefore, the goal of the <a href="https://github.com/spielmanlab/introverse">introverse</a> is to provide beginner-oriented help for most <em>introductory</em> topics within <code>R</code> and the tidyverse, <em>not</em> to provide comprehensive help about using all of R. We hope <a href="https://github.com/spielmanlab/introverse">introverse</a> can help you (and/or your students!) get up-and-running within R and the <code>tidyverse</code>, so that once you get your bearings you can eventually “graduate” from the <a href="https://github.com/spielmanlab/introverse">introverse</a> and take advantage of the official comprehensive documentation/resources.</p>
 <p><br><br></p>
 <div id="obtaining-the-introverse" class="section level2">
 <h2 class="hasAnchor">
@@ -95,76 +106,34 @@
 <div id="step-1-install-the-package" class="section level4">
 <h4 class="hasAnchor">
 <a href="#step-1-install-the-package" class="anchor"></a>Step 1: Install the package</h4>
-<p>First, install the <code>{introverse}</code> package by copy/pasting this code into an R Console. You only need to run this <em>once</em>!</p>
+<p>First, install the <a href="https://github.com/spielmanlab/introverse">introverse</a> package by copy/pasting this code into an R Console. You only need to run this <em>once</em>!</p>
 <pre><code><a href="https://remotes.r-lib.org/reference/install_github.html">remotes::install_github("spielmanlab/introverse")</a></code></pre>
 <p>If you run this line of code and receive the error,</p>
 <blockquote>
 <p>Error in loadNamespace(name) : there is no package called ‘remotes’</p>
 </blockquote>
-<p>This error means you first need to install the <a href="https://remotes.r-lib.org">remotes</a> package to be able to install the <code>{introverse}</code>. Copy/paste the line of code below into an R Console, and then try the code <code><a href="https://remotes.r-lib.org/reference/install_github.html">remotes::install_github("spielmanlab/introverse")</a></code> again.</p>
+<p>This error means you first need to install the <a href="https://remotes.r-lib.org">remotes</a> package to be able to install the <a href="https://github.com/spielmanlab/introverse">introverse</a>. Copy/paste the line of code below into an R Console, and then try the code <code><a href="https://remotes.r-lib.org/reference/install_github.html">remotes::install_github("spielmanlab/introverse")</a></code> again.</p>
 <pre><code><a href="https://rdrr.io/r/utils/install.packages.html">install.packages("remotes") </a></code></pre>
-<p>If you did not receive that error, <code>{introverse}</code> has been installed! Good job!</p>
+<p>If you did not receive that error, <a href="https://github.com/spielmanlab/introverse">introverse</a> has been installed! Good job!</p>
 <p><br><br></p>
 </div>
 <div id="step-2-load-the-package" class="section level4">
 <h4 class="hasAnchor">
 <a href="#step-2-load-the-package" class="anchor"></a>Step 2: Load the package.</h4>
-<p>Now that the <code>{introverse}</code> is installed, you are ready to use it! From the R Console, <em>load the package</em> with the code. After you run this, you will be greeted with a welcome prompt that tells you some basic usage of the <code>{introverse}</code>. <em>Remember to load the package again for every R session you want to use it during!</em></p>
-<pre><code><a href="https://rdrr.io/r/base/library.html">library(introverse)</a></code></pre>
+<p>Now that the <a href="https://github.com/spielmanlab/introverse">introverse</a> is installed, you are ready to use it! From the R Console, <em>load the package</em> with the code. After you run this, you will be greeted with a welcome prompt that tells you some basic usage of the <a href="https://github.com/spielmanlab/introverse">introverse</a>. <em>Remember to load the package again for every R session you want to use it during!</em></p>
+<pre><code><a href="https://github.com/spielmanlab/introverse">library(introverse)</a></code></pre>
 <p><br></p>
 </div>
 </div>
-<div id="getting-help-in-the-introverse" class="section level2">
+<div id="ready-to-start" class="section level2">
 <h2 class="hasAnchor">
-<a href="#getting-help-in-the-introverse" class="anchor"></a>Getting help in the <code>{introverse}</code>
-</h2>
-<blockquote>
-<p>Before you get started, make sure the library is loaded into your R session by running <code><a href="https://rdrr.io/r/base/library.html">library(introverse)</a></code>. Once loaded, <code>{introverse}</code> will provide a short welcome prompt showing some basic usage.</p>
-</blockquote>
-<div id="what-topics-can-i-get-help-on" class="section level4">
-<h4 class="hasAnchor">
-<a href="#what-topics-can-i-get-help-on" class="anchor"></a>What topics can I get help on?</h4>
-<p>To see all currently available help topics, run the following command. The function <code><a href="reference/show_topics.html">show_topics()</a></code> will print all topic <em>categories</em> and all associated topics within each category.</p>
-<pre><code><a href="reference/show_topics.html">show_topics()</a></code></pre>
-<p><br></p>
-</div>
-<div id="woah-theres-a-lot-of-topics-can-i-just-see-the-topic-categories-to-narrow-it-down" class="section level4">
-<h4 class="hasAnchor">
-<a href="#woah-theres-a-lot-of-topics-can-i-just-see-the-topic-categories-to-narrow-it-down" class="anchor"></a>Woah, there’s a lot of topics! Can I just see the topic categories to narrow it down?</h4>
-<p>Yes, you can! Use this function:</p>
-<pre><code>show_categores()</code></pre>
-<p><br></p>
-</div>
-<div id="i-know-i-want-help-using-dplyr-can-i-see-only-the-dplyr-help-topics" class="section level4">
-<h4 class="hasAnchor">
-<a href="#i-know-i-want-help-using-dplyr-can-i-see-only-the-dplyr-help-topics" class="anchor"></a>I know I want help using <code>{dplyr}</code>. Can I see only the <code>{dplyr}</code> help topics?</h4>
-<p>Absolutely! You can see <em>only</em> those topics for a given category with <code><a href="reference/show_topics.html">show_topics("category of interest")</a></code>. For example, to see the <a href="https://dplyr.tidyverse.org">dplyr</a> topics, you would run…</p>
-<pre><code><a href="reference/show_topics.html">show_topics("dplyr") # Don't forget to use quotes!</a></code></pre>
-<p><br></p>
-</div>
-<div id="i-know-the-topic-i-want-help-for-show-me-how-to-get-help-already" class="section level4">
-<h4 class="hasAnchor">
-<a href="#i-know-the-topic-i-want-help-for-show-me-how-to-get-help-already" class="anchor"></a>I know the topic I want help for! Show me how to get help already!!</h4>
-<p>Use the function <code><a href="reference/get_help.html">get_help()</a></code> to get help for a particular topic. For example, to get help using the <code><a href="https://rdrr.io/r/stats/filter.html">filter()</a></code> function in <a href="https://dplyr.tidyverse.org">dplyr</a>, you can run:</p>
-<pre><code><a href="reference/get_help.html">get_help("filter")  # Don't forget to use quotes!</a></code></pre>
-<p>If you prefer for the help to automatically appear in your browser instead of in the RStudio Viewer pane, you can use the <em>second argument</em> <code>browser = TRUE</code> when using <code><a href="reference/get_help.html">get_help()</a></code>. For example:</p>
-<pre><code><a href="reference/get_help.html">get_help("filter", browser = TRUE)  # Don't forget to use quotes!</a></code></pre>
-</div>
-<div id="can-i-learn-a-little-more-about-the-example-datasets" class="section level4">
-<h4 class="hasAnchor">
-<a href="#can-i-learn-a-little-more-about-the-example-datasets" class="anchor"></a>Can I learn a little more about the example datasets?</h4>
-<p>Definitely! We use the dataset <code>msleep</code> from the <a href="https://ggplot2.tidyverse.org">ggplot2</a> package, as well as a subsetted version of this dataset called <code>carnivores</code>, for many of the <code>{introverse}</code> docs examples. Learn more about these datasets by getting help for them with:</p>
-<pre><code><a href="reference/get_help.html">get_help("msleep")
-# and
-get_help("carnivores")</a></code></pre>
-<p>Or, directly type <code>msleep</code> and/or <code>carnivores</code> into the R Console to see the datasets directly.</p>
-<p><br><br><br></p>
-</div>
+<a href="#ready-to-start" class="anchor"></a>Ready to start?</h2>
+<p>Head over <a href="https://spielmanlab.github.io/introverse/">here</a>!</p>
 </div>
 <div id="code-of-conduct" class="section level2">
 <h2 class="hasAnchor">
 <a href="#code-of-conduct" class="anchor"></a>Code of Conduct</h2>
-<p>Please note that the <code>{introverse}</code> project is released with a <a href="https://contributor-covenant.org/version/2/0/CODE_OF_CONDUCT.html">Contributor Code of Conduct</a>. By contributing to this project, you agree to abide by its terms.</p>
+<p>Please note that the <a href="https://github.com/spielmanlab/introverse">introverse</a> project is released with a <a href="https://contributor-covenant.org/version/2/0/CODE_OF_CONDUCT.html">Contributor Code of Conduct</a>. By contributing to this project, you agree to abide by its terms.</p>
 <div id="undergraduate-student-contributors" class="section level4">
 <h4 class="hasAnchor">
 <a href="#undergraduate-student-contributors" class="anchor"></a>Undergraduate student contributors:</h4>
@@ -180,7 +149,16 @@ get_help("carnivores")</a></code></pre>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
-    <div class="license">
+    <div class="links">
+<h2>Links</h2>
+<ul class="list-unstyled">
+<li>Browse source code at <br><a href="https://github.com/spielmanlab/introverse/">https://​github.com/​spielmanlab/​introverse/​</a>
+</li>
+<li>Report a bug at <br><a href="https://github.com/spielmanlab/introverse/issues">https://​github.com/​spielmanlab/​introverse/​issues</a>
+</li>
+</ul>
+</div>
+<div class="license">
 <h2>License</h2>
 <ul class="list-unstyled">
 <li><a href="LICENSE.html">Full license</a></li>
