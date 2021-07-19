@@ -66,7 +66,7 @@ bind_cols(first array, second array)
 <!-- Add a <br> if there is NO DATASET REFRESHER!! Otherwise the refresher takes up enough space. -->
 
 ```{r example1}
-# This example first shows the creation of two arrays, then the use of `bind_cols()` to bind them.
+# Use bind_cols() to combine two compatible arrays into a single tibble containing those arrays as its columns.
 array1 <- 1:3
 array2 <- 4:6
 bind_cols(column1 = array1, column2 = array2)
@@ -77,16 +77,13 @@ bind_cols(column1 = array1, column2 = array2)
 
 
 ```{r example2}
-# This example is similar to the first, but now using tibbles (data frames) derived from the data set `msleep`.
+# Use bind_cols() to combine two compatible tibbles into a single tibble containing all columns
 
 msleep %>% 
-  select(name:vore) -> tibble1 # Using a colon between column names includes columns between them.
+  select(name, vore) -> tibble1 # Using a comma between two column names selects those two columns explicitly.
 
 msleep %>% 
-  select(order, sleep_total) -> tibble1 # Using a comma selects individual columns to *select*
-
-
-# Unfamiliar with pipes (%>%)? - run get_help("%>%")
+  select(order, sleep_total) -> tibble2 
 
 bind_cols(tibble1, tibble2)
 ```
