@@ -19,16 +19,24 @@ dplyr_topics <- sort(c(
   "count",
   "tally",
 <<<<<<< HEAD
+<<<<<<< HEAD
   "bind_cols"
   # _join
 =======
+=======
+>>>>>>> 02b5c660d120c817c78a4b14721d87a5d3e039ab
   "left_join",
   "right_join",
   "full_join",
   "inner_join",
+<<<<<<< HEAD
   "anti_join"
 >>>>>>> 010a20a3fa8f6e7477d7d5e07eec3784d5b9fb40
   # bind_
+=======
+  "anti_join",
+  "bind_cols"
+>>>>>>> 02b5c660d120c817c78a4b14721d87a5d3e039ab
 ))
 
 #' All the ggplot2 topics
