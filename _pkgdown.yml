@@ -1,3 +1,14 @@
+development:
+  mode: auto
+
+toc:
+  depth: 4
+
+navbar:
+  structure:
+    left:  [home, intro, reference, articles]
+    right: [github]
+    
 reference:
 - title: Functions
   desc:  Functions you can use to get help in the introverse.
@@ -11,5 +22,5 @@ reference:
   - msleep
   - carnivores
   - first_tibble
-  - second_tibble
-  
+  - second_tibble 
+

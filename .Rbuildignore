@@ -17,3 +17,5 @@ documentation_modules/
 ^pkgdown$
 ^doc$
 ^Meta$
+build_site.R
+vignettes/get_help_online.Rmd
