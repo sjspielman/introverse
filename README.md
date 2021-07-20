@@ -10,7 +10,7 @@ Accessible and beginner-oriented help for getting started in R and the [`tidyver
 stable](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental) 
 [![R-CMD-check](https://github.com/spielmanlab/introverse/workflows/R-CMD-check/badge.svg)](https://github.com/spielmanlab/introverse/actions)<!-- badges: end -->
 
-<img src="logo.png" style="float:right;height:200px"/>
+<img src="logo.png" style="float:right;height:100px"/>
 
 (Note: This package is _not_ affiliated with [RStudio](https://www.rstudio.com/) or the [`tidyverse`](https://www.tidyverse.org/), but their [CC0 hex-stickers](https://github.com/rstudio/hex-stickers) are simply fantastic.)
 
