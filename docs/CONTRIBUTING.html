@@ -165,57 +165,57 @@
 <h3 class="hasAnchor">
 <a href="#the-whole-terminal-experience" class="anchor"></a>The whole terminal experience</h3>
 <p>You’ll begin by navigating in the terminal with <code>cd</code> to the directory where you have your local <code>introverse</code> clone.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Navigating to the directory where you have your local `introverse` clone. </span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> wherever/that/directory/is/introverse </span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Double chceck that you are in the right directory</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="bu">pwd</span> <span class="co"># should be --&gt; /homeorUsersorC/username/whatever/whateveretc/introverse  &lt;-- this !!</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Be in the main branch. If this doesn't work or does something really odd, reach out for help. Do not proceed!</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout main</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Double check that you are in the main branch</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Make sure you are up to date with your repo, aka your remote</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> pull origin main</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Make sure you are up to date with spielmanlab repo (assuming the remote is named `spielman`)</span></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> pull spielman main</span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="co"># If the last step updated your repo in some way, great! Tell your remote about it </span></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="co"># If the last step did NOT update your repo in some way, you can skip this line, but it will not hurt if you do run it!</span></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push origin main</span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="co">### Now, you are ready to develop!! </span></span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Create and enter a new branch for development of your feature (do _not_ use new_branch_name)</span></span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout <span class="at">-b</span> new_branch_name</span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="co"># Run git status to make sure you are in the right branch. If it says your new branch's name, you are good to go!</span></span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status</span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="co"># Code away and write some introverse material! Do the add/commit/push stuff!</span></span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="co">### (PS: Remember, the first time you push in this new branch, _it will not work_! </span></span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="co">### git will complain, but it will also give you the right command for how to fix it. </span></span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="co">### Copy/paste and run that command to do your first push. Then, it's back to normal.</span></span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="co"># Continue coding and develop! Do the add/commit/push stuff!</span></span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a><span class="co"># Navigating to the directory where you have your local `introverse` clone. </span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a><span class="bu">cd</span> wherever/that/directory/is/introverse </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true"></a><span class="co"># Double chceck that you are in the right directory</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true"></a><span class="bu">pwd</span> <span class="co"># should be --&gt; /homeorUsersorC/username/whatever/whateveretc/introverse  &lt;-- this !!</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true"></a><span class="co"># Be in the main branch. If this doesn't work or does something really odd, reach out for help. Do not proceed!</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true"></a><span class="fu">git</span> checkout main</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true"></a><span class="co"># Double check that you are in the main branch</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true"></a><span class="fu">git</span> status</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true"></a><span class="co"># Make sure you are up to date with your repo, aka your remote</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true"></a><span class="fu">git</span> pull origin main</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true"></a><span class="co"># Make sure you are up to date with spielmanlab repo (assuming the remote is named `spielman`)</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true"></a><span class="fu">git</span> pull spielman main</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true"></a></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true"></a><span class="co"># If the last step updated your repo in some way, great! Tell your remote about it </span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true"></a><span class="co"># If the last step did NOT update your repo in some way, you can skip this line, but it will not hurt if you do run it!</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true"></a><span class="fu">git</span> push origin main</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true"></a></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true"></a><span class="co">### Now, you are ready to develop!! </span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true"></a></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true"></a><span class="co"># Create and enter a new branch for development of your feature (do _not_ use new_branch_name)</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true"></a><span class="fu">git</span> checkout -b new_branch_name</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true"></a></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true"></a><span class="co"># Run git status to make sure you are in the right branch. If it says your new branch's name, you are good to go!</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true"></a><span class="fu">git</span> status</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true"></a></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true"></a><span class="co"># Code away and write some introverse material! Do the add/commit/push stuff!</span></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true"></a><span class="co">### (PS: Remember, the first time you push in this new branch, _it will not work_! </span></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true"></a><span class="co">### git will complain, but it will also give you the right command for how to fix it. </span></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true"></a><span class="co">### Copy/paste and run that command to do your first push. Then, it's back to normal.</span></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true"></a><span class="co"># Continue coding and develop! Do the add/commit/push stuff!</span></span></code></pre></div>
 <p>When you’re done coding and developing, all your tests have passed, and you’re ready to share with me, go to the <a href="https://github.com/spielmanlab/introverse"><code>spielmanlab/introverse</code></a> github and file a PULL REQUEST (<a href="https://github.com/spielmanlab/introverse/pulls" class="uri">https://github.com/spielmanlab/introverse/pulls</a>) <em>from your fork and the branch you’ve been developing on</em> to the <code>spielmanlab</code> <code>main</code> branch.</p>
 <div id="merging-back-up-after-you-pr-has-been-accepted" class="section level4">
 <h4 class="hasAnchor">
 <a href="#merging-back-up-after-you-pr-has-been-accepted" class="anchor"></a>Merging back up after you PR has been accepted</h4>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># again, navigate with cd (and confirm with pwd) to your introverse directory</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Leave your development branch and go back to your main branch</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout main</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Sync your main branch with spielmanlab, assuming the remote is named spielman. </span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> pull spielman main</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Sync your remote (github.com) repo</span></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push origin main</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co"># You are now ready to develop again!</span></span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a><span class="co"># again, navigate with cd (and confirm with pwd) to your introverse directory</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true"></a><span class="co"># Leave your development branch and go back to your main branch</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true"></a><span class="fu">git</span> checkout main</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true"></a><span class="co"># Sync your main branch with spielmanlab, assuming the remote is named spielman. </span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true"></a><span class="fu">git</span> pull spielman main</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true"></a></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true"></a><span class="co"># Sync your remote (github.com) repo</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true"></a><span class="fu">git</span> push origin main</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true"></a></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true"></a><span class="co"># You are now ready to develop again!</span></span></code></pre></div>
 </div>
 </div>
 <div id="get-the-introverse-templates" class="section level3">

@@ -91,8 +91,8 @@
 <h3 class="hasAnchor">
 <a href="#get-help-with-the-example-datasets" class="anchor"></a>Get help with the example datasets</h3>
 <ul>
-<li><a href="../introverse_docs/carnivores.html"><strong><code>carnivores</code></strong></a></li>
-<li><a href="../introverse_docs/msleep"><strong><code>msleep</code></strong></a></li>
+<li><a href="../introverse_docs/carnivores.html"><strong><code>carnivores()</code></strong></a></li>
+<li><a href="../introverse_docs/msleep"><strong><code>msleep()</code></strong></a></li>
 </ul>
 </div>
 <div id="get-help-with-operators-and-magrittr-pipes" class="section level3">
@@ -347,21 +347,292 @@
 <h3 class="hasAnchor">
 <a href="#get-help-with-dplyr" class="anchor"></a>Get help with <code>dplyr</code>
 </h3>
+<div id="one-table-verbs" class="section level4">
+<h4 class="hasAnchor">
+<a href="#one-table-verbs" class="anchor"></a>One-table verbs</h4>
+<table class="table">
+<colgroup>
+<col width="50%">
+<col width="50%">
+</colgroup>
+<thead><tr class="header">
+<th>Function</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td><a href="../introverse_docs/dplyr_arrange.html"><strong><code>arrange()</code></strong></a></td>
+<td>Arrange tibble (data frame) rows</td>
+</tr>
+<tr class="even">
+<td><a href="../introverse_docs/dplyr_distinct.html"><strong><code>distinct()</code></strong></a></td>
+<td>Remove duplicate rows from a tibble (data frame)</td>
+</tr>
+<tr class="odd">
+<td><a href="../introverse_docs/dplyr_mutate.html"><strong><code>mutate()</code></strong></a></td>
+<td>Create new or modify existing columns in a tibble (data frame)</td>
+</tr>
+<tr class="even">
+<td><a href="../introverse_docs/dplyr_filter.html"><strong><code>filter()</code></strong></a></td>
+<td>Keep only certain rows from a tibble (data frame) based on <code>TRUE</code> or <code>FALSE</code>
+</td>
+</tr>
+<tr class="odd">
+<td><a href="../introverse_docs/dplyr_select.html"><strong><code>select()</code></strong></a></td>
+<td>Keep, remove, or reorder columns in a tibble (data frame)</td>
+</tr>
+<tr class="even">
+<td><a href="../introverse_docs/dplyr_rename.html"><strong><code>rename()</code></strong></a></td>
+<td>Rename existing columns in a tibble (data frame)</td>
+</tr>
+<tr class="odd">
+<td><a href="../introverse_docs/dplyr_glimpse.html"><strong><code>glimpse()</code></strong></a></td>
+<td>See an overview of tibble (data frame) contents</td>
+</tr>
+<tr class="even">
+<td><a href="../introverse_docs/dplyr_pull.html"><strong><code>pull()</code></strong></a></td>
+<td>Extract out a column from a tibble (data frame) into its own array</td>
+</tr>
+<tr class="odd">
+<td><a href="../introverse_docs/dplyr_slice.html"><strong><code>slice()</code></strong></a></td>
+<td>Keep only certain rows from a tibble (data frame) based on index</td>
+</tr>
+<tr class="even">
+<td><a href="../introverse_docs/dplyr_group_by.html"><strong><code>group_by()</code></strong></a></td>
+<td>Establish a grouping in a tibble (data frame)</td>
+</tr>
+<tr class="odd">
+<td><a href="../introverse_docs/dplyr_ungroup.html"><strong><code>ungroup()</code></strong></a></td>
+<td>Undo any groupings in a tibble (data frame)</td>
+</tr>
+<tr class="even">
+<td><a href="../introverse_docs/dplyr_summarize.html"><strong><code>summarize()</code></strong></a></td>
+<td>Summarize values in a tibble (data frame) to produce a smaller summarized tibble</td>
+</tr>
+<tr class="odd">
+<td><a href="../introverse_docs/dplyr_tally.html"><strong><code>tally()</code></strong></a></td>
+<td>Count the number of rows in each grouping of a tibble (data frame)</td>
+</tr>
+<tr class="even">
+<td><a href="../introverse_docs/dplyr_count.html"><strong><code>count()</code></strong></a></td>
+<td>Simultaneously group and count the number of rows in each grouping of a tibble (data frame)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="two-table-verbs" class="section level4">
+<h4 class="hasAnchor">
+<a href="#two-table-verbs" class="anchor"></a>Two-table verbs</h4>
+<table class="table">
+<colgroup>
+<col width="50%">
+<col width="50%">
+</colgroup>
+<thead><tr class="header">
+<th>Function</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td><a href="../introverse_docs/dplyr_left_join.html"><strong><code>left_join()</code></strong></a></td>
+<td>Merge two relational tibbles (data frames) based on the left side</td>
+</tr>
+<tr class="even">
+<td><a href="../introverse_docs/dplyr_right_join.html"><strong><code>right_join()</code></strong></a></td>
+<td>Merge two relational tibbles (data frames) based on the right side</td>
+</tr>
+<tr class="odd">
+<td><a href="../introverse_docs/dplyr_full_join.html"><strong><code>full_join()</code></strong></a></td>
+<td>Merge two relational tibbles (data frames) fully</td>
+</tr>
+<tr class="even">
+<td><a href="../introverse_docs/dplyr_inner_join.html"><strong><code>inner_join()</code></strong></a></td>
+<td>Merge two relational tibbles (data frames) based on what they have in common</td>
+</tr>
+<tr class="odd">
+<td><a href="../introverse_docs/dplyr_anti_join.html"><strong><code>anti_join()</code></strong></a></td>
+<td>Merge relational tibbles (data frames) based on what they do not have in common</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="helper-functions" class="section level4">
+<h4 class="hasAnchor">
+<a href="#helper-functions" class="anchor"></a>Helper functions</h4>
+<table class="table">
+<colgroup>
+<col width="50%">
+<col width="50%">
+</colgroup>
+<thead><tr class="header">
+<th>Function</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td><a href="../introverse_docs/dplyr_if_else.html"><strong><code>if_else()</code></strong></a></td>
+<td>Assign a value based on whether a statement is <code>TRUE</code> or <code>FALSE</code> , ensuring same type</td>
+</tr>
+<tr class="even">
+<td><a href="../introverse_docs/dplyr_case_when.html"><strong><code>case_when()</code></strong></a></td>
+<td>Assign a value based on a series of conditions are <code>TRUE</code> or <code>FALSE</code>
+</td>
+</tr>
+<tr class="odd">
+<td><a href="../introverse_docs/dplyr_n.html"><strong><code>n()</code></strong></a></td>
+<td>Returns the number of rows in a tibble group</td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 <div id="get-help-with-ggplot2" class="section level3">
 <h3 class="hasAnchor">
 <a href="#get-help-with-ggplot2" class="anchor"></a>Get help with <code>ggplot2</code>
 </h3>
+<div id="fundamental-ggplot2" class="section level4">
+<h4 class="hasAnchor">
+<a href="#fundamental-ggplot2" class="anchor"></a>Fundamental <code>ggplot2</code>
+</h4>
+<table class="table">
+<thead><tr class="header">
+<th>Function</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td><a href="../introverse_docs/ggplot2_aes.html"><strong><code>aes()</code></strong></a></td>
+<td>Provide a ggplot with aesthetic <em>mappings</em> from dataset columns</td>
+</tr>
+<tr class="even">
+<td><a href="../introverse_docs/ggplot2_aes.html"><strong><code>ggplot()</code></strong></a></td>
+<td>Tell ggplot which dataset to plot and establish a ggplot canvas</td>
+</tr>
+<tr class="odd">
+<td><a href="../introverse_docs/ggplot2_labs.html"><strong><code>labs()</code></strong></a></td>
+<td>Customize plot labels, including axes, titles, and legends</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="geoms" class="section level4">
+<h4 class="hasAnchor">
+<a href="#geoms" class="anchor"></a>Geoms</h4>
+<table class="table">
+<colgroup>
+<col width="50%">
+<col width="50%">
+</colgroup>
+<thead><tr class="header">
+<th>Function</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td><a href="../introverse_docs/ggplot2_geom_boxplot.html"><strong><code>geom_boxplot()</code></strong></a></td>
+<td>Create boxplots</td>
+</tr>
+<tr class="even">
+<td><a href="../introverse_docs/ggplot2_geom_density.html"><strong><code>geom_density()</code></strong></a></td>
+<td>Create density plots</td>
+</tr>
+<tr class="odd">
+<td><a href="../introverse_docs/ggplot2_geom_histogram.html"><strong><code>geom_histogram()</code></strong></a></td>
+<td>Create histograms</td>
+</tr>
+<tr class="even">
+<td><a href="../introverse_docs/ggplot2_geom_jitter.html"><strong><code>geom_jitter()</code></strong></a></td>
+<td>Create jitter (strip) plots</td>
+</tr>
+<tr class="odd">
+<td><a href="../introverse_docs/ggplot2_geom_point.html"><strong><code>geom_point()</code></strong></a></td>
+<td>Create point shapes, often (but not always) to create scatterplots</td>
+</tr>
+<tr class="even">
+<td><a href="../introverse_docs/ggplot2_geom_smooth.html"><strong><code>geom_smooth()</code></strong></a></td>
+<td>Add a trendline to a plot, often (but not always) to a scatterplot</td>
+</tr>
+<tr class="odd">
+<td><a href="../introverse_docs/ggplot2_geom_col.html"><strong><code>geom_col()</code></strong></a></td>
+<td>Create bar plots whose height corresponds to literal values in the data</td>
+</tr>
+<tr class="even">
+<td><a href="../introverse_docs/ggplot2_geom_bar.html"><strong><code>geom_bar()</code></strong></a></td>
+<td>Create bar plots whose height corresponds to <em>counted number of observations</em> of a categorical variable</td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 <div id="get-help-with-forcats" class="section level3">
 <h3 class="hasAnchor">
 <a href="#get-help-with-forcats" class="anchor"></a>Get help with <code>forcats</code>
 </h3>
+<table class="table">
+<colgroup>
+<col width="50%">
+<col width="50%">
+</colgroup>
+<thead><tr class="header">
+<th>Function</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td><a href="../introverse_docs/dplyr_fct_relevel.html"><strong><code>fct_relevel()</code></strong></a></td>
+<td>Reorder levels in a factor to a custom order</td>
+</tr>
+<tr class="even">
+<td><a href="../introverse_docs/dplyr_fct_infreq.html"><strong><code>fct_infreq()</code></strong></a></td>
+<td>Reorder levels factor in a factor based on frequency</td>
+</tr>
+<tr class="odd">
+<td><a href="../introverse_docs/dplyr_fct_rev.html"><strong><code>fct_rev()</code></strong></a></td>
+<td>Reverse the order of levels in a factor</td>
+</tr>
+<tr class="even">
+<td><a href="../introverse_docs/dplyr_fct_reorder.html"><strong><code>fct_reorder()</code></strong></a></td>
+<td>Reorder levels in a factor based on values of another variable</td>
+</tr>
+<tr class="odd">
+<td><a href="../introverse_docs/dplyr_fct_lump_min.html"><strong><code>fct_lump_min()</code></strong></a></td>
+<td>Combine infrequently occurring levels of a factor into one</td>
+</tr>
+<tr class="even">
+<td><a href="../introverse_docs/dplyr_fct_lump_n.html"><strong><code>fct_lump_n()</code></strong></a></td>
+<td>Combine infrequently occurring levels of a factor into one</td>
+</tr>
+<tr class="odd">
+<td><a href="../introverse_docs/dplyr_fct_lump_prop.html"><strong><code>fct_lump_prop()</code></strong></a></td>
+<td>Combine infrequently occurring levels of a factor into one</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div id="get-help-with-tibble" class="section level3">
 <h3 class="hasAnchor">
 <a href="#get-help-with-tibble" class="anchor"></a>Get help with <code>tibble</code>
 </h3>
+<table class="table">
+<thead><tr class="header">
+<th>Function</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td><a href="../introverse_docs/dplyr_as_tibble.html"><strong><code>as_tibble()</code></strong></a></td>
+<td>Coerce a variable (often a data frame) into a tibble</td>
+</tr>
+<tr class="even">
+<td><a href="../introverse_docs/dplyr_tibble.html"><strong><code>tibble()</code></strong></a></td>
+<td>Create a new tibble from scratch</td>
+</tr>
+<tr class="odd">
+<td><a href="../introverse_docs/dplyr_tribble.html"><strong><code>tribble()</code></strong></a></td>
+<td>Create a new tibble from scratch</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div id="get-help-with-tidyr" class="section level3">
 <h3 class="hasAnchor">
