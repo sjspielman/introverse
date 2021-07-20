@@ -1,10 +1,9 @@
 ---
-title: "The `{magrittr}` assignment pipe `%>%`"
-author: "`{introverse}` quick docs"
+title: "{introverse} quick docs"
 output: 
   html_document:
-    highlight: pygments
-    theme: flatly
+    highlight: tango
+    theme: readable
 ---
 
 
@@ -17,8 +16,31 @@ library(dplyr)
 `%<>%` <- magrittr::`%<>%`
 ```
 
+```{css custom, echo=FALSE}
+.title{
+    display: none;
+}
+blockquote {
+  display: block;
+  font-size: 0.95em;
+  border-left: 3px solid #7FB036;
+  padding:10px;
+  margin-left:10px;
+}
+```
 
-## Description
+<div>
+<br>
+ <img src = "logo.png" style = "float:left;height:130px;margin-top:-20px;">
+ <span style = "font-weight:bold;font-size:40px;"> 
+  &nbsp;<code>magrittr::%<>%</code>
+ </span>
+ <br>
+ <b>&nbsp;&nbsp;&nbsp;<code>{introverse}</code> quick docs</b>
+</div>
+<br>
+
+### Description
 
 The combined symbol [`%<>%`](https://magrittr.tidyverse.org/reference/compound.html) is an operator in the [`{magrittr}`](https://magrittr.tidyverse.org/) package, which is part of the [`{tidyverse}`](https://www.tidyverse.org/). This operator simultaneously pipes _and_ redefines the first input as the result. It is useful for simultaneously wrangling and modifying tibbles (data frames) in place.
 
@@ -45,7 +67,7 @@ tibble %>%
   mutate(new_column = contents of new column) -> tibble
 ```
 
-## Examples
+### Examples
 
 > Run `get_help("carnivores")` for a refresher on the `carnivores` dataset.
 

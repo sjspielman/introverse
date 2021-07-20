@@ -1,10 +1,9 @@
 ---
-title: "`dplyr::left_join()`"
-author: "`{introverse}` quick docs"
+title: "{introverse} quick docs"
 output: 
   html_document:
-    highlight: pygments
-    theme: flatly
+    highlight: tango
+    theme: readable
 ---
 
 
@@ -15,12 +14,35 @@ knitr::opts_chunk$set(echo = TRUE,
 library(dplyr)
 ```
 
+```{css custom, echo=FALSE}
+.title{
+    display: none;
+}
+blockquote {
+  display: block;
+  font-size: 0.95em;
+  border-left: 3px solid #7FB036;
+  padding:10px;
+  margin-left:10px;
+}
+```
 
-## Description
+<div>
+<br>
+ <img src = "logo.png" style = "float:left;height:130px;margin-top:-20px;">
+ <span style = "font-weight:bold;font-size:40px;"> 
+  &nbsp;<code>dplyr::left_join()</code>
+ </span>
+ <br>
+ <b>&nbsp;&nbsp;&nbsp;<code>{introverse}</code> quick docs</b>
+</div>
+<br>
+
+### Description
 
 The [`left_join()`](https://dplyr.tidyverse.org/reference/left_join.html) function is part of the [`{dplyr}`](https://dplyr.tidyverse.org/) package, which is part of the [`{tidyverse}`](https://www.tidyverse.org/).
 
-The `left_join()` function merges _two relational datasets_. Specifically, `left_join()` retains all rows from the left tibble (data frame) and incorporates columns from the right tibble (data frame): It merges the _right into the left._ Missing row information becomes `NA` in the final output, represented in the GIF below by the blank cell.
+We use this function to merge _two relational datasets_. Specifically, `left_join()` retains all rows from the left tibble (data frame) and incorporates columns from the right tibble (data frame): It merges the _right into the left._ Missing row information becomes `NA` in the final output, represented in the GIF below by the blank cell.
 
 ```{r tidyexplain, echo=F, out.width = "50%"}
 knitr::include_graphics("../tidyexplain_gifs/left-join.gif")
@@ -51,7 +73,7 @@ left tibble %>%
   left_join(right tibble)
 ```
 
-## Examples
+### Examples
 
 Consider the following example datasets, These two tibbles have column names `name` and `vore` in common. They both contain rows for "Dog", "Pig", and "Rabbit", but `first_tibble` also contains "Tiger" and `second_tibble` also contains "Sheep".
 

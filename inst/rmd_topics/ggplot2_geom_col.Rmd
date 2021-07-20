@@ -1,10 +1,9 @@
 ---
-title: "`ggplot2::geom_col()`"
-author: "`{introverse}` quick docs"
+title: "{introverse} quick docs"
 output: 
   html_document:
-    highlight: pygments
-    theme: flatly
+    highlight: tango
+    theme: readable
 ---
 
 
@@ -16,8 +15,31 @@ library(ggplot2)
 library(forcats)
 ```
 
+```{css custom, echo=FALSE}
+.title{
+    display: none;
+}
+blockquote {
+  display: block;
+  font-size: 0.95em;
+  border-left: 3px solid #7FB036;
+  padding:10px;
+  margin-left:10px;
+}
+```
 
-## Description
+<div>
+<br>
+ <img src = "logo.png" style = "float:left;height:130px;margin-top:-20px;">
+ <span style = "font-weight:bold;font-size:40px;"> 
+  &nbsp;<code>ggplot2::geom_col()</code>
+ </span>
+ <br>
+ <b>&nbsp;&nbsp;&nbsp;<code>{introverse}</code> quick docs</b>
+</div>
+<br>
+
+### Description
 
 The [`geom_col()`](https://ggplot2.tidyverse.org/reference/geom_col.html) function is part of the [`{ggplot2}`](https://ggplot2.tidyverse.org/) package, which is part of the [`{tidyverse}`](https://www.tidyverse.org/).
 
@@ -54,7 +76,7 @@ ggplot2::geom_col()
 
 
 
-## Examples
+### Examples
 
 > Run `get_help("msleep")` for a refresher on the `msleep` dataset, and run `get_help("carnivores")` for a refresher on the `carnivores` dataset.
 

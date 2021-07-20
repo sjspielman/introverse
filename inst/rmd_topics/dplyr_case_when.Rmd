@@ -1,10 +1,9 @@
 ---
-title: "`dplyr::case_when()`"
-author: "`{introverse}` quick docs"
+title: "{introverse} quick docs"
 output: 
   html_document:
-    highlight: pygments
-    theme: flatly
+    highlight: tango
+    theme: readable
 ---
 
 
@@ -15,12 +14,35 @@ knitr::opts_chunk$set(echo = TRUE,
 library(dplyr)
 ```
 
+```{css custom, echo=FALSE}
+.title{
+    display: none;
+}
+blockquote {
+  display: block;
+  font-size: 0.95em;
+  border-left: 3px solid #7FB036;
+  padding:10px;
+  margin-left:10px;
+}
+```
 
-## Description
+<div>
+<br>
+ <img src = "logo.png" style = "float:left;height:130px;margin-top:-20px;">
+ <span style = "font-weight:bold;font-size:40px;"> 
+  &nbsp;<code>dplyr::case_when()</code>
+ </span>
+ <br>
+ <b>&nbsp;&nbsp;&nbsp;<code>{introverse}</code> quick docs</b>
+</div>
+<br>
+
+### Description
 
 The [`case_when()`](https://dplyr.tidyverse.org/reference/case_when.html) function is part of the [`{dplyr}`](https://dplyr.tidyverse.org/) package, which is part of the [`{tidyverse}`](https://www.tidyverse.org/).
 
-We use the function `case_when()` to *recode* a variable to different values. The `case_when()` function can be used when there are more than two conditions for recoding, in which case `if_else()` would be appropriate. We often use `case_when()` along with `mutate()` to create new data frame columns.
+We use this function to *recode* a variable to different values. The `case_when()` function can be used when there are more than two conditions for recoding, in which case `if_else()` would be appropriate. We often use `case_when()` along with `mutate()` to create new data frame columns.
 
 Be patient with the `case_when()` syntax: It is tricky!
 
@@ -51,7 +73,7 @@ case_when(a logical statement ~ return this value if this statement is TRUE,
 
 ```
 
-## Examples
+### Examples
 
 > Run `get_help("carnivores")` for a refresher on the `carnivores` dataset.
 

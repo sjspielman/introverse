@@ -1,10 +1,9 @@
 ---
-title: "Logical operators"
-author: "`{introverse}` quick docs"
+title: "{introverse} quick docs"
 output: 
   html_document:
-    highlight: pygments
-    theme: flatly
+    highlight: tango
+    theme: readable
 ---
 
 
@@ -14,8 +13,31 @@ knitr::opts_chunk$set(echo = TRUE,
                       message = FALSE)
 ```
 
+```{css custom, echo=FALSE}
+.title{
+    display: none;
+}
+blockquote {
+  display: block;
+  font-size: 0.95em;
+  border-left: 3px solid #7FB036;
+  padding:10px;
+  margin-left:10px;
+}
+```
 
-## Description
+<div>
+<br>
+ <img src = "logo.png" style = "float:left;height:130px;margin-top:-20px;">
+ <span style = "font-weight:bold;font-size:40px;"> 
+  &nbsp;Logical operators
+ </span>
+ <br>
+ <b>&nbsp;&nbsp;&nbsp;<code>{introverse}</code> quick docs</b>
+</div>
+<br>
+
+### Description
 
 Logical operators are symbols you can make comparisons with **that tell you `TRUE` or `FALSE`**. _Logical statement_ is any piece of code that evaluates to `TRUE` or `FALSE`, i.e. it contained a logical operator. Note that in other computing languages, these operators and statements are often called "boolean" (boo-lee-an) and not logical
 
@@ -39,7 +61,7 @@ Logical operators in R include the following, using placeholders `X` and `Y` to 
 
 <br>
 
-## Examples
+### Examples
 
 > Run `get_help("carnivores")` for a refresher on the `carnivores` dataset.
 

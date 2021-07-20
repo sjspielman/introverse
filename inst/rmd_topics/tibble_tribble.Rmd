@@ -1,10 +1,9 @@
 ---
-title: "`tibble::tibble()` and `tibble::tribble()`"
-author: "`{introverse}` quick docs"
+title: "{introverse} quick docs"
 output: 
   html_document:
-    highlight: pygments
-    theme: flatly
+    highlight: tango
+    theme: readable
 ---
 
 
@@ -20,8 +19,31 @@ example_tibble <- tribble(
   "carrot",      "orange",    "root")
 ```
 
+```{css custom, echo=FALSE}
+.title{
+    display: none;
+}
+blockquote {
+  display: block;
+  font-size: 0.95em;
+  border-left: 3px solid #7FB036;
+  padding:10px;
+  margin-left:10px;
+}
+```
 
-## Description
+<div>
+<br>
+ <img src = "logo.png" style = "float:left;height:130px;margin-top:-20px;">
+ <span style = "font-weight:bold;font-size:40px;"> 
+  &nbsp;<code>tibble::tibble()</code> and <code>tibble::tribble()</code>
+ </span>
+ <br>
+ <b>&nbsp;&nbsp;&nbsp;<code>{introverse}</code> quick docs</b>
+</div>
+<br>
+
+### Description
 
 The [`tibble()`](https://tibble.tidyverse.org/reference/tibble.html) and [`tribble()`](https://tibble.tidyverse.org/reference/tribble.html) functions are part of the [`{tibble}`](https://tibble.tidyverse.org/) package, which is part of the [`{tidyverse}`](https://www.tidyverse.org/).
 
@@ -62,7 +84,7 @@ tribble(
 )
 ```
 
-## Examples
+### Examples
 
 
 <br>

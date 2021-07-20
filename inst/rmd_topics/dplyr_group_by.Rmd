@@ -1,10 +1,9 @@
 ---
-title: "`dplyr::group_by() and dplyr::ungroup()`"
-author: "`{introverse}` quick docs"
+title: "{introverse} quick docs"
 output: 
   html_document:
-    highlight: pygments
-    theme: flatly
+    highlight: tango
+    theme: readable
 ---
 
 
@@ -15,12 +14,35 @@ knitr::opts_chunk$set(echo = TRUE,
 library(dplyr)
 ```
 
+```{css custom, echo=FALSE}
+.title{
+    display: none;
+}
+blockquote {
+  display: block;
+  font-size: 0.95em;
+  border-left: 3px solid #7FB036;
+  padding:10px;
+  margin-left:10px;
+}
+```
 
-## Description
+<div>
+<br>
+ <img src = "logo.png" style = "float:left;height:130px;margin-top:-20px;">
+ <span style = "font-weight:bold;font-size:40px;"> 
+  &nbsp;<code>dplyr::group_by()</code>
+ </span>
+ <br>
+ <b>&nbsp;&nbsp;&nbsp;<code>{introverse}</code> quick docs</b>
+</div>
+<br>
+
+### Description
 
 The [`group_by()` and `ungroup()`](https://dplyr.tidyverse.org/reference/group_by.html) functions are part of the [`{dplyr}`](https://dplyr.tidyverse.org/) package, which is part of the [`{tidyverse}`](https://www.tidyverse.org/).
 
-`group_by()` establishes groupings of rows based on given columns for subsequent operations, and it is often (but not only!) used with the `{dplyr}` package `summarize()`. After you are done with your grouped operations, it is often a good idea use `ungroup()` (no arguments needed) to remove groupings and avoid unintended consequences of grouped data.
+We use this function to establish groupings of rows based on given columns for subsequent operations, and it is often (but not only!) used with the `{dplyr}` package `summarize()`. After you are done with your grouped operations, it is often a good idea use `ungroup()` (no arguments needed) to remove groupings and avoid unintended consequences of grouped data.
 
 
 
@@ -52,7 +74,7 @@ tibble that was previously grouped %>%
   ungroup() # no arguments needed
 ```
 
-## Examples
+### Examples
 
 > Run `get_help("msleep")` for a refresher on the `msleep` dataset.
 

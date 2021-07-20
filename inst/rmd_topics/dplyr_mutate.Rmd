@@ -1,10 +1,9 @@
 ---
-title: "`dplyr::mutate()`"
-author: "`{introverse}` quick docs"
+title: "{introverse} quick docs"
 output: 
   html_document:
-    highlight: pygments
-    theme: flatly
+    highlight: tango
+    theme: readable
 ---
 
 
@@ -15,12 +14,36 @@ knitr::opts_chunk$set(echo = TRUE,
 library(dplyr)
 ```
 
+```{css hide-title, echo=FALSE}
+.title{
+    display: none;
+}
+blockquote {
+  display: block;
+  font-size: 0.95em;
+  border-left: 3px solid #7FB036;
+  padding:10px;
+  margin-left:10px;
+}
+```
 
-## Description
+
+<div>
+<br>
+ <img src = "logo.png" style = "float:left;height:130px;margin-top:-20px;">
+ <span style = "font-weight:bold;font-size:40px;"> 
+  &nbsp;<code>dplyr::mutate()</code>
+ </span>
+ <br>
+ <b>&nbsp;&nbsp;&nbsp;<code>{introverse}</code> quick docs</b>
+</div>
+<br>
+
+### Description
 
 The [`mutate()`](https://dplyr.tidyverse.org/reference/mutate.html) function is part of the [`{dplyr}`](https://dplyr.tidyverse.org/) package, which is part of the [`{tidyverse}`](https://www.tidyverse.org/).
 
-It is used to create new columns in tibbles (data frames). Since `mutate()` will also overwrite existing columns, you can also use it to modify existing columns in place.
+We use this function to create new columns in tibbles (data frames). Since `mutate()` will also overwrite existing columns, you can also use it to modify existing columns in place.
 
 
 <!-- Add the following if the topic is a function that does NOT come with base R, and uncomment/fill in the subsequent multiline HTML comment: -->
@@ -45,12 +68,12 @@ tibble %>%
 
 tibble %>% 
   mutate(name_of_first_new_column = what to put in this new column,
-         name_of_second_new_column =  what to put in this new column,          
+         name_of_second_new_column = what to put in this new column,          
          etc. as needed)
 
 ```
 
-## Examples
+### Examples
 
 > Run `get_help("carnivores")` for a refresher on the `carnivores` dataset.
 

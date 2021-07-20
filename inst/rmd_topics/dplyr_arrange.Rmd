@@ -1,10 +1,9 @@
 ---
-title: "`dplyr::arrange()`"
-author: "`{introverse}` quick docs"
+title: "{introverse} quick docs"
 output: 
   html_document:
-    highlight: pygments
-    theme: flatly
+    highlight: tango
+    theme: readable
 ---
 
 
@@ -15,12 +14,35 @@ knitr::opts_chunk$set(echo = TRUE,
 library(dplyr)
 ```
 
+```{css custom, echo=FALSE}
+.title{
+    display: none;
+}
+blockquote {
+  display: block;
+  font-size: 0.95em;
+  border-left: 3px solid #7FB036;
+  padding:10px;
+  margin-left:10px;
+}
+```
 
-## Description
+<div>
+<br>
+ <img src = "logo.png" style = "float:left;height:130px;margin-top:-20px;">
+ <span style = "font-weight:bold;font-size:40px;"> 
+  &nbsp;<code>dplyr::arrange()</code>
+ </span>
+ <br>
+ <b>&nbsp;&nbsp;&nbsp;<code>{introverse}</code> quick docs</b>
+</div>
+<br>
+
+### Description
 
 The [`arrange()`](https://dplyr.tidyverse.org/reference/arrange.html) function is part of the [`{dplyr}`](https://dplyr.tidyverse.org/) package, which is part of the [`{tidyverse}`](https://www.tidyverse.org/).
 
-It is used to arrange tibble rows in ascending order of the given column. To arrange by descending order, you need to use `desc()` around your column argument.
+We use this function to arrange tibble rows in ascending order of the given column. To arrange by descending order, you need to use `desc()` around your column argument.
 
 
 <!-- Add the following if the topic is a function that does NOT come with base R, and uncomment/fill in the subsequent multiline HTML comment: -->
@@ -49,7 +71,7 @@ tibble %>%
   arrange(desc(column to sort by in descending order))
 ```
 
-## Examples
+### Examples
 
 > Run `get_help("carnivores")` for a refresher on the `carnivores` dataset.
 

@@ -1,10 +1,9 @@
 ---
-title: "Assignment operators"
-author: "`{introverse}` quick docs"
+title: "{introverse} quick docs"
 output: 
   html_document:
-    highlight: pygments
-    theme: flatly
+    highlight: tango
+    theme: readable
 ---
 
 
@@ -14,8 +13,31 @@ knitr::opts_chunk$set(echo = TRUE,
                       message = FALSE)
 ```
 
+```{css custom, echo=FALSE}
+.title{
+    display: none;
+}
+blockquote {
+  display: block;
+  font-size: 0.95em;
+  border-left: 3px solid #7FB036;
+  padding:10px;
+  margin-left:10px;
+}
+```
 
-## Description
+<div>
+<br>
+ <img src = "logo.png" style = "float:left;height:130px;margin-top:-20px;">
+ <span style = "font-weight:bold;font-size:40px;"> 
+  &nbsp;Assignment operators
+ </span>
+ <br>
+ <b>&nbsp;&nbsp;&nbsp;<code>{introverse}</code> quick docs</b>
+</div>
+<br>
+
+### Description
 
 We define new variables in R using an _assignment operator_: One of `->` or `<-`, which look like _arrows_ and are comprised of a minus sign and either a greater or less than symbol. Assignment is always directed _from the value TOWARDS the variable_.
 
@@ -33,7 +55,7 @@ variable_name <- value to assign to variable_name
 
 value to assign to variable_name -> variable_name
 ```
-## Examples
+### Examples
 
 
 ```{r example1}

@@ -1,10 +1,9 @@
 ---
-title: "`dplyr::anti_join()`"
-author: "`{introverse}` quick docs"
+title: "{introverse} quick docs"
 output: 
   html_document:
-    highlight: pygments
-    theme: flatly
+    highlight: tango
+    theme: readable
 ---
 
 
@@ -15,12 +14,35 @@ knitr::opts_chunk$set(echo = TRUE,
 library(dplyr)
 ```
 
+```{css custom, echo=FALSE}
+.title{
+    display: none;
+}
+blockquote {
+  display: block;
+  font-size: 0.95em;
+  border-left: 3px solid #7FB036;
+  padding:10px;
+  margin-left:10px;
+}
+```
 
-## Description
+<div>
+<br>
+ <img src = "logo.png" style = "float:left;height:130px;margin-top:-20px;">
+ <span style = "font-weight:bold;font-size:40px;"> 
+  &nbsp;<code>dplyr::anti_join()</code>
+ </span>
+ <br>
+ <b>&nbsp;&nbsp;&nbsp;<code>{introverse}</code> quick docs</b>
+</div>
+<br>
+
+### Description
 
 The [`anti_join()`](https://dplyr.tidyverse.org/reference/anti_join.html) function is part of the [`{dplyr}`](https://dplyr.tidyverse.org/) package, which is part of the [`{tidyverse}`](https://www.tidyverse.org/).
 
-The `anti_join()` function merges _two relational datasets_ to retain only information that is not shared between them. In order to merge relational datasets, there must be at least one column name in common.
+We use this function to merge _two relational datasets_ and retain only information that is _not_ shared between them. In order to merge relational datasets, there must be at least one column name in common.
 
 Specifically, `anti_join()` retains all rows from the left tibble (data frame) which are not present in the right tibble (data frame):
 
@@ -54,7 +76,7 @@ left tibble %>%
   anti_join(right tibble)
 ```
 
-## Examples
+### Examples
 
 Consider the following example datasets, These two tibbles have column names `name` and `vore` in common. They both contain rows for "Dog", "Pig", and "Rabbit", but `first_tibble` also contains "Tiger" and `second_tibble` also contains "Sheep".
 

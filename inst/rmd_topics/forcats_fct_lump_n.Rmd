@@ -1,10 +1,9 @@
 ---
-title: "`forcats::fct_lump_n()`"
-author: "`{introverse}` quick docs"
+title: "{introverse} quick docs"
 output: 
   html_document:
-    highlight: pygments
-    theme: flatly
+    highlight: tango
+    theme: readable
 ---
 
 
@@ -18,8 +17,31 @@ library(ggplot2)
 library(tidyr)
 ```
 
+```{css custom, echo=FALSE}
+.title{
+    display: none;
+}
+blockquote {
+  display: block;
+  font-size: 0.95em;
+  border-left: 3px solid #7FB036;
+  padding:10px;
+  margin-left:10px;
+}
+```
 
-## Description
+<div>
+<br>
+ <img src = "logo.png" style = "float:left;height:130px;margin-top:-20px;">
+ <span style = "font-weight:bold;font-size:40px;"> 
+  &nbsp;<code>forcats::fct_lump_*()</code>
+ </span>
+ <br>
+ <b>&nbsp;&nbsp;&nbsp;<code>{introverse}</code> quick docs</b>
+</div>
+<br>
+
+### Description
 
 The [`fct_lump_*()`](https://forcats.tidyverse.org/reference/fct_lump.html) functions are part of the [`{forcats}`](https://forcats.tidyverse.org/) package, which is part of the [`{tidyverse}`](https://www.tidyverse.org/).
 
@@ -68,7 +90,7 @@ fct_lump_n(factor_variable,
            other_level = "Name you want to use if not 'Other'")
 ```
 
-## Examples
+### Examples
 
 > Run `get_help("msleep")` for a refresher on the `msleep` dataset.
 

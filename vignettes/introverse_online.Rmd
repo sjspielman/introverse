@@ -17,8 +17,8 @@ knitr::opts_chunk$set(
 
 ### Get help with the example datasets
 
-+ [**`carnivores()`**](../introverse_docs/carnivores.html)
-+ [**`msleep()`**](../introverse_docs/msleep)
++ [**`carnivores`**](../introverse_docs/datasets_carnivores.html)
++ [**`msleep`**](../introverse_docs/datasets_msleep.html)
 
 ### Get help with operators and `magrittr` pipes
 

@@ -1,10 +1,9 @@
 ---
-title: "Summary statistics functions"
-author: "`{introverse}` quick docs"
+title: "{introverse} quick docs"
 output: 
   html_document:
-    highlight: pygments
-    theme: flatly
+    highlight: tango
+    theme: readable
 ---
 
 
@@ -14,8 +13,31 @@ knitr::opts_chunk$set(echo = TRUE,
                       message = FALSE)
 ```
 
+```{css custom, echo=FALSE}
+.title{
+    display: none;
+}
+blockquote {
+  display: block;
+  font-size: 0.95em;
+  border-left: 3px solid #7FB036;
+  padding:10px;
+  margin-left:10px;
+}
+```
 
-## Description
+<div>
+<br>
+ <img src = "logo.png" style = "float:left;height:130px;margin-top:-20px;">
+ <span style = "font-weight:bold;font-size:40px;"> 
+  &nbsp;Summary statistics
+ </span>
+ <br>
+ <b>&nbsp;&nbsp;&nbsp;<code>{introverse}</code> quick docs</b>
+</div>
+<br>
+
+### Description
 
 R comes with several functions (in its `{base}` package) that are used to _calculate summary statistics_ from numeric arrays. The greatest hits of R summary statistics functions include the following:
 
@@ -42,7 +64,7 @@ mean(array to summarize)
 mean(array with NAs to summarize, na.rm = TRUE)
 ```
 
-## Examples
+### Examples
 
 > Run `get_help("msleep")` for a refresher on the `msleep` dataset.
 

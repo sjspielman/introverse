@@ -1,10 +1,9 @@
 ---
-title: "`tidyr::pivot_wider()`"
-author: "`{introverse}` quick docs"
+title: "{introverse} quick docs"
 output: 
   html_document:
-    highlight: pygments
-    theme: flatly
+    highlight: tango
+    theme: readable
 ---
 
 
@@ -17,8 +16,31 @@ library(dplyr)
 tb_cases_long <- tidyr::table1 %>% select(-population) 
 ```
 
+```{css custom, echo=FALSE}
+.title{
+    display: none;
+}
+blockquote {
+  display: block;
+  font-size: 0.95em;
+  border-left: 3px solid #7FB036;
+  padding:10px;
+  margin-left:10px;
+}
+```
 
-## Description
+<div>
+<br>
+ <img src = "logo.png" style = "float:left;height:130px;margin-top:-20px;">
+ <span style = "font-weight:bold;font-size:40px;"> 
+  &nbsp;<code>tidyr::pivot_wider()</code>
+ </span>
+ <br>
+ <b>&nbsp;&nbsp;&nbsp;<code>{introverse}</code> quick docs</b>
+</div>
+<br>
+
+### Description
 
 The [`pivot_wider()`](https://tidyr.tidyverse.org/reference/pivot_wider.html) function is part of the [`{tidyr}`](https://tidyr.tidyverse.org/) package, which is part of the [`{tidyverse}`](https://www.tidyverse.org/).
 
@@ -46,7 +68,7 @@ tibble %>%
 
 ```
 
-## Examples
+### Examples
 
 
 This example uses the dataset `tb_cases_long`, a long tibble which shows how many cases of Tuberculosis were recorded in each country in the given year.

@@ -1,10 +1,9 @@
 ---
-title: "`ggplot2::aes()`"
-author: "`{introverse}` quick docs"
+title: "{introverse} quick docs"
 output: 
   html_document:
-    highlight: pygments
-    theme: flatly
+    highlight: tango
+    theme: readable
 ---
 
 
@@ -16,12 +15,35 @@ library(ggplot2)
 msleep %>% tidyr::drop_na(sleep_rem, awake) -> msleep
 ```
 
+```{css custom, echo=FALSE}
+.title{
+    display: none;
+}
+blockquote {
+  display: block;
+  font-size: 0.95em;
+  border-left: 3px solid #7FB036;
+  padding:10px;
+  margin-left:10px;
+}
+```
 
-## Description
+<div>
+<br>
+ <img src = "logo.png" style = "float:left;height:130px;margin-top:-20px;">
+ <span style = "font-weight:bold;font-size:40px;"> 
+  &nbsp;<code>ggplot2::aes()</code>
+ </span>
+ <br>
+ <b>&nbsp;&nbsp;&nbsp;<code>{introverse}</code> quick docs</b>
+</div>
+<br>
+
+### Description
 
 The [`aes()`](https://ggplot2.tidyverse.org/reference/aes.html) function is part of the [`{ggplot2}`](https://ggplot2.tidyverse.org/) package, which is part of the [`{tidyverse}`](https://www.tidyverse.org/).
 
-The `aes()` function is used within `{ggplot2}` plots to **establish aesthetic _mappings_** between visual features in the plot and _columns_ in the tibble (data frame) being plotted. The `aes()` function should be used _only_ to map columns to aesthetics. Other stylings can be directly provided to geoms, without enclosing them in `aes()`.
+We use the `aes()` function within `{ggplot2}` plots to **establish aesthetic _mappings_** between visual features in the plot and _columns_ in the tibble (data frame) being plotted. The `aes()` function should be used _only_ to map columns to aesthetics. Other stylings can be directly provided to geoms, without enclosing them in `aes()`.
 
 
 <!-- Add the following if the topic is a function that does NOT come with base R, and uncomment/fill in the subsequent multiline HTML comment: -->
@@ -53,7 +75,7 @@ ggplot(tibble to plot) +
   geom_whatever(aes(aspect of plot = column name in tibble, etc.))
 ```
 
-## Examples
+### Examples
 
 > Run `get_help("msleep")` for a refresher on the `msleep` dataset.
 
@@ -131,6 +153,7 @@ ggplot(msleep) +
   geom_jitter(aes(color = vore), pch = 21) + # ONLY the jitter geom gets the color mapping. Using pch=21, we see points are NOT filled, only colored
   geom_boxplot(aes(fill = vore), alpha = 0.5)   # ONLY the boxplot gets the fill mapping. Its color remains default black. Add alpha for transparency
 ```
+
 ```{r example7}
 # Another example with multiple geoms: All geoms inherit the aes() mappings. 
 # Each vore has its own `geom_smooth()` trendline _because of the color mapping_
