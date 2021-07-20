@@ -18,7 +18,7 @@ dplyr_topics <- sort(c(
   "n",
   "count",
   "tally",
-  "bind_cols"
+  "bind_cols",
   "left_join",
   "right_join",
   "full_join",
