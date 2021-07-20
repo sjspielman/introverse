@@ -1,5 +1,5 @@
 ---
-title: "Get help here!"
+title: "Get help online"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{get_help_online}
@@ -13,7 +13,6 @@ knitr::opts_chunk$set(
   comment = "#>"
 )
 ```
-
 
 
 ### Get help with the example datasets

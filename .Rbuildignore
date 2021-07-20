@@ -6,6 +6,7 @@ documentation_modules/
 ^\.travis\.yml$
 ^inst/rmd_topics/*\.html$
 ^inst/student_modules/*
+^CONTRIBUTING.md$
 ^CONTRIBUTING.Rmd$
 ^CONTRIBUTING.html$
 ^README.html$
@@ -17,5 +18,6 @@ documentation_modules/
 ^pkgdown$
 ^doc$
 ^Meta$
+^logo.*$
 build_site.R
-vignettes/get_help_online.Rmd
+vignettes/introverse_online.Rmd

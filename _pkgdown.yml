@@ -4,11 +4,19 @@ development:
 toc:
   depth: 4
 
+
 navbar:
-  structure:
-    left:  [home, intro, reference, articles]
-    right: [github]
-    
+  type: inverse
+  left:
+    - text: "Home"
+      href: index.html
+    - text: "Get help here"
+      href: articles/introverse_online.html
+    - text: "Get help in RStudio"
+      href: articles/introverse_rstudio.html
+    - text: "Reference for using the introverse in RStudio"
+      href: reference/index.html
+      
 reference:
 - title: Functions
   desc:  Functions you can use to get help in the introverse.

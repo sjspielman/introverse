@@ -2,8 +2,7 @@ pandoc: '2.13'
 pkgdown: 1.6.1
 pkgdown_sha: ~
 articles:
-  available_topics: available_topics.html
-  get_help_online: get_help_online.html
-  introverse: introverse.html
-last_built: 2021-07-20T00:41Z
+  introverse_online: introverse_online.html
+  introverse_rstudio: introverse_rstudio.html
+last_built: 2021-07-20T01:29Z
 
