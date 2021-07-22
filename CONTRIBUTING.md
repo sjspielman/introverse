@@ -23,7 +23,7 @@ Want to learn more about R package development in general?
 
 2. File an issue when you **want to make a contribution**, using the "Request to Contribute" template. 
 
-3. File an issue when you **want to request a new topic be added to the introverse**, using the "Feature request.
+3. File an issue when you **want to request a new topic be added to the introverse**, using the "Feature request" template.
   
 
 
@@ -122,10 +122,8 @@ Install the package `introverse.templates` with `remotes::install_github("spielm
 
 4. Open a new Rmd introverse docs template file, and save it to the directory `introverse/inst/rmd_topics/`. Write your Rmd help page using the `introverse` template and existing Rmd help pages as guidance. 
     + Your file **must be named** `category_topic.Rmd`, reflecting what you added to `R/utils-topics.R`.
-    + **You cannot and should not knit this document like normal!!** Instead, you have to interactively re-load the package and use `get_help()` to see the output. **TO KNIT:**
-        + `devtools::load_all()`
-        + `get_help("topic")` (replace topic with your topic, of course)
-    + As long as you are developing in the right steps, the `carnivores` and `msleep` datasets should automatically be available without any need to read them in.
+    + **You cannot and should not knit this document like normal!!** Instead, you must use `get_help()` to see the output, i.e. `get_help("topic")` (replace topic with your topic, of course). 
+      + As long as you are developing in the right steps, the `carnivores` and `msleep` datasets should automatically be available without any need to read them in.
 
 <br>
 

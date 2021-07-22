@@ -1,0 +1,94 @@
+---
+title: "`dplyr::bind_cols()`"
+author: "`{introverse}` quick docs"
+output: 
+  html_document:
+    theme: flatly
+    syntax: pygments
+---
+
+<!-- Welcome to the template! This comment is here to help you get started. The HTML comments will help you fill it out. Please make sure to do the following:
+- make the YAML `title` the topic name. For example, the `filter()` docs are titled `dplyr::filter()` (with backticks since it's code!)
+- name the final Rmd file "packagethetopiccomesfrom_topic.Rmd". For example, the `filter()` file is named `dplyr_filter.Rmd`
+- If you are considering documenting MULTIPLE TOPICS in a single help Rmd, STOP and CONSULT FIRST with Spielman!!
+-->
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE, 
+                      warning = FALSE, 
+                      message = FALSE)
+library(dplyr)
+# Load any INDIVIDUAL libraries here.
+# NEVER load the full tidyverse - In other words `library(tidyverse)` => ABSOLUTELY NOT!!!! Load only what you need, _one at a time_.
+
+# Do NOT read in any datasets (carnivores/msleep)!!! It's taken care of, as long as you develop as follows instead of knitting (really, no knitting!) - 
+# 1) devtools::load_all()
+# 2) get_help("topic youre currently developing")
+```
+
+
+## Description
+
+The [`bind_cols()`](https://dplyr.tidyverse.org/reference/bind.html) function is part of the [`{dplyr}`](https://dplyr.tidyverse.org/) package, which is part of the [`{tidyverse}`](https://www.tidyverse.org/).
+
+This function is used to *bind* the columns of two tibbles (data frames) or arrays into one tibble (data frame). This requires every column to be of equal length.
+
+<!-- Add the following if the topic is a function that does NOT come with base R, and uncomment/fill in the subsequent multiline HTML comment: -->
+To use this function, you need to either first load the `{dplyr}` library, or always use the function with `dplyr::bind_cols()` notation.
+
+```{r, eval=FALSE}
+# Load the library
+library(dplyr)
+# Or, load the full tidyverse:
+library(tidyverse)
+
+# Or, use :: notation
+dplyr::bind_cols()
+```
+
+
+
+## Conceptual usage 
+
+```{r, eval=FALSE}
+bind_cols(first tibble, second tibble)
+
+bind_cols(first array, second array)
+
+# Remember that both tibbles and both arrays are of equal length in order to bind
+```
+
+
+## Examples
+
+> Need a refresher on the `msleep` dataset? Run `get_help("msleep")` for more information.
+
+<!-- Add a <br> if there is NO DATASET REFRESHER!! Otherwise the refresher takes up enough space. -->
+
+```{r example1}
+# Use bind_cols() to combine two compatible arrays into a single tibble containing those arrays as its columns.
+array1 <- 1:3
+array2 <- 4:6
+bind_cols(column1 = array1, column2 = array2)
+
+```
+
+<br>  <!-- Do not delete the <br>, and make sure to keep the previous and following lines blank. There should be a <br> tab between each example -->
+
+
+```{r example2}
+# Use bind_cols() to combine two compatible tibbles into a single tibble containing all columns
+
+msleep %>% 
+  select(name, vore) -> tibble1 # Using a comma between two column names selects those two columns explicitly.
+
+msleep %>% 
+  select(order, sleep_total) -> tibble2 
+
+bind_cols(tibble1, tibble2)
+```
+
+<br> <!-- Do not delete the <br>, and make sure to keep the previous and following lines blank. -->
+
+<!-- If needed, add more example chunks below WITH NAMES (example3, example4, etc.), making sure to have a <br> tag in between each example for nicer spacing. If you don't need more examples, don't add any! -->
+

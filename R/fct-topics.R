@@ -1,5 +1,3 @@
-
-
 #' Obtain correct docs word for magrittr pipes
 #' @keywords internal
 convert_magrittr_into_topic <- function(pipe)
@@ -25,11 +23,6 @@ convert_topic_into_magrittr <- function(topic)
   operator
 }
 
-  
-  
-  
-  
-  
 
 
 
