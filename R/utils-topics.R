@@ -18,12 +18,12 @@ dplyr_topics <- sort(c(
   "n",
   "count",
   "tally",
-  "bind_cols",
   "left_join",
   "right_join",
   "full_join",
   "inner_join",
-  "anti_join"
+  "anti_join",
+  "bind_cols"
 ))
 
 #' All the ggplot2 topics
