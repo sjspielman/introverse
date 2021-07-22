@@ -67,6 +67,13 @@ tidyr_topics <- sort(c(
 ))
 
   
+#' All the readr topics
+#' @keywords internal
+readr_topics <- sort(c(
+  # Same page:
+  "read_csv", "read_tsv", "read_csv2", "read_delim"
+))
+
 #' All the forcats topics
 #' @keywords internal
 forcats_topics <- sort(c(
@@ -121,6 +128,7 @@ topic_list <- list(
   "ggplot2"   = ggplot2_topics,
   "magrittr"  = c("apipe", "pipe"), # keep assignment first
   "operators" = c("assignment", "logical", "mathematical"), # alphabetical
+  "readr"     = readr_topics,
   "tibble"    = tibble_topics,
   "tidyr"     = tidyr_topics
 )
