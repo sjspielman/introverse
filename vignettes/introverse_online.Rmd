@@ -132,6 +132,7 @@ knitr::opts_chunk$set(
 
 | Function   |  Description  |
 |----|----|
+| [**`bind_cols()`**](../introverse_docs/dplyr_bind_cols.html) | Combine arrays or tibbles (data frames) by columns |
 | [**`left_join()`**](../introverse_docs/dplyr_left_join.html) | Merge two relational tibbles (data frames) based on the left side |
 | [**`right_join()`**](../introverse_docs/dplyr_right_join.html) | Merge two relational tibbles (data frames) based on the right side |
 | [**`full_join()`**](../introverse_docs/dplyr_full_join.html) | Merge two relational tibbles (data frames) fully |
@@ -203,3 +204,13 @@ knitr::opts_chunk$set(
 | [**`unite()`**](../introverse_docs/tidyr_unite.html) | Unite (combine) two columns in a tibble (data frame) into a single column |
 | [**`separate()`**](../introverse_docs/tidyr_separate.html) | Separate a single column in a tibble (data frame) into two new columns |
 
+### Get help with `readr`
+
+| [**`read_csv()`**](../introverse_docs/readr_read_csv.html)  |  Read a CSV file into `R` |
+| [**`read_tsv()`**](../introverse_docs/readr_read_tsv.html)  |  Read a TSV file into `R` |
+| [**`read_csv2()`**](../introverse_docs/readr_read_csv2.html)  |  Read a CSV2 file into `R` |
+| [**`read_delim()`**](../introverse_docs/readr_read_delim.html)  |  Read a delimited file of any kind into `R` |
+| [**`write_csv()`**](../introverse_docs/readr_write_csv.html)  |  Write (save) a tibble (data frame) to a CSV file |
+| [**`write_tsv()`**](../introverse_docs/readr_write_tsv.html)  | Write (save) a tibble (data frame) to a TSV file |
+| [**`write_csv2()`**](../introverse_docs/readr_write_csv2.html)  |  Write (save) a tibble (data frame) to a CSV2 file |
+| [**`write_delim()`**](../introverse_docs/readr_write_delim.html)  | Write (save) a tibble (data frame) to a delimited file |

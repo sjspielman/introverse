@@ -39,7 +39,7 @@ blockquote {
   &nbsp;<code>tibble::tibble()</code> and <code>tibble::tribble()</code>
  </span>
  <br>
- <b>&nbsp;&nbsp;&nbsp;<code>{introverse}</code> quick docs</b>
+ <b>&nbsp;&nbsp;&nbsp;<code>get_help()</code> docs</b>
 </div>
 <br>
 

@@ -34,7 +34,7 @@ blockquote {
   &nbsp;<code>ggplot2::geom_jitter()</code>
  </span>
  <br>
- <b>&nbsp;&nbsp;&nbsp;<code>{introverse}</code> quick docs</b>
+ <b>&nbsp;&nbsp;&nbsp;<code>get_help()</code> docs</b>
 </div>
 <br>
 

@@ -31,10 +31,10 @@ blockquote {
 <br>
  <img src = "logo.png" style = "float:left;height:130px;margin-top:-20px;">
  <span style = "font-weight:bold;font-size:40px;"> 
-  &nbsp;<code>dplyr::fitler()</code>
+  &nbsp;<code>dplyr::filter()</code>
  </span>
  <br>
- <b>&nbsp;&nbsp;&nbsp;<code>{introverse}</code> quick docs</b>
+ <b>&nbsp;&nbsp;&nbsp;<code>get_help()</code> docs</b>
 </div>
 <br>
 

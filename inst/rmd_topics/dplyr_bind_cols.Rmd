@@ -1,10 +1,9 @@
 ---
-title: "`dplyr::bind_cols()`"
-author: "`{introverse}` quick docs"
+title: "`{introverse}` quick docs"
 output: 
   html_document:
-    theme: flatly
-    syntax: pygments
+    theme: readable
+    syntax: tango
 ---
 
 <!-- Welcome to the template! This comment is here to help you get started. The HTML comments will help you fill it out. Please make sure to do the following:
@@ -18,14 +17,31 @@ knitr::opts_chunk$set(echo = TRUE,
                       warning = FALSE, 
                       message = FALSE)
 library(dplyr)
-# Load any INDIVIDUAL libraries here.
-# NEVER load the full tidyverse - In other words `library(tidyverse)` => ABSOLUTELY NOT!!!! Load only what you need, _one at a time_.
-
-# Do NOT read in any datasets (carnivores/msleep)!!! It's taken care of, as long as you develop as follows instead of knitting (really, no knitting!) - 
-# 1) devtools::load_all()
-# 2) get_help("topic youre currently developing")
 ```
 
+```{css custom, echo=FALSE}
+.title{
+    display: none;
+}
+blockquote {
+  display: block;
+  font-size: 0.95em;
+  border-left: 3px solid #7FB036;
+  padding:10px;
+  margin-left:10px;
+}
+```
+
+<div>
+<br>
+ <img src = "logo.png" style = "float:left;height:130px;margin-top:-20px;">
+ <span style = "font-weight:bold;font-size:40px;"> 
+  &nbsp;<code>dplyr::bind_cols()</code>
+ </span>
+ <br>
+ <b>&nbsp;&nbsp;&nbsp;<code>get_help()</code> docs</b>
+</div>
+<br>
 
 ## Description
 
@@ -51,11 +67,12 @@ dplyr::bind_cols()
 ## Conceptual usage 
 
 ```{r, eval=FALSE}
+# Remember that both tibbles (or both arrays) must have the same number of rows in the same order to be able to bind them
+
 bind_cols(first tibble, second tibble)
 
 bind_cols(first array, second array)
 
-# Remember that both tibbles and both arrays are of equal length in order to bind
 ```
 
 
@@ -79,8 +96,9 @@ bind_cols(column1 = array1, column2 = array2)
 ```{r example2}
 # Use bind_cols() to combine two compatible tibbles into a single tibble containing all columns
 
+# Create two compatible tibbles, for demonstration of bind_cols()
 msleep %>% 
-  select(name, vore) -> tibble1 # Using a comma between two column names selects those two columns explicitly.
+  select(name, vore) -> tibble1 
 
 msleep %>% 
   select(order, sleep_total) -> tibble2 
