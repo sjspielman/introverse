@@ -71,7 +71,9 @@ tidyr_topics <- sort(c(
 #' @keywords internal
 readr_topics <- sort(c(
   # Same page:
-  "read_csv", "read_tsv", "read_csv2", "read_delim"
+  "read_csv", "read_tsv", "read_csv2", "read_delim",
+  # Same page:
+  "write_csv", "write_tsv", "write_csv2", "write_delim"
 ))
 
 #' All the forcats topics
