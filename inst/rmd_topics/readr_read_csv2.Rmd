@@ -44,7 +44,7 @@ All functions documented here are part of the [`{readr}`](https://tibble.tidyver
 
 The `{readr}` package [provides several useful functions](https://readr.tidyverse.org/reference/read_delim.html) for _reading_ delimited data files into R. Delimited data files have rows and columns, where columns are _separated aka delimited_ by a certain character, such as a comma `,` or tab symbol. 
 
-When using these functions, your data automatically gets read in as a tibble. _This is usually preferrable to using base R functions like `read.csv()` or `read.table()`, which create data frames._
+When using these functions, your data automatically gets read in as a tibble. _This is usually preferable to using base R functions like `read.csv()` or `read.table()`, which create data frames._
 
 These functions include:
 
