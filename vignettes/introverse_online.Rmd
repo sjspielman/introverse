@@ -206,6 +206,8 @@ knitr::opts_chunk$set(
 
 ### Get help with `readr`
 
+| Function   |  Description  |
+|----|----|
 | [**`read_csv()`**](../introverse_docs/readr_read_csv.html)  |  Read a CSV file into `R` |
 | [**`read_tsv()`**](../introverse_docs/readr_read_tsv.html)  |  Read a TSV file into `R` |
 | [**`read_csv2()`**](../introverse_docs/readr_read_csv2.html)  |  Read a CSV2 file into `R` |
