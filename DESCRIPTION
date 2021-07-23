@@ -5,7 +5,7 @@ Authors@R: c(
   person("Stephanie", "Spielman", role = c("aut", "cre"), 
           email = "spielman@rowan.edu",
           comment = c(ORCID = "0000-0002-9090-4788")),
-  person("Jake", "Kovaleski", c("ctb"), "jakekovaleski@comcast.net"))
+  person("Jake", "Kovaleski", role = c("ctb"), email = "jakekovaleski@comcast.net"))
 Description: Introverse currently offers function and topic documentation that are oriented towards R/tidyverse novices. The provided documentation is complementary to official package and function documentation, which is more comprehensive and oriented towards experienced R programmers.
 License: MIT + file LICENSE
 Encoding: UTF-8
