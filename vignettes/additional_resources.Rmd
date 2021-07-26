@@ -1,0 +1,65 @@
+---
+title: "Additional resources"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{additional_resources}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+The following links will bring you to additional internet resources which beginners in R and data science might find useful. These resources are _not_ affiliated with the `{introverse}`, so please let us know if one of these links breaks _or_ if you have a resource to recommend by filing an issue [here](https://github.com/spielmanlab/introverse/issues). Thanks!
+
+
+## Official `tidyverse` documentation and vignettes
+
++ Documentation and command references
+  + [`tidyverse` homepage, official documentation, and cheatsheets](https://www.tidyverse.org/)
+  + [`ggplot2` command reference](https://ggplot2.tidyverse.org/reference/) 
+  + [`readr` command reference](https://readr.tidyverse.org/reference/) 
+  + [`dplyr` command reference](https://dplyr.tidyverse.org/reference/) 
+  + [`tidyr` command reference](https://tidyr.tidyverse.org/reference/) 
+  + [`stringr` command reference](https://stringr.tidyverse.org/reference/) 
+  + [`forcats` command reference](https://forcats.tidyverse.org/reference/) 
+    
++ [Tidyverse style guide](https://style.tidyverse.org/)
+  + A resource of recommended code style when programming in the `tidyverse`. 
+
+## Resources from RStudio
+
++ [RStudio Cloud primers](https://rstudio.cloud/learn/primers)
+  + Interactive resources for practicing certain R and `tidyverse` skills
++ [RStudio Resources (all levels of videos/tutorials)](https://resources.rstudio.com/)
+  + Expansive set of webinars compiled by RStudio. Many may be beyond the scope of our class.
+    
+## Books, online course materials, and articles
+
+> Don't buy the books unless you want to! They are all freely available online.
+
++ [R for Data Science](https://r4ds.had.co.nz/) by Garrett Grolemund and Hadley Wickham
+  + The "official" book for working with the tidyverse. Examples in the book may assume more background knowledge than computing novices have.
++ [`ggplot2`: Elegant Graphics for Data Analysis](https://ggplot2-book.org/index.html) by Hadley Wickham, Danielle Navarro, and Thomas Lin Pederse
+  + The `ggplot2` book.
++ [Data Visualization: A Practical Introduction](https://socviz.co/) by Kieran Healy
+  + Introduces `ggplot2`, including the philosophy of the grammar of graphics and using many geoms. Again, some examples may assume more background knowledge than computing novices have.
++ [Fundamentals of Data Visualization](https://clauswilke.com/dataviz) by Claus O. Wilke
+  + Introduces concepts and principles in data visualization. This book does not contain code or teach `ggplot2`.
+  + Chapter 5 in particular catalogs common types of data visualizations
++ [Twitter for Scientists](https://t4scientists.com/) and  [Twitter for R Programmers](https://www.t4rstats.com/)
+  + Comprehensive and clear introductions to using twitter and interacting with the extremely wonderful `#rstats` community, which itself helps to learn R and data science
++ [The "Tidy Data" paper by Hadley Wickham](https://vita.had.co.nz/papers/tidy-data.pdf)
+  + Introduces the philosophy of "tidy data"
++ [STAT545 Resources](https://stat545.com/)
+  + Assumes statistics/programming background
++ [Introduction to Data Science e-book](https://rafalab.github.io/dsbook/)
+  + Comprehensive data science book
++ [Data Science in a Box](https://datasciencebox.org/index.html)
+  + A collection of resources, lessons, tutorials, and exercises for mastering data science techniques in R within the `tidyverse` framework. Of particular interest is the [Exploring Data](https://datasciencebox.org/exploring-data.html) section.
++ [Calling Bullshit Course Website](https://callingbullshit.org/) by Carl Bergstrom and Jevin West
+  + Not specifically, or even at all, about R programming or data science, but teaches critical thinking skills needed in data visualization, analysis, and interpretation

@@ -14,8 +14,10 @@ navbar:
       href: articles/introverse_online.html
     - text: "Get help in RStudio"
       href: articles/introverse_rstudio.html
-    - text: "Reference for using the introverse in RStudio"
+    - text: "RStudio reference"
       href: reference/index.html
+    - text: "Additional resources"
+      href: articles/additional_resources.html
       
 reference:
 - title: Functions

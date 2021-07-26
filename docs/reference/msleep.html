@@ -96,7 +96,10 @@
   <a href="../articles/introverse_rstudio.html">Get help in RStudio</a>
 </li>
 <li>
-  <a href="../reference/index.html">Reference for using the introverse in RStudio</a>
+  <a href="../reference/index.html">RStudio reference</a>
+</li>
+<li>
+  <a href="../articles/additional_resources.html">Additional resources</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -155,21 +158,21 @@
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># \dontrun{</span>
   <span class='va'>msleep</span>
-</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 83 x 11</span><span>
+</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 83 x 11</span>
 #&gt;    name   genus vore  order conservation sleep_total sleep_rem sleep_cycle awake
-#&gt;    </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>  </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>              </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span>     </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span>       </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span>
-#&gt; </span><span style='color: #BCBCBC;'> 1</span><span> Cheet… Acin… carni Carn… lc                  12.1      </span><span style='color: #BB0000;'>NA</span><span>        </span><span style='color: #BB0000;'>NA</span><span>      11.9
-#&gt; </span><span style='color: #BCBCBC;'> 2</span><span> Owl m… Aotus omni  Prim… </span><span style='color: #BB0000;'>NA</span><span>                  17         1.8      </span><span style='color: #BB0000;'>NA</span><span>       7  
-#&gt; </span><span style='color: #BCBCBC;'> 3</span><span> Mount… Aplo… herbi Rode… nt                  14.4       2.4      </span><span style='color: #BB0000;'>NA</span><span>       9.6
-#&gt; </span><span style='color: #BCBCBC;'> 4</span><span> Great… Blar… omni  Sori… lc                  14.9       2.3       0.133   9.1
-#&gt; </span><span style='color: #BCBCBC;'> 5</span><span> Cow    Bos   herbi Arti… domesticated         4         0.7       0.667  20  
-#&gt; </span><span style='color: #BCBCBC;'> 6</span><span> Three… Brad… herbi Pilo… </span><span style='color: #BB0000;'>NA</span><span>                  14.4       2.2       0.767   9.6
-#&gt; </span><span style='color: #BCBCBC;'> 7</span><span> North… Call… carni Carn… vu                   8.7       1.4       0.383  15.3
-#&gt; </span><span style='color: #BCBCBC;'> 8</span><span> Vespe… Calo… </span><span style='color: #BB0000;'>NA</span><span>    Rode… </span><span style='color: #BB0000;'>NA</span><span>                   7        </span><span style='color: #BB0000;'>NA</span><span>        </span><span style='color: #BB0000;'>NA</span><span>      17  
-#&gt; </span><span style='color: #BCBCBC;'> 9</span><span> Dog    Canis carni Carn… domesticated        10.1       2.9       0.333  13.9
-#&gt; </span><span style='color: #BCBCBC;'>10</span><span> Roe d… Capr… herbi Arti… lc                   3        </span><span style='color: #BB0000;'>NA</span><span>        </span><span style='color: #BB0000;'>NA</span><span>      21  
-#&gt; </span><span style='color: #949494;'># … with 73 more rows, and 2 more variables: brainwt &lt;dbl&gt;, bodywt &lt;dbl&gt;</span><span></div><div class='input'><span class='co'># }</span>
-</div></span></pre>
+#&gt;    <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>  <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>              <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>     <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>       <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>
+#&gt; <span style='color: #BCBCBC;'> 1</span> Cheet… Acin… carni Carn… lc                  12.1      <span style='color: #BB0000;'>NA</span>        <span style='color: #BB0000;'>NA</span>      11.9
+#&gt; <span style='color: #BCBCBC;'> 2</span> Owl m… Aotus omni  Prim… <span style='color: #BB0000;'>NA</span>                  17         1.8      <span style='color: #BB0000;'>NA</span>       7  
+#&gt; <span style='color: #BCBCBC;'> 3</span> Mount… Aplo… herbi Rode… nt                  14.4       2.4      <span style='color: #BB0000;'>NA</span>       9.6
+#&gt; <span style='color: #BCBCBC;'> 4</span> Great… Blar… omni  Sori… lc                  14.9       2.3       0.133   9.1
+#&gt; <span style='color: #BCBCBC;'> 5</span> Cow    Bos   herbi Arti… domesticated         4         0.7       0.667  20  
+#&gt; <span style='color: #BCBCBC;'> 6</span> Three… Brad… herbi Pilo… <span style='color: #BB0000;'>NA</span>                  14.4       2.2       0.767   9.6
+#&gt; <span style='color: #BCBCBC;'> 7</span> North… Call… carni Carn… vu                   8.7       1.4       0.383  15.3
+#&gt; <span style='color: #BCBCBC;'> 8</span> Vespe… Calo… <span style='color: #BB0000;'>NA</span>    Rode… <span style='color: #BB0000;'>NA</span>                   7        <span style='color: #BB0000;'>NA</span>        <span style='color: #BB0000;'>NA</span>      17  
+#&gt; <span style='color: #BCBCBC;'> 9</span> Dog    Canis carni Carn… domesticated        10.1       2.9       0.333  13.9
+#&gt; <span style='color: #BCBCBC;'>10</span> Roe d… Capr… herbi Arti… lc                   3        <span style='color: #BB0000;'>NA</span>        <span style='color: #BB0000;'>NA</span>      21  
+#&gt; <span style='color: #949494;'># … with 73 more rows, and 2 more variables: brainwt &lt;dbl&gt;, bodywt &lt;dbl&gt;</span></div><div class='input'><span class='co'># }</span>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
