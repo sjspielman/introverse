@@ -280,12 +280,13 @@ blockquote {
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Or, use :: notation</span></span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>tidyr<span class="sc">::</span><span class="fu">pivot_longer</span>()</span></code></pre></div>
 </div>
-<div id="conceptual-usage" class="section level2">
-<h2>Conceptual usage</h2>
+<div id="conceptual-usage" class="section level3">
+<h3>Conceptual Usage</h3>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>tibble <span class="sc">%&gt;%</span> </span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(columns to pivot from wide to long,</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_to =</span> <span class="st">&quot;name of new column that will contain the old column names&quot;</span>,</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>               <span class="at">values_to =</span> <span class="st">&quot;name of new column that will contain the values from the old columns&quot;</span>)</span></code></pre></div>
+</div>
 <div id="examples" class="section level3">
 <h3>Examples</h3>
 <p>This example uses the dataset <code>tb_cases_wide</code>, which is a wide tibble showing how many cases of Tuberculosis were recorded in each country in the given year.</p>
@@ -311,7 +312,6 @@ blockquote {
 ## 4 Brazil      2000               80488
 ## 5 China       1999              212258
 ## 6 China       2000              213766</code></pre>
-</div>
 </div>
 
 

@@ -281,8 +281,8 @@ blockquote {
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Or, use :: notation</span></span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>dplyr<span class="sc">::</span><span class="fu">if_else</span>()</span></code></pre></div>
 </div>
-<div id="conceptual-usage" class="section level2">
-<h2>Conceptual usage</h2>
+<div id="conceptual-usage" class="section level3">
+<h3>Conceptual Usage</h3>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">if_else</span>(logical statement, </span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>        value <span class="cf">if</span> statement is <span class="st">`</span><span class="at">TRUE</span><span class="st">`</span>, </span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>        value <span class="cf">if</span> statement is <span class="st">`</span><span class="at">FALSE</span><span class="st">`</span>)</span>
@@ -292,25 +292,39 @@ blockquote {
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>                              value <span class="cf">for</span> new_column <span class="cf">if</span> statement is <span class="st">`</span><span class="at">TRUE</span><span class="st">`</span>, </span>
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>                              value <span class="cf">for</span> new_column <span class="cf">if</span> statement is <span class="st">`</span><span class="at">FALSE</span><span class="st">`</span>)</span>
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div>
+</div>
 <div id="examples" class="section level3">
 <h3>Examples</h3>
-<blockquote>
-<p>Run <code>get_help(&quot;carnivores&quot;)</code> for a refresher on the <code>carnivores</code> dataset.</p>
-</blockquote>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Return the value 5 if it is TRUE that 10 &lt; 4. Otherwise, return the value 7.</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">if_else</span>(<span class="dv">10</span> <span class="sc">&lt;</span> <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">7</span>)</span></code></pre></div>
+<p>Some examples below use the <code>carnivores</code> dataset. Learn more about this dataset with <code>get_help(&quot;carnivores&quot;)</code>.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the carnivores dataset</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>carnivores</span></code></pre></div>
+<pre><code>## # A tibble: 9 x 4
+##   name              genus        awake brainwt
+##   &lt;chr&gt;             &lt;chr&gt;        &lt;dbl&gt;   &lt;dbl&gt;
+## 1 Arctic fox        Vulpes        11.5  0.0445
+## 2 Cheetah           Acinonyx      11.9 NA     
+## 3 Dog               Canis         13.9  0.07  
+## 4 Gray seal         Haliochoerus  17.8  0.325 
+## 5 Jaguar            Panthera      13.6  0.157 
+## 6 Lion              Panthera      10.5 NA     
+## 7 Northern fur seal Callorhinus   15.3 NA     
+## 8 Red fox           Vulpes        14.2  0.0504
+## 9 Tiger             Panthera       8.2 NA</code></pre>
+<p><br></p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Return the value 5 if it is TRUE that 10 &lt; 4. Otherwise, return the value 7.</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">if_else</span>(<span class="dv">10</span> <span class="sc">&lt;</span> <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">7</span>)</span></code></pre></div>
 <pre><code>## [1] 7</code></pre>
 <p><br> <!-- Do not delete the <br>, and make sure to keep the previous and following lines blank. --></p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Return the value 5 if it is TRUE that 10 &lt; 100. Otherwise, return the value &#39;string&#39;. </span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="do">## But wait! This code will result in an ERROR since 5 is a number but &#39;string&#39; is character (different types!)&quot;,</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="fu">if_else</span>(<span class="dv">10</span> <span class="sc">&lt;</span> <span class="dv">100</span>, <span class="dv">5</span>, <span class="st">&#39;string&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Return the value 5 if it is TRUE that 10 &lt; 100. Otherwise, return the value &#39;string&#39;. </span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="do">## But wait! This code will result in an ERROR since 5 is a number but &#39;string&#39; is character (different types!)&quot;,</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="fu">if_else</span>(<span class="dv">10</span> <span class="sc">&lt;</span> <span class="dv">100</span>, <span class="dv">5</span>, <span class="st">&#39;string&#39;</span>)</span></code></pre></div>
 <pre><code>## Error: `false` must be a double vector, not a character vector.</code></pre>
 <p><br></p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Use if_else to help create a new column called `how_awake` in `carnivores` that will be:</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="do">## &quot;alert&quot; if awake &gt;= 15 and &quot;sleepy&quot; otherwise.</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>carnivores <span class="sc">%&gt;%</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">how_awake =</span> <span class="fu">if_else</span>(awake <span class="sc">&gt;=</span><span class="dv">15</span>, <span class="st">&quot;alert&quot;</span>, <span class="st">&quot;sleepy&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Use if_else to help create a new column called `how_awake` in `carnivores` that will be:</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="do">## &quot;alert&quot; if awake &gt;= 15 and &quot;sleepy&quot; otherwise.</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>carnivores <span class="sc">%&gt;%</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">how_awake =</span> <span class="fu">if_else</span>(awake <span class="sc">&gt;=</span> <span class="dv">15</span>, <span class="st">&quot;alert&quot;</span>, <span class="st">&quot;sleepy&quot;</span>))</span></code></pre></div>
 <pre><code>## # A tibble: 9 x 5
 ##   name              genus        awake brainwt how_awake
 ##   &lt;chr&gt;             &lt;chr&gt;        &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;    
@@ -323,7 +337,6 @@ blockquote {
 ## 7 Northern fur seal Callorhinus   15.3 NA      alert    
 ## 8 Red fox           Vulpes        14.2  0.0504 sleepy   
 ## 9 Tiger             Panthera       8.2 NA      sleepy</code></pre>
-</div>
 </div>
 
 

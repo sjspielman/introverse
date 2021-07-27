@@ -272,12 +272,13 @@ blockquote {
 <p>We use this function to create new data frames from scratch. By default, data frames print in full and show row numbers or names, which are not columns.</p>
 <p>Note that the <code>{tidyverse}</code> introduced a variant on the data frame, known as the <strong>tibble</strong>, which prints more visibly and is generally nicer to work with. We can also directly create tibbles with the <code>{tibble}</code> package functions <code>tibble()</code> or <code>tribble()</code>.</p>
 </div>
-<div id="conceptual-usage" class="section level2">
-<h2>Conceptual usage</h2>
+<div id="conceptual-usage" class="section level3">
+<h3>Conceptual Usage</h3>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>new_data_frame <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">first_column_name  =</span> values <span class="cf">for</span> first column,</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">second_column_name =</span> values <span class="cf">for</span> second column,</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>...etc <span class="cf">for</span> more columns...)</span></code></pre></div>
+</div>
 <div id="examples" class="section level3">
 <h3>Examples</h3>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define a data frame with two columns `a` and `b`, </span></span>
@@ -291,7 +292,6 @@ blockquote {
 ## 4 15 o
 ## 5 16 u
 ## 6 17 y</code></pre>
-</div>
 </div>
 
 

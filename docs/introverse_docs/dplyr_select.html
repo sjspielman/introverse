@@ -280,8 +280,8 @@ blockquote {
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Or, use :: notation</span></span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>dplyr<span class="sc">::</span><span class="fu">select</span>()</span></code></pre></div>
 </div>
-<div id="conceptual-usage" class="section level2">
-<h2>Conceptual usage</h2>
+<div id="conceptual-usage" class="section level3">
+<h3>Conceptual Usage</h3>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>tibble <span class="sc">%&gt;%</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(single column to keep)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -293,14 +293,28 @@ blockquote {
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>tibble <span class="sc">%&gt;%</span> </span>
 <span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>columns, <span class="sc">-</span>you, <span class="sc">-</span>want, <span class="sc">-</span>to, <span class="sc">-</span>remove)</span></code></pre></div>
+</div>
 <div id="examples" class="section level3">
 <h3>Examples</h3>
-<blockquote>
-<p>Run <code>get_help(&quot;carnivores&quot;)</code> for a refresher on the <code>carnivores</code> dataset.</p>
-</blockquote>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Keep only the columns name and genus from carnivores</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>carnivores <span class="sc">%&gt;%</span> </span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(name, genus)</span></code></pre></div>
+<p>The examples below use the <code>carnivores</code> dataset. Learn more about this dataset with <code>get_help(&quot;carnivores&quot;)</code>.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the carnivores dataset</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>carnivores</span></code></pre></div>
+<pre><code>## # A tibble: 9 x 4
+##   name              genus        awake brainwt
+##   &lt;chr&gt;             &lt;chr&gt;        &lt;dbl&gt;   &lt;dbl&gt;
+## 1 Arctic fox        Vulpes        11.5  0.0445
+## 2 Cheetah           Acinonyx      11.9 NA     
+## 3 Dog               Canis         13.9  0.07  
+## 4 Gray seal         Haliochoerus  17.8  0.325 
+## 5 Jaguar            Panthera      13.6  0.157 
+## 6 Lion              Panthera      10.5 NA     
+## 7 Northern fur seal Callorhinus   15.3 NA     
+## 8 Red fox           Vulpes        14.2  0.0504
+## 9 Tiger             Panthera       8.2 NA</code></pre>
+<p><br></p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Keep only the columns name and genus from carnivores</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>carnivores <span class="sc">%&gt;%</span> </span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(name, genus)</span></code></pre></div>
 <pre><code>## # A tibble: 9 x 2
 ##   name              genus       
 ##   &lt;chr&gt;             &lt;chr&gt;       
@@ -314,9 +328,9 @@ blockquote {
 ## 8 Red fox           Vulpes      
 ## 9 Tiger             Panthera</code></pre>
 <p><br> <!-- Do not delete the <br>, and make sure to keep the previous and following lines blank. --></p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Remove the column genus from carnivores</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>carnivores <span class="sc">%&gt;%</span> </span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>genus)</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Remove the column genus from carnivores</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>carnivores <span class="sc">%&gt;%</span> </span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>genus)</span></code></pre></div>
 <pre><code>## # A tibble: 9 x 3
 ##   name              awake brainwt
 ##   &lt;chr&gt;             &lt;dbl&gt;   &lt;dbl&gt;
@@ -330,9 +344,9 @@ blockquote {
 ## 8 Red fox            14.2  0.0504
 ## 9 Tiger               8.2 NA</code></pre>
 <p><br></p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Remove the columns genus and awake from carnivores</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>carnivores <span class="sc">%&gt;%</span> </span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>genus, <span class="sc">-</span>awake)</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Remove the columns genus and awake from carnivores</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>carnivores <span class="sc">%&gt;%</span> </span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>genus, <span class="sc">-</span>awake)</span></code></pre></div>
 <pre><code>## # A tibble: 9 x 2
 ##   name              brainwt
 ##   &lt;chr&gt;               &lt;dbl&gt;
@@ -346,9 +360,9 @@ blockquote {
 ## 8 Red fox            0.0504
 ## 9 Tiger             NA</code></pre>
 <p><br></p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Reorder the columns in order: genus, name, brainwt, awake</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>carnivores <span class="sc">%&gt;%</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(genus, name, brainwt, awake)</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Reorder the columns in order: genus, name, brainwt, awake</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>carnivores <span class="sc">%&gt;%</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(genus, name, brainwt, awake)</span></code></pre></div>
 <pre><code>## # A tibble: 9 x 4
 ##   genus        name              brainwt awake
 ##   &lt;chr&gt;        &lt;chr&gt;               &lt;dbl&gt; &lt;dbl&gt;
@@ -361,7 +375,6 @@ blockquote {
 ## 7 Callorhinus  Northern fur seal NA       15.3
 ## 8 Vulpes       Red fox            0.0504  14.2
 ## 9 Panthera     Tiger             NA        8.2</code></pre>
-</div>
 </div>
 
 

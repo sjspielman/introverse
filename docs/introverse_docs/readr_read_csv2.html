@@ -315,12 +315,13 @@ blockquote {
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>readr<span class="sc">::</span><span class="fu">read_csv2</span>()</span>
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>readr<span class="sc">::</span><span class="fu">read_delim</span>()</span></code></pre></div>
 </div>
-<div id="conceptual-usage" class="section level2">
-<h2>Conceptual usage</h2>
+<div id="conceptual-usage" class="section level3">
+<h3>Conceptual Usage</h3>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">read_csv</span>(<span class="st">&quot;path/to/file/to/read/in/file.csv&quot;</span>)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">read_tsv</span>(<span class="st">&quot;path/to/file/to/read/in/file.tsv&quot;</span>)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">read_csv2</span>(<span class="st">&quot;path/to/file/to/read/in/file.csv&quot;</span>)</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">read_delim</span>(<span class="st">&quot;path/to/file/to/read/in/file.csv&quot;</span>, <span class="at">delim =</span> <span class="st">&quot;,&quot;</span>) <span class="co"># for example, a comma delimiter </span></span></code></pre></div>
+</div>
 <div id="examples" class="section level3">
 <h3>Examples</h3>
 <p><br></p>
@@ -340,7 +341,6 @@ blockquote {
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Your file &#39;does not exist in current working directory&#39;</span></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>my_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;this_file_doesnt_exist.csv&quot;</span>)</span></code></pre></div>
 <pre><code>## Error: &#39;this_file_doesnt_exist.csv&#39; does not exist in current working directory (&#39;/Users/spielman/Projects/introverse/inst/rmd_topics&#39;).</code></pre>
-</div>
 </div>
 
 

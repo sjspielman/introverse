@@ -280,8 +280,8 @@ blockquote {
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Or, use :: notation</span></span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>dplyr<span class="sc">::</span><span class="fu">mutate</span>()</span></code></pre></div>
 </div>
-<div id="conceptual-usage" class="section level2">
-<h2>Conceptual usage</h2>
+<div id="conceptual-usage" class="section level3">
+<h3>Conceptual Usage</h3>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>tibble <span class="sc">%&gt;%</span> </span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">name_of_new_column =</span> what to put <span class="cf">in</span> new column)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -289,14 +289,28 @@ blockquote {
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">name_of_first_new_column =</span> what to put <span class="cf">in</span> this new column,</span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">name_of_second_new_column =</span> what to put <span class="cf">in</span> this new column,          </span>
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>         etc. as needed)</span></code></pre></div>
+</div>
 <div id="examples" class="section level3">
 <h3>Examples</h3>
-<blockquote>
-<p>Run <code>get_help(&quot;carnivores&quot;)</code> for a refresher on the <code>carnivores</code> dataset.</p>
-</blockquote>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a new column called `my_new_column` that literally contains the value `5` at all rows</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>carnivores <span class="sc">%&gt;%</span> </span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">my_new_column =</span>  <span class="dv">5</span>)</span></code></pre></div>
+<p>The examples below use the <code>carnivores</code> dataset. Learn more about this dataset with <code>get_help(&quot;carnivores&quot;)</code>.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the carnivores dataset</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>carnivores</span></code></pre></div>
+<pre><code>## # A tibble: 9 x 4
+##   name              genus        awake brainwt
+##   &lt;chr&gt;             &lt;chr&gt;        &lt;dbl&gt;   &lt;dbl&gt;
+## 1 Arctic fox        Vulpes        11.5  0.0445
+## 2 Cheetah           Acinonyx      11.9 NA     
+## 3 Dog               Canis         13.9  0.07  
+## 4 Gray seal         Haliochoerus  17.8  0.325 
+## 5 Jaguar            Panthera      13.6  0.157 
+## 6 Lion              Panthera      10.5 NA     
+## 7 Northern fur seal Callorhinus   15.3 NA     
+## 8 Red fox           Vulpes        14.2  0.0504
+## 9 Tiger             Panthera       8.2 NA</code></pre>
+<p><br></p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a new column called `my_new_column` that literally contains the value `5` at all rows</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>carnivores <span class="sc">%&gt;%</span> </span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">my_new_column =</span>  <span class="dv">5</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 9 x 5
 ##   name              genus        awake brainwt my_new_column
 ##   &lt;chr&gt;             &lt;chr&gt;        &lt;dbl&gt;   &lt;dbl&gt;         &lt;dbl&gt;
@@ -310,9 +324,9 @@ blockquote {
 ## 8 Red fox           Vulpes        14.2  0.0504             5
 ## 9 Tiger             Panthera       8.2 NA                  5</code></pre>
 <p><br> <!-- Do not delete the <br>, and make sure to keep the previous and following lines blank. --></p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a new column `brainwt_g` that contains brain weight in g, instead of kg.</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>carnivores <span class="sc">%&gt;%</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">brainwt_g =</span> brainwt <span class="sc">*</span> <span class="dv">1000</span>) <span class="co"># multiply by 1000 to convert kg --&gt; g</span></span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a new column `brainwt_g` that contains brain weight in g, instead of kg.</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>carnivores <span class="sc">%&gt;%</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">brainwt_g =</span> brainwt <span class="sc">*</span> <span class="dv">1000</span>) <span class="co"># multiply by 1000 to convert kg --&gt; g</span></span></code></pre></div>
 <pre><code>## # A tibble: 9 x 5
 ##   name              genus        awake brainwt brainwt_g
 ##   &lt;chr&gt;             &lt;chr&gt;        &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;
@@ -326,10 +340,10 @@ blockquote {
 ## 8 Red fox           Vulpes        14.2  0.0504      50.4
 ## 9 Tiger             Panthera       8.2 NA           NA</code></pre>
 <p><br></p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a new column `little_name` that contains the `name` values in lower case.</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co"># We&#39;ll use the function stringr::str_to_lower() to convert strings to lower case</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>carnivores <span class="sc">%&gt;%</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">little_name =</span> stringr<span class="sc">::</span><span class="fu">str_to_lower</span>(name))</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a new column `little_name` that contains the `name` values in lower case.</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co"># We&#39;ll use the function stringr::str_to_lower() to convert strings to lower case</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>carnivores <span class="sc">%&gt;%</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">little_name =</span> stringr<span class="sc">::</span><span class="fu">str_to_lower</span>(name))</span></code></pre></div>
 <pre><code>## # A tibble: 9 x 5
 ##   name              genus        awake brainwt little_name      
 ##   &lt;chr&gt;             &lt;chr&gt;        &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;            
@@ -343,9 +357,9 @@ blockquote {
 ## 8 Red fox           Vulpes        14.2  0.0504 red fox          
 ## 9 Tiger             Panthera       8.2 NA      tiger</code></pre>
 <p><br></p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Use mutate() to change the column `genus` into a factor instead of character</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>carnivores <span class="sc">%&gt;%</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">genus =</span> <span class="fu">as.factor</span>(genus))</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Use mutate() to change the column `genus` into a factor instead of character</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>carnivores <span class="sc">%&gt;%</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">genus =</span> <span class="fu">as.factor</span>(genus))</span></code></pre></div>
 <pre><code>## # A tibble: 9 x 4
 ##   name              genus        awake brainwt
 ##   &lt;chr&gt;             &lt;fct&gt;        &lt;dbl&gt;   &lt;dbl&gt;
@@ -358,7 +372,6 @@ blockquote {
 ## 7 Northern fur seal Callorhinus   15.3 NA     
 ## 8 Red fox           Vulpes        14.2  0.0504
 ## 9 Tiger             Panthera       8.2 NA</code></pre>
-</div>
 </div>
 
 

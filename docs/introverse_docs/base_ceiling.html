@@ -271,34 +271,48 @@ blockquote {
 <p>The <code>ceiling()</code> and <code>floor()</code> functions come with R and are part of the <code>{base}</code> package.</p>
 <p>We use these functions to round decimals up (<code>ceiling()</code>) or down (<code>floor()</code>) to the closest integer.</p>
 </div>
-<div id="conceptual-usage" class="section level2">
-<h2>Conceptual usage</h2>
+<div id="conceptual-usage" class="section level3">
+<h3>Conceptual Usage</h3>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ceiling</span>(numeric value to round up)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">floor</span>(numeric value to round down)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ceiling</span>(numeric array to round up)</span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">floor</span>(numeric array to round down)</span></code></pre></div>
+</div>
 <div id="examples" class="section level3">
 <h3>Examples</h3>
-<blockquote>
-<p>Run <code>get_help(&quot;carnivores&quot;)</code> for a refresher on the <code>carnivores</code> dataset.</p>
-</blockquote>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Round the number 5.355266335 up</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ceiling</span>(<span class="fl">5.355266335</span>)</span></code></pre></div>
+<p>Some examples below use the <code>carnivores</code> dataset. Learn more about this dataset with <code>get_help(&quot;carnivores&quot;)</code>.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the carnivores dataset</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>carnivores</span></code></pre></div>
+<pre><code>## # A tibble: 9 x 4
+##   name              genus        awake brainwt
+##   &lt;chr&gt;             &lt;chr&gt;        &lt;dbl&gt;   &lt;dbl&gt;
+## 1 Arctic fox        Vulpes        11.5  0.0445
+## 2 Cheetah           Acinonyx      11.9 NA     
+## 3 Dog               Canis         13.9  0.07  
+## 4 Gray seal         Haliochoerus  17.8  0.325 
+## 5 Jaguar            Panthera      13.6  0.157 
+## 6 Lion              Panthera      10.5 NA     
+## 7 Northern fur seal Callorhinus   15.3 NA     
+## 8 Red fox           Vulpes        14.2  0.0504
+## 9 Tiger             Panthera       8.2 NA</code></pre>
+<p><br></p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Round the number 5.355266335 up</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ceiling</span>(<span class="fl">5.355266335</span>)</span></code></pre></div>
 <pre><code>## [1] 6</code></pre>
 <p><br></p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Round the number 5.355266335 down</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">floor</span>(<span class="fl">5.355266335</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Round the number 5.355266335 down</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">floor</span>(<span class="fl">5.355266335</span>)</span></code></pre></div>
 <pre><code>## [1] 5</code></pre>
 <p><br></p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Round the array down</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>some_decimals <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">101.345</span>, <span class="fl">102.298</span>, <span class="fl">103.887</span>)</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">floor</span>(some_decimals)</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Round the array down</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>some_decimals <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">101.345</span>, <span class="fl">102.298</span>, <span class="fl">103.887</span>)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">floor</span>(some_decimals)</span></code></pre></div>
 <pre><code>## [1] 101 102 103</code></pre>
 <p><br></p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Round up values in the `carnivores` column `awake`</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>carnivores <span class="sc">%&gt;%</span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">awake_rounded_up =</span> <span class="fu">ceiling</span>(awake))</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Round up values in the `carnivores` column `awake`</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>carnivores <span class="sc">%&gt;%</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">awake_rounded_up =</span> <span class="fu">ceiling</span>(awake))</span></code></pre></div>
 <pre><code>## # A tibble: 9 x 5
 ##   name              genus        awake brainwt awake_rounded_up
 ##   &lt;chr&gt;             &lt;chr&gt;        &lt;dbl&gt;   &lt;dbl&gt;            &lt;dbl&gt;
@@ -311,7 +325,6 @@ blockquote {
 ## 7 Northern fur seal Callorhinus   15.3 NA                    16
 ## 8 Red fox           Vulpes        14.2  0.0504               15
 ## 9 Tiger             Panthera       8.2 NA                     9</code></pre>
-</div>
 </div>
 
 

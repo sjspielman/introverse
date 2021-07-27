@@ -271,26 +271,39 @@ blockquote {
 <p>The <code>levels()</code> function comes with R and is part of the Base R <code>{base}</code> package.</p>
 <p>We use this function to find the levels, aka ordered categories, of a factor variable. Any <code>NA</code> values will be ignored and not considered separate levels. If the provided value is not a factor type, the result will be <code>NULL</code>.</p>
 </div>
-<div id="conceptual-usage" class="section level2">
-<h2>Conceptual usage</h2>
+<div id="conceptual-usage" class="section level3">
+<h3>Conceptual Usage</h3>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(factor variable)</span></code></pre></div>
+</div>
 <div id="examples" class="section level3">
 <h3>Examples</h3>
-<blockquote>
-<p>Run <code>get_help(&quot;msleep&quot;)</code> for a refresher on the <code>msleep</code> dataset.</p>
-</blockquote>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define a factor for the example from the character variable `msleep$vore`</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>my_factor <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(msleep<span class="sc">$</span>vore)</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Show levels of the factor variable:</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(my_factor)</span></code></pre></div>
-<pre><code>## [1] &quot;carni&quot;   &quot;herbi&quot;   &quot;insecti&quot; &quot;omni&quot;</code></pre>
+<p>The examples below use the <code>carnivores</code> dataset. Learn more about this dataset with <code>get_help(&quot;carnivores&quot;)</code>.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the carnivores dataset</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>carnivores</span></code></pre></div>
+<pre><code>## # A tibble: 9 x 4
+##   name              genus        awake brainwt
+##   &lt;chr&gt;             &lt;chr&gt;        &lt;dbl&gt;   &lt;dbl&gt;
+## 1 Arctic fox        Vulpes        11.5  0.0445
+## 2 Cheetah           Acinonyx      11.9 NA     
+## 3 Dog               Canis         13.9  0.07  
+## 4 Gray seal         Haliochoerus  17.8  0.325 
+## 5 Jaguar            Panthera      13.6  0.157 
+## 6 Lion              Panthera      10.5 NA     
+## 7 Northern fur seal Callorhinus   15.3 NA     
+## 8 Red fox           Vulpes        14.2  0.0504
+## 9 Tiger             Panthera       8.2 NA</code></pre>
 <p><br></p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Trying to find the levels of a non-factor results in NULL</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># msleep$vore is a character column</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(msleep<span class="sc">$</span>vore)</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define a factor for the example from the character variable `carnivores$genus`</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>my_factor <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(carnivores<span class="sc">$</span>genus)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Show levels (ordered categories) of the factor variable:</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(my_factor)</span></code></pre></div>
+<pre><code>## [1] &quot;Acinonyx&quot;     &quot;Callorhinus&quot;  &quot;Canis&quot;        &quot;Haliochoerus&quot; &quot;Panthera&quot;     &quot;Vulpes&quot;</code></pre>
+<p><br></p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Trying to find the levels of a non-factor results in NULL</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co"># carnivores$genus is a character column</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(carnivores<span class="sc">$</span>genus)</span></code></pre></div>
 <pre><code>## NULL</code></pre>
-</div>
 </div>
 
 

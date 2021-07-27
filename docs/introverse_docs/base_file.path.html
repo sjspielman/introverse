@@ -271,9 +271,10 @@ blockquote {
 <p>The <code>file.path()</code> function comes with R and is part of the Base R <code>{base}</code> package.</p>
 <p>We use this function to write paths to files or directories (even though it’s called <code>file.path()</code>!), in a way where the path is guaranteed to work on any type of computer.</p>
 </div>
-<div id="conceptual-usage" class="section level2">
-<h2>Conceptual usage</h2>
+<div id="conceptual-usage" class="section level3">
+<h3>Conceptual Usage</h3>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">file.path</span>(<span class="st">&#39;component&#39;</span>, <span class="st">&#39;of&#39;</span>, <span class="st">&#39;path&#39;</span>, <span class="st">&#39;to&#39;</span>, <span class="st">&#39;thing&#39;</span>, <span class="st">&#39;of&#39;</span>, <span class="st">&#39;interest&#39;</span>)</span></code></pre></div>
+</div>
 <div id="examples" class="section level3">
 <h3>Examples</h3>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Format path to a file that lives in the relative path &#39;path/to/data/file.txt&#39;</span></span>
@@ -284,7 +285,6 @@ blockquote {
 <p><br></p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Format path to directory at the relative path &#39;../../path/to/data/&#39;</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">file.path</span>(<span class="st">&#39;..&#39;</span>, <span class="st">&#39;..&#39;</span>, <span class="st">&#39;path&#39;</span>, <span class="st">&#39;to&#39;</span>, <span class="st">&#39;data&#39;</span>)</span></code></pre></div>
-</div>
 </div>
 
 

@@ -280,31 +280,42 @@ blockquote {
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Or, use :: notation</span></span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>dplyr<span class="sc">::</span><span class="fu">summarize</span>()</span></code></pre></div>
 </div>
-<div id="conceptual-usage" class="section level2">
-<h2>Conceptual usage</h2>
+<div id="conceptual-usage" class="section level3">
+<h3>Conceptual Usage</h3>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>tibble <span class="sc">%&gt;%</span> </span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">name_of_new_column =</span> summary statistic calculation)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>tibble <span class="sc">%&gt;%</span> </span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(grouping column) <span class="sc">%&gt;%</span> </span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">name_of_new_column =</span> summary statistic calculation)</span></code></pre></div>
+</div>
 <div id="examples" class="section level3">
 <h3>Examples</h3>
-<blockquote>
-<p>Run <code>get_help(&quot;msleep&quot;)</code> for a refresher on the <code>msleep</code> dataset.</p>
-</blockquote>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the mean time spent awake</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>msleep <span class="sc">%&gt;%</span> </span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">mean_awake =</span> <span class="fu">mean</span>(awake))</span></code></pre></div>
+<p>The examples below use the <code>msleep</code> dataset. Learn more about this dataset with <code>get_help(&quot;msleep&quot;)</code>.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the msleep dataset with head()</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(msleep)</span></code></pre></div>
+<pre><code>## # A tibble: 6 x 11
+##   name      genus vore  order  conservation sleep_total sleep_rem sleep_cycle awake  brainwt  bodywt
+##   &lt;chr&gt;     &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;              &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;
+## 1 Cheetah   Acin… carni Carni… lc                  12.1      NA        NA      11.9 NA        50    
+## 2 Owl monk… Aotus omni  Prima… &lt;NA&gt;                17         1.8      NA       7    0.0155    0.48 
+## 3 Mountain… Aplo… herbi Roden… nt                  14.4       2.4      NA       9.6 NA         1.35 
+## 4 Greater … Blar… omni  Soric… lc                  14.9       2.3       0.133   9.1  0.00029   0.019
+## 5 Cow       Bos   herbi Artio… domesticated         4         0.7       0.667  20    0.423   600    
+## 6 Three-to… Brad… herbi Pilosa &lt;NA&gt;                14.4       2.2       0.767   9.6 NA         3.85</code></pre>
+<p><br></p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the mean time spent awake</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>msleep <span class="sc">%&gt;%</span> </span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">mean_awake =</span> <span class="fu">mean</span>(awake))</span></code></pre></div>
 <pre><code>## # A tibble: 1 x 1
 ##   mean_awake
 ##        &lt;dbl&gt;
 ## 1       13.6</code></pre>
 <p><br> <!-- Do not delete the <br>, and make sure to keep the previous and following lines blank. --></p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the mean time spent awake for each vore group</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>msleep <span class="sc">%&gt;%</span> </span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(vore) <span class="sc">%&gt;%</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">mean_awake =</span> <span class="fu">mean</span>(awake))</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the mean time spent awake for each vore group</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>msleep <span class="sc">%&gt;%</span> </span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(vore) <span class="sc">%&gt;%</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">mean_awake =</span> <span class="fu">mean</span>(awake))</span></code></pre></div>
 <pre><code>## # A tibble: 5 x 2
 ##   vore    mean_awake
 ##   &lt;chr&gt;        &lt;dbl&gt;
@@ -314,10 +325,10 @@ blockquote {
 ## 4 omni         13.1 
 ## 5 &lt;NA&gt;         13.8</code></pre>
 <p><br></p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the mean time spent awake for each combination of vore and conservation groups</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>msleep <span class="sc">%&gt;%</span> </span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(vore, conservation) <span class="sc">%&gt;%</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">mean_awake =</span> <span class="fu">mean</span>(awake))</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the mean time spent awake for each combination of vore and conservation groups</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>msleep <span class="sc">%&gt;%</span> </span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(vore, conservation) <span class="sc">%&gt;%</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">mean_awake =</span> <span class="fu">mean</span>(awake))</span></code></pre></div>
 <pre><code>## # A tibble: 22 x 3
 ## # Groups:   vore [5]
 ##    vore  conservation mean_awake
@@ -334,16 +345,15 @@ blockquote {
 ## 10 herbi en                 14.9
 ## # … with 12 more rows</code></pre>
 <p><br></p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the median brainwt</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="do">## Caution! Because the brainwt column contains NAs, </span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="do">## we need to use the _argument_ `na.rm = TRUE` with `median()`</span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>msleep <span class="sc">%&gt;%</span> </span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">median_brainwt =</span> <span class="fu">median</span>(brainwt, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the median brainwt</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="do">## Caution! Because the brainwt column contains NAs, </span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="do">## we need to use the _argument_ `na.rm = TRUE` with `median()`</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>msleep <span class="sc">%&gt;%</span> </span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">median_brainwt =</span> <span class="fu">median</span>(brainwt, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code></pre></div>
 <pre><code>## # A tibble: 1 x 1
 ##   median_brainwt
 ##            &lt;dbl&gt;
 ## 1         0.0124</code></pre>
-</div>
 </div>
 
 

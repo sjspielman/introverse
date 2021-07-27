@@ -16,8 +16,12 @@ navbar:
       href: articles/introverse_rstudio.html
     - text: "RStudio reference"
       href: reference/index.html
-    - text: "Additional resources"
-      href: articles/additional_resources.html
+    - text: "Resources and tutorials"
+      menu:
+        - text: "Additional resources"
+          href: articles/additional_resources.html
+        - text: "Customizing ggplot2 axes"
+          href: articles/axes.html
       
 reference:
 - title: Functions

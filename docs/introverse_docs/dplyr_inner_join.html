@@ -281,8 +281,8 @@ blockquote {
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Or, use :: notation</span></span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>dplyr<span class="sc">::</span><span class="fu">inner_join</span>()</span></code></pre></div>
 </div>
-<div id="conceptual-usage" class="section level2">
-<h2>Conceptual usage</h2>
+<div id="conceptual-usage" class="section level3">
+<h3>Conceptual Usage</h3>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">inner_join</span>(left tibble, right tibble)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># is equivalent to:</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">inner_join</span>(right tibble, left tibble)</span>
@@ -294,6 +294,7 @@ blockquote {
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co"># is equivalent to:</span></span>
 <span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>right tibble <span class="sc">%&gt;%</span></span>
 <span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">inner_join</span>(left tibble)</span></code></pre></div>
+</div>
 <div id="examples" class="section level3">
 <h3>Examples</h3>
 <p>Consider the following example datasets, These two tibbles have column names <code>name</code> and <code>vore</code> in common. They both contain rows for “Dog”, “Pig”, and “Rabbit”, but <code>first_tibble</code> also contains “Tiger” and <code>second_tibble</code> also contains “Sheep”.</p>
@@ -336,7 +337,6 @@ blockquote {
 ## 1 Dog    carni Carnivora    domesticated
 ## 2 Pig    omni  Artiodactyla domesticated
 ## 3 Rabbit herbi Lagomorpha   domesticated</code></pre>
-</div>
 </div>
 
 

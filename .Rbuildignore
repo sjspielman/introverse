@@ -22,3 +22,4 @@ documentation_modules/
 build_site.R
 vignettes/introverse_online.Rmd
 vignettes/additional_resources.Rmd
+vignettes/axes.Rmd

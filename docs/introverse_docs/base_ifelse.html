@@ -272,32 +272,46 @@ blockquote {
 <p>We use this function to assign a value based on whether a logical statement is <code>TRUE</code> or <code>FALSE</code>.</p>
 <p>Note that there is a <code>{dplyr}</code> package version of this function (<a href="https://dplyr.tidyverse.org/reference/if_else.html"><code>dplyr::if_else()</code></a>, with an underscore) that can be used in exactly the same way, but the <code>{dplyr}</code> version enforces that the resulting values must always be the same type.</p>
 </div>
-<div id="conceptual-usage" class="section level2">
-<h2>Conceptual usage</h2>
+<div id="conceptual-usage" class="section level3">
+<h3>Conceptual Usage</h3>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ifelse</span>(logical statement, </span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>       value to use <span class="cf">if</span> statement is <span class="st">`</span><span class="at">TRUE</span><span class="st">`</span>, </span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>       value to useif statement is <span class="st">`</span><span class="at">FALSE</span><span class="st">`</span>)</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="er">}</span></span></code></pre></div>
+</div>
 <div id="examples" class="section level3">
 <h3>Examples</h3>
-<blockquote>
-<p>Run <code>get_help(&quot;carnivores&quot;)</code> for a refresher on the <code>carnivores</code> dataset.</p>
-</blockquote>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Return the value 5 if it is TRUE that 10 &lt; 4. </span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Otherwise, return the value 7.</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ifelse</span>(<span class="dv">10</span> <span class="sc">&lt;</span> <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">7</span>)</span></code></pre></div>
+<p>Some examples below use the <code>carnivores</code> dataset. Learn more about this dataset with <code>get_help(&quot;carnivores&quot;)</code>.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the carnivores dataset</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>carnivores</span></code></pre></div>
+<pre><code>## # A tibble: 9 x 4
+##   name              genus        awake brainwt
+##   &lt;chr&gt;             &lt;chr&gt;        &lt;dbl&gt;   &lt;dbl&gt;
+## 1 Arctic fox        Vulpes        11.5  0.0445
+## 2 Cheetah           Acinonyx      11.9 NA     
+## 3 Dog               Canis         13.9  0.07  
+## 4 Gray seal         Haliochoerus  17.8  0.325 
+## 5 Jaguar            Panthera      13.6  0.157 
+## 6 Lion              Panthera      10.5 NA     
+## 7 Northern fur seal Callorhinus   15.3 NA     
+## 8 Red fox           Vulpes        14.2  0.0504
+## 9 Tiger             Panthera       8.2 NA</code></pre>
+<p><br></p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Return the value 5 if it is TRUE that 10 &lt; 4. </span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Otherwise, return the value 7.</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ifelse</span>(<span class="dv">10</span> <span class="sc">&lt;</span> <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">7</span>)</span></code></pre></div>
 <pre><code>## [1] 7</code></pre>
 <p><br></p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Return the value 5 if it is TRUE that 10 &lt; 100. </span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Otherwise, return the value &#39;string&#39;. </span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Note: This will *not work* with the {dplyr} version `if_else()` since 5 is a number but &#39;string&#39; is character (different types!)</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ifelse</span>(<span class="dv">10</span> <span class="sc">&lt;</span> <span class="dv">100</span>, <span class="dv">5</span>, <span class="st">&#39;string&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Return the value 5 if it is TRUE that 10 &lt; 100. </span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Otherwise, return the value &#39;string&#39;. </span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Note: This will *not work* with the {dplyr} version `if_else()` since 5 is a number but &#39;string&#39; is character (different types!)</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ifelse</span>(<span class="dv">10</span> <span class="sc">&lt;</span> <span class="dv">100</span>, <span class="dv">5</span>, <span class="st">&#39;string&#39;</span>)</span></code></pre></div>
 <pre><code>## [1] 5</code></pre>
 <p><br></p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Use ifelse to create a new column `sleeps_alot` that will contain</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co"># &quot;yes&quot; if `awake` &lt;= 10, and &quot;no&quot; otherwise</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>carnivores <span class="sc">%&gt;%</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">sleeps_alot =</span> <span class="fu">ifelse</span>(awake <span class="sc">&lt;=</span> <span class="dv">10</span>, <span class="st">&quot;yes&quot;</span>, <span class="st">&quot;no&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Use ifelse to create a new column `sleeps_alot` that will contain</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co"># &quot;yes&quot; if `awake` &lt;= 10, and &quot;no&quot; otherwise</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>carnivores <span class="sc">%&gt;%</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">sleeps_alot =</span> <span class="fu">ifelse</span>(awake <span class="sc">&lt;=</span> <span class="dv">10</span>, <span class="st">&quot;yes&quot;</span>, <span class="st">&quot;no&quot;</span>))</span></code></pre></div>
 <pre><code>## # A tibble: 9 x 5
 ##   name              genus        awake brainwt sleeps_alot
 ##   &lt;chr&gt;             &lt;chr&gt;        &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;      
@@ -310,7 +324,6 @@ blockquote {
 ## 7 Northern fur seal Callorhinus   15.3 NA      no         
 ## 8 Red fox           Vulpes        14.2  0.0504 no         
 ## 9 Tiger             Panthera       8.2 NA      yes</code></pre>
-</div>
 </div>
 
 

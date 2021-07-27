@@ -202,21 +202,30 @@ library(tidyverse)
 
 # Or, use :: notation
 dplyr::bind_cols()</code></pre>
-</div>
-<div id="conceptual-usage" class="section level2">
-<h2>Conceptual usage</h2>
+<div id="conceptual-usage" class="section level3">
+<h3>Conceptual Usage</h3>
 <pre class="r"><code># Remember that both tibbles (or both arrays) must have the same number of rows in the same order to be able to bind them
 
 bind_cols(first tibble, second tibble)
 
 bind_cols(first array, second array)</code></pre>
 </div>
+</div>
 <div id="examples" class="section level2">
 <h2>Examples</h2>
-<blockquote>
-<p>Need a refresher on the <code>msleep</code> dataset? Run <code>get_help(&quot;msleep&quot;)</code> for more information.</p>
-</blockquote>
-<!-- Add a <br> if there is NO DATASET REFRESHER!! Otherwise the refresher takes up enough space. -->
+<p>The examples below use the <code>msleep</code> dataset. Learn more about this dataset with <code>get_help(&quot;msleep&quot;)</code>.</p>
+<pre class="r"><code># Show the msleep dataset with head()
+head(msleep)</code></pre>
+<pre><code>## # A tibble: 6 x 11
+##   name      genus vore  order  conservation sleep_total sleep_rem sleep_cycle awake  brainwt  bodywt
+##   &lt;chr&gt;     &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;              &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;
+## 1 Cheetah   Acin… carni Carni… lc                  12.1      NA        NA      11.9 NA        50    
+## 2 Owl monk… Aotus omni  Prima… &lt;NA&gt;                17         1.8      NA       7    0.0155    0.48 
+## 3 Mountain… Aplo… herbi Roden… nt                  14.4       2.4      NA       9.6 NA         1.35 
+## 4 Greater … Blar… omni  Soric… lc                  14.9       2.3       0.133   9.1  0.00029   0.019
+## 5 Cow       Bos   herbi Artio… domesticated         4         0.7       0.667  20    0.423   600    
+## 6 Three-to… Brad… herbi Pilosa &lt;NA&gt;                14.4       2.2       0.767   9.6 NA         3.85</code></pre>
+<p><br> <!-- Add a <br> if there is NO DATASET REFRESHER!! Otherwise the refresher takes up enough space. --></p>
 <pre class="r"><code># Use bind_cols() to combine two compatible arrays into a single tibble containing those arrays as its columns.
 array1 &lt;- 1:3
 array2 &lt;- 4:6

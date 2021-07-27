@@ -280,8 +280,8 @@ blockquote {
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Or, use :: notation</span></span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>tidyr<span class="sc">::</span><span class="fu">separate</span>()</span></code></pre></div>
 </div>
-<div id="conceptual-usage" class="section level2">
-<h2>Conceptual usage</h2>
+<div id="conceptual-usage" class="section level3">
+<h3>Conceptual Usage</h3>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>tibble <span class="sc">%&gt;%</span> </span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">separate</span>(column to separate, </span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">into =</span> <span class="fu">c</span>(<span class="st">&quot;first new column&quot;</span>, <span class="st">&quot;second new column&quot;</span>))</span>
@@ -290,6 +290,7 @@ blockquote {
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">separate</span>(column to separate, </span>
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>           <span class="at">into =</span> <span class="fu">c</span>(<span class="st">&quot;first new column&quot;</span>, <span class="st">&quot;second new column&quot;</span>), </span>
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>           <span class="at">sep =</span> <span class="st">&quot;character to separate columns on in case `separate()` guesses poorly&quot;</span>)</span></code></pre></div>
+</div>
 <div id="examples" class="section level3">
 <h3>Examples</h3>
 <p>The first two examples use this dataset, which contains some names of notable biologists:</p>
@@ -350,7 +351,6 @@ blockquote {
 ## 1 banana            1    15
 ## 2 pomegranate       3    85
 ## 3 avocado           2     2</code></pre>
-</div>
 </div>
 
 

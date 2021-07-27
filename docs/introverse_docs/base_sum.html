@@ -268,7 +268,7 @@ blockquote {
 <p><br></p>
 <div id="description" class="section level3">
 <h3>Description</h3>
-<p>R comes with several functions (in its <code>{base}</code> package) that are used to <em>calculate summary statistics</em> from numeric arrays. The greatest hits of R summary statistics functions include the following:</p>
+<p>R comes with several functions (in its <code>{base}</code> and <code>{stats}</code> packages) that are used to <em>calculate summary statistics</em> from numeric arrays. The greatest hits of R summary statistics functions include the following:</p>
 <table>
 <thead>
 <tr class="header">
@@ -303,66 +303,93 @@ blockquote {
 </tr>
 </tbody>
 </table>
-<p>Note, there is no function to calculate the mode of a numeric array.</p>
+<p>Note, there is no function to calculate the mode (most commonly appearing value) of a numeric array.</p>
 <p><br></p>
 <p>By default, if the array you want to summarize contains any <code>NA</code> values, all functions above will return <code>NA</code>; R is very conservative when it encounters missing data. To <em>ignore <code>NA</code> values</em> during calculations, provide the second argument <code>na.rm = TRUE</code> when using any of the functions.</p>
 </div>
-<div id="conceptual-usage" class="section level2">
-<h2>Conceptual usage</h2>
+<div id="conceptual-usage" class="section level3">
+<h3>Conceptual Usage</h3>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(array to summarize)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(array with NAs to summarize, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+</div>
 <div id="examples" class="section level3">
 <h3>Examples</h3>
-<blockquote>
-<p>Run <code>get_help(&quot;msleep&quot;)</code> for a refresher on the <code>msleep</code> dataset.</p>
-</blockquote>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Summarize an array directly</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>( <span class="fu">c</span>(<span class="dv">100</span>, <span class="dv">125</span>, <span class="dv">145</span>, <span class="dv">167</span>) )</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 134.25</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>( <span class="fu">c</span>(<span class="dv">100</span>, <span class="dv">125</span>, <span class="dv">145</span>, <span class="dv">167</span>) )</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 135</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>( <span class="fu">c</span>(<span class="dv">100</span>, <span class="dv">125</span>, <span class="dv">145</span>, <span class="dv">167</span>) )</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 28.55842</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>( <span class="fu">c</span>(<span class="dv">100</span>, <span class="dv">125</span>, <span class="dv">145</span>, <span class="dv">167</span>) )</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 537</span></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="fu">min</span>( <span class="fu">c</span>(<span class="dv">100</span>, <span class="dv">125</span>, <span class="dv">145</span>, <span class="dv">167</span>) )</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 100</span></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="fu">max</span>( <span class="fu">c</span>(<span class="dv">100</span>, <span class="dv">125</span>, <span class="dv">145</span>, <span class="dv">167</span>) )</span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 167</span></span></code></pre></div>
+<p>Some examples below use the <code>carnivores</code> dataset. Learn more about this dataset with <code>get_help(&quot;carnivores&quot;)</code>.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the carnivores dataset</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>carnivores</span></code></pre></div>
+<pre><code>## # A tibble: 9 x 4
+##   name              genus        awake brainwt
+##   &lt;chr&gt;             &lt;chr&gt;        &lt;dbl&gt;   &lt;dbl&gt;
+## 1 Arctic fox        Vulpes        11.5  0.0445
+## 2 Cheetah           Acinonyx      11.9 NA     
+## 3 Dog               Canis         13.9  0.07  
+## 4 Gray seal         Haliochoerus  17.8  0.325 
+## 5 Jaguar            Panthera      13.6  0.157 
+## 6 Lion              Panthera      10.5 NA     
+## 7 Northern fur seal Callorhinus   15.3 NA     
+## 8 Red fox           Vulpes        14.2  0.0504
+## 9 Tiger             Panthera       8.2 NA</code></pre>
+<p><br></p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Summarize an array directly</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>( <span class="fu">c</span>(<span class="dv">100</span>, <span class="dv">125</span>, <span class="dv">145</span>, <span class="dv">167</span>) )</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 134.25</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>( <span class="fu">c</span>(<span class="dv">100</span>, <span class="dv">125</span>, <span class="dv">145</span>, <span class="dv">167</span>) )</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 135</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>( <span class="fu">c</span>(<span class="dv">100</span>, <span class="dv">125</span>, <span class="dv">145</span>, <span class="dv">167</span>) )</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 28.55842</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>( <span class="fu">c</span>(<span class="dv">100</span>, <span class="dv">125</span>, <span class="dv">145</span>, <span class="dv">167</span>) )</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 537</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="fu">min</span>( <span class="fu">c</span>(<span class="dv">100</span>, <span class="dv">125</span>, <span class="dv">145</span>, <span class="dv">167</span>) )</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 100</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="fu">max</span>( <span class="fu">c</span>(<span class="dv">100</span>, <span class="dv">125</span>, <span class="dv">145</span>, <span class="dv">167</span>) )</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 167</span></span></code></pre></div>
 <p><br> <!-- Do not delete the <br>, and make sure to keep the previous and following lines blank. --></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate various summary statistics from the `awake` column in `msleep`</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># This column does not contain NAs</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(msleep<span class="sc">$</span>awake) </span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 13.56747</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(msleep<span class="sc">$</span>awake)</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 13.9</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(msleep<span class="sc">$</span>awake)</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 4.452085</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(msleep<span class="sc">$</span>awake)</span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 1126.1</span></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="fu">min</span>(msleep<span class="sc">$</span>awake)</span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 4.1</span></span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="fu">max</span>(msleep<span class="sc">$</span>awake)</span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 22.1</span></span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate various summary statistics from the `awake` column in `carnivores`</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co"># This column does not contain NAs</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(carnivores<span class="sc">$</span>awake) </span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 12.98889</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(carnivores<span class="sc">$</span>awake)</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 13.6</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(carnivores<span class="sc">$</span>awake)</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 2.821544</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(carnivores<span class="sc">$</span>awake)</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 116.9</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="fu">min</span>(carnivores<span class="sc">$</span>awake)</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 8.2</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="fu">max</span>(carnivores<span class="sc">$</span>awake)</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 17.8</span></span></code></pre></div>
 <p><br> <!-- Do not delete the <br>, and make sure to keep the previous and following lines blank. --></p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate various summary statistics from the `brainwt` column in `msleep`</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># This column _does_ contain NAs, so we need to use the argument `na.rm=TRUE`.</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(msleep<span class="sc">$</span>brainwt, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) </span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 0.2815814</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(msleep<span class="sc">$</span>brainwt, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 0.0124</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(msleep<span class="sc">$</span>brainwt, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 0.9764137</span></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(msleep<span class="sc">$</span>brainwt, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 15.76856</span></span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="fu">min</span>(msleep<span class="sc">$</span>brainwt, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 0.00014</span></span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="fu">max</span>(msleep<span class="sc">$</span>brainwt, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 5.712</span></span></code></pre></div>
-</div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate various summary statistics from the `brainwt` column in `carnivores`</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co"># This column _does_ contain NAs, so we need to use the argument `na.rm=TRUE`.</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(carnivores<span class="sc">$</span>brainwt, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) </span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 0.12938</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(carnivores<span class="sc">$</span>brainwt, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 0.07</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(carnivores<span class="sc">$</span>brainwt, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 0.11832</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(carnivores<span class="sc">$</span>brainwt, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 0.6469</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="fu">min</span>(carnivores<span class="sc">$</span>brainwt, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 0.0445</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="fu">max</span>(carnivores<span class="sc">$</span>brainwt, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 0.325</span></span></code></pre></div>
+<p><br></p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># If you do not use the `na.rm = TRUE` argument, all calculations will be NA</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(carnivores<span class="sc">$</span>brainwt)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] NA</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(carnivores<span class="sc">$</span>brainwt)</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] NA</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(carnivores<span class="sc">$</span>brainwt)</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] NA</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(carnivores<span class="sc">$</span>brainwt)</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] NA</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="fu">min</span>(carnivores<span class="sc">$</span>brainwt)</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] NA</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="fu">max</span>(carnivores<span class="sc">$</span>brainwt)</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] NA</span></span></code></pre></div>
 </div>
 
 
