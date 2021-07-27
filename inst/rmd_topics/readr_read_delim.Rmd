@@ -40,7 +40,7 @@ blockquote {
 
 ### Description
 
-All functions documented here are part of the [`{readr}`](https://tibble.tidyverse.org/) package, which is part of the [`{tidyverse}`](https://www.tidyverse.org/).
+All functions documented here are part of the [`{readr}`](https://readr.tidyverse.org/) package, which is part of the [`{tidyverse}`](https://www.tidyverse.org/).
 
 The `{readr}` package [provides several useful functions](https://readr.tidyverse.org/reference/read_delim.html) for _reading_ delimited data files into R. Delimited data files have rows and columns, where columns are _separated aka delimited_ by a certain character, such as a comma `,` or tab symbol. 
 

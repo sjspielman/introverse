@@ -40,7 +40,7 @@ blockquote {
 
 ### Description
 
-All functions documented here are part of the [`{readr}`](https://tibble.tidyverse.org/) package, which is part of the [`{tidyverse}`](https://www.tidyverse.org/).
+All functions documented here are part of the [`{readr}`](https://readr.tidyverse.org/) package, which is part of the [`{tidyverse}`](https://www.tidyverse.org/).
 
 The `{readr}` package [provides several useful functions](https://readr.tidyverse.org/reference/writing_delim.html) for _writing_, i.e. saving, tibbles (data frames) to files. 
 

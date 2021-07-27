@@ -65,6 +65,11 @@ ggplot2::aes()
 ```{r usage, eval=FALSE}
 # Provide aes() to initial ggplot call so that all geoms inherit
 ggplot(tibble to plot, 
+       mapping = aes(aspect of plot = column name in tibble, etc.))
+
+# It is optional whether you use the 'mapping' argument keyword with `ggplot()`
+# This is equivalent to above:
+ggplot(tibble to plot, 
        aes(aspect of plot = column name in tibble, etc.))
 
 # Provide aes on its own so that all geoms inherit
@@ -81,7 +86,8 @@ ggplot(tibble to plot) +
 > Run `get_help("msleep")` for a refresher on the `msleep` dataset.
 
 ```{r example1}
-# Place `vore` on the x-axis and `awake` on the y-axis, giving aes() to ggplot()
+# Make a boxplot with `vore` on the x-axis and `awake` on the y-axis
+# This example provides aes() inside ggplot()
 # Note, to remove NAs, you must manipulate the data first
 ggplot(msleep, 
        aes(x = vore, y = awake)) + 
@@ -91,7 +97,8 @@ ggplot(msleep,
 <br>
 
 ```{r example2}
-# Place `vore` on the x-axis and `awake` on the y-axis, with aes() on its own
+# Make a boxplot with `vore` on the x-axis and `awake` on the y-axis, with aes() on its own
+# This examples provides aes() separately, outside of ggplot()
 # Note, to remove NAs, you must manipulate the data first
 ggplot(msleep) + 
   aes(x = vore, y = awake) + 
@@ -101,7 +108,7 @@ ggplot(msleep) +
 <br>
 
 ```{r example3}
-# Place `vore` on the x-axis and `awake` on the y-axis, with aes() on its own
+# Make a boxplot with `vore` on the x-axis and `awake` on the y-axis, with aes() on its own
 # Also _fill_ the boxplots based on the values in the `vore` column
 # Note, to remove NAs, you must manipulate the data first
 ggplot(msleep) + 

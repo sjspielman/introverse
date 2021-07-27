@@ -1,0 +1,179 @@
+---
+title: "{introverse} quick docs"
+output: 
+  html_document:
+    highlight: tango
+    theme: readable
+---
+
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE, 
+                      warning = FALSE, 
+                      message = TRUE)
+library(ggplot2)
+msleep %>% tidyr::drop_na(sleep_rem, awake) -> msleep
+set.seed(1)
+```
+
+```{css custom, echo=FALSE}
+.title{
+    display: none;
+}
+blockquote {
+  display: block;
+  font-size: 0.95em;
+  border-left: 3px solid #7FB036;
+  padding:10px;
+  margin-left:10px;
+}
+```
+
+<div>
+<br>
+ <img src = "logo.png" style = "float:left;height:130px;margin-top:-20px;">
+ <span style = "font-weight:bold;font-size:40px;"> 
+  &nbsp;Built-in complete themes in <code>{ggplot2}</code>
+ </span>
+ <br>
+ <b>&nbsp;&nbsp;&nbsp;<code>get_help()</code> docs</b>
+</div>
+<br>
+
+### Description
+
+All functions documented here are part of the [`{ggplot2}`](https://ggplot2.tidyverse.org/) package, which is part of the [`{tidyverse}`](https://www.tidyverse.org/).
+
+The `{ggplot2}` package [provides several built-in complete themes](https://ggplot2.tidyverse.org/reference/ggtheme.html) for styling the overall look of your plot. The default theme used is `theme_gray()` (aka `theme_grey()`). You can specify a built-in theme in one of two ways:
+
++ Use the function `ggplot2::theme_set()` to change _all_ subsequent plots made during the given R session.
++ Add a given complete theme function to your plot directly to change only that plot's complete theme
+
+Available complete themes include the following:
+
++ `theme_gray()` aka `theme_grey()` _(The default theme.)_
++ `theme_bw()`
++ `theme_linedraw()`
++ `theme_light()`
++ `theme_dark()`
++ `theme_minimal()`
++ `theme_classic()`
++ `theme_void()`
+
+
+<!-- Add the following if the topic is a function that does NOT come with base R, and uncomment/fill in the subsequent multiline HTML comment: -->
+To use these function, you need to either first load the `{ggplot2}` library, or always use the function with `ggplot2::` notation.
+
+```{r description, eval=FALSE}
+# Load the library
+library(ggplot2)
+# Or, load the full tidyverse:
+library(tidyverse)
+
+# Or, use :: notation, for example with theme_bw()
+ggplot2::theme_bw() 
+```
+
+
+### Examples
+
+> Run `get_help("msleep")` for a refresher on the `msleep` dataset.
+
+```{r example1, eval=F}
+# Set the default theme of all subsequent plots to theme_bw(), for example
+# Don't forget parentheses!
+theme_set(theme_bw())
+```
+
+<br>
+
+```{r example2}
+# Example of a plot using theme_gray (the default)
+ggplot(msleep) + 
+  aes(x = sleep_rem, y = awake) + 
+  geom_point() +
+  # Optional, since this is the default
+  theme_gray()
+```
+
+<br>
+
+```{r example3}
+# Example of a plot using theme_bw()
+ggplot(msleep) + 
+  aes(x = sleep_rem, y = awake) + 
+  geom_point() +
+  theme_bw()
+```
+
+<br>
+
+
+```{r example4}
+# Example of a plot using theme_linedraw()
+ggplot(msleep) + 
+  aes(x = sleep_rem, y = awake) + 
+  geom_point() +
+  theme_linedraw()
+```
+
+<br>
+
+```{r example4.5}
+# Example of a plot using theme_light()
+ggplot(msleep) + 
+  aes(x = sleep_rem, y = awake) + 
+  geom_point() +
+  theme_light()
+```
+
+<br>
+
+
+```{r example5}
+# Example of a plot using theme_dark()
+ggplot(msleep) + 
+  aes(x = sleep_rem, y = awake) + 
+  geom_point() +
+  theme_dark()
+```
+
+<br>
+
+```{r example5.5}
+# Example of a plot using theme_minimal()
+ggplot(msleep) + 
+  aes(x = sleep_rem, y = awake) + 
+  geom_point() +
+  theme_minimal()
+```
+
+<br>
+
+```{r example6}
+# Example of a plot using theme_classic()
+ggplot(msleep) + 
+  aes(x = sleep_rem, y = awake) + 
+  geom_point() +
+  theme_classic()
+```
+
+
+
+
+<br>
+
+```{r example7}
+# Example of a plot using theme_void()
+# This theme is completely blank!
+ggplot(msleep) + 
+  aes(x = sleep_rem, y = awake) + 
+  geom_point() +
+  theme_void()
+```
+
+
+
+```{r returnmsleep, echo=F, include=F}
+msleep <- introverse::msleep
+```

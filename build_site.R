@@ -1,6 +1,6 @@
 # Hi! Run this to build the pkgdown site!
 
-htmlify <- FALSE # TRUE or FALSE 
+htmlify <- TRUE # TRUE or FALSE 
 
 
 if (htmlify)

@@ -1,0 +1,117 @@
+---
+title: "{introverse} quick docs"
+output: 
+  html_document:
+    highlight: tango
+    theme: readable
+---
+
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE, 
+                      warning = FALSE, 
+                      message = TRUE)
+library(ggplot2)
+msleep %>% tidyr::drop_na(sleep_rem, awake) -> msleep
+set.seed(1)
+```
+
+```{css custom, echo=FALSE}
+.title{
+    display: none;
+}
+blockquote {
+  display: block;
+  font-size: 0.95em;
+  border-left: 3px solid #7FB036;
+  padding:10px;
+  margin-left:10px;
+}
+```
+
+<div>
+<br>
+ <img src = "logo.png" style = "float:left;height:130px;margin-top:-20px;">
+ <span style = "font-weight:bold;font-size:40px;"> 
+  &nbsp;<code>ggplot2::ggplot()</code>
+ </span>
+ <br>
+ <b>&nbsp;&nbsp;&nbsp;<code>get_help()</code> docs</b>
+</div>
+<br>
+
+### Description
+
+The [`ggplot()`](https://ggplot2.tidyverse.org/reference/ggplot.html) function is part of the [`{ggplot2}`](https://ggplot2.tidyverse.org/) package, which is part of the [`{tidyverse}`](https://www.tidyverse.org/).
+
+We use the `ggplot()` function to establish a baseline `{ggplot2}` plot. Note that the function _does not end in the number 2!_ Most commonly, we provide this function with the `data` argument of a tibble (data frame) whose data should be plotted. Optionally, we can also provide _aesthetic mappings_ with `aes()`, which will automatically be applied to all geoms.
+
+
+<!-- Add the following if the topic is a function that does NOT come with base R, and uncomment/fill in the subsequent multiline HTML comment: -->
+To use this function, you need to either first load the `{ggplot2}` library, or always use the function with `ggplot2::ggplot()` notation.
+
+```{r description, eval=FALSE}
+# Load the library
+library(ggplot2)
+# Or, load the full tidyverse:
+library(tidyverse)
+
+# Or, use :: notation
+ggplot2::ggplot()
+```
+
+## Conceptual Usage
+
+```{r usage, eval=FALSE}
+
+# You can use the 'data' and 'mapping' argument keywords if you chose, but they are not required
+ggplot(data = tibble or data frame to plot, 
+       mapping = aes(optional aethestic mappings))
+
+# `ggplot()` assumes the first argument is the data, and the second argument (if present) is aethetics
+ggplot(tibble or data frame to plot,
+       aes(optional aethestic mappings))
+
+# The aes() argument is not required at all:
+ggplot(tibble or data frame to plot)
+```
+
+### Examples
+
+> Run `get_help("msleep")` for a refresher on the `msleep` dataset.
+
+
+```{r example0}
+# Calling ggplot by itself establishes a blank canvas using the default theme:
+ggplot()
+```
+
+<br>
+
+```{r example01}
+# Calling ggplot with data and mappings but without a geom sets up axes:
+ggplot(msleep, 
+       aes(x = vore, y = awake)) 
+```
+
+<br>
+
+```{r example1}
+# Make a boxplot with `vore` on the x-axis and `awake` on the y-axis
+# This example provides aes() inside ggplot()
+# Note, to remove NAs, you must manipulate the data first
+ggplot(msleep, 
+       aes(x = vore, y = awake)) + 
+  geom_boxplot()
+```
+
+<br>
+
+```{r example2}
+# Make a boxplot with `vore` on the x-axis and `awake` on the y-axis, with aes() on its own
+# This examples provides aes() separately, outside of ggplot()
+# Note, to remove NAs, you must manipulate the data first
+ggplot(msleep) + 
+  aes(x = vore, y = awake) + 
+  geom_boxplot()
+```

@@ -38,7 +38,10 @@ ggplot2_topics <- sort(c(
   "geom_smooth",
   "geom_jitter",
   "geom_bar",
-  "geom_col"
+  "geom_col",
+  "ggplot",
+  # Same page
+  "theme_gray", "theme_grey", "theme_bw", "theme_minimal", "theme_light", "theme_linedraw", "theme_classic", "theme_dark", "theme_void"
 ))
 # geom_line <--- need a dataset
 # theme - this should also document theme_bw(), etc.
