@@ -77,8 +77,14 @@ ggplot2::geom_bar()
 
 ### Examples
 
-> Run `get_help("msleep")` for a refresher on the `msleep` dataset.
+The examples below use the `msleep` dataset. Learn more about this dataset with `get_help("msleep")`.
 
+```{r msleep}
+# Show the msleep dataset with head()
+head(msleep)
+```
+
+<br>
 ```{r example1}
 # Barplot of counts of categories in the vore column
 # Note to remove the NAs, you must manipulate the data first

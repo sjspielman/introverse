@@ -51,14 +51,21 @@ levels(factor variable)
 
 ### Examples
 
-> Run `get_help("msleep")` for a refresher on the `msleep` dataset.
+The examples below use the `carnivores` dataset. Learn more about this dataset with `get_help("carnivores")`.
 
+```{r carnivores}
+# Show the carnivores dataset
+carnivores
+```
+
+
+<br>
 
 ```{r example1}
-# Define a factor for the example from the character variable `msleep$vore`
-my_factor <- as.factor(msleep$vore)
+# Define a factor for the example from the character variable `carnivores$genus`
+my_factor <- as.factor(carnivores$genus)
 
-# Show levels of the factor variable:
+# Show levels (ordered categories) of the factor variable:
 levels(my_factor)
 ```
 
@@ -66,6 +73,6 @@ levels(my_factor)
 
 ```{r example2}
 # Trying to find the levels of a non-factor results in NULL
-# msleep$vore is a character column
-levels(msleep$vore)
+# carnivores$genus is a character column
+levels(carnivores$genus)
 ```

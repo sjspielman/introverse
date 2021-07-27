@@ -39,7 +39,7 @@ blockquote {
 
 ### Description
 
-R comes with several functions (in its `{base}` package) that are used to _calculate summary statistics_ from numeric arrays. The greatest hits of R summary statistics functions include the following:
+R comes with several functions (in its `{base}` and `{stats}` packages) that are used to _calculate summary statistics_ from numeric arrays. The greatest hits of R summary statistics functions include the following:
 
 | Function | What it calculates |
 |:---------|:-------------------|
@@ -50,7 +50,7 @@ R comes with several functions (in its `{base}` package) that are used to _calcu
 | `max()` | The maximum value among all values |
 | `min()` | The minimum value among all values |
 
-Note, there is no function to calculate the mode of a numeric array.
+Note, there is no function to calculate the mode (most commonly appearing value) of a numeric array.
 
 <br> 
 
@@ -66,7 +66,14 @@ mean(array with NAs to summarize, na.rm = TRUE)
 
 ### Examples
 
-> Run `get_help("msleep")` for a refresher on the `msleep` dataset.
+Some examples below use the `carnivores` dataset. Learn more about this dataset with `get_help("carnivores")`.
+
+```{r carnivores}
+# Show the carnivores dataset
+carnivores
+```
+
+<br>
 
 
 ```{r example1, collapse = TRUE}
@@ -82,27 +89,38 @@ max( c(100, 125, 145, 167) )
 <br>  <!-- Do not delete the <br>, and make sure to keep the previous and following lines blank. -->
 
 ```{r example2, collapse = TRUE}
-# Calculate various summary statistics from the `awake` column in `msleep`
+# Calculate various summary statistics from the `awake` column in `carnivores`
 # This column does not contain NAs
 
-mean(msleep$awake) 
-median(msleep$awake)
-sd(msleep$awake)
-sum(msleep$awake)
-min(msleep$awake)
-max(msleep$awake)
+mean(carnivores$awake) 
+median(carnivores$awake)
+sd(carnivores$awake)
+sum(carnivores$awake)
+min(carnivores$awake)
+max(carnivores$awake)
 ```
 
 <br>  <!-- Do not delete the <br>, and make sure to keep the previous and following lines blank. -->
 
 ```{r example3, collapse = TRUE}
-# Calculate various summary statistics from the `brainwt` column in `msleep`
+# Calculate various summary statistics from the `brainwt` column in `carnivores`
 # This column _does_ contain NAs, so we need to use the argument `na.rm=TRUE`.
 
-mean(msleep$brainwt, na.rm = TRUE) 
-median(msleep$brainwt, na.rm = TRUE)
-sd(msleep$brainwt, na.rm = TRUE)
-sum(msleep$brainwt, na.rm = TRUE)
-min(msleep$brainwt, na.rm = TRUE)
-max(msleep$brainwt, na.rm = TRUE)
+mean(carnivores$brainwt, na.rm = TRUE) 
+median(carnivores$brainwt, na.rm = TRUE)
+sd(carnivores$brainwt, na.rm = TRUE)
+sum(carnivores$brainwt, na.rm = TRUE)
+min(carnivores$brainwt, na.rm = TRUE)
+max(carnivores$brainwt, na.rm = TRUE)
+```
+
+<br>
+```{r example4, collapse = TRUE}
+# If you do not use the `na.rm = TRUE` argument, all calculations will be NA
+mean(carnivores$brainwt)
+median(carnivores$brainwt)
+sd(carnivores$brainwt)
+sum(carnivores$brainwt)
+min(carnivores$brainwt)
+max(carnivores$brainwt)
 ```

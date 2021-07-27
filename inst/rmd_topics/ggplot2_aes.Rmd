@@ -83,8 +83,14 @@ ggplot(tibble to plot) +
 
 ### Examples
 
-> Run `get_help("msleep")` for a refresher on the `msleep` dataset.
+The examples below use the `msleep` dataset. Learn more about this dataset with `get_help("msleep")`.
 
+```{r msleep}
+# Show the msleep dataset with head()
+head(msleep)
+```
+
+<br>
 ```{r example1}
 # Make a boxplot with `vore` on the x-axis and `awake` on the y-axis
 # This example provides aes() inside ggplot()

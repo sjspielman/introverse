@@ -6,7 +6,6 @@ output:
     theme: readable
 ---
 
-
 ```{r setup, include = FALSE}
 knitr::opts_chunk$set(echo = TRUE, 
                       warning = FALSE, 
@@ -41,7 +40,7 @@ blockquote {
 
 The `table()` function comes with R and is part of the Base R `{base}` package.
   
-This function summarizes counts in categorical variables to quickly make a contingency table. All NAs will be *ignored*."
+This function summarizes counts in categorical variables to quickly make a contingency table. All `NA`s in the data will be *ignored*.
 
 
 ### Conceptual Usage 
@@ -54,8 +53,14 @@ table(categorical array, another categorical array)
 
 ### Examples
 
-> Run `get_help("msleep")` for a refresher on the `msleep` dataset.
+The examples below use the `msleep` dataset. Learn more about this dataset with `get_help("msleep")`.
 
+```{r msleep}
+# Show the msleep dataset with head()
+head(msleep)
+```
+
+<br>
 
 ```{r example1}
 # Tabulate msleep `vore`s (which itself is a categorical column)"
@@ -71,7 +76,6 @@ table(msleep$vore, msleep$order)
 ```
 
 <br>  <!-- Do not delete the <br>, and make sure to keep the previous and following lines blank. -->
-
 
 ```{r example3}
 # Tabulate msleep `vore`s and `order`s together, but with `order` in rows and `vore` in columns

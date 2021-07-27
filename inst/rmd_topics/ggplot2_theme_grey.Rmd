@@ -77,9 +77,15 @@ ggplot2::theme_bw()
 
 ### Examples
 
-> Run `get_help("msleep")` for a refresher on the `msleep` dataset.
+The examples below use the `msleep` dataset. Learn more about this dataset with `get_help("msleep")`.
 
-```{r example1, eval=F}
+```{r msleep}
+# Show the msleep dataset with head()
+head(msleep)
+```
+
+<br>
+```{r example1}
 # Set the default theme of all subsequent plots to theme_bw(), for example
 # Don't forget parentheses!
 theme_set(theme_bw())
@@ -119,7 +125,7 @@ ggplot(msleep) +
 
 <br>
 
-```{r example4.5}
+```{r example5}
 # Example of a plot using theme_light()
 ggplot(msleep) + 
   aes(x = sleep_rem, y = awake) + 
@@ -130,7 +136,7 @@ ggplot(msleep) +
 <br>
 
 
-```{r example5}
+```{r example6}
 # Example of a plot using theme_dark()
 ggplot(msleep) + 
   aes(x = sleep_rem, y = awake) + 
@@ -140,7 +146,7 @@ ggplot(msleep) +
 
 <br>
 
-```{r example5.5}
+```{r example7}
 # Example of a plot using theme_minimal()
 ggplot(msleep) + 
   aes(x = sleep_rem, y = awake) + 
@@ -150,7 +156,7 @@ ggplot(msleep) +
 
 <br>
 
-```{r example6}
+```{r example8}
 # Example of a plot using theme_classic()
 ggplot(msleep) + 
   aes(x = sleep_rem, y = awake) + 
@@ -163,7 +169,7 @@ ggplot(msleep) +
 
 <br>
 
-```{r example7}
+```{r example9}
 # Example of a plot using theme_void()
 # This theme is completely blank!
 ggplot(msleep) + 
@@ -176,4 +182,5 @@ ggplot(msleep) +
 
 ```{r returnmsleep, echo=F, include=F}
 msleep <- introverse::msleep
+theme_set(theme_gray())
 ```

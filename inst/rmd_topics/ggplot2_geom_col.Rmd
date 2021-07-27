@@ -78,11 +78,17 @@ ggplot2::geom_col()
 
 ### Examples
 
-> Run `get_help("msleep")` for a refresher on the `msleep` dataset, and run `get_help("carnivores")` for a refresher on the `carnivores` dataset.
+The examples below use the `carnivores` dataset. Learn more about this dataset with `get_help("carnivores")`.
 
+```{r carnivores}
+# Show the carnivores dataset
+carnivores
+```
+
+<br>
 
 ```{r example1}
-# Plot the literal values of `awake` for each mammal in carnivores
+# Plot the literal values of `awake` for each mammal in the carnivores dataset
 ggplot(carnivores) + 
   aes(x = name, y = awake) + 
   geom_col()
@@ -90,9 +96,8 @@ ggplot(carnivores) +
 
 <br>
 
-
 ```{r example2}
-# Plot the literal values of `awake` for each mammal in carnivores, with additional stylings
+# Plot the literal values of `awake` for each mammal in the carnivores dataset, with additional stylings
 ggplot(carnivores) + 
   aes(x = name, y = awake) + 
   geom_col(color = "goldenrod",
@@ -101,8 +106,9 @@ ggplot(carnivores) +
 ```
 
 <br>
+
 ```{r example3}
-# Horizontally plot the literal values of `awake` for each mammal in carnivores
+# Horizontally plot the literal values of `awake` for each mammal in the carnivores dataset
 ggplot(carnivores) + 
   aes(x = awake, y = name) + # note that these were switched to make it horizontal
   geom_col()
@@ -112,7 +118,7 @@ ggplot(carnivores) +
 
 ```{r example4}
 # Use forcats::fct_reorder() to order the names by their awake values for a cleaner look
-# It best practice to also update the x-axis title 
+# It best practice to also update the x-axis title when using forcats::fct_reorder()
 ggplot(carnivores) + 
   aes(x = fct_reorder(name, awake), 
       y = awake) + 

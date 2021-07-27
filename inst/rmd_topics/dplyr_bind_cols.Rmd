@@ -78,8 +78,14 @@ bind_cols(first array, second array)
 
 ## Examples
 
-> Need a refresher on the `msleep` dataset? Run `get_help("msleep")` for more information.
+The examples below use the `msleep` dataset. Learn more about this dataset with `get_help("msleep")`.
 
+```{r msleep}
+# Show the msleep dataset with head()
+head(msleep)
+```
+
+<br>
 <!-- Add a <br> if there is NO DATASET REFRESHER!! Otherwise the refresher takes up enough space. -->
 
 ```{r example1}

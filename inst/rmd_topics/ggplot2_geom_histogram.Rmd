@@ -74,8 +74,14 @@ ggplot2::geom_histogram()
 
 ### Examples
 
-> Run `get_help("msleep")` for a refresher on the `msleep` dataset.
+The examples below use the `msleep` dataset. Learn more about this dataset with `get_help("msleep")`.
 
+```{r msleep}
+# Show the msleep dataset with head()
+head(msleep)
+```
+
+<br>
 ```{r example1}
 # By default, histograms have no color outline, are filled with dark gray, and use 30 bins
 # If you do not specify binning, you will get a _normal_ message telling you 30 were chosen

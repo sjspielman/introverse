@@ -76,8 +76,14 @@ ggplot2::geom_smooth()
 
 ### Examples
 
-> Run `get_help("msleep")` for a refresher on the `msleep` dataset.
+The examples below use the `msleep` dataset. Learn more about this dataset with `get_help("msleep")`.
 
+```{r msleep}
+# Show the msleep dataset with head()
+head(msleep)
+```
+
+<br>
 ```{r example1}
 # Scatterplot of awake against sleep_rem ("y against x") with a linear model trendline
 ggplot(msleep) + 
