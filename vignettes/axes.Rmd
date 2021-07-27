@@ -30,7 +30,7 @@ library(patchwork)
 The specific ranges and positioning of axes are a type of *scale* in `ggplot2` grammar of graphics. This tutorial demonstrates a minimal, but important, subset of ways you can modify the axis scales. Note that modifying the size, angle, or color of the axes, axis title, or axis text themselves requires _modifying your theme_, which is not described here. 
 
 
-All examples will alter axes a version of one of these three plots, using a modified version of the `msleep` dataset with certain `NA` values removed:
+All examples will alter axes in one of these three plots, using a modified version of the `msleep` dataset with certain `NA` values removed:
 
 ```{r all_plots, fig.height=4, fig.width=10}
 # Remove NAs from the columns awake, sleep_rem, vore, and brainwt for plotting demonstration
@@ -89,9 +89,9 @@ There are different functions to use depending on the type of axis you have: Axe
 
 The key arguments you can use include:
 
-+ `breaks`, an array (remember `c()`?) of where tick marks should be placed along the given axes. The values in `breaks` must be compatible with values on your axis.
++ `breaks`, an array of where tick marks should be placed along the given axes. The values in `breaks` must be compatible with values on your axis.
 + `n.breaks` can instead be used to give the actual number of *major breaks* (ticks) you'd like to see. 
-+ `labels`, an array (remember `c()`?) of labels for associated ticks, *if you would like to CHANGE them further.* The length of this array must match the length of the `breaks` (or the default number of breaks if you aren't specifying breaks).
++ `labels`, an array of labels for associated ticks, *if you would like to CHANGE them further.* The length of this array must match the length of the `breaks` (or the default number of breaks if you aren't specifying breaks).
 + `limits`: an array of `c(low, high)` for the axis limits. This has the same functionality as functions `xlim()` and/or `ylim()`, but can also be specified here if you want.
 + `name`: You can also rename the axis (same as using `labs()`) with the argument `name` if you want.
 

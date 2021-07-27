@@ -155,8 +155,7 @@ knitr::opts_chunk$set(
 | Function   |  Description  |
 |----|----|
 | [**`aes()`**](../introverse_docs/ggplot2_aes.html) | Provide a ggplot with aesthetic _mappings_ from dataset columns |
-| [**`ggplot()`**](../introverse_docs/ggplot2_aes.html) | Tell ggplot which dataset to plot and establish a ggplot canvas |
-| [**`labs()`**](../introverse_docs/ggplot2_labs.html) | Customize plot labels, including axes, titles, and legends | <!-- NOT SURE WHERE TO PUT THIS IN MY ORGANIZATION -->
+| [**`ggplot()`**](../introverse_docs/ggplot2_ggplot.html) | Tell ggplot which dataset to plot and establish a ggplot canvas |
 
 
 #### Geoms 
@@ -171,6 +170,22 @@ knitr::opts_chunk$set(
 | [**`geom_smooth()`**](../introverse_docs/ggplot2_geom_smooth.html) | Add a trendline to a plot, often (but not always) to a scatterplot |
 | [**`geom_col()`**](../introverse_docs/ggplot2_geom_col.html) | Create bar plots whose height corresponds to literal values in the data |
 | [**`geom_bar()`**](../introverse_docs/ggplot2_geom_bar.html) |Create bar plots whose height corresponds to _counted number of observations_ of a categorical variable |
+
+#### Themes and labels
+
+| Function   |  Description  |
+|----|----|
+| [**`theme_set()`**](../introverse_docs/ggplot2_theme_set.html) | Set the default theme |
+| [**`theme_classic()`**](../introverse_docs/ggplot2_theme_classic.html) | Specify the "classic" theme |
+| [**`theme_dark()`**](../introverse_docs/ggplot2_theme_dark.html) | Specify the built-in "dark" theme |
+| [**`theme_gray()`**](../introverse_docs/ggplot2_theme_gray.html) | Specify the built-in "gray" (default) theme|
+| [**`theme_grey()`**](../introverse_docs/ggplot2_theme_grey.html) | Specify the built-in "grey" (default) theme|
+| [**`theme_light()`**](../introverse_docs/ggplot2_theme_light.html) | Specify the built-in "light" theme|
+| [**`theme_linedraw()`**](../introverse_docs/ggplot2_theme_linedraw.html) | Specify the built-in "linedraw" theme|
+| [**`theme_minimal()`**](../introverse_docs/ggplot2_theme_minimal.html) | Specify the built-in "minimal" theme|
+| [**`theme_void()`**](../introverse_docs/ggplot2_theme_void.html) | Specify the built-in "void" theme|
+| [**`theme()`**](https://spielmanlab.github.io/introverse/articles/themes.html) | Customize aspects of a plot theme |
+| [**`labs()`**](../introverse_docs/ggplot2_labs.html) | Customize plot labels, including axes, titles, and legends |
 
 ### Get help with `forcats`
 

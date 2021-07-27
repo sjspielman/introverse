@@ -69,6 +69,9 @@
     <li>
       <a href="../articles/axes.html">Customizing ggplot2 axes</a>
     </li>
+    <li>
+      <a href="../articles/themes.html">Customizing ggplot2 themes</a>
+    </li>
   </ul>
 </li>
       </ul>
@@ -104,7 +107,7 @@
     
     
 <p>The specific ranges and positioning of axes are a type of <em>scale</em> in <code>ggplot2</code> grammar of graphics. This tutorial demonstrates a minimal, but important, subset of ways you can modify the axis scales. Note that modifying the size, angle, or color of the axes, axis title, or axis text themselves requires <em>modifying your theme</em>, which is not described here.</p>
-<p>All examples will alter axes a version of one of these three plots, using a modified version of the <code>msleep</code> dataset with certain <code>NA</code> values removed:</p>
+<p>All examples will alter axes in one of these three plots, using a modified version of the <code>msleep</code> dataset with certain <code>NA</code> values removed:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Remove NAs from the columns awake, sleep_rem, vore, and brainwt for plotting demonstration</span>
 <span class="co"># We'll call this dataset `msleep_clean`</span>
@@ -128,7 +131,7 @@
 
 <span class="co"># Add plots together, which is allowed when you load the {patchwork} library</span>
 <span class="va">plot1</span> <span class="op">+</span> <span class="va">plot2</span> <span class="op">+</span> <span class="va">plot3</span></code></pre></div>
-<p><img src="axes_files/figure-html/all_plots-1.png" width="768"></p>
+<p><img src="axes_files/figure-html/all_plots-1.png" width="960"></p>
 <div id="simply-changing-the-ranges-limits" class="section level2">
 <h2 class="hasAnchor">
 <a href="#simply-changing-the-ranges-limits" class="anchor"></a>Simply changing the ranges (limits)</h2>
@@ -137,7 +140,8 @@
 <code class="sourceCode R"><span class="fu">ggplot</span><span class="op">(</span><span class="va">msleep</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">awake</span>, y <span class="op">=</span> <span class="va">sleep_rem</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> 
   <span class="fu">geom_point</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://rdrr.io/r/graphics/plot.window.html">xlim</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">10</span><span class="op">)</span> <span class="op">+</span> <span class="co"># Set x-axis to range from 0-10</span>
-  <span class="fu"><a href="https://rdrr.io/r/graphics/plot.window.html">ylim</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">6</span><span class="op">)</span> <span class="co"># Set y-axis to range from 1-6</span></code></pre></div>
+  <span class="fu"><a href="https://rdrr.io/r/graphics/plot.window.html">ylim</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">6</span><span class="op">)</span> <span class="co"># Set y-axis to range from 1-6</span>
+<span class="co">#&gt; Warning: Removed 71 rows containing missing values (geom_point).</span></code></pre></div>
 <p><img src="axes_files/figure-html/unnamed-chunk-2-1.png" width="384"></p>
 <p>Be careful to pay attention to <em>warning messages</em> if you change the axis limits, as you may accidentally remove points from the plot! The warning message above is telling us that 71 rows were excluded from this plot. Rows usually get excluded for one of two reasons: 1) The rows contained <code>NA</code> values in these variables so there was nothing to plot, or 2) The rows <em>fell outside the plot’s axis ranges</em>. In this case, we removed all <code>NA</code> values from the variables <code>awake</code> and <code>sleep_rem</code>. This means by limiting our axes, we have removed 71 points of data!</p>
 <p>Unless you have a specific reason for doing it, don’t ever intentionally exclude points. For example, this is usually a bad idea, unless your specific goal is to visualize <em>only</em> mammals which are awake for between 15-20 hours/day:</p>
@@ -157,11 +161,11 @@
 <p>The key arguments you can use include:</p>
 <ul>
 <li>
-<code>breaks</code>, an array (remember <code><a href="https://rdrr.io/r/base/c.html">c()</a></code>?) of where tick marks should be placed along the given axes. The values in <code>breaks</code> must be compatible with values on your axis.</li>
+<code>breaks</code>, an array of where tick marks should be placed along the given axes. The values in <code>breaks</code> must be compatible with values on your axis.</li>
 <li>
 <code>n.breaks</code> can instead be used to give the actual number of <em>major breaks</em> (ticks) you’d like to see.</li>
 <li>
-<code>labels</code>, an array (remember <code><a href="https://rdrr.io/r/base/c.html">c()</a></code>?) of labels for associated ticks, <em>if you would like to CHANGE them further.</em> The length of this array must match the length of the <code>breaks</code> (or the default number of breaks if you aren’t specifying breaks).</li>
+<code>labels</code>, an array of labels for associated ticks, <em>if you would like to CHANGE them further.</em> The length of this array must match the length of the <code>breaks</code> (or the default number of breaks if you aren’t specifying breaks).</li>
 <li>
 <code>limits</code>: an array of <code><a href="https://rdrr.io/r/base/c.html">c(low, high)</a></code> for the axis limits. This has the same functionality as functions <code><a href="https://rdrr.io/r/graphics/plot.window.html">xlim()</a></code> and/or <code><a href="https://rdrr.io/r/graphics/plot.window.html">ylim()</a></code>, but can also be specified here if you want.</li>
 <li>

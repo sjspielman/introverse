@@ -22,7 +22,9 @@ navbar:
           href: articles/additional_resources.html
         - text: "Customizing ggplot2 axes"
           href: articles/axes.html
-      
+        - text: "Customizing ggplot2 themes"
+          href: articles/themes.html      
+          
 reference:
 - title: Functions
   desc:  Functions you can use to get help in the introverse.
