@@ -44,7 +44,7 @@ The `file.exists()` and `dir.exists()` functions come with R and are part of the
 We use these functions to determine whether a given file (`file.exists()`) or directory aka folder (`dir.exists()`) exists. These functions return either `TRUE` or `FALSE` and are useful for double-checking if your paths are correct.
 
 
-## Conceptual usage 
+### Conceptual Usage 
 
 ```{r usage, eval=FALSE}
 file.exists("path/to/file/you/want/to/know/exists.txt")

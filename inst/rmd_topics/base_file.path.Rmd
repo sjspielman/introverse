@@ -43,7 +43,7 @@ The `file.path()` function comes with R and is part of the Base R `{base}` packa
   
 We use this function to write paths to files or directories (even though it's called `file.path()`!), in a way where the path is guaranteed to work on any type of computer.
 
-## Conceptual usage 
+### Conceptual Usage 
 
 ```{r usage, eval=FALSE}
 file.path('component', 'of', 'path', 'to', 'thing', 'of', 'interest')

@@ -59,7 +59,7 @@ dplyr::select()
 ```
 
 
-## Conceptual usage 
+### Conceptual Usage 
 
 ```{r usage, eval=FALSE}
 tibble %>%
@@ -77,7 +77,14 @@ tibble %>%
 
 ### Examples
 
-> Run `get_help("carnivores")` for a refresher on the `carnivores` dataset.
+The examples below use the `carnivores` dataset. Learn more about this dataset with `get_help("carnivores")`.
+
+```{r carnivores}
+# Show the carnivores dataset
+carnivores
+```
+
+<br>
 
 ```{r example1}
 # Keep only the columns name and genus from carnivores

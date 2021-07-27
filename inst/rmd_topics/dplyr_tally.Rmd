@@ -60,7 +60,7 @@ dplyr::tally()
 ```
 
 
-## Conceptual usage 
+### Conceptual Usage 
 
 ```{r usage, eval=FALSE}
 # Summarize into tibble indicating total rows

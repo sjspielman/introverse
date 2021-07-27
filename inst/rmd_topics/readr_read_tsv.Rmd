@@ -72,7 +72,7 @@ readr::read_delim()
 ```
 
 
-## Conceptual usage 
+### Conceptual Usage 
 
 ```{r usage, eval=FALSE}
 read_csv("path/to/file/to/read/in/file.csv")

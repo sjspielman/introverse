@@ -63,7 +63,7 @@ dplyr::full_join()
 ```
 
 
-## Conceptual usage 
+### Conceptual Usage 
 
 ```{r usage, eval=FALSE}
 full_join(left tibble, right tibble)

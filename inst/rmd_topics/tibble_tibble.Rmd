@@ -65,7 +65,7 @@ tibble::tribble()
 ```
 
 
-## Conceptual usage 
+### Conceptual Usage 
 
 ```{r usage, eval=FALSE}
 # We give arrays to the tibble() function. 

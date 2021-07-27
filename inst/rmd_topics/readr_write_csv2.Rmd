@@ -70,7 +70,7 @@ readr::write_delim()
 ```
 
 
-## Conceptual usage 
+### Conceptual Usage 
 
 ```{r usage, eval=FALSE}
 write_csv(tibble or data frame variable you want to save,

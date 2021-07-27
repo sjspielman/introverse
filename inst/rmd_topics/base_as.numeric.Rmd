@@ -49,7 +49,7 @@ Not all values can be changed to numeric, and this function will return `NA` if 
 
 
 
-## Conceptual usage 
+### Conceptual Usage 
 
 ```{r usage, eval=FALSE}
 as.numeric(value to coerce into numeric type)

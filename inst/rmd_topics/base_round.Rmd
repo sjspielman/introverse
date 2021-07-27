@@ -43,7 +43,7 @@ The `round()` function comes with R and is part of the Base R `{base}` package.
   
 We use this function to round numbers to a certain number of decimal places. 
 
-## Conceptual usage 
+### Conceptual Usage 
 
 ```{r usage, eval=FALSE}
 round(numeric value to round, number of decimal places)

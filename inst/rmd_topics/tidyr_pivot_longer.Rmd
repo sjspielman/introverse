@@ -60,7 +60,7 @@ tidyr::pivot_longer()
 ```
 
 
-## Conceptual usage 
+### Conceptual Usage 
 
 ```{r usage, eval=FALSE}
 tibble %>% 

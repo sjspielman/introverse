@@ -44,7 +44,7 @@ The `ceiling()` and `floor()` functions come with R and are part of the `{base}`
   
 We use these functions to round decimals up (`ceiling()`) or down (`floor()`) to the closest integer.
 
-## Conceptual usage 
+### Conceptual Usage 
 
 ```{r usage, eval=FALSE}
 ceiling(numeric value to round up)
@@ -56,8 +56,14 @@ floor(numeric array to round down)
 
 ### Examples
 
-> Run `get_help("carnivores")` for a refresher on the `carnivores` dataset.
+Some examples below use the `carnivores` dataset. Learn more about this dataset with `get_help("carnivores")`.
 
+```{r carnivores}
+# Show the carnivores dataset
+carnivores
+```
+
+<br>
 
 ```{r example1}
 # Round the number 5.355266335 up

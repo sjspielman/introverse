@@ -46,7 +46,7 @@ We use this function to calculate the log of a number or numeric array. By defau
 
 
 
-## Conceptual usage 
+### Conceptual Usage 
 
 ```{r usage, eval=FALSE}
 log(number to get the natural log of)

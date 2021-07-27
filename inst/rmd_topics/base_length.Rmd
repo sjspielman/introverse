@@ -45,7 +45,7 @@ We use this function to determine the length of an object, most commonly of arra
 
 
 
-## Conceptual usage 
+### Conceptual Usage 
 
 ```{r usage, eval=FALSE}
 length(array to find the length of)

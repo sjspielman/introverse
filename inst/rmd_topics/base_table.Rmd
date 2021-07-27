@@ -44,7 +44,7 @@ The `table()` function comes with R and is part of the Base R `{base}` package.
 This function summarizes counts in categorical variables to quickly make a contingency table. All NAs will be *ignored*."
 
 
-## Conceptual usage 
+### Conceptual Usage 
 
 ```{r usage, eval=FALSE}
 table(categorical array)

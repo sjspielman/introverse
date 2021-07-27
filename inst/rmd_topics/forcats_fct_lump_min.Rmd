@@ -73,7 +73,7 @@ forcats::fct_lump_n()
 ```
 
 
-## Conceptual usage 
+### Conceptual Usage 
 
 ```{r usage, eval=FALSE}
 fct_lump_min(factor_variable, 

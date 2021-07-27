@@ -47,7 +47,7 @@ We use this function to assign a value based on whether a logical statement is `
 Note that there is a `{dplyr}` package version of this function ([`dplyr::if_else()`](https://dplyr.tidyverse.org/reference/if_else.html), with an underscore) that can be used in exactly the same way, but the `{dplyr}` version enforces that the resulting values must always be the same type.
 
 
-## Conceptual usage 
+### Conceptual Usage 
 
 ```{r usage, eval=FALSE}
 ifelse(logical statement, 
@@ -58,8 +58,14 @@ ifelse(logical statement,
 
 ### Examples
 
-> Run `get_help("carnivores")` for a refresher on the `carnivores` dataset.
+Some examples below use the `carnivores` dataset. Learn more about this dataset with `get_help("carnivores")`.
 
+```{r carnivores}
+# Show the carnivores dataset
+carnivores
+```
+
+<br>
 
 ```{r example1}
 # Return the value 5 if it is TRUE that 10 < 4. 

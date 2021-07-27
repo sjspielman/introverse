@@ -46,7 +46,7 @@ We use this function to _coerce_ a value or variable array to be a factor, i.e. 
 
 
 
-## Conceptual usage 
+### Conceptual Usage 
 
 ```{r usage, eval=FALSE}
 as.factor(array to coerce into factor type)
@@ -56,8 +56,14 @@ as.factor(factor array to get factor of all its values)
 
 ### Examples
 
+Some examples below use the `carnivores` dataset. Learn more about this dataset with `get_help("carnivores")`.
 
-> Run `get_help("carnivores")` for a refresher on the `carnivores` dataset.
+```{r carnivores}
+# Show the carnivores dataset
+carnivores
+```
+
+<br>
 
 
 ```{r example1}

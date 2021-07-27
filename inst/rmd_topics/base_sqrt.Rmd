@@ -46,7 +46,7 @@ We use this function to calculate the square root of a number or numeric array.
 
 
 
-## Conceptual usage 
+### Conceptual Usage 
 
 ```{r usage, eval=FALSE}
 sqrt(number to get the sqrt of)

@@ -43,7 +43,7 @@ The `class()` function comes with R and is part of the Base R `{base}` package.
   
 We use this function to determine what _type_ of value an object or value is, i.e. is the value a numeric, logical, character, etc.
 
-## Conceptual usage 
+### Conceptual Usage 
 
 ```{r usage, eval=FALSE}
 class(variable or value of interest)

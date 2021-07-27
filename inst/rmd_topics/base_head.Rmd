@@ -45,7 +45,7 @@ We use these functions quickly to obtain the first (`head()`) or last (`tail()`)
 
 
 
-## Conceptual usage 
+### Conceptual Usage 
 
 ```{r usage, eval=FALSE}
 head(tibble)
@@ -57,7 +57,14 @@ tail(tibble)
 
 ### Examples
 
-> Run `get_help("carnivores")` for a refresher on the `carnivores` dataset.
+The examples below use the `carnivores` dataset. Learn more about this dataset with `get_help("carnivores")`.
+
+```{r carnivores}
+# Show the carnivores dataset
+carnivores
+```
+
+<br>
 
 ```{r example1}
 # See first 6 rows of carnivores
@@ -75,7 +82,7 @@ tail(carnivores)
 <br> 
 
 
-```{r example3, collapse=TRUE}
+```{r example3}
 # See first 3 rows of carnivores
 head(carnivores, 3)
 ```

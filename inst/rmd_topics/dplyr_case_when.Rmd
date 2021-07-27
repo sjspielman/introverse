@@ -61,7 +61,7 @@ dplyr::case_when()
 ```
 
 
-## Conceptual usage 
+### Conceptual Usage 
 
 ```{r usage, eval=FALSE}
 case_when(a logical statement ~ return this value if this statement is TRUE,
@@ -75,8 +75,14 @@ case_when(a logical statement ~ return this value if this statement is TRUE,
 
 ### Examples
 
-> Run `get_help("carnivores")` for a refresher on the `carnivores` dataset.
+The example below uses the `carnivores` dataset. Learn more about this dataset with `get_help("carnivores")`.
 
+```{r carnivores}
+# Show the carnivores dataset
+carnivores
+```
+
+<br>
 ```{r example1}
 # Use case_when to help create a new column called `how_awake` in `carnivores` that will be:
 ## "alert" if awake >= 16

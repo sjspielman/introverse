@@ -58,7 +58,7 @@ tidyr::drop_na()
 ```
 
 
-## Conceptual usage 
+### Conceptual Usage 
 
 ```{r usage, eval=FALSE}
 # Remove all NAs from the tibble

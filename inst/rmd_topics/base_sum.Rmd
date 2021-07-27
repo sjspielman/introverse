@@ -56,7 +56,7 @@ Note, there is no function to calculate the mode of a numeric array.
 
 By default, if the array you want to summarize contains any `NA` values, all functions above will return `NA`; R is very conservative when it encounters missing data. To _ignore `NA` values_ during calculations, provide the second argument `na.rm = TRUE` when using any of the functions.
 
-## Conceptual usage 
+### Conceptual Usage 
 
 ```{r usage, eval=FALSE}
 mean(array to summarize)

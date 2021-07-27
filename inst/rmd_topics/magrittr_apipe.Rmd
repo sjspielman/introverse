@@ -56,7 +56,7 @@ library(tidyverse)
 library(magrittr)
 ```
 
-## Conceptual usage 
+### Conceptual Usage 
 
 ```{r usage, eval=FALSE}
 tibble %<>%
@@ -69,7 +69,14 @@ tibble %>%
 
 ### Examples
 
-> Run `get_help("carnivores")` for a refresher on the `carnivores` dataset.
+The example below uses the `carnivores` dataset. Learn more about this dataset with `get_help("carnivores")`.
+
+```{r carnivores}
+# Show the carnivores dataset
+carnivores
+```
+
+<br>
 
 ```{r example1}
 # Simultaneously rename the column `name` to `species` and redefine carnivores

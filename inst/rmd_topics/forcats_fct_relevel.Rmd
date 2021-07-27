@@ -63,7 +63,7 @@ forcats::fct_relevel()
 ```
 
 
-## Conceptual usage 
+### Conceptual Usage 
 
 > See examples for what sorts of additional arguments one can provide.
 

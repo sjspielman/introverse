@@ -46,7 +46,7 @@ We use this function to determine the how many characters (**n**umber of **char*
 
 
 
-## Conceptual usage 
+### Conceptual Usage 
 
 ```{r usage, eval=FALSE}
 nchar(string to count number of characters in)

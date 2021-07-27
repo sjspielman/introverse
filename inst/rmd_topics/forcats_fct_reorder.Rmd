@@ -63,7 +63,7 @@ forcats::fct_reorder()
 ```
 
 
-## Conceptual usage 
+### Conceptual Usage 
 
 ```{r usage, eval=FALSE}
 fct_reorder(factor variable to change order of, other variable to order by)

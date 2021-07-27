@@ -64,7 +64,7 @@ dplyr::bind_cols()
 
 
 
-## Conceptual usage 
+### Conceptual Usage 
 
 ```{r, eval=FALSE}
 # Remember that both tibbles (or both arrays) must have the same number of rows in the same order to be able to bind them

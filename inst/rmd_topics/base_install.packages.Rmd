@@ -47,7 +47,7 @@ If you need to install a package from a non-default database (i.e. not CRAN), th
 
 
 
-## Conceptual usage 
+### Conceptual Usage 
 
 ```{r usage, eval=FALSE}
 install.packages("name of package to install in quotes")

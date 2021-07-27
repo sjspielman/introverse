@@ -43,7 +43,7 @@ The `nrow()` and `ncol()` functions come with R and are part of the `{base}` pac
   
 We use these functions to get the number of rows (`nrow()`) or columns (`ncol()`) of an object, usually a tibble (data frame).
 
-## Conceptual usage 
+### Conceptual Usage 
 
 ```{r usage, eval=FALSE}
 nrow(tibble)
@@ -52,7 +52,14 @@ ncol(tibble)
 
 ### Examples
 
-> Run `get_help("carnivores")` for a refresher on the `carnivores` dataset.
+The examples below use the `carnivores` dataset. Learn more about this dataset with `get_help("carnivores")`.
+
+```{r carnivores}
+# Show the carnivores dataset
+carnivores
+```
+
+<br>
 
 ```{r example1}
 # Find the number of rows in carnivores

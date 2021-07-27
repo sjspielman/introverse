@@ -58,7 +58,7 @@ tibble::as_tibble()
 ```
 
 
-## Conceptual usage 
+### Conceptual Usage 
 
 ```{r usage, eval=FALSE}
 as_tibble(variable to coerce into a tibble)

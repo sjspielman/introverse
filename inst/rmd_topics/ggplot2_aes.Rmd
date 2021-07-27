@@ -60,7 +60,7 @@ library(tidyverse)
 ggplot2::aes()
 ```
 
-## Conceptual Usage
+### Conceptual Usage
 
 ```{r usage, eval=FALSE}
 # Provide aes() to initial ggplot call so that all geoms inherit

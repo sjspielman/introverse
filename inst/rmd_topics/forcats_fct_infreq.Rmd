@@ -63,7 +63,7 @@ forcats::fct_infreq()
 ```
 
 
-## Conceptual usage 
+### Conceptual Usage 
 
 ```{r usage, eval=FALSE}
 fct_infreq(factor variable to change order of)

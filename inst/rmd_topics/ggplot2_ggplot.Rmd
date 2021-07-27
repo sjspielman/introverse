@@ -60,7 +60,7 @@ library(tidyverse)
 ggplot2::ggplot()
 ```
 
-## Conceptual Usage
+### Conceptual Usage
 
 ```{r usage, eval=FALSE}
 

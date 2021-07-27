@@ -47,7 +47,7 @@ When we are working to assign aspects of a variable (i.e. create a new column in
 
 <br>
 
-## Conceptual Usage
+### Conceptual Usage
 
 ```{r eval=F}
 # Point the arrow FROM the value TO the variable

@@ -63,8 +63,14 @@ Logical operators in R include the following, using placeholders `X` and `Y` to 
 
 ### Examples
 
-> Run `get_help("carnivores")` for a refresher on the `carnivores` dataset.
+Some examples below use the `carnivores` dataset. Learn more about this dataset with `get_help("carnivores")`.
 
+```{r carnivores}
+# Show the carnivores dataset
+carnivores
+```
+
+<br>
 
 ```{r example1}
 # Is 10 equal to 12?

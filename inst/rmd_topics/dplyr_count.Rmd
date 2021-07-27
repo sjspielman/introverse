@@ -59,7 +59,7 @@ dplyr::count()
 ```
 
 
-## Conceptual usage 
+### Conceptual Usage 
 
 ```{r usage, eval=FALSE}
 tibble %>% 

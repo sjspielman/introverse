@@ -44,7 +44,7 @@ The `summary()` function comes with R and is part of the Base R `{base}` package
 We use this function to generally summarize objects and variables. Most commonly, we summarize objects like tibbles/data frames, arrays, and statistical model output.
 
 
-## Conceptual usage 
+### Conceptual Usage 
 
 ```{r usage, eval=FALSE}
 summary(object to summarize)

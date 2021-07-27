@@ -46,7 +46,7 @@ We use this function to create arrays. Recall that all values in arrays must hav
 If you are using colon syntax to create an array (e.g. `1:5` to create an array with values 1,2,3,4,5, you do not need to use `c()`.
 
 
-## Conceptual usage 
+### Conceptual Usage 
 
 ```{r usage, eval=FALSE}
 c(first value in array, second value in array, etc.)

@@ -43,7 +43,7 @@ The `levels()` function comes with R and is part of the Base R `{base}` package.
   
 We use this function to find the levels, aka ordered categories, of a factor variable. Any `NA` values will be ignored and not considered separate levels. If the provided value is not a factor type, the result will be `NULL`.
 
-## Conceptual usage 
+### Conceptual Usage 
 
 ```{r usage, eval=FALSE}
 levels(factor variable)

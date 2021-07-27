@@ -64,7 +64,7 @@ dplyr::inner_join()
 ```
 
 
-## Conceptual usage 
+### Conceptual Usage 
 
 ```{r usage, eval=FALSE}
 inner_join(left tibble, right tibble)
