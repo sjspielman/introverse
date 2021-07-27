@@ -55,7 +55,7 @@ rmd_topics_path <- "rmd_topics"
 
 #' Internal options width for HTML size
 #' @keywords internal
-topic_width <- 75
+topic_width <- 95
 
 #' Viewer wrapper for showing the help docs
 #' 
