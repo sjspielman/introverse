@@ -39,6 +39,7 @@ Collate:
     'first_second_tibble.R'
 Suggests: 
     knitr,
+    patchwork,
     lubridate,
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
