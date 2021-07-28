@@ -193,7 +193,7 @@
 <td>Change the current R session’s working directory</td>
 </tr>
 <tr class="odd">
-<td><a href="../introverse_docs/base_dir.exists.html"><strong><code>dir.exists()</code></strong></a></td>
+<td><a href="../introverse_docs/base_file.exists.html"><strong><code>dir.exists()</code></strong></a></td>
 <td>Ask if a given directory (folder) exists on your computer</td>
 </tr>
 <tr class="even">
@@ -229,7 +229,7 @@
 <td>Round a number or array of numbers up to the next highest integer</td>
 </tr>
 <tr class="odd">
-<td><a href="../introverse_docs/base_floor.html"><strong><code>floor()</code></strong></a></td>
+<td><a href="../introverse_docs/base_ceiling.html"><strong><code>floor()</code></strong></a></td>
 <td>Round a number or array of numbers down to the next lowest integer</td>
 </tr>
 <tr class="even">
@@ -294,19 +294,19 @@
 <td>Create a new data frame from scratch</td>
 </tr>
 <tr class="even">
-<td><a href="../introverse_docs/base_ncol.html"><strong><code>ncol()</code></strong></a></td>
-<td>Determine the number of columns in a data frame</td>
-</tr>
-<tr class="odd">
 <td><a href="../introverse_docs/base_nrow.html"><strong><code>nrow()</code></strong></a></td>
 <td>Determine the number of rows in a data frame</td>
+</tr>
+<tr class="odd">
+<td><a href="../introverse_docs/base_nrow.html"><strong><code>ncol()</code></strong></a></td>
+<td>Determine the number of columns in a data frame</td>
 </tr>
 <tr class="even">
 <td><a href="../introverse_docs/base_head.html"><strong><code>head()</code></strong></a></td>
 <td>See the first 6 rows of a data frame</td>
 </tr>
 <tr class="odd">
-<td><a href="../introverse_docs/base_tail.html"><strong><code>tail()</code></strong></a></td>
+<td><a href="../introverse_docs/base_head.html"><strong><code>tail()</code></strong></a></td>
 <td>See the last 6 rows of a data frame</td>
 </tr>
 <tr class="even">
@@ -330,23 +330,23 @@
 <td>Calculate the average of an array of numbers</td>
 </tr>
 <tr class="even">
-<td><a href="../introverse_docs/base_median.html"><strong><code>median()</code></strong></a></td>
+<td><a href="../introverse_docs/base_mean.html"><strong><code>median()</code></strong></a></td>
 <td>Calculate the median of an array of numbers</td>
 </tr>
 <tr class="odd">
-<td><a href="../introverse_docs/base_max.html"><strong><code>max()</code></strong></a></td>
+<td><a href="../introverse_docs/base_mean.html"><strong><code>max()</code></strong></a></td>
 <td>Calculate the maximum value of an array of numbers</td>
 </tr>
 <tr class="even">
-<td><a href="../introverse_docs/base_min.html"><strong><code>min()</code></strong></a></td>
+<td><a href="../introverse_docs/base_mean.html"><strong><code>min()</code></strong></a></td>
 <td>Calculate the minimum value of an array of numbers</td>
 </tr>
 <tr class="odd">
-<td><a href="../introverse_docs/base_sd.html"><strong><code>sd()</code></strong></a></td>
+<td><a href="../introverse_docs/base_mean.html"><strong><code>sd()</code></strong></a></td>
 <td>Calculate the standard deviation of an array of numbers</td>
 </tr>
 <tr class="even">
-<td><a href="../introverse_docs/base_sum.html"><strong><code>sum()</code></strong></a></td>
+<td><a href="../introverse_docs/base_mean.html"><strong><code>sum()</code></strong></a></td>
 <td>Calculate the sum of an array of numbers</td>
 </tr>
 <tr class="odd">
@@ -420,7 +420,7 @@
 <td>Establish a grouping in a tibble (data frame)</td>
 </tr>
 <tr class="odd">
-<td><a href="../introverse_docs/dplyr_ungroup.html"><strong><code>ungroup()</code></strong></a></td>
+<td><a href="../introverse_docs/dplyr_group_by.html"><strong><code>ungroup()</code></strong></a></td>
 <td>Undo any groupings in a tibble (data frame)</td>
 </tr>
 <tr class="even">
@@ -595,42 +595,46 @@
 <td>Set the default theme</td>
 </tr>
 <tr class="even">
-<td><a href="../introverse_docs/ggplot2_theme_classic.html"><strong><code>theme_classic()</code></strong></a></td>
-<td>Specify the “classic” theme</td>
-</tr>
-<tr class="odd">
-<td><a href="../introverse_docs/ggplot2_theme_dark.html"><strong><code>theme_dark()</code></strong></a></td>
-<td>Specify the built-in “dark” theme</td>
-</tr>
-<tr class="even">
 <td><a href="../introverse_docs/ggplot2_theme_gray.html"><strong><code>theme_gray()</code></strong></a></td>
 <td>Specify the built-in “gray” (default) theme</td>
 </tr>
 <tr class="odd">
-<td><a href="../introverse_docs/ggplot2_theme_grey.html"><strong><code>theme_grey()</code></strong></a></td>
+<td><a href="../introverse_docs/ggplot2_theme_gray.html"><strong><code>theme_grey()</code></strong></a></td>
 <td>Specify the built-in “grey” (default) theme</td>
 </tr>
 <tr class="even">
-<td><a href="../introverse_docs/ggplot2_theme_light.html"><strong><code>theme_light()</code></strong></a></td>
-<td>Specify the built-in “light” theme</td>
+<td><a href="../introverse_docs/ggplot2_theme_gray.html"><strong><code>theme_bw()</code></strong></a></td>
+<td>Specify the built-in “bw” theme</td>
 </tr>
 <tr class="odd">
-<td><a href="../introverse_docs/ggplot2_theme_linedraw.html"><strong><code>theme_linedraw()</code></strong></a></td>
+<td><a href="../introverse_docs/ggplot2_theme_gray.html"><strong><code>theme_linedraw()</code></strong></a></td>
 <td>Specify the built-in “linedraw” theme</td>
 </tr>
 <tr class="even">
-<td><a href="../introverse_docs/ggplot2_theme_minimal.html"><strong><code>theme_minimal()</code></strong></a></td>
+<td><a href="../introverse_docs/ggplot2_theme_gray.html"><strong><code>theme_light()</code></strong></a></td>
+<td>Specify the built-in “light” theme</td>
+</tr>
+<tr class="odd">
+<td><a href="../introverse_docs/ggplot2_theme_gray.html"><strong><code>theme_dark()</code></strong></a></td>
+<td>Specify the built-in “dark” theme</td>
+</tr>
+<tr class="even">
+<td><a href="../introverse_docs/ggplot2_theme_gray.html"><strong><code>theme_minimal()</code></strong></a></td>
 <td>Specify the built-in “minimal” theme</td>
 </tr>
 <tr class="odd">
-<td><a href="../introverse_docs/ggplot2_theme_void.html"><strong><code>theme_void()</code></strong></a></td>
-<td>Specify the built-in “void” theme</td>
+<td><a href="../introverse_docs/ggplot2_theme_gray.html"><strong><code>theme_classic()</code></strong></a></td>
+<td>Specify the “classic” theme</td>
 </tr>
 <tr class="even">
+<td><a href="../introverse_docs/ggplot2_theme_gray.html"><strong><code>theme_void()</code></strong></a></td>
+<td>Specify the built-in “void” theme</td>
+</tr>
+<tr class="odd">
 <td><a href="https://spielmanlab.github.io/introverse/articles/themes.html"><strong><code>theme()</code></strong></a></td>
 <td>Customize aspects of a plot theme</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><a href="../introverse_docs/ggplot2_labs.html"><strong><code>labs()</code></strong></a></td>
 <td>Customize plot labels, including axes, titles, and legends</td>
 </tr>
@@ -653,31 +657,31 @@
 </tr></thead>
 <tbody>
 <tr class="odd">
-<td><a href="../introverse_docs/dplyr_fct_relevel.html"><strong><code>fct_relevel()</code></strong></a></td>
+<td><a href="../introverse_docs/forcats_fct_relevel.html"><strong><code>fct_relevel()</code></strong></a></td>
 <td>Reorder levels in a factor to a custom order</td>
 </tr>
 <tr class="even">
-<td><a href="../introverse_docs/dplyr_fct_infreq.html"><strong><code>fct_infreq()</code></strong></a></td>
+<td><a href="../introverse_docs/forcats_fct_infreq.html"><strong><code>fct_infreq()</code></strong></a></td>
 <td>Reorder levels factor in a factor based on frequency</td>
 </tr>
 <tr class="odd">
-<td><a href="../introverse_docs/dplyr_fct_rev.html"><strong><code>fct_rev()</code></strong></a></td>
+<td><a href="../introverse_docs/forcats_fct_rev.html"><strong><code>fct_rev()</code></strong></a></td>
 <td>Reverse the order of levels in a factor</td>
 </tr>
 <tr class="even">
-<td><a href="../introverse_docs/dplyr_fct_reorder.html"><strong><code>fct_reorder()</code></strong></a></td>
+<td><a href="../introverse_docs/forcats_fct_reorder.html"><strong><code>fct_reorder()</code></strong></a></td>
 <td>Reorder levels in a factor based on values of another variable</td>
 </tr>
 <tr class="odd">
-<td><a href="../introverse_docs/dplyr_fct_lump_min.html"><strong><code>fct_lump_min()</code></strong></a></td>
+<td><a href="../introverse_docs/forcats_fct_lump_n.html"><strong><code>fct_lump_n()</code></strong></a></td>
 <td>Combine infrequently occurring levels of a factor into one</td>
 </tr>
 <tr class="even">
-<td><a href="../introverse_docs/dplyr_fct_lump_n.html"><strong><code>fct_lump_n()</code></strong></a></td>
+<td><a href="../introverse_docs/forcats_fct_lump_n.html"><strong><code>fct_lump_min()</code></strong></a></td>
 <td>Combine infrequently occurring levels of a factor into one</td>
 </tr>
 <tr class="odd">
-<td><a href="../introverse_docs/dplyr_fct_lump_prop.html"><strong><code>fct_lump_prop()</code></strong></a></td>
+<td><a href="../introverse_docs/forcats_fct_lump_n.html"><strong><code>fct_lump_prop()</code></strong></a></td>
 <td>Combine infrequently occurring levels of a factor into one</td>
 </tr>
 </tbody>
@@ -694,15 +698,15 @@
 </tr></thead>
 <tbody>
 <tr class="odd">
-<td><a href="../introverse_docs/dplyr_as_tibble.html"><strong><code>as_tibble()</code></strong></a></td>
+<td><a href="../introverse_docs/tibble_as_tibble.html"><strong><code>as_tibble()</code></strong></a></td>
 <td>Coerce a variable (often a data frame) into a tibble</td>
 </tr>
 <tr class="even">
-<td><a href="../introverse_docs/dplyr_tibble.html"><strong><code>tibble()</code></strong></a></td>
+<td><a href="../introverse_docs/tibble_tibble.html"><strong><code>tibble()</code></strong></a></td>
 <td>Create a new tibble from scratch</td>
 </tr>
 <tr class="odd">
-<td><a href="../introverse_docs/dplyr_tribble.html"><strong><code>tribble()</code></strong></a></td>
+<td><a href="../introverse_docs/tibble_tibble.html"><strong><code>tribble()</code></strong></a></td>
 <td>Create a new tibble from scratch</td>
 </tr>
 </tbody>
@@ -761,17 +765,17 @@
 </td>
 </tr>
 <tr class="even">
-<td><a href="../introverse_docs/readr_read_tsv.html"><strong><code>read_tsv()</code></strong></a></td>
+<td><a href="../introverse_docs/readr_read_csv.html"><strong><code>read_tsv()</code></strong></a></td>
 <td>Read a TSV file into <code>R</code>
 </td>
 </tr>
 <tr class="odd">
-<td><a href="../introverse_docs/readr_read_csv2.html"><strong><code>read_csv2()</code></strong></a></td>
+<td><a href="../introverse_docs/readr_read_csv.html"><strong><code>read_csv2()</code></strong></a></td>
 <td>Read a CSV2 file into <code>R</code>
 </td>
 </tr>
 <tr class="even">
-<td><a href="../introverse_docs/readr_read_delim.html"><strong><code>read_delim()</code></strong></a></td>
+<td><a href="../introverse_docs/readr_read_csv.html"><strong><code>read_delim()</code></strong></a></td>
 <td>Read a delimited file of any kind into <code>R</code>
 </td>
 </tr>
@@ -780,15 +784,15 @@
 <td>Write (save) a tibble (data frame) to a CSV file</td>
 </tr>
 <tr class="even">
-<td><a href="../introverse_docs/readr_write_tsv.html"><strong><code>write_tsv()</code></strong></a></td>
+<td><a href="../introverse_docs/readr_write_csv.html"><strong><code>write_tsv()</code></strong></a></td>
 <td>Write (save) a tibble (data frame) to a TSV file</td>
 </tr>
 <tr class="odd">
-<td><a href="../introverse_docs/readr_write_csv2.html"><strong><code>write_csv2()</code></strong></a></td>
+<td><a href="../introverse_docs/readr_write_csv.html"><strong><code>write_csv2()</code></strong></a></td>
 <td>Write (save) a tibble (data frame) to a CSV2 file</td>
 </tr>
 <tr class="even">
-<td><a href="../introverse_docs/readr_write_delim.html"><strong><code>write_delim()</code></strong></a></td>
+<td><a href="../introverse_docs/readr_write_csv.html"><strong><code>write_delim()</code></strong></a></td>
 <td>Write (save) a tibble (data frame) to a delimited file</td>
 </tr>
 </tbody>

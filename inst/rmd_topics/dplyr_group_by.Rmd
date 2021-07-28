@@ -29,9 +29,9 @@ blockquote {
 
 <div>
 <br>
- <img src = "logo.png" style = "float:left;height:130px;margin-top:-20px;">
- <span style = "font-weight:bold;font-size:40px;"> 
-  &nbsp;<code>dplyr::group_by()</code>
+ <img src = "logo.png" style = "float:left;height:130px;margin-top:-30px;">
+ <span style = "font-weight:bold;font-size:30px;"> 
+  &nbsp;<code>dplyr::group_by()</code> and <code>dplyr::ungroup()</code>
  </span>
  <br>
  <b>&nbsp;&nbsp;&nbsp;<code>get_help()</code> docs</b>

@@ -79,10 +79,11 @@ reveal_help <- function(category, topic, browser)
   dir.create(tempDir)
   htmlFile <- file.path(tempDir, "index.html")
   
+  redirected_topic <- redirect_topic(topic)
   withr::with_options(c(width = topic_width),
     rmarkdown::render(
       system.file(rmd_topics_path, 
-                  glue::glue("{category}_{topic}.Rmd"), 
+                  glue::glue("{category}_{redirected_topic}.Rmd"), 
                   package = "introverse"),
       output_file = htmlFile,
       quiet = TRUE)

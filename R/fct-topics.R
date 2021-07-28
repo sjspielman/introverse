@@ -1,3 +1,22 @@
+#' For topics with shared pages, redirect a given topic to the name of the topic that has an Rmd page
+#' 
+#' @keywords internal 
+#' @param topic The topic of interest
+#' @returns Either the provided topic if it is not shared, or the topic whose page exists if it is shared
+redirect_topic <- function(topic)
+{
+  if (topic %in% unlist(shared_doc_pages)) {
+    for (shared_array in shared_doc_pages) {
+      if (topic %in% shared_array) {
+        return (shared_array[1])
+      }
+    }
+  }
+  return (topic)
+}
+
+
+
 #' Obtain correct docs word for magrittr pipes
 #' @keywords internal
 convert_magrittr_into_topic <- function(pipe)

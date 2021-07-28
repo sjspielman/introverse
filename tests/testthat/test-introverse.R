@@ -44,13 +44,16 @@ test_that("get_help() yields output, message, or error appropriately",{
 })
 
 
-test_that("contents of rmd_topics match topics_list", {
+test_that("contents of rmd_topics match topics_list, EXCLUDING redirects", {
+  
   
   rmd_files <- list.files(
     system.file("rmd_topics", package = "introverse"), 
     pattern = ".Rmd"
   )
   list_names <- sort(unique(stringr::str_match(rmd_files, "^([a-z]+2*)_")[,2]))  #2* in regex for ggplot2
+  
+  
   
   pername <- function(name)
   {
@@ -62,6 +65,28 @@ test_that("contents of rmd_topics match topics_list", {
   test_list <- purrr::map(list_names, pername)
   names(test_list) <- list_names
   
+  ## Add in the redirects to the test_list, which contains only the FILES
+  # NO SHAME!!! 
+  for (category in names(test_list)){
+    for (file_topic_array in test_list[category]){
+      for (file_topic in file_topic_array) {
+        # Get all the shared for this topic
+        if (file_topic %in% unlist(shared_doc_pages)){
+          # Which one is it in?
+          for (shared_group in shared_doc_pages) {
+            if (file_topic %in% shared_group) {
+              the_rest <- shared_group[shared_group != file_topic]
+              #print(the_rest)
+              test_list[[category]] <- sort(c(test_list[[category]], the_rest)) # sort!
+            }
+          }
+        }
+      }
+    }
+  }
+  
+  
+  # Everything in test_list should be in topic_list, but not necessarily vice-versa due to redirects/shared docs
   expect_equal(test_list, topic_list)
 
 })

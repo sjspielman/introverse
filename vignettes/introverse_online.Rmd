@@ -53,7 +53,7 @@ knitr::opts_chunk$set(
 |----|----|
 | [**`getwd()`**](../introverse_docs/base_getwd.html) | Ask `R` what your R session's working directory is |
 | [**`setwd()`**](../introverse_docs/base_setwd.html) | Change the current R session's working directory |
-| [**`dir.exists()`**](../introverse_docs/base_dir.exists.html) | Ask if a given directory (folder) exists on your computer |
+| [**`dir.exists()`**](../introverse_docs/base_file.exists.html) | Ask if a given directory (folder) exists on your computer |
 | [**`file.exists()`**](../introverse_docs/base_file.exists.html) | Ask if a given file exists on your computer |
 | [**`file.path()`**](../introverse_docs/base_file.path.html) | Construct a path to a given file or directory (folder) |
 
@@ -63,7 +63,7 @@ knitr::opts_chunk$set(
 |----|----|
 | [**`round()`**](../introverse_docs/base_round.html) | Round a number or array of numbers to a specified number of decimal places |
 | [**`ceiling()`**](../introverse_docs/base_ceiling.html) | Round a number or array of numbers up to the next highest integer |
-| [**`floor()`**](../introverse_docs/base_floor.html) | Round a number or array of numbers down to the next lowest integer |
+| [**`floor()`**](../introverse_docs/base_ceiling.html) | Round a number or array of numbers down to the next lowest integer |
 | [**`log()`**](../introverse_docs/base_log.html) | Calculate the natural log (or other specified base) of a number or array of numbers |
 | [**`sqrt()`**](../introverse_docs/base_log.html) | Calculate the square root of a number or array of numbers |
 
@@ -84,10 +84,10 @@ knitr::opts_chunk$set(
 | Function   |  Description  |
 |----|----|
 | [**`data.frame()`**](../introverse_docs/base_data.frame.html) | Create a new data frame from scratch |
-| [**`ncol()`**](../introverse_docs/base_ncol.html) | Determine the number of columns in a data frame  |
 | [**`nrow()`**](../introverse_docs/base_nrow.html) | Determine the number of rows in a data frame  |
+| [**`ncol()`**](../introverse_docs/base_nrow.html) | Determine the number of columns in a data frame  |
 | [**`head()`**](../introverse_docs/base_head.html) | See the first 6 rows of a data frame |
-| [**`tail()`**](../introverse_docs/base_tail.html) | See the last 6 rows of a data frame |
+| [**`tail()`**](../introverse_docs/base_head.html) | See the last 6 rows of a data frame |
 | [**`summary()`**](../introverse_docs/base_summary.html) | See a summary of columns in data frame |
 
 #### Summary statistics
@@ -95,11 +95,11 @@ knitr::opts_chunk$set(
 | Function   |  Description  |
 |----|----|
 | [**`mean()`**](../introverse_docs/base_mean.html) | Calculate the average of an array of numbers |
-| [**`median()`**](../introverse_docs/base_median.html) | Calculate the median of an array of numbers |
-| [**`max()`**](../introverse_docs/base_max.html) |  Calculate the maximum value of an array of numbers |
-| [**`min()`**](../introverse_docs/base_min.html) | Calculate the minimum value of an array of numbers |
-| [**`sd()`**](../introverse_docs/base_sd.html) | Calculate the standard deviation of an array of numbers |
-| [**`sum()`**](../introverse_docs/base_sum.html) |Calculate the sum of an array of numbers |
+| [**`median()`**](../introverse_docs/base_mean.html) | Calculate the median of an array of numbers |
+| [**`max()`**](../introverse_docs/base_mean.html) |  Calculate the maximum value of an array of numbers |
+| [**`min()`**](../introverse_docs/base_mean.html) | Calculate the minimum value of an array of numbers |
+| [**`sd()`**](../introverse_docs/base_mean.html) | Calculate the standard deviation of an array of numbers |
+| [**`sum()`**](../introverse_docs/base_mean.html) |Calculate the sum of an array of numbers |
 | [**`summary()`**](../introverse_docs/base_summary.html) | Calculate several summary statistics for an array of numbers |
 | [**`table()`**](../introverse_docs/base_table.html) | Count the occurrences of each value in an array of any type  |
 
@@ -123,7 +123,7 @@ knitr::opts_chunk$set(
 | [**`pull()`**](../introverse_docs/dplyr_pull.html) | Extract out a column from a tibble (data frame) into its own array |
 | [**`slice()`**](../introverse_docs/dplyr_slice.html) | Keep only certain rows from a tibble (data frame) based on index |
 | [**`group_by()`**](../introverse_docs/dplyr_group_by.html) | Establish a grouping in a tibble (data frame) |
-| [**`ungroup()`**](../introverse_docs/dplyr_ungroup.html) | Undo any groupings in a tibble (data frame) |
+| [**`ungroup()`**](../introverse_docs/dplyr_group_by.html) | Undo any groupings in a tibble (data frame) |
 | [**`summarize()`**](../introverse_docs/dplyr_summarize.html) | Summarize values in a tibble (data frame) to produce a smaller summarized tibble |
 | [**`tally()`**](../introverse_docs/dplyr_tally.html) | Count the number of rows in each grouping of a tibble (data frame)|
 | [**`count()`**](../introverse_docs/dplyr_count.html) | Simultaneously group and count the number of rows in each grouping of a tibble (data frame)|
@@ -176,14 +176,15 @@ knitr::opts_chunk$set(
 | Function   |  Description  |
 |----|----|
 | [**`theme_set()`**](../introverse_docs/ggplot2_theme_set.html) | Set the default theme |
-| [**`theme_classic()`**](../introverse_docs/ggplot2_theme_classic.html) | Specify the "classic" theme |
-| [**`theme_dark()`**](../introverse_docs/ggplot2_theme_dark.html) | Specify the built-in "dark" theme |
 | [**`theme_gray()`**](../introverse_docs/ggplot2_theme_gray.html) | Specify the built-in "gray" (default) theme|
-| [**`theme_grey()`**](../introverse_docs/ggplot2_theme_grey.html) | Specify the built-in "grey" (default) theme|
-| [**`theme_light()`**](../introverse_docs/ggplot2_theme_light.html) | Specify the built-in "light" theme|
-| [**`theme_linedraw()`**](../introverse_docs/ggplot2_theme_linedraw.html) | Specify the built-in "linedraw" theme|
-| [**`theme_minimal()`**](../introverse_docs/ggplot2_theme_minimal.html) | Specify the built-in "minimal" theme|
-| [**`theme_void()`**](../introverse_docs/ggplot2_theme_void.html) | Specify the built-in "void" theme|
+| [**`theme_grey()`**](../introverse_docs/ggplot2_theme_gray.html) | Specify the built-in "grey" (default) theme|
+| [**`theme_bw()`**](../introverse_docs/ggplot2_theme_gray.html) | Specify the built-in "bw" theme|
+| [**`theme_linedraw()`**](../introverse_docs/ggplot2_theme_gray.html) | Specify the built-in "linedraw" theme|
+| [**`theme_light()`**](../introverse_docs/ggplot2_theme_gray.html) | Specify the built-in "light" theme|
+| [**`theme_dark()`**](../introverse_docs/ggplot2_theme_gray.html) | Specify the built-in "dark" theme |
+| [**`theme_minimal()`**](../introverse_docs/ggplot2_theme_gray.html) | Specify the built-in "minimal" theme|
+| [**`theme_classic()`**](../introverse_docs/ggplot2_theme_gray.html) | Specify the "classic" theme |
+| [**`theme_void()`**](../introverse_docs/ggplot2_theme_gray.html) | Specify the built-in "void" theme|
 | [**`theme()`**](https://spielmanlab.github.io/introverse/articles/themes.html) | Customize aspects of a plot theme |
 | [**`labs()`**](../introverse_docs/ggplot2_labs.html) | Customize plot labels, including axes, titles, and legends |
 
@@ -191,22 +192,22 @@ knitr::opts_chunk$set(
 
 | Function   |  Description  |
 |----|----|
-| [**`fct_relevel()`**](../introverse_docs/dplyr_fct_relevel.html) | Reorder levels in a factor to a custom order |
-| [**`fct_infreq()`**](../introverse_docs/dplyr_fct_infreq.html) | Reorder levels factor in a factor based on frequency |
-| [**`fct_rev()`**](../introverse_docs/dplyr_fct_rev.html) | Reverse the order of levels in a factor |
-| [**`fct_reorder()`**](../introverse_docs/dplyr_fct_reorder.html) | Reorder levels in a factor based on values of another variable |
-| [**`fct_lump_min()`**](../introverse_docs/dplyr_fct_lump_min.html) | Combine infrequently occurring levels of a factor into one |
-| [**`fct_lump_n()`**](../introverse_docs/dplyr_fct_lump_n.html) | Combine infrequently occurring levels of a factor into one |
-| [**`fct_lump_prop()`**](../introverse_docs/dplyr_fct_lump_prop.html) | Combine infrequently occurring levels of a factor into one |
+| [**`fct_relevel()`**](../introverse_docs/forcats_fct_relevel.html) | Reorder levels in a factor to a custom order |
+| [**`fct_infreq()`**](../introverse_docs/forcats_fct_infreq.html) | Reorder levels factor in a factor based on frequency |
+| [**`fct_rev()`**](../introverse_docs/forcats_fct_rev.html) | Reverse the order of levels in a factor |
+| [**`fct_reorder()`**](../introverse_docs/forcats_fct_reorder.html) | Reorder levels in a factor based on values of another variable |
+| [**`fct_lump_n()`**](../introverse_docs/forcats_fct_lump_n.html) | Combine infrequently occurring levels of a factor into one |
+| [**`fct_lump_min()`**](../introverse_docs/forcats_fct_lump_n.html) | Combine infrequently occurring levels of a factor into one |
+| [**`fct_lump_prop()`**](../introverse_docs/forcats_fct_lump_n.html) | Combine infrequently occurring levels of a factor into one |
 
 
 ### Get help with `tibble`
 
 | Function   |  Description  |
 |----|----|
-| [**`as_tibble()`**](../introverse_docs/dplyr_as_tibble.html) | Coerce a variable (often a data frame) into a tibble |
-| [**`tibble()`**](../introverse_docs/dplyr_tibble.html) | Create a new tibble from scratch |
-| [**`tribble()`**](../introverse_docs/dplyr_tribble.html) | Create a new tibble from scratch |
+| [**`as_tibble()`**](../introverse_docs/tibble_as_tibble.html) | Coerce a variable (often a data frame) into a tibble |
+| [**`tibble()`**](../introverse_docs/tibble_tibble.html) | Create a new tibble from scratch |
+| [**`tribble()`**](../introverse_docs/tibble_tibble.html) | Create a new tibble from scratch |
 
 
 ### Get help with `tidyr`
@@ -224,10 +225,10 @@ knitr::opts_chunk$set(
 | Function   |  Description  |
 |----|----|
 | [**`read_csv()`**](../introverse_docs/readr_read_csv.html)  |  Read a CSV file into `R` |
-| [**`read_tsv()`**](../introverse_docs/readr_read_tsv.html)  |  Read a TSV file into `R` |
-| [**`read_csv2()`**](../introverse_docs/readr_read_csv2.html)  |  Read a CSV2 file into `R` |
-| [**`read_delim()`**](../introverse_docs/readr_read_delim.html)  |  Read a delimited file of any kind into `R` |
+| [**`read_tsv()`**](../introverse_docs/readr_read_csv.html)  |  Read a TSV file into `R` |
+| [**`read_csv2()`**](../introverse_docs/readr_read_csv.html)  |  Read a CSV2 file into `R` |
+| [**`read_delim()`**](../introverse_docs/readr_read_csv.html)  |  Read a delimited file of any kind into `R` |
 | [**`write_csv()`**](../introverse_docs/readr_write_csv.html)  |  Write (save) a tibble (data frame) to a CSV file |
-| [**`write_tsv()`**](../introverse_docs/readr_write_tsv.html)  | Write (save) a tibble (data frame) to a TSV file |
-| [**`write_csv2()`**](../introverse_docs/readr_write_csv2.html)  |  Write (save) a tibble (data frame) to a CSV2 file |
-| [**`write_delim()`**](../introverse_docs/readr_write_delim.html)  | Write (save) a tibble (data frame) to a delimited file |
+| [**`write_tsv()`**](../introverse_docs/readr_write_csv.html)  | Write (save) a tibble (data frame) to a TSV file |
+| [**`write_csv2()`**](../introverse_docs/readr_write_csv.html)  |  Write (save) a tibble (data frame) to a CSV2 file |
+| [**`write_delim()`**](../introverse_docs/readr_write_csv.html)  | Write (save) a tibble (data frame) to a delimited file |

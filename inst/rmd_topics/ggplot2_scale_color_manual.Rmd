@@ -1,0 +1,280 @@
+---
+title: "{introverse} quick docs"
+output: 
+  html_document:
+    highlight: tango
+    theme: readable
+---
+
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE, 
+                      warning = FALSE, 
+                      message = TRUE)
+library(ggplot2)
+library(dplyr)
+msleep %>% tidyr::drop_na(sleep_rem, awake) -> msleep
+```
+
+```{css custom, echo=FALSE}
+.title{
+    display: none;
+}
+blockquote {
+  display: block;
+  font-size: 0.95em;
+  border-left: 3px solid #7FB036;
+  padding:10px;
+  margin-left:10px;
+}
+```
+
+<div>
+<br>
+ <img src = "logo.png" style = "float:left;height:130px;margin-top:-20px;">
+ <span style = "font-weight:bold;font-size:40px;"> 
+  &nbsp;<code>ggplot2::scale_*_manual()</code>
+ </span>
+ <br>
+ <b>&nbsp;&nbsp;&nbsp;<code>get_help()</code> docs</b>
+</div>
+<br>
+
+### Description
+
+All functions documented here are part of the [`{ggplot2}`](https://ggplot2.tidyverse.org/) package, which is part of the [`{tidyverse}`](https://www.tidyverse.org/).
+
+The `{ggplot2}` package [provides several useful functions](https://ggplot2.tidyverse.org/reference/scale_manual.html) for create your own aesthetic mapping scales. With these functions, you can manually customize how colors, fills, shapes, sizes, alpha (transparency), and and linetypes are mapped to your data. _You should only use these functions when you have MAPPED an aesthetic._ If you are trying to specify a color, fill, shape, etc. directly without any mapping, simply provide the argument to the geom of interest.
+
+All functions are named `scale_AESTHETIC-TYPE_manual()`, where `AESTHETIC-TYPE` is a type of aesthetic mapping you have specified. These functions include:
+
+| Function | What we use it for
+|:-----------|:-------------
+|  `scale_color_manual()` (aka `scale_colour_manual()`)   | Specify custom colors to use for mapping
+|  `scale_fill_manual()`  | Specify custom fills to use for mapping
+|  `scale_shape_manual()`  | Specify custom fills to use for mapping
+|  `scale_alpha_manual()`  | Specify custom alpha (transparency) levels to use for mapping
+|  `scale_size_manual()`  | Specify custom sizes to use for mapping. This is generally _not recommended_ unless you really know what you're doing, since it is easy to distort sizes and make interpretation difficult
+|  `scale_linetype_manual()`  | Specify custom linetypes to use for mapping
+
+
+<!-- Add the following if the topic is a function that does NOT come with base R, and uncomment/fill in the subsequent multiline HTML comment: -->
+To use these function, you need to either first load the `{ggplot2}` library, or always use the function with `ggplot2::()` notation.
+
+```{r description, eval=FALSE}
+# Load the library
+library(ggplot2)
+# Or, load the full tidyverse:
+library(tidyverse)
+
+# Or, use :: notation, for example with scale_color_manual()
+ggplot2::scale_color_manual()
+```
+
+
+### Conceptual Usage
+
+
+```{r conceptual, eval=FALSE}
+# Most basic usage:
+scale_AESTHETIC-TYPE_manual(values = c(array, of, values, to, use, for, mapping))
+
+# Note that the legend name can also be specified with `ggplot2::labs()`
+scale_AESTHETIC-TYPE_manual(name = Name of legend associated with this mapping,
+                            values = c(array, of, values, to, use, for, mapping))
+
+# Most basic usage:
+scale_AESTHETIC-TYPE_manual(values = c(array, of, values, to, use, for, mapping),
+                            na.value = specify value to use for data mapping to NA)
+
+```
+
+### Examples
+
+The examples below use the `msleep` dataset. Learn more about this dataset with `get_help("msleep")`.
+
+```{r msleep}
+# Show the msleep dataset with head()
+head(msleep)
+```
+
+<br>
+```{r example1}
+# Specify custom colors for the `vore` color mapping, ensuring the number of values MATCHES the number of vores (except NAs)
+ggplot(msleep) + 
+  aes(x = sleep_rem, 
+      y = awake, 
+      color = vore) + 
+  geom_point() +
+  scale_color_manual(
+    # There are 4 vores, so we need 4 colors
+    values = c("blue", "red", "orange", "pink")
+  )
+```
+
+<br>
+
+
+```{r example1.5}
+# Specify custom colors for the `vore` color mapping, ensuring the number of values MATCHES the number of vores (except NAs)
+# This time, use the `name` argument for a customized legend title
+ggplot(msleep) + 
+  aes(x = sleep_rem, 
+      y = awake, 
+      color = vore) + 
+  geom_point() +
+  scale_color_manual(
+    name = "Customized new legend title",
+    # There are 4 vores, so we need 4 colors
+    values = c("blue", "red", "orange", "pink")
+  )
+```
+
+<br>
+```{r example2}
+# Instead of the previous example, you can also `labs()` to specify the legend title 
+ggplot(msleep) + 
+  aes(x = sleep_rem, 
+      y = awake, 
+      color = vore) + 
+  geom_point() +
+  scale_color_manual( values = c("blue", "red", "orange", "pink")) + 
+  labs(color = "Customized new legend title")
+```
+
+<br>
+
+
+```{r example3}
+# To customize the color used for NA values, use the argument `na.value`
+ggplot(msleep) + 
+  aes(x = sleep_rem, 
+      y = awake, 
+      color = vore) + 
+  geom_point() +
+  scale_color_manual(
+    values = c("blue", "red", "orange", "pink"),
+    na.value = "yellow" # Now all vore that are NA will be yellow instead of the default dark gray
+  )
+```
+
+
+<br>
+
+```{r example4}
+# CAUTION!! If you don't include an aesthetic in the first place, none of your manual values appear
+ggplot(msleep) + 
+  aes(x = sleep_rem, 
+      y = awake) + # forgetting the color = vore means no colors and no legend show up 
+  geom_point() +
+  scale_color_manual(values = c("blue", "red", "orange", "pink"))
+```
+
+
+<br>
+
+```{r example5}
+# Specify custom shapes for the `vore` shape mapping
+# Use `get_help("geom_point")` to see different types of shapes in R plotting
+ggplot(msleep) + 
+  aes(x = sleep_rem, 
+      y = awake, 
+      shape = vore) + 
+  geom_point() +
+  scale_shape_manual(
+    values = c(1, 2, 3, 4), # There are 4 vores, so we need 4 shapes
+    na.value = 19 # optionally, specify a shape for the NAs
+  )
+```
+
+
+<br>
+
+```{r example6}
+# Specify custom fills for the `vore` fill mapping
+ggplot(msleep) + 
+  aes(x = vore, 
+      y = awake, 
+      fill = vore) + 
+  geom_boxplot() +
+  scale_fill_manual(
+    values = c("blue", "red", "orange", "pink"),
+    na.value = "yellow" 
+  )
+```
+
+
+<br>
+
+```{r example7}
+# CAUTION!! If you specify a fill aesthetic but you don't use scale_FILL_manual, it won't work
+# Instead, resulting fills will be _the default fills_
+ggplot(msleep) + 
+  aes(x = vore, 
+      y = awake, 
+      fill = vore) + 
+  geom_boxplot() +
+  # Accidentally applying a manual color scale doesn't change the plot, since a FILL aesthetic was used
+  scale_color_manual(
+    values = c("blue", "red", "orange", "pink"),
+    na.value = "yellow" 
+  )
+```
+
+
+<br>
+
+```{r example8}
+# Specify custom alphas for the vore alpha mapping
+# We also include a fill aesthetic to vore so that we have fills to make transparent
+ggplot(msleep) + 
+  aes(x = vore, 
+      y = awake, 
+      alpha = vore, 
+      fill = vore) + 
+  geom_boxplot() +
+  scale_alpha_manual(
+    # alpha can range from 0-1. Notice how fills become increasingly opaque
+    values = c(0.2, 0.4, 0.6, 0.8),
+    na.value = 1
+  )
+```
+
+<br>
+
+
+```{r example9}
+# Create a dataset over time to demonstrate working with `linetype`
+# Use `get_help("tribble")` to learn about making your own tibbles directly in R.
+tibble::tribble(
+  ~year, ~value, ~data_group,
+  2000, 5, "A",
+  2000, 7, "B",
+  2000, 8, "C",
+  2001, 7, "A",
+  2001, 12, "B",
+  2001, 11, "C",
+  2002, 9, "A",
+  2002, 14, "B",
+  2002, 16, "C"
+) -> time_demo_tibble
+
+# Show tibble:
+time_demo_tibble
+
+# Plot value over time, with one line per group, using `scale_linetype_manual()` to customize lines
+# See `get_help("geom_line")` for more information about types of line types
+ggplot(time_demo_tibble) + 
+  aes(x = year, 
+      y = value,
+      group = data_group, # needed for grouped line plots
+      linetype = data_group) + 
+  geom_line() +
+  scale_linetype_manual(
+    values = c(3,1,2)
+  )
+```
+
+```{r, returnmsleep, echo=F, include=F}
+msleep <- introverse::msleep
+```

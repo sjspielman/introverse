@@ -8,8 +8,8 @@ dplyr_topics <- sort(c(
   "arrange", 
   "distinct",
   "summarize",
-  "group_by", 
-  "ungroup",
+  # Same page
+  "group_by", "ungroup",
   "pull",
   "rename",
   "glimpse",
@@ -29,6 +29,7 @@ dplyr_topics <- sort(c(
 #' All the ggplot2 topics
 #' @keywords internal
 ggplot2_topics <- sort(c(
+  "ggplot",
   "aes",
   "labs",
   "geom_histogram",
@@ -39,10 +40,11 @@ ggplot2_topics <- sort(c(
   "geom_jitter",
   "geom_bar",
   "geom_col",
-  "ggplot",
   # Same page
   "theme_gray", "theme_grey", "theme_bw", "theme_minimal", "theme_light", "theme_linedraw", "theme_classic", "theme_dark", "theme_void",
-  "theme_set"
+  "theme_set",
+  # Same page
+  "scale_color_manual","scale_colour_manual",  "scale_fill_manual", "scale_shape_manual", "scale_size_manual", "scale_alpha_manual","scale_linetype_manual"
 ))
 # geom_line <--- need a dataset
 # theme - this should also document theme_bw(), etc.
@@ -50,6 +52,37 @@ ggplot2_topics <- sort(c(
 # scale_fc_brewer
 # scale_fc_distiller
 # facet
+
+#' List of which topics share a given page, for redirection. The FIRST one represents the rmd file which _exist_
+#' @keywords internal
+shared_doc_pages <- list(
+  c("scale_color_manual",
+    "scale_colour_manual", 
+    "scale_fill_manual", 
+    "scale_shape_manual", 
+    "scale_size_manual", 
+    "scale_alpha_manual",
+    "scale_linetype_manual"),
+  c("mean", "median", "min", "max", "sd", "sum"),
+  c("theme_gray",
+    "theme_grey", 
+    "theme_bw", 
+    "theme_minimal", 
+    "theme_light", 
+    "theme_linedraw", 
+    "theme_classic", 
+    "theme_dark", 
+    "theme_void"),
+  c("group_by", "ungroup"),
+  c("read_csv", "read_tsv", "read_csv2", "read_delim"),
+  c("write_csv", "write_tsv", "write_csv2", "write_delim"),
+  c("fct_lump_n", "fct_lump_prop", "fct_lump_min"),
+  c("nrow", "ncol"),
+  c("head", "tail"),
+  c("ceiling", "floor"),
+  c("file.exists", "dir.exists"),
+  c("tibble", "tribble")
+)
 
 
 #' All the tibble topics
