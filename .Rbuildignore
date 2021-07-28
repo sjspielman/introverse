@@ -23,4 +23,3 @@ build_site.R
 vignettes/introverse_online.Rmd
 vignettes/additional_resources.Rmd
 vignettes/axes.Rmd
-vignettes/themes.Rmd

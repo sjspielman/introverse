@@ -29,8 +29,8 @@ blockquote {
 
 <div>
 <br>
- <img src = "logo.png" style = "float:left;height:130px;margin-top:-20px;">
- <span style = "font-weight:bold;font-size:40px;"> 
+ <img src = "logo.png" style = "float:left;height:130px;margin-top:-30px;">
+ <span style = "font-weight:bold;font-size:30px;"> 
   &nbsp;<code>ggplot2::geom_boxplot()</code>
  </span>
  <br>

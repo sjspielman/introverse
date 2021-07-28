@@ -43,12 +43,12 @@ ggplot2_topics <- sort(c(
   # Same page
   "theme_gray", "theme_grey", "theme_bw", "theme_minimal", "theme_light", "theme_linedraw", "theme_classic", "theme_dark", "theme_void",
   "theme_set",
+  "theme",
   # Same page
   "scale_color_manual","scale_colour_manual",  "scale_fill_manual", "scale_shape_manual", "scale_size_manual", "scale_alpha_manual","scale_linetype_manual"
 ))
 # geom_line <--- need a dataset
 # theme - this should also document theme_bw(), etc.
-# scale_fc_manual
 # scale_fc_brewer
 # scale_fc_distiller
 # facet

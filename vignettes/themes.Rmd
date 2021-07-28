@@ -65,7 +65,7 @@ Themes are comprised of several different types of *elements*:
 
 <br>
 
-All theme components can be fully customized, as is overwhelmingly documented [here](https://ggplot2.tidyverse.org/reference/theme.html). There are also several [existing complete themes]() in `{ggplot2}`, which can be used "out of the box" if you want something different but without further customization, examples for which are shown in this tutorial.
+All theme components can be fully customized using the **`theme()`** function, as is overwhelmingly documented [here](https://ggplot2.tidyverse.org/reference/theme.html). There are also several [existing complete themes]() in `{ggplot2}`, which can be used "out of the box" if you want something different but without further customization, examples for which are shown in this tutorial.
 
 <br><br>
 

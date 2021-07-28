@@ -1,9 +1,9 @@
 # Hi! Run this to build the pkgdown site!
+
+options(rmarkdown.html_vignette.check_title = FALSE)
+
 args = commandArgs(trailingOnly=TRUE)
-
-
 htmlify <- as.logical(args[1]) 
-
 if (is.na(htmlify)) htmlify <- FALSE
 
 if (htmlify)
