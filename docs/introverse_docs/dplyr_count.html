@@ -296,14 +296,14 @@ blockquote {
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the msleep dataset with head()</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(msleep)</span></code></pre></div>
 <pre><code>## # A tibble: 6 × 11
-##   name      genus vore  order  conservation sleep_total sleep_rem sleep_cycle awake  brainwt  bodywt
-##   &lt;chr&gt;     &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;              &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;
-## 1 Owl monk… Aotus omni  Prima… &lt;NA&gt;                17         1.8      NA       7    0.0155    0.48 
-## 2 Mountain… Aplo… herbi Roden… nt                  14.4       2.4      NA       9.6 NA         1.35 
-## 3 Greater … Blar… omni  Soric… lc                  14.9       2.3       0.133   9.1  0.00029   0.019
-## 4 Cow       Bos   herbi Artio… domesticated         4         0.7       0.667  20    0.423   600    
-## 5 Three-to… Brad… herbi Pilosa &lt;NA&gt;                14.4       2.2       0.767   9.6 NA         3.85 
-## 6 Northern… Call… carni Carni… vu                   8.7       1.4       0.383  15.3 NA        20.5</code></pre>
+##   name  genus vore  order conservation sleep_total sleep_rem sleep_cycle awake  brainwt  bodywt
+##   &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;              &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;
+## 1 Chee… Acin… carni Carn… lc                  12.1      NA        NA      11.9 NA        50    
+## 2 Owl … Aotus omni  Prim… &lt;NA&gt;                17         1.8      NA       7    0.0155    0.48 
+## 3 Moun… Aplo… herbi Rode… nt                  14.4       2.4      NA       9.6 NA         1.35 
+## 4 Grea… Blar… omni  Sori… lc                  14.9       2.3       0.133   9.1  0.00029   0.019
+## 5 Cow   Bos   herbi Arti… domesticated         4         0.7       0.667  20    0.423   600    
+## 6 Thre… Brad… herbi Pilo… &lt;NA&gt;                14.4       2.2       0.767   9.6 NA         3.85</code></pre>
 <p><br></p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Count the number of each vore category in `msleep`</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>msleep <span class="sc">%&gt;%</span></span>
@@ -311,29 +311,29 @@ blockquote {
 <pre><code>## # A tibble: 5 × 2
 ##   vore        n
 ##   &lt;chr&gt;   &lt;int&gt;
-## 1 carni      10
-## 2 herbi      24
-## 3 insecti     4
-## 4 omni       18
-## 5 &lt;NA&gt;        5</code></pre>
+## 1 carni      19
+## 2 herbi      32
+## 3 insecti     5
+## 4 omni       20
+## 5 &lt;NA&gt;        7</code></pre>
 <p><br> <!-- Do not delete the <br>, and make sure to keep the previous and following lines blank. --></p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Count the number of each combination of `vore` and `order` categories in `msleep`</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>msleep <span class="sc">%&gt;%</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(vore, order)</span></code></pre></div>
-<pre><code>## # A tibble: 28 × 3
+<pre><code>## # A tibble: 32 × 3
 ##    vore  order               n
 ##    &lt;chr&gt; &lt;chr&gt;           &lt;int&gt;
-##  1 carni Carnivora           7
-##  2 carni Cetacea             1
+##  1 carni Carnivora          12
+##  2 carni Cetacea             3
 ##  3 carni Cingulata           1
 ##  4 carni Didelphimorphia     1
-##  5 herbi Artiodactyla        4
-##  6 herbi Diprotodontia       1
-##  7 herbi Hyracoidea          2
-##  8 herbi Lagomorpha          1
-##  9 herbi Perissodactyla      3
-## 10 herbi Pilosa              1
-## # … with 18 more rows</code></pre>
+##  5 carni Primates            1
+##  6 carni Rodentia            1
+##  7 herbi Artiodactyla        5
+##  8 herbi Diprotodontia       1
+##  9 herbi Hyracoidea          2
+## 10 herbi Lagomorpha          1
+## # … with 22 more rows</code></pre>
 </div>
 
 

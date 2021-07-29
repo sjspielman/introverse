@@ -1,0 +1,107 @@
+---
+title: "{introverse} quick docs"
+output: 
+  html_document:
+    highlight: tango
+    theme: readable
+---
+
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE, 
+                      warning = FALSE, 
+                      message = TRUE)
+```
+
+```{css custom, echo=FALSE}
+.title{
+    display: none;
+}
+blockquote {
+  display: block;
+  font-size: 0.95em;
+  border-left: 3px solid #7FB036;
+  padding:10px;
+  margin-left:10px;
+}
+```
+
+<div>
+<br>
+ <img src = "logo.png" style = "float:left;height:130px;margin-top:-30px;">
+ <span style = "font-weight:bold;font-size:30px;"> 
+  &nbsp;<code>ggplot2::ggsave()</code>
+ </span>
+ <br>
+ <b>&nbsp;&nbsp;&nbsp;<code>get_help()</code> docs</b>
+</div>
+<br>
+
+### Description
+
+The [`ggsave()`](https://ggplot2.tidyverse.org/reference/ggsave.html) function is part of the [`{ggplot2}`](https://ggplot2.tidyverse.org/) package, which is part of the [`{tidyverse}`](https://www.tidyverse.org/).
+
+We use this function within `{ggplot2}` plots to export and _save_ plots to files. 
+
+<!-- Add the following if the topic is a function that does NOT come with base R, and uncomment/fill in the subsequent multiline HTML comment: -->
+To use this function, you need to either first load the `{ggplot2}` library, or always use the function with `ggplot2::ggsave()` notation.
+
+```{r description, eval=FALSE}
+# Load the library
+library(ggplot2)
+# Or, load the full tidyverse:
+library(tidyverse)
+
+# Or, use :: notation
+ggplot2::ggsave()
+```
+
+### Conceptual Usage
+
+
+```{r conceptual, eval=FALSE}
+# Although there are other ways to use the `ggsave()` function, this usage will be the MOST RELIABLE AND REPRODUCIBLE!
+ggsave(name of file to save the plot to with extension determining filetype,
+       plot variable you want to save,
+       # Width and height require some trial/error! Default width/height are not reliably reproducible, so always specify!
+       width = width of outputted file in inches,
+       height = height of outputted file in inches)
+```
+
+### Examples
+
+The examples below use the `msleep` dataset. Learn more about this dataset with `get_help("msleep")`.
+
+```{r msleep}
+# Show the msleep dataset with head()
+head(msleep)
+```
+
+<br>
+```{r example1, eval=FALSE}
+# Create a scatterplot to save.
+ggplot(msleep) + 
+  aes(x = sleep_rem, y = awake) + 
+  geom_point() -> my_plot
+
+# Save to a PNG image file called "my_saved_plot.png"
+ggsave("my_saved_plot.png", # output file name to save a PNG file
+       my_plot,             # previously defined variable containing the plot we want to save
+       width = 6,           # The image will be 6 inches wide
+       height = 6)          #  The image will be 6 inches tall
+```
+
+<br>
+
+```{r example2, eval=FALSE}
+# Create a scatterplot to save.
+ggplot(msleep) + 
+  aes(x = sleep_rem, y = awake) + 
+  geom_point() -> my_plot
+
+# Save to a PDF image file called "my_saved_plot.pdf"
+ggsave("my_saved_plot.pdf", # output file name to save a PDF file
+       my_plot,             # previously defined variable containing the plot we want to save
+       width = 6,           # The image will be 6 inches wide
+       height = 6)          #  The image will be 6 inches tall
+```

@@ -154,8 +154,9 @@ knitr::opts_chunk$set(
 
 | Function   |  Description  |
 |----|----|
-| [**`aes()`**](../introverse_docs/ggplot2_aes.html) | Provide a ggplot with aesthetic _mappings_ from dataset columns |
-| [**`ggplot()`**](../introverse_docs/ggplot2_ggplot.html) | Tell ggplot which dataset to plot and establish a ggplot canvas |
+| [**`aes()`**](../introverse_docs/ggplot2_aes.html) | Provide a `{ggplot2}` with aesthetic _mappings_ from dataset columns |
+| [**`ggplot()`**](../introverse_docs/ggplot2_ggplot.html) | Tell `{ggplot2}` which dataset to plot and establish a `{ggplot2}` canvas |
+| [**`ggsave()`**](../introverse_docs/ggplot2_ggsave.html) | Save a plot made with `{ggplot2}` to a file |
 
 
 #### Geoms 

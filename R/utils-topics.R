@@ -32,6 +32,7 @@ ggplot2_topics <- sort(c(
   "ggplot",
   "aes",
   "labs",
+  "ggsave",
   "geom_histogram",
   "geom_density",
   "geom_boxplot", 

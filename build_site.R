@@ -5,7 +5,6 @@ options(rmarkdown.html_vignette.check_title = FALSE)
 args = commandArgs(trailingOnly=TRUE)
 htmlify <- as.logical(args[1]) 
 if (is.na(htmlify)) htmlify <- FALSE
-htmlify<-TRUE
 if (htmlify)
 {
   
@@ -27,13 +26,15 @@ if (htmlify)
     for (topic in topic_list[[category]])
     {
 
+      #category <- "ggplot2"
+      #topic <- "ggsave"
       redirected_topic <- redirect_topic(topic)
       #print(redirected_topic)
       name <- glue::glue("{category}_{redirected_topic}")
       rmd_file <- file.path(rmd_dir, glue::glue("{name}.Rmd"))
       html_file <- file.path(html_dir, glue::glue("{name}.html"))
       if (file.exists(html_file)) next
-      withr::with_options(c(width = 100),
+      withr::with_options(c(width = topic_width),
                           rmarkdown::render(
                             rmd_file,
                             output_file = html_file,
