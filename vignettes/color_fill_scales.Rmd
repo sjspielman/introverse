@@ -38,18 +38,17 @@ If you do not want to use the default color/fill scales, you can override the de
 
 Functions we can use to change the default color/fill scales include the following:
 
-> NOTE: In coding demos or templates, it is common to see `<>` used as a placeholder. This does not imply you should type the `<>`! It implies, text inside `<>` can be customized as stated, but do not type `<>`.
 
 ```{r function_table, echo=FALSE}
 tibble::tribble(
   ~"Mapped data type",~"Scale type",~"ggplot2 function",
-  "Discrete"          , "colorbrewer" , "scale_<color/fill>_brewer(palette = <name of palette>)",
-  "Continuous"        , "colorbrewer" , "scale_<color/fill>_distiller(palette = <name of palette>)",
-  "Discrete"          , "viridis" , "scale_<color/fill>_viridis_d(option = <name of palette>)",
-  "Continuous"        , "viridis" , "scale_<color/fill>_viridis_c(option = <name of palette>)",
-  "Discrete"        , "Custom fills/colors" , "scale_<color/fill>_manual(values = c(array, of, colors, to, use))",
-  "Continuous"  , "Sequential gradient of custom fills/colors" ,"scale_<color/fill>_gradient(low = <low color>,<br><br> high = <high color>)" ,
-  "Continuous"  , "Diverging gradient of custom fills/colors" , "scale_<color/fill>_gradient2(low = <low color>, high = <high color>, mid = <mid color>, midpoint = <number>)" 
+  "Discrete"          , "colorbrewer" , "scale_<color/fill>_brewer(palette = 'name of palette')",
+  "Continuous"        , "colorbrewer" , "scale_<color/fill>_distiller(palette = 'name of palette')",
+  "Discrete"          , "viridis" , "scale_<color/fill>_viridis_d(option = 'name of palette')",
+  "Continuous"        , "viridis" , "scale_<color/fill>_viridis_c(option = 'name of palette')",
+  "Discrete"        , "Custom fills/colors" , "scale_<color/fill>_manual(values = c('array', 'of', 'colors', 'to', 'use'))",
+  "Continuous"  , "Sequential gradient of custom fills/colors" ,"scale_<color/fill>_gradient(low = 'low color', high = 'high color')" ,
+  "Continuous"  , "Diverging gradient of custom fills/colors" , "scale_<color/fill>_gradient2(low = 'low color', high = 'high color', mid = 'mid color', midpoint = 'number')" 
 ) -> functions
 
 gt(functions) %>%
@@ -76,18 +75,6 @@ gt(functions) %>%
     }
   )
 ```
-
-<!--
-|Mapped data type | Scale type| Function &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-|:-----------------|:-----------|:---------
-|Discrete          | `colorbrewer` | `scale_<color/fill>_brewer(palette = <name of palette>)` 
-|Continuous        | `colorbrewer` | `scale_<color/fill>_distiller(palette = <name of palette>)`
-|Discrete          | `viridis` | `scale_<color/fill>_viridis_d(option = <name of palette>)`
-|Continuous        | `viridis` | `scale_<color/fill>_viridis_c(option = <name of palette>)`
-|Discrete        | Custom fills/colors | `scale_<color/fill>_manual(values = c(....))` 
-|Continuous  | Sequential gradient of custom fills/colors | `scale_<color/fill>_gradient(low = <low color>, high = <high color>)` 
-|Continuous  | Diverging gradient of custom fills/colors | `scale_<color/fill>_gradient2(low = <low color>, high = <high color>, mid = <mid color>, midpoint = <number>)` 
--->
 
 ## The `colorbrewer` and `viridis` palettes
 

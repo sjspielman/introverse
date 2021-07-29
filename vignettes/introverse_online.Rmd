@@ -171,6 +171,13 @@ knitr::opts_chunk$set(
 | [**`geom_col()`**](../introverse_docs/ggplot2_geom_col.html) | Create bar plots whose height corresponds to literal values in the data |
 | [**`geom_bar()`**](../introverse_docs/ggplot2_geom_bar.html) |Create bar plots whose height corresponds to _counted number of observations_ of a categorical variable |
 
+
+#### Color and fill scales
++ [Tutorial on using any color/fill scale](https://spielmanlab.github.io/introverse/articles/color_fill_scales.html)
++ [Specifying _custom_ color/fill scale mappings](../introverse_docs/ggplot2_scale_color_manual.html)
++ [Specifying `colorbrewer` color/fill scale mappings](../introverse_docs/ggplot2_scale_color_brewer.html) 
++ [Specifying `viridis` color/fill scale mappings](../introverse_docs/ggplot2_scale_color_distiller.html) 
+
 #### Themes and labels
 
 | Function   |  Description  |

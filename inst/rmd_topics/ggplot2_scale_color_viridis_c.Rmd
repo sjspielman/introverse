@@ -1,0 +1,97 @@
+---
+title: "{introverse} quick docs"
+output: 
+  html_document:
+    highlight: tango
+    theme: readable
+---
+
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE, 
+                      warning = FALSE, 
+                      message = TRUE, 
+                      fig.width = 6,
+                      fig.height = 4)
+library(gt)
+```
+
+```{css custom, echo=FALSE}
+.title{
+    display: none;
+}
+blockquote {
+  display: block;
+  font-size: 0.95em;
+  border-left: 3px solid #7FB036;
+  padding:10px;
+  margin-left:10px;
+}
+```
+
+<div>
+<br>
+ <img src = "logo.png" style = "float:left;height:130px;margin-top:-30px;">
+ <span style = "font-weight:bold;font-size:30px;"> 
+  &nbsp;Using <code>viridis</code> scales
+ </span>
+ <br>
+ <b>&nbsp;&nbsp;&nbsp;<code>get_help()</code> docs</b>
+</div>
+<br>
+
+### Description
+
+All functions documented here are part of the [`{ggplot2}`](https://ggplot2.tidyverse.org/) package, which is part of the [`{tidyverse}`](https://www.tidyverse.org/).
+
+The `{ggplot2}` package [provides several useful functions](https://ggplot2.tidyverse.org/reference/scale_viridis.html) for specifying `viridis` color/fill palettes for your color/fill _aesthetic mapping scales_. For more information on using this function to customize your theme, please either...
+
++ [See this tutorial on the `{introverse}` website](https://spielmanlab.github.io/introverse/articles/color_fill_scales.html)
++ Or, run this command in `R` Console: `vignette("color_fill_scales", package = "introverse")`
+
+
+Briefly, there are four possible functions you might want to use depending on whether you are specifying a _color or a fill_, and _type of variable_ being aesthetically mapped. To reverse the direction of any scale, include the optional argument `direction = -1`.
+
+
+```{r function_table, echo=FALSE}
+tibble::tribble(
+  ~"Aesthetic", ~"Mapped variable type",~"ggplot2 function",
+  "Color", "Discrete/categorical", "scale_color_viridis_d(option = 'name of viridis palette')",
+  "Color", "Continuous"        , "scale_color_distiller_c(option = 'name of viridis palette')",
+  "Fill", "Discrete/categorical", "scale_fill_viridis_d(option = 'name of viridis palette')",
+  "Fill", "Continuous", "scale_fill_viridis_c(option = 'name of viridis palette')"
+) -> functions
+
+gt(functions) %>%
+  tab_options(
+    table.font.size = pct(95),
+    heading.title.font.size = pct(100),
+    heading.title.font.weight = "800",
+    container.width = pct(125),
+    table.width = pct(125)
+  )%>%
+  cols_width(
+    "Aesthetic" ~ pct(15),
+    "Mapped variable type" ~ pct(15),
+    "ggplot2 function" ~ pct(70)
+  ) %>%
+  text_transform(
+    locations = cells_body(
+      columns = c("ggplot2 function")
+    ),
+    fn = function(x){
+      glue::glue(
+        "<div><code style = 'background:#F8F8F8'>{x}</code></div>"
+      )
+    }
+  )
+```
+
+<br>
+
+The available `viridis` palettes include the following:
+
+
+```{r, echo=FALSE}
+knitr::include_graphics(system.file("img", "viridis.png", package = "introverse"))
+```

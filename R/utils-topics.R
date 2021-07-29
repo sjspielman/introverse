@@ -46,12 +46,13 @@ ggplot2_topics <- sort(c(
   "theme",
   # Same page
   "scale_color_manual","scale_colour_manual",  "scale_fill_manual", "scale_shape_manual", "scale_size_manual", "scale_alpha_manual","scale_linetype_manual",
-  "scale_color_distiller", "scale_color_brewer", "scale_colour_distiller", "scale_colour_brewer", "scale_fill_distiller", "scale_fill_brewer", "scale_color_gradient", "scale_colour_gradient","scale_fill_gradient"
+  # Same page
+  "scale_color_brewer", "scale_color_distiller", "scale_colour_brewer","scale_colour_distiller", "scale_fill_distiller", "scale_fill_brewer", 
+  "scale_color_viridis_c","scale_color_viridis_d","scale_colour_viridis_c","scale_colour_viridis_d","scale_fill_viridis_c", "scale_fill_viridis_d"
+  # TODO: Same page
+  #"scale_color_gradient", "scale_colour_gradient","scale_fill_gradient"
 ))
 # geom_line <--- need a dataset
-# theme - this should also document theme_bw(), etc.
-# scale_fc_brewer
-# scale_fc_distiller
 # facet
 
 #' List of which topics share a given page, for redirection. The FIRST one represents the rmd file which _exist_
@@ -64,6 +65,18 @@ shared_doc_pages <- list(
     "scale_size_manual", 
     "scale_alpha_manual",
     "scale_linetype_manual"),
+  c("scale_color_brewer", 
+    "scale_color_distiller", 
+    "scale_colour_brewer",
+    "scale_colour_distiller", 
+    "scale_fill_distiller", 
+    "scale_fill_brewer"),
+  c("scale_color_viridis_c",
+    "scale_color_viridis_d",
+    "scale_colour_viridis_c",
+    "scale_colour_viridis_d",
+    "scale_fill_viridis_c", 
+    "scale_fill_viridis_d"),
   c("mean", "median", "min", "max", "sd", "sum"),
   c("theme_gray",
     "theme_grey", 

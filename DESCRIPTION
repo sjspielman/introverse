@@ -28,7 +28,8 @@ Imports:
     readr,
     withr,
     rmarkdown,
-    DT
+    DT,
+    gt (>= 0.3.0)
 Collate:
     'utils.R'
     'utils-topics.R'
@@ -41,7 +42,6 @@ Suggests:
     knitr,
     patchwork,
     lubridate,
-    gt,
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
 Depends: 
