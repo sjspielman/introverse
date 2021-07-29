@@ -148,6 +148,17 @@ knitr::opts_chunk$set(
 | [**`n()`**](../introverse_docs/dplyr_n.html) | Returns the number of rows in a tibble group |
 
 
+### Get help with `tidyselect` helper functions
+
+| Function   |  Description  |
+|----|----|
+| [**`everything()`**](../introverse_docs/tidyselect_tidyselect.html)  | Select all columns, except those already explicitly stated |
+| [**`contains()`**](../introverse_docs/tidyselect_tidyselect.html)    | Select all columns that contain a given string argument |
+| [**`starts_with()`**](../introverse_docs/tidyselect_tidyselect.html)    | Select all columns that start with a given string, i.e. prefix |     
+| [**`ends_with()`**](../introverse_docs/tidyselect_tidyselect.html)     | Select all columns that end with a given string, i.e. suffix | 
+| [**`matches()`**](../introverse_docs/tidyselect_tidyselect.html)      | Select all columns that match a regular expression (a special type of pattern-matching string) |
+
+
 ### Get help with `ggplot2`
 
 #### Fundamental `ggplot2`
@@ -173,6 +184,7 @@ knitr::opts_chunk$set(
 | [**`geom_bar()`**](../introverse_docs/ggplot2_geom_bar.html) |Create bar plots whose height corresponds to _counted number of observations_ of a categorical variable |
 
 #### Axes
+
 | Function or tutorial   |  Description  |
 |----|----|
 | [**Axes tutorial**](https://spielmanlab.github.io/introverse/articles/axes.html) | Customizing x- and y- axes

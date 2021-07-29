@@ -72,8 +72,25 @@ tibble %>%
 
 ### Examples
 
+This example use the wide dataset `billboard`, which comes from the `{tidyr}` package and contains song rankings for the Billboard top 100 songs in the year 2000.
 
-This example uses the dataset `tb_cases_wide`, which is a wide tibble showing how many cases of Tuberculosis were recorded in each country in the given year.
+
+```{r billboard}
+# Show billboard dataset
+billboard
+```
+
+```{r example0}
+# Use pivot_longer() and the tidyselect helper starts_with to pivot all columns that start with "wk"
+billboard %>%
+  pivot_longer(starts_with("wk"),
+               names_to = "week", 
+               values_to = "song_ranking")
+```
+
+<br>
+
+This example example uses the dataset `tb_cases_wide`, which is a wide tibble showing how many cases of Tuberculosis were recorded in each country in the given year.
 
 ```{r exdata}
 tb_cases_wide

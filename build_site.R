@@ -5,6 +5,7 @@ options(rmarkdown.html_vignette.check_title = FALSE)
 args = commandArgs(trailingOnly=TRUE)
 htmlify <- as.logical(args[1]) 
 if (is.na(htmlify)) htmlify <- FALSE
+htmlify<-TRUE
 if (htmlify)
 {
   
@@ -18,9 +19,10 @@ if (htmlify)
                       "docs/introverse_docs/")
   # Purge!
   system(paste0("rm ",html_dir, "*html"))
+  #!!!!!! STEPH IF YOU'RE GONNA SUBSET CATEGORIES DON'T DELETE EVERYTHING!!!!!!!
   
   # I can loop if I want to, I can leave my fRiends behind.
-  for (category in names(topic_list))
+  for (category in names(topic_list)) #STEPH!!!!!!!!!
   {
     #print(category)
     for (topic in topic_list[[category]])

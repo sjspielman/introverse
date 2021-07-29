@@ -1,0 +1,192 @@
+---
+title: "{introverse} quick docs"
+output: 
+  html_document:
+    highlight: tango
+    theme: readable
+---
+
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE, 
+                      warning = FALSE, 
+                      message = FALSE)
+library(dplyr)
+library(tidyr)
+```
+
+```{css custom, echo=FALSE}
+.title{
+    display: none;
+}
+blockquote {
+  display: block;
+  font-size: 0.95em;
+  border-left: 3px solid #7FB036;
+  padding:10px;
+  margin-left:10px;
+}
+```
+
+<div>
+<br>
+ <img src = "logo.png" style = "float:left;height:130px;margin-top:-30px;">
+ <span style = "font-weight:bold;font-size:30px;"> 
+  &nbsp;<code>{tidyselect}()</code> helper functions
+ </span>
+ <br>
+ <b>&nbsp;&nbsp;&nbsp;<code>get_help()</code> docs</b>
+</div>
+<br>
+
+### Description
+
+The  [`{tidyselect}`](https://tidyselect.r-lib.org/) package is part of the [`{tidyverse}`](https://www.tidyverse.org/), and it provides a useful set of _helper functions_ for conveniently (de-)selecting columns from tibbles (data frames). In fact, it is functions in `{tidyselect}` which enable much [`{dplyr}`](https://dplyr.tidyverse.org/) and [`{tidyr}`](https://tidyr.tidyverse.org/) functionality, including selecting columns with `dplyr::select()` or specifying columns to pivot with `tidyr::pivot_longer()`, and as a consequence all `{tidyselect}` functionality is by-definition included when you load core `{tidyverse}` packages like `{dplyr}` and `{tidyr}`. The `{introverse}` lead author, notably, prefers to call this functionality "select magic."
+
+We generally use these helper functions as part of our _arguments_ to functions that deal with column selection, such as `dplyr::select()`, `dplyr::pull()`, or `tidyr::pivot_longer()`. Helper functions include the following:
+
+> By adding a minus sign to all function _arguments_, you can make them _deselect_ instead of selecting the given columns
+
+| Function | What it selects | 
+|:---------|:---------------|:-----------|
+| `everything()` | All columns, except those already explicitly stated |
+| `contains()`     |  All columns that contain a given string argument |
+| `starts_with()`     | All columns that start with a given string, i.e. prefix |
+| `ends_with()`     | All columns that end with a given string, i.e. suffix |
+| `matches()`     |  All columns that match a regular expression (a special type of pattern-matching string) |
+
+To use these function, you need to either first load the _`{dplyr}`_ (the `{dplyr}` library conveniently includes the `{tidyselect}` functionality!) library, or always use the function with `dplyr::()` notation.
+
+```{r description, eval=FALSE}
+# Load a core library like dplyr ot tidyr
+library(dplyr)
+# Or, load the full tidyverse:
+library(tidyverse)
+
+# Or, use :: notation, for example with the everything() function
+dplyr::everything()
+```
+
+
+### Examples
+
+The first five examples below use the `msleep` dataset. Learn more about this dataset with `get_help("msleep")`.
+
+```{r msleep}
+# Show the msleep dataset with head()
+head(msleep)
+```
+
+<br>
+
+```{r example1}
+# Use everything() to move the column brainwt to the front
+# This code says: first select brainwt, and then _everything else_
+msleep %>% 
+  select(brainwt, everything())
+```
+
+<br>  <!-- Do not delete the <br>, and make sure to keep the previous and following lines blank. -->
+
+
+```{r example2}
+# Use contains() to keep only columns that contain the letter "w"
+msleep %>%
+  select(contains("w"))
+```
+
+<br> 
+
+```{r example2.5}
+# Use contains() to REMOVE columns that contain the letter "w"
+msleep %>%
+  select(-contains("w"))
+```
+
+<br> 
+
+
+```{r example3}
+# Use starts_with() to keep only columns that start with "sleep"
+msleep %>%
+  select(starts_with("sleep"))
+```
+
+<br> 
+
+```{r example3.5}
+# Use starts_with() to REMOVE columns that start with "sleep", with a minus sign
+msleep %>%
+  select(-starts_with("sleep"))
+```
+
+<br> 
+
+```{r example4}
+# Use ends_with() to keep only columns that end with "wt"
+msleep %>%
+  select(ends_with("wt"))
+```
+
+<br> 
+
+```{r example4.5}
+# Use ends_with() to REMOVE columns that end with "wt", with a minus sign
+msleep %>%
+  select(-ends_with("sleep"))
+```
+
+<br> 
+
+```{r example5}
+# Tidyselect allows us to use colons `:` to select a range of columns
+# Select vore through awake
+msleep %>%
+  select(vore:awake)
+```
+
+<br> 
+
+```{r example5.5}
+# Tidyselect allows us to use colons `:` to select a range of columns
+# DE-select vore through awake
+msleep %>%
+  select(-(vore:awake))
+```
+<br>
+```{r example6}
+# ADVANCED EXAMPLE:
+# Use matches() to keep only columns that match the regex `\\w+_\\w+`
+msleep %>%
+  select(matches("\\w+_\\w+"))
+```
+
+<br>
+
+
+The remaining examples use the wide dataset `billboard`, which comes from the `{tidyr}` package and contains song rankings for the Billboard top 100 songs in the year 2000.
+
+
+```{r billboard}
+# Show billboard dataset
+billboard
+```
+
+<br>
+
+
+```{r example7}
+# Use tidyr::pivot_longer and starts_with to pivot all columns that start with "wk"
+billboard %>%
+  pivot_longer(starts_with("wk"),
+               names_to = "week", 
+               values_to = "song_ranking")
+```
+
+<br>
+
+```{r example8}
+# Use ends_with to select artist, track, and columns ending in the number 5
+billboard %>%
+  select(artist, track, ends_with("5"))
+```

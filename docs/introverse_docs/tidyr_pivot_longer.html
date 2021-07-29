@@ -289,20 +289,66 @@ blockquote {
 </div>
 <div id="examples" class="section level3">
 <h3>Examples</h3>
-<p>This example uses the dataset <code>tb_cases_wide</code>, which is a wide tibble showing how many cases of Tuberculosis were recorded in each country in the given year.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>tb_cases_wide</span></code></pre></div>
+<p>This example use the wide dataset <code>billboard</code>, which comes from the <code>{tidyr}</code> package and contains song rankings for the Billboard top 100 songs in the year 2000.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Show billboard dataset</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>billboard</span></code></pre></div>
+<pre><code>## # A tibble: 317 × 79
+##    artist  track date.entered   wk1   wk2   wk3   wk4   wk5   wk6   wk7   wk8   wk9  wk10  wk11
+##    &lt;chr&gt;   &lt;chr&gt; &lt;date&gt;       &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+##  1 2 Pac   Baby… 2000-02-26      87    82    72    77    87    94    99    NA    NA    NA    NA
+##  2 2Ge+her The … 2000-09-02      91    87    92    NA    NA    NA    NA    NA    NA    NA    NA
+##  3 3 Door… Kryp… 2000-04-08      81    70    68    67    66    57    54    53    51    51    51
+##  4 3 Door… Loser 2000-10-21      76    76    72    69    67    65    55    59    62    61    61
+##  5 504 Bo… Wobb… 2000-04-15      57    34    25    17    17    31    36    49    53    57    64
+##  6 98^0    Give… 2000-08-19      51    39    34    26    26    19     2     2     3     6     7
+##  7 A*Teens Danc… 2000-07-08      97    97    96    95   100    NA    NA    NA    NA    NA    NA
+##  8 Aaliyah I Do… 2000-01-29      84    62    51    41    38    35    35    38    38    36    37
+##  9 Aaliyah Try … 2000-03-18      59    53    38    28    21    18    16    14    12    10     9
+## 10 Adams,… Open… 2000-08-26      76    76    74    69    68    67    61    58    57    59    66
+## # … with 307 more rows, and 65 more variables: wk12 &lt;dbl&gt;, wk13 &lt;dbl&gt;, wk14 &lt;dbl&gt;, wk15 &lt;dbl&gt;,
+## #   wk16 &lt;dbl&gt;, wk17 &lt;dbl&gt;, wk18 &lt;dbl&gt;, wk19 &lt;dbl&gt;, wk20 &lt;dbl&gt;, wk21 &lt;dbl&gt;, wk22 &lt;dbl&gt;,
+## #   wk23 &lt;dbl&gt;, wk24 &lt;dbl&gt;, wk25 &lt;dbl&gt;, wk26 &lt;dbl&gt;, wk27 &lt;dbl&gt;, wk28 &lt;dbl&gt;, wk29 &lt;dbl&gt;,
+## #   wk30 &lt;dbl&gt;, wk31 &lt;dbl&gt;, wk32 &lt;dbl&gt;, wk33 &lt;dbl&gt;, wk34 &lt;dbl&gt;, wk35 &lt;dbl&gt;, wk36 &lt;dbl&gt;,
+## #   wk37 &lt;dbl&gt;, wk38 &lt;dbl&gt;, wk39 &lt;dbl&gt;, wk40 &lt;dbl&gt;, wk41 &lt;dbl&gt;, wk42 &lt;dbl&gt;, wk43 &lt;dbl&gt;,
+## #   wk44 &lt;dbl&gt;, wk45 &lt;dbl&gt;, wk46 &lt;dbl&gt;, wk47 &lt;dbl&gt;, wk48 &lt;dbl&gt;, wk49 &lt;dbl&gt;, wk50 &lt;dbl&gt;,
+## #   wk51 &lt;dbl&gt;, wk52 &lt;dbl&gt;, wk53 &lt;dbl&gt;, wk54 &lt;dbl&gt;, wk55 &lt;dbl&gt;, wk56 &lt;dbl&gt;, wk57 &lt;dbl&gt;,
+## #   wk58 &lt;dbl&gt;, wk59 &lt;dbl&gt;, wk60 &lt;dbl&gt;, wk61 &lt;dbl&gt;, wk62 &lt;dbl&gt;, wk63 &lt;dbl&gt;, wk64 &lt;dbl&gt;,
+## #   wk65 &lt;dbl&gt;, wk66 &lt;lgl&gt;, wk67 &lt;lgl&gt;, wk68 &lt;lgl&gt;, wk69 &lt;lgl&gt;, wk70 &lt;lgl&gt;, wk71 &lt;lgl&gt;,
+## #   wk72 &lt;lgl&gt;, wk73 &lt;lgl&gt;, wk74 &lt;lgl&gt;, wk75 &lt;lgl&gt;, wk76 &lt;lgl&gt;</code></pre>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Use pivot_longer() and the tidyselect helper starts_with to pivot all columns that start with &quot;wk&quot;</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>billboard <span class="sc">%&gt;%</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="fu">starts_with</span>(<span class="st">&quot;wk&quot;</span>),</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_to =</span> <span class="st">&quot;week&quot;</span>, </span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>               <span class="at">values_to =</span> <span class="st">&quot;song_ranking&quot;</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 24,092 × 5
+##    artist track                   date.entered week  song_ranking
+##    &lt;chr&gt;  &lt;chr&gt;                   &lt;date&gt;       &lt;chr&gt;        &lt;dbl&gt;
+##  1 2 Pac  Baby Don&#39;t Cry (Keep... 2000-02-26   wk1             87
+##  2 2 Pac  Baby Don&#39;t Cry (Keep... 2000-02-26   wk2             82
+##  3 2 Pac  Baby Don&#39;t Cry (Keep... 2000-02-26   wk3             72
+##  4 2 Pac  Baby Don&#39;t Cry (Keep... 2000-02-26   wk4             77
+##  5 2 Pac  Baby Don&#39;t Cry (Keep... 2000-02-26   wk5             87
+##  6 2 Pac  Baby Don&#39;t Cry (Keep... 2000-02-26   wk6             94
+##  7 2 Pac  Baby Don&#39;t Cry (Keep... 2000-02-26   wk7             99
+##  8 2 Pac  Baby Don&#39;t Cry (Keep... 2000-02-26   wk8             NA
+##  9 2 Pac  Baby Don&#39;t Cry (Keep... 2000-02-26   wk9             NA
+## 10 2 Pac  Baby Don&#39;t Cry (Keep... 2000-02-26   wk10            NA
+## # … with 24,082 more rows</code></pre>
+<p><br></p>
+<p>This example example uses the dataset <code>tb_cases_wide</code>, which is a wide tibble showing how many cases of Tuberculosis were recorded in each country in the given year.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>tb_cases_wide</span></code></pre></div>
 <pre><code>## # A tibble: 3 × 3
 ##   country     `1999` `2000`
 ## * &lt;chr&gt;        &lt;int&gt;  &lt;int&gt;
 ## 1 Afghanistan    745   2666
 ## 2 Brazil       37737  80488
 ## 3 China       212258 213766</code></pre>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Pivot tb_cases longer.</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Use backticks `` or quotes &quot;&quot; to refer to columns whose names start with a number</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>tb_cases_wide <span class="sc">%&gt;%</span> </span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="st">`</span><span class="at">1999</span><span class="st">`</span><span class="sc">:</span><span class="st">`</span><span class="at">2000</span><span class="st">`</span>, <span class="co"># we want to pivot columns 1999 and 2000</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_to =</span> <span class="st">&quot;year&quot;</span>,  <span class="co"># this column will contain 1999 and 2000</span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>               <span class="at">values_to =</span> <span class="st">&quot;number_of_tb_cases&quot;</span>) <span class="co"># will contain information previously in columns 1999 and 2000</span></span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Pivot tb_cases longer.</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Use backticks `` or quotes &quot;&quot; to refer to columns whose names start with a number</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>tb_cases_wide <span class="sc">%&gt;%</span> </span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="st">`</span><span class="at">1999</span><span class="st">`</span><span class="sc">:</span><span class="st">`</span><span class="at">2000</span><span class="st">`</span>, <span class="co"># we want to pivot columns 1999 and 2000</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_to =</span> <span class="st">&quot;year&quot;</span>,  <span class="co"># this column will contain 1999 and 2000</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>               <span class="at">values_to =</span> <span class="st">&quot;number_of_tb_cases&quot;</span>) <span class="co"># will contain information previously in columns 1999 and 2000</span></span></code></pre></div>
 <pre><code>## # A tibble: 6 × 3
 ##   country     year  number_of_tb_cases
 ##   &lt;chr&gt;       &lt;chr&gt;              &lt;int&gt;

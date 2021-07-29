@@ -59,6 +59,12 @@ ggplot2_topics <- sort(c(
 #' List of which topics share a given page, for redirection. The FIRST one represents the rmd file which _exist_
 #' @keywords internal
 shared_doc_pages <- list(
+  c("tidyselect", 
+    "everything",
+    "contains",
+    "starts_with",
+    "ends_with",
+    "matches"),
   c("xlim", "ylim"),
   c("scale_color_manual",
     "scale_colour_manual", 
@@ -125,7 +131,18 @@ tidyr_topics <- sort(c(
   "pivot_wider"
 ))
 
-  
+#' All the todyselect topics, INCLUDING SELF!
+#' @keywords internal
+tidyselect_topics <- sort(c(
+  # All on same page so we include self:
+  "tidyselect", 
+  "everything",
+  "contains",
+  "starts_with",
+  "ends_with",
+  "matches"
+))
+
 #' All the readr topics
 #' @keywords internal
 readr_topics <- sort(c(
@@ -182,16 +199,17 @@ base_topics <- sort(c(
 #' @keywords internal
 topic_list <- list(
   # ALERT!!!! Do not directly add topics to this list! Instead, add new topics to the appropriate array above For example, to add a `dplyr` topic, put in into the `dplyr_topics` definition!!
-  "base"      = base_topics,
-  "datasets"  = c("carnivores", "msleep"),
-  "dplyr"     = dplyr_topics,
-  "forcats"   = forcats_topics,
-  "ggplot2"   = ggplot2_topics,
-  "magrittr"  = c("apipe", "pipe"), # keep assignment first
-  "operators" = c("assignment", "logical", "mathematical"), # alphabetical
-  "readr"     = readr_topics,
-  "tibble"    = tibble_topics,
-  "tidyr"     = tidyr_topics
+  "base"       = base_topics,
+  "datasets"   = c("carnivores", "msleep"),
+  "dplyr"      = dplyr_topics,
+  "forcats"    = forcats_topics,
+  "ggplot2"    = ggplot2_topics,
+  "magrittr"   = c("apipe", "pipe"), # keep assignment first
+  "operators"  = c("assignment", "logical", "mathematical"), # alphabetical
+  "readr"      = readr_topics,
+  "tibble"     = tibble_topics,
+  "tidyr"      = tidyr_topics,
+  "tidyselect" = tidyselect_topics
 )
 
 #' Operators documented in logical, math, or assignment help pages
