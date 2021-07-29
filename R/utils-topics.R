@@ -45,12 +45,12 @@ ggplot2_topics <- sort(c(
   "theme_set",
   "theme",
   # Same page
-  "scale_color_manual","scale_colour_manual",  "scale_fill_manual", "scale_shape_manual", "scale_size_manual", "scale_alpha_manual","scale_linetype_manual",
+  "scale_color_manual","scale_colour_manual",  "scale_fill_manual", "scale_shape_manual", "scale_size_manual", "scale_alpha_manual","scale_linetype_manual", "scale_color_gradient", "scale_colour_gradient","scale_color_gradient2", "scale_colour_gradient2","scale_fill_gradient","scale_fill_gradient2",
   # Same page
   "scale_color_brewer", "scale_color_distiller", "scale_colour_brewer","scale_colour_distiller", "scale_fill_distiller", "scale_fill_brewer", 
   "scale_color_viridis_c","scale_color_viridis_d","scale_colour_viridis_c","scale_colour_viridis_d","scale_fill_viridis_c", "scale_fill_viridis_d"
   # TODO: Same page
-  #"scale_color_gradient", "scale_colour_gradient","scale_fill_gradient"
+  
 ))
 # geom_line <--- need a dataset
 # facet
@@ -64,7 +64,13 @@ shared_doc_pages <- list(
     "scale_shape_manual", 
     "scale_size_manual", 
     "scale_alpha_manual",
-    "scale_linetype_manual"),
+    "scale_linetype_manual",
+    "scale_color_gradient", 
+    "scale_colour_gradient",
+    "scale_fill_gradient",
+    "scale_color_gradient2", 
+    "scale_colour_gradient2",
+    "scale_fill_gradient2"),
   c("scale_color_brewer", 
     "scale_color_distiller", 
     "scale_colour_brewer",
