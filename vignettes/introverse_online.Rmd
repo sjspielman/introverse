@@ -171,12 +171,45 @@ knitr::opts_chunk$set(
 | [**`geom_col()`**](../introverse_docs/ggplot2_geom_col.html) | Create bar plots whose height corresponds to literal values in the data |
 | [**`geom_bar()`**](../introverse_docs/ggplot2_geom_bar.html) |Create bar plots whose height corresponds to _counted number of observations_ of a categorical variable |
 
+#### Axes
+| Function or tutorial   |  Description  |
+|----|----|
+| [**Axes tutorial**](https://spielmanlab.github.io/introverse/articles/axes.html) | Customizing x- and y- axes
+| [**`xlim()`**](../introverse_docs/ggplot2_xlim.html) | Change x-axis limits 
+| [**`ylim()`**](../introverse_docs/ggplot2_xlim.html) | Change y-axis limits 
+
+
 
 #### Color and fill scales
-+ [Tutorial on using any color/fill scale](https://spielmanlab.github.io/introverse/articles/color_fill_scales.html)
-+ [Specifying _custom_ color/fill scale mappings](../introverse_docs/ggplot2_scale_color_manual.html)
-+ [Specifying `colorbrewer` color/fill scale mappings](../introverse_docs/ggplot2_scale_color_brewer.html) 
-+ [Specifying `viridis` color/fill scale mappings](../introverse_docs/ggplot2_scale_color_distiller.html) 
+
+| Function or tutorial   |  Description  |
+|----|----|
+| [**Comprehensive tutorial**](https://spielmanlab.github.io/introverse/articles/color_fill_scales.html) | Customizing color and fill scales
+| [**`scale_color_manual()`**](../introverse_docs/ggplot2_scale_color_manual.html) | Specify custom color scale mappings for discrete data
+| [**`scale_fill_manual()`**](../introverse_docs/ggplot2_scale_color_manual.html) | Specify custom fill scale mappings for discrete data
+| [**`scale_color_gradient()`**](../introverse_docs/ggplot2_scale_color_manual.html) | Specify custom color gradient scale mappings for continuous data
+| [**`scale_fill_gradient()`**](../introverse_docs/ggplot2_scale_color_manual.html) | Specify custom fill gradient scale mappings for continuous data
+| [**`scale_color_gradient2()`**](../introverse_docs/ggplot2_scale_color_manual.html) | Specify custom two-way color gradient scale mappings for continuous data
+| [**`scale_fill_gradient2()`**](../introverse_docs/ggplot2_scale_color_manual.html) | Specify custom two-way fill gradient scale mappings for continuous data
+| [**`scale_color_brewer()`**](../introverse_docs/ggplot2_scale_color_brewer.html) | Specify `colorbrewer` color scale mappings for discrete data
+| [**`scale_fill_brewer()`**](../introverse_docs/ggplot2_scale_color_brewer.html) | Specify `colorbrewer` fill scale mappings for discrete data
+| [**`scale_color_distiller()`**](../introverse_docs/ggplot2_scale_color_brewer.html) | Specify `colorbrewer` color scale mappings for continuous data
+| [**`scale_fill_distiller()`**](../introverse_docs/ggplot2_scale_color_brewer.html) | Specify `colorbrewer` fill scale mappings for continuous data
+| [**`scale_color_viridis_d()`**](../introverse_docs/ggplot2_scale_color_viridis_c.html) | Specify `viridis` color scale mappings for discrete data
+| [**`scale_fill_viridis_d()`**](../introverse_docs/ggplot2_scale_color_viridis_c.html) | Specify `viridis` fill scale mappings for discrete data
+| [**`scale_color_viridis_c()`**](../introverse_docs/ggplot2_scale_color_viridis_c.html) | Specify `viridis` color scale mappings for continuous data
+| [**`scale_fill_viridis_c()`**](../introverse_docs/ggplot2_scale_color_viridis_c.html) | Specify `viridis` fill scale mappings for continuous data
+
+
+#### Other scales
+
+| Link   |  Description  |
+|----|----|
+| [**`scale_shape_manual()`**](../introverse_docs/ggplot2_scale_color_manual.html) | Specify custom shape mappings
+| [**`scale_size_manual()`**](../introverse_docs/ggplot2_scale_color_manual.html) | Specify custom size mappings
+| [**`scale_alpha_manual()`**](../introverse_docs/ggplot2_scale_color_manual.html) | Specify custom alpha (transparency) mappings
+| [**`scale_linetype_manual()`**](../introverse_docs/ggplot2_scale_color_manual.html) | Specify custom linetype mappings
+
 
 #### Themes and labels
 

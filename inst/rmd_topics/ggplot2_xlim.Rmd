@@ -1,0 +1,138 @@
+---
+title: "{introverse} quick docs"
+output: 
+  html_document:
+    highlight: tango
+    theme: readable
+---
+
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE, 
+                      warning = FALSE, 
+                      message = TRUE)
+library(ggplot2)
+msleep %>% tidyr::drop_na(sleep_rem, awake) -> msleep
+set.seed(1)
+```
+
+```{css custom, echo=FALSE}
+.title{
+    display: none;
+}
+blockquote {
+  display: block;
+  font-size: 0.95em;
+  border-left: 3px solid #7FB036;
+  padding:10px;
+  margin-left:10px;
+}
+```
+
+<div>
+<br>
+ <img src = "logo.png" style = "float:left;height:130px;margin-top:-30px;">
+ <span style = "font-weight:bold;font-size:30px;"> 
+  &nbsp;<code>ggplot2::xlim()</code> and <code>ggplot2::ylim()</code>
+ </span>
+ <br>
+ <b>&nbsp;&nbsp;&nbsp;<code>get_help()</code> docs</b>
+</div>
+<br>
+
+### Description
+
+All functions documented here are part of the [`{ggplot2}`](https://ggplot2.tidyverse.org/) package, which is part of the [`{tidyverse}`](https://www.tidyverse.org/).
+
+The `{ggplot2}` package [provides several functions](https://ggplot2.tidyverse.org/reference/lims.html) for customizing the limits, aka ranges, of the axes in your `{ggplot2}` plots, as described below. `{ggplot2}` will usually pick a reasonable axis range, so using these functions is not necessary unless you need to change the ranges for a specific data visualization goal.
+
+If you also want to customize the specific tickmark (aka "break") locations on axes, either...
+For more information about _color and fill scales specifically_, either...
++ [See this tutorial on the `{introverse}` website](https://spielmanlab.github.io/introverse/articles/axes.html)
++ Or, run this command in `R` Console: `vignette("axes", package = "introverse")`
+
+
+```{r description, eval=FALSE}
+# Load the library
+library(ggplot2)
+# Or, load the full tidyverse:
+library(tidyverse)
+
+# Or, use :: notation, for example with xlim()
+ggplot2::xlim() 
+```
+
+
+### Conceptual Usage
+
+```{r conceptual, eval=F}
+# Set x-axis limits with `xlim()`
+xlim(low x value, high x value)
+
+# Set x-axis limits with `ylim()`
+ylim(low y value, high y value)
+
+```
+
+### Examples
+
+The examples below use the `msleep` dataset. Learn more about this dataset with `get_help("msleep")`.
+
+```{r msleep}
+# Show the msleep dataset with head()
+head(msleep)
+```
+
+
+<br>
+```{r example0}
+# This example does NOT set limits, but uses ggplot2's default chosen ranges
+# Compare this default to the subsequent examples to see how xlim() and ylim() behave
+ggplot(msleep) + 
+  aes(x = sleep_rem, y = awake) + 
+  geom_point() 
+```
+
+<br>
+```{r example1}
+# Set the x-axis limits to range from 0-24, for example
+ggplot(msleep) + 
+  aes(x = sleep_rem, y = awake) + 
+  geom_point() +
+  xlim(0, 24)
+```
+
+<br>
+
+```{r example2}
+# Set the y-axis limits to range from 0-40, for example
+ggplot(msleep) + 
+  aes(x = sleep_rem, y = awake) + 
+  geom_point() +
+  ylim(0, 40)
+```
+
+<br>
+
+
+```{r example4}
+# Set both the x- and y-axis limits to range from 0-24
+ggplot(msleep) + 
+  aes(x = sleep_rem, y = awake) + 
+  geom_point() +
+  xlim(0, 24) +
+  ylim(0, 24)
+```
+
+<br>
+
+```{r example5, warning=TRUE}
+# CAUTION!! If you limit the ranges too much, data is excluded! See the "Warning" from this code.
+# Always make sure you are not excluding data that you don't specifically intend to exclude
+ggplot(msleep) + 
+  aes(x = sleep_rem, y = awake) + 
+  geom_point() +
+  # Narrow axis ranges will exclude data:
+  xlim(1, 3) +
+  ylim(2, 7)
+```

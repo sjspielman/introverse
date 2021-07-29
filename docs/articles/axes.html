@@ -146,7 +146,7 @@
   <span class="fu"><a href="https://rdrr.io/r/graphics/plot.window.html">xlim</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">10</span><span class="op">)</span> <span class="op">+</span> <span class="co"># Set x-axis to range from 0-10</span>
   <span class="fu"><a href="https://rdrr.io/r/graphics/plot.window.html">ylim</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">6</span><span class="op">)</span> <span class="co"># Set y-axis to range from 1-6</span>
 <span class="co">#&gt; Warning: Removed 71 rows containing missing values (geom_point).</span></code></pre></div>
-<p><img src="axes_files/figure-html/unnamed-chunk-2-1.png" width="384"></p>
+<p><img src="axes_files/figure-html/unnamed-chunk-2-1.png" width="576"></p>
 <p>Be careful to pay attention to <em>warning messages</em> if you change the axis limits, as you may accidentally remove points from the plot! The warning message above is telling us that 71 rows were excluded from this plot. Rows usually get excluded for one of two reasons: 1) The rows contained <code>NA</code> values in these variables so there was nothing to plot, or 2) The rows <em>fell outside the plot’s axis ranges</em>. In this case, we removed all <code>NA</code> values from the variables <code>awake</code> and <code>sleep_rem</code>. This means by limiting our axes, we have removed 71 points of data!</p>
 <p>Unless you have a specific reason for doing it, don’t ever intentionally exclude points. For example, this is usually a bad idea, unless your specific goal is to visualize <em>only</em> mammals which are awake for between 15-20 hours/day:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
@@ -155,7 +155,7 @@
   <span class="fu">geom_point</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://rdrr.io/r/graphics/plot.window.html">xlim</a></span><span class="op">(</span><span class="fl">15</span>, <span class="fl">20</span><span class="op">)</span>
 <span class="co">#&gt; Warning: Removed 42 rows containing missing values (geom_point).</span></code></pre></div>
-<p><img src="axes_files/figure-html/unnamed-chunk-3-1.png" width="384"></p>
+<p><img src="axes_files/figure-html/unnamed-chunk-3-1.png" width="576"></p>
 </div>
 <div id="changing-the-tick-locations-and-labels" class="section level2">
 <h2 class="hasAnchor">
@@ -190,7 +190,7 @@
   <span class="co"># Specify placement for tickmarks aka break (terrible plot, good demo!)</span>
   <span class="co"># Specifying tickmarks will also determine the axis labels</span>
   <span class="fu">scale_x_continuous</span><span class="op">(</span>breaks <span class="op">=</span> <span class="fl">4</span><span class="op">:</span><span class="fl">23</span><span class="op">)</span></code></pre></div>
-<p><img src="axes_files/figure-html/unnamed-chunk-4-1.png" width="384"></p>
+<p><img src="axes_files/figure-html/unnamed-chunk-4-1.png" width="576"></p>
 <p>Change the location of tickmarks and use your own labels (for demonstration purposes):</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">new_labels</span> <span class="op">&lt;-</span> <span class="va">letters</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">20</span><span class="op">]</span> <span class="co"># R has built-in variables letters (a-z) and LETTERS (A-Z). This line says, "take the 1st-20th value in letters and save to a variable called `new_labels`". </span>
@@ -206,7 +206,7 @@
   <span class="fu">geom_point</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> 
   <span class="co"># Make sure breaks and labels are the same length</span>
   <span class="fu">scale_x_continuous</span><span class="op">(</span>breaks <span class="op">=</span> <span class="fl">4</span><span class="op">:</span><span class="fl">23</span>, labels <span class="op">=</span> <span class="va">new_labels</span><span class="op">)</span></code></pre></div>
-<p><img src="axes_files/figure-html/unnamed-chunk-5-1.png" width="384"></p>
+<p><img src="axes_files/figure-html/unnamed-chunk-5-1.png" width="576"></p>
 </div>
 <div id="example-discrete-axes" class="section level3">
 <h3 class="hasAnchor">
@@ -220,7 +220,7 @@
   <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">vore</span>, y <span class="op">=</span> <span class="va">awake</span><span class="op">)</span> <span class="op">+</span> 
   <span class="fu">geom_boxplot</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu">scale_x_discrete</span><span class="op">(</span>labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"carnivores"</span>, <span class="st">"herbivores"</span>, <span class="st">"insectivores"</span>, <span class="st">"omnivores"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
-<p><img src="axes_files/figure-html/unnamed-chunk-6-1.png" width="384"></p>
+<p><img src="axes_files/figure-html/unnamed-chunk-6-1.png" width="576"></p>
 <p>For discrete data like <code>vore</code>, you will not have much luck changing the number of breaks. This is because the axis is discrete, and the breaks are what they are:</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">ggplot</span><span class="op">(</span><span class="va">msleep_clean</span><span class="op">)</span> <span class="op">+</span> 
@@ -228,7 +228,7 @@
   <span class="fu">geom_boxplot</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> 
   <span class="co"># there aren't 10 values along the X-axis; only 4!! So, ggplot2 bails.</span>
   <span class="fu">scale_x_discrete</span><span class="op">(</span>breaks <span class="op">=</span> <span class="fl">10</span><span class="op">)</span></code></pre></div>
-<p><img src="axes_files/figure-html/unnamed-chunk-7-1.png" width="384"></p>
+<p><img src="axes_files/figure-html/unnamed-chunk-7-1.png" width="576"></p>
 </div>
 </div>
 <div id="applying-a-log-scale" class="section level2">
@@ -242,7 +242,7 @@
   <span class="fu">geom_point</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
   <span class="co"># Change x axis to log scale</span>
   <span class="fu">scale_x_log10</span><span class="op">(</span><span class="op">)</span></code></pre></div>
-<p><img src="axes_files/figure-html/unnamed-chunk-8-1.png" width="384"></p>
+<p><img src="axes_files/figure-html/unnamed-chunk-8-1.png" width="576"></p>
 <p><br></p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># If the axes were switched, we'd switch the scale command to `y`</span>
@@ -251,7 +251,7 @@
   <span class="fu">geom_point</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
   <span class="co"># Change y axis to log scale</span>
   <span class="fu">scale_y_log10</span><span class="op">(</span><span class="op">)</span></code></pre></div>
-<p><img src="axes_files/figure-html/unnamed-chunk-9-1.png" width="384"></p>
+<p><img src="axes_files/figure-html/unnamed-chunk-9-1.png" width="576"></p>
 <p><br></p>
 </div>
   </div>
