@@ -45,7 +45,8 @@ ggplot2_topics <- sort(c(
   "theme_set",
   "theme",
   # Same page
-  "scale_color_manual","scale_colour_manual",  "scale_fill_manual", "scale_shape_manual", "scale_size_manual", "scale_alpha_manual","scale_linetype_manual"
+  "scale_color_manual","scale_colour_manual",  "scale_fill_manual", "scale_shape_manual", "scale_size_manual", "scale_alpha_manual","scale_linetype_manual",
+  "scale_color_distiller", "scale_color_brewer", "scale_colour_distiller", "scale_colour_brewer", "scale_fill_distiller", "scale_fill_brewer", "scale_color_gradient", "scale_colour_gradient","scale_fill_gradient"
 ))
 # geom_line <--- need a dataset
 # theme - this should also document theme_bw(), etc.

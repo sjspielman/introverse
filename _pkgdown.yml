@@ -20,10 +20,14 @@ navbar:
       menu:
         - text: "Additional resources"
           href: articles/additional_resources.html
+        - text: ggplot2 tutorials
         - text: "Customizing ggplot2 axes"
           href: articles/axes.html
         - text: "Customizing ggplot2 themes"
-          href: articles/themes.html      
+          href: articles/themes.html 
+        - text: "Customizing ggplot2 color and fill scales"
+          href: articles/color_fill_scales.html
+          
           
 reference:
 - title: Functions
