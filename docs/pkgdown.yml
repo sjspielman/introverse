@@ -4,8 +4,9 @@ pkgdown_sha: ~
 articles:
   additional_resources: additional_resources.html
   axes: axes.html
+  color_fill_scales: color_fill_scales.html
   introverse_online: introverse_online.html
   introverse_rstudio: introverse_rstudio.html
   themes: themes.html
-last_built: 2021-07-28T17:51Z
+last_built: 2021-07-29T14:38Z
 
