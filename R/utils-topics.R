@@ -58,6 +58,129 @@ ggplot2_topics <- sort(c(
 # geom_line <--- need a dataset
 # facet
 
+
+#' All the tibble topics
+#' @keywords internal
+tibble_topics <- sort(c(
+  "as_tibble",
+  # same page:
+  "tibble","tribble"
+))
+
+#' All the tidyr topics
+#' @keywords internal
+tidyr_topics <- sort(c(
+  "drop_na",
+  "separate",
+  "unite",
+  "pivot_longer",
+  "pivot_wider"
+))
+
+#' All the todyselect topics, INCLUDING SELF!
+#' @keywords internal
+tidyselect_topics <- sort(c(
+  # All on same page so we include self:
+  "tidyselect", 
+  "everything",
+  "contains",
+  "starts_with",
+  "ends_with",
+  "matches"
+))
+
+#' All the readr topics
+#' @keywords internal
+readr_topics <- sort(c(
+  # Same page:
+  "read_csv", "read_tsv", "read_csv2", "read_delim",
+  # Same page:
+  "write_csv", "write_tsv", "write_csv2", "write_delim"
+))
+
+#' All the forcats topics
+#' @keywords internal
+forcats_topics <- sort(c(
+  "fct_relevel",
+  "fct_rev",
+  "fct_infreq",
+  "fct_reorder",
+  # Same page:
+  "fct_lump_n", "fct_lump_prop", "fct_lump_min"
+))
+
+
+#' All the stringr topics
+#' @keywords internal
+stringr_topics <- sort(c(
+  # Needed for fall:
+  "str_count",
+  "str_replace", "str_replace_all",
+  "str_detect", 
+  "str_starts", "str_ends",
+  "str_to_lower", "str_to_upper", "str_to_sentence", "str_to_title" #,
+  # Not needed for fall:
+  #"str_trim",
+#  "str_order",
+#  "str_trunc", "str_pad"
+))
+
+
+
+#' All the base R topics
+#' @keywords internal
+base_topics <- sort(c(
+  "length", 
+  "nchar", 
+  "log", 
+  "sqrt",
+  "summary", 
+  "round",
+  "head", "tail", # Same page
+  "mean", "median", "max", "min", "sum", "sd", # Same page
+  "ceiling", "floor", # Same page
+  "ifelse", 
+  "nrow", "ncol", # Same page
+  "table",
+  "levels", 
+  "class", 
+  "c", 
+  "data.frame",
+  "file.path", 
+  "library",
+  "install.packages",
+  "getwd", 
+  "setwd",
+  "file.exists", "dir.exists", # Same page
+  "as.numeric", 
+  "as.factor", 
+  "as.character" 
+))
+
+
+
+#' List of available help topics by category ordered alphabetically, which is sometimes but not always a package.
+#' @keywords internal
+topic_list <- list(
+  # ALERT!!!! Do not directly add topics to this list! Instead, add new topics to the appropriate array above For example, to add a `dplyr` topic, put in into the `dplyr_topics` definition!!
+  "base"       = base_topics,
+  "datasets"   = c("carnivores", "msleep"),
+  "dplyr"      = dplyr_topics,
+  "forcats"    = forcats_topics,
+  "ggplot2"    = ggplot2_topics,
+  "magrittr"   = c("apipe", "pipe"), # keep assignment first
+  "operators"  = c("assignment", "logical", "mathematical"), # alphabetical
+  "readr"      = readr_topics,
+# "stringr"    = stringr_topics, 
+  "tibble"     = tibble_topics,
+  "tidyr"      = tidyr_topics,
+  "tidyselect" = tidyselect_topics
+# TODO: ADD glue::glue!!!
+  )
+
+
+
+
 #' List of which topics share a given page, for redirection. The FIRST one represents the rmd file which _exist_
 #' @keywords internal
 shared_doc_pages <- list(
@@ -116,104 +239,7 @@ shared_doc_pages <- list(
 )
 
 
-#' All the tibble topics
-#' @keywords internal
-tibble_topics <- sort(c(
-  "as_tibble",
-  # same page:
-  "tibble","tribble"
-))
 
-#' All the tidyr topics
-#' @keywords internal
-tidyr_topics <- sort(c(
-  "drop_na",
-  "separate",
-  "unite",
-  "pivot_longer",
-  "pivot_wider"
-))
-
-#' All the todyselect topics, INCLUDING SELF!
-#' @keywords internal
-tidyselect_topics <- sort(c(
-  # All on same page so we include self:
-  "tidyselect", 
-  "everything",
-  "contains",
-  "starts_with",
-  "ends_with",
-  "matches"
-))
-
-#' All the readr topics
-#' @keywords internal
-readr_topics <- sort(c(
-  # Same page:
-  "read_csv", "read_tsv", "read_csv2", "read_delim",
-  # Same page:
-  "write_csv", "write_tsv", "write_csv2", "write_delim"
-))
-
-#' All the forcats topics
-#' @keywords internal
-forcats_topics <- sort(c(
-  "fct_relevel",
-  "fct_rev",
-  "fct_infreq",
-  "fct_reorder",
-  # Same page:
-  "fct_lump_n", "fct_lump_prop", "fct_lump_min"
-))
-  
-#' All the base R topics
-#' @keywords internal
-base_topics <- sort(c(
-  "length", 
-  "nchar", 
-  "log", 
-  "sqrt",
-  "summary", 
-  "round",
-  "head", "tail", # Same page
-  "mean", "median", "max", "min", "sum", "sd", # Same page
-  "ceiling", "floor", # Same page
-  "ifelse", 
-  "nrow", "ncol", # Same page
-  "table",
-  "levels", 
-  "class", 
-  "c", 
-  "data.frame",
-  "file.path", 
-  "library",
-  "install.packages",
-  "getwd", 
-  "setwd",
-  "file.exists", "dir.exists", # Same page
-  "as.numeric", 
-  "as.factor", 
-  "as.character" 
-))
-
-
-
-#' List of available help topics by category ordered alphabetically, which is sometimes but not always a package.
-#' @keywords internal
-topic_list <- list(
-  # ALERT!!!! Do not directly add topics to this list! Instead, add new topics to the appropriate array above For example, to add a `dplyr` topic, put in into the `dplyr_topics` definition!!
-  "base"       = base_topics,
-  "datasets"   = c("carnivores", "msleep"),
-  "dplyr"      = dplyr_topics,
-  "forcats"    = forcats_topics,
-  "ggplot2"    = ggplot2_topics,
-  "magrittr"   = c("apipe", "pipe"), # keep assignment first
-  "operators"  = c("assignment", "logical", "mathematical"), # alphabetical
-  "readr"      = readr_topics,
-  "tibble"     = tibble_topics,
-  "tidyr"      = tidyr_topics,
-  "tidyselect" = tidyselect_topics
-)
 
 #' Operators documented in logical, math, or assignment help pages
 #' @keywords internal
