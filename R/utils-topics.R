@@ -167,6 +167,7 @@ topic_list <- list(
   "dplyr"      = dplyr_topics,
   "forcats"    = forcats_topics,
   "ggplot2"    = ggplot2_topics,
+  "glue"       = c("glue"),
   "magrittr"   = c("apipe", "pipe"), # keep assignment first
   "operators"  = c("assignment", "logical", "mathematical"), # alphabetical
   "readr"      = readr_topics,
@@ -174,7 +175,6 @@ topic_list <- list(
   "tibble"     = tibble_topics,
   "tidyr"      = tidyr_topics,
   "tidyselect" = tidyselect_topics
-# TODO: ADD glue::glue!!!
   )
 
 

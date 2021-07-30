@@ -301,3 +301,10 @@ knitr::opts_chunk$set(
 | [**`str_detect()`**](../introverse_docs/stringr_str_detect.html) |  Determine whether it is `TRUE` or `FALSE` that a given string contains a substring |
 | [**`str_starts()`**](../introverse_docs/stringr_str_starts.html) | Determine whether it is `TRUE` or `FALSE` that a given string starts with a given substring  |
 | [**`str_ends()`**](../introverse_docs/stringr_str_starts.html) | Determine whether it is `TRUE` or `FALSE` that a given string ends with a given substring |
+
+
+### Get help with `glue`
+
+| Function   |  Description  |
+|----|----|
+| [**`glue()`**](../introverse_docs/glue_glue.html)  |  Quickly combine strings and variables into a single string |

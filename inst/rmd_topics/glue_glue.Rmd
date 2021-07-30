@@ -1,0 +1,119 @@
+---
+title: "{introverse} quick docs"
+output: 
+  html_document:
+    highlight: tango
+    theme: readable
+---
+
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE, 
+                      warning = FALSE, 
+                      message = FALSE)
+library(glue)
+```
+
+```{css custom, echo=FALSE}
+.title{
+    display: none;
+}
+blockquote {
+  display: block;
+  font-size: 0.95em;
+  border-left: 3px solid #7FB036;
+  padding:10px;
+  margin-left:10px;
+}
+```
+
+<div>
+<br>
+ <img src = "logo.png" style = "float:left;height:130px;margin-top:-30px;">
+ <span style = "font-weight:bold;font-size:30px;"> 
+  &nbsp;<code>glue::glue()</code>
+ </span>
+ <br>
+ <b>&nbsp;&nbsp;&nbsp;<code>get_help()</code> docs</b>
+</div>
+<br>
+
+### Description
+
+The [`glue()`](https://glue.tidyverse.org/reference/glue.html) function is part of the identically-named [`{glue}`](https://glue.tidyverse.org/) package, which is part of the [`{tidyverse}`](https://www.tidyverse.org/).
+
+
+We use `glue()` conveniently combine multiple strings into one. `glue()` is similar to the base R function `paste()`, except it makes it much easier to _include variables_ in your string. By default, `glue()` will not insert any space or chatacter between strings being combined. You can change this behavior with the argument `sep`.
+
+<!-- Add the following if the topic is a function that does NOT come with base R, and uncomment/fill in the subsequent multiline HTML comment: -->
+To use this function, you need to either first load the `{glue}` library, or always use the function with `glue::glue()` notation.
+
+```{r description, eval=FALSE}
+# Load the library
+library(glue)
+# Or, load the full tidyverse:
+library(tidyverse)
+
+# Or, use :: notation
+glue::glue()
+```
+
+
+### Conceptual Usage 
+
+```{r usage, eval=FALSE}
+glue("combine this string {and this variable} into a full single string")
+```
+
+### Examples
+
+Some examples below use the `carnivores` dataset. Learn more about this dataset with `get_help("carnivores")`.
+
+```{r carnivores}
+# Show the carnivores dataset
+carnivores
+```
+
+<br>
+
+```{r example1}
+# Quickly create strings that contain variables using {} around variable names, without ending quotes!
+best_animals <- "bears"
+worst_animals <- "mosquitos"
+glue("We love {best_animals}, but we hate {worst_animals}.")
+```
+
+```{r example2}
+# Another example of embedding variables into a string. Again, quotes enclose the entire argument to `glue()`
+favorite_package <- "introverse"
+glue("My favorite R package is the {favorite_package}.")
+```
+
+<br>  <!-- Do not delete the <br>, and make sure to keep the previous and following lines blank. -->
+
+```{r example3}
+# Create a new column called `full_info` in carnivores that is comprised of: "name (genus)"
+# Again, directly refer to column names but surround them in curly braces {}
+# You'll notice the column comes out a <chr> type. That's ok! It behaves like <chr>
+carnivores %>% 
+  dplyr::mutate(full_info = glue("{name} ({genus})"))
+```
+
+<br>
+
+```{r example4}
+# You can also use as.character() to ensure a <chr> column type that was created with glue()
+# Use `get_help("as.character") to learn more
+carnivores %>% 
+  # Create column and coerce it into a character type
+  dplyr::mutate(full_info = glue("{name} ({genus})"),
+                full_info = as.character(full_info)) 
+```
+
+<br>
+```{r example5}
+# Create a new column called `description` in carnivores that is comprised of the sentence:
+#    "The species {name} is awake, on average, {awake} hours per day."
+carnivores %>% 
+  dplyr::mutate(description = glue("The species {name} is awake {awake} hours per day."))
+```
