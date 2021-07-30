@@ -58,6 +58,16 @@ Not sure what help you need? Use " %+%  crayon::bold('show_topics()') %+% " to s
       # Find category
       category <- paste0(find_topic_category(topic))
       
+      
+      
+      # define reading function which includes the progress bar updates and printing
+      read_with_progress <- function(filename){
+        
+        data_read <- read_csv(filename)
+        # you can add additional operations on data_read, or 
+        # decide on entirely different task that this function should do.
+      }
+      
       # launch help
       reveal_help(category, topic, browser)
     }
@@ -75,6 +85,14 @@ Not sure what help you need? Use " %+%  crayon::bold('show_topics()') %+% " to s
 #' @returns invisible topic
 reveal_help <- function(category, topic, browser)
 {
+  
+  message(
+    crayon::green(
+      crayon::bold("Help is now being generated!") %+%
+        "\nFor large help pages (mostly `{ggplot2}` topics), this process may take up to 10-15 seconds."
+    )
+  )
+  
   tempDir <- tempfile()
   dir.create(tempDir)
   htmlFile <- file.path(tempDir, "index.html")
