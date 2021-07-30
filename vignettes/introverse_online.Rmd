@@ -214,7 +214,7 @@ knitr::opts_chunk$set(
 | [**`scale_fill_viridis_c()`**](../introverse_docs/ggplot2_scale_color_viridis_c.html) | Specify `viridis` fill scale mappings for continuous data
 
 
-#### Other scales
+#### Other scales and faceting
 
 | Link   |  Description  |
 |----|----|
@@ -222,6 +222,8 @@ knitr::opts_chunk$set(
 | [**`scale_size_manual()`**](../introverse_docs/ggplot2_scale_color_manual.html) | Specify custom size mappings
 | [**`scale_alpha_manual()`**](../introverse_docs/ggplot2_scale_color_manual.html) | Specify custom alpha (transparency) mappings
 | [**`scale_linetype_manual()`**](../introverse_docs/ggplot2_scale_color_manual.html) | Specify custom linetype mappings
+| [**`facet_wrap()`**](../introverse_docs/ggplot2_facet_wrap.html) | Create a faceted (paneled) plot across 1 variable
+| [**`facet_grid()`**](../introverse_docs/ggplot2_facet_wrap.html) | Create a faceted (paneled) grid of plots across 2 variables
 
 
 #### Themes and labels

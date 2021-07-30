@@ -51,7 +51,9 @@ ggplot2_topics <- sort(c(
   "scale_color_brewer", "scale_color_distiller", "scale_colour_brewer","scale_colour_distiller", "scale_fill_distiller", "scale_fill_brewer", 
   "scale_color_viridis_c","scale_color_viridis_d","scale_colour_viridis_c","scale_colour_viridis_d","scale_fill_viridis_c", "scale_fill_viridis_d",
   # Same page
-  "xlim", "ylim"
+  "xlim", "ylim",
+  # Same page:
+  "facet_wrap", "facet_grid"
 ))
 # geom_line <--- need a dataset
 # facet
@@ -59,6 +61,7 @@ ggplot2_topics <- sort(c(
 #' List of which topics share a given page, for redirection. The FIRST one represents the rmd file which _exist_
 #' @keywords internal
 shared_doc_pages <- list(
+  c("facet_wrap", "facet_grid"),
   c("tidyselect", 
     "everything",
     "contains",

@@ -29,7 +29,7 @@ if (htmlify)
     {
 
       #category <- "ggplot2"
-      #topic <- "ggsave"
+      #topic <- "facet_wrap"
       redirected_topic <- redirect_topic(topic)
       #print(redirected_topic)
       name <- glue::glue("{category}_{redirected_topic}")

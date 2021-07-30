@@ -1,0 +1,270 @@
+---
+title: "{introverse} quick docs"
+output: 
+  html_document:
+    highlight: tango
+    theme: readable
+---
+
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE, 
+                      warning = FALSE, 
+                      message = TRUE, 
+                      fig.width = 8,
+                      fig.height = 5)
+library(ggplot2)
+library(dplyr)
+msleep %>% tidyr::drop_na(sleep_rem, awake) -> msleep
+```
+
+```{css custom, echo=FALSE}
+.title{
+    display: none;
+}
+blockquote {
+  display: block;
+  font-size: 0.95em;
+  border-left: 3px solid #7FB036;
+  padding:10px;
+  margin-left:10px;
+}
+```
+
+<div>
+<br>
+ <img src = "logo.png" style = "float:left;height:130px;margin-top:-30px;">
+ <span style = "font-weight:bold;font-size:30px;"> 
+  &nbsp;Faceting in <code>ggplot2</code>
+ </span>
+ <br>
+ <b>&nbsp;&nbsp;&nbsp;<code>get_help()</code> docs</b>
+</div>
+<br>
+
+### Description
+
+All functions documented here are part of the [`{ggplot2}`](https://ggplot2.tidyverse.org/) package, which is part of the [`{tidyverse}`](https://www.tidyverse.org/).
+
+The `{ggplot2}` package provides two useful functions for creating _paneled_, i.e. _faceted_ plots:
+
++ [`facet_wrap()`](https://ggplot2.tidyverse.org/reference/facet_wrap.html) can be used to facet across one variable. You can specify how many rows and columns should be laid out in the paneling.
++ [`facet_grid()`](https://ggplot2.tidyverse.org/reference/facet_grid.html) is most commonly used to facet across two variables to make a _matrix_ of panels, but can also be used to facet across one variable. 
+
+
+<!-- Add the following if the topic is a function that does NOT come with base R, and uncomment/fill in the subsequent multiline HTML comment: -->
+To use these functions, you need to either first load the `{ggplot2}` library, or always use the function with `ggplot2::()` notation.
+
+```{r description, eval=FALSE}
+# Load the library
+library(ggplot2)
+# Or, load the full tidyverse:
+library(tidyverse)
+
+# Or, use :: notation, for example with facet_wrap()
+ggplot2::facet_wrap()
+```
+
+
+### Conceptual Usage
+
+
+```{r conceptual, eval=FALSE}
+# Most basic usage:
+
+# We do NOT use aes() to specify variables for faceting. Instead we use vars():
+facet_wrap(vars(tibble variable to facet across))
+
+facet_grid(rows = vars(tibble variable to facet across rows),
+           cols = vars(tibble variable to facet across columns))
+
+# Or, facet_grid with one variable:
+facet_grid(rows = vars(tibble variable to facet across rows))
+facet_grid(cols = vars(tibble variable to facet across columns))
+
+```
+
+### Examples
+
+The examples below use a _modified_ version of the `msleep` dataset, where `NA` values have been removed from columns `vore` and `conservation` using `tidyr::drop_na()`. Learn more about the `msleep` with `get_help("msleep")`.
+
+```{r msleep}
+# Modify msleep for examples:
+msleep %>%
+  tidyr::drop_na(vore, conservation) -> msleep_cleaned # Plots are made with `msleep_cleaned`
+
+# Show dataset:
+msleep_cleaned
+```
+
+<br>
+
+```{r example1}
+# Use facet_wrap with default layout to panel scatterplot by vore: Each panel represents a vore.
+ggplot(msleep_cleaned) + 
+  aes(x = sleep_rem, 
+      y = awake, 
+      color = vore) + 
+  geom_point() + 
+  facet_wrap(vars(vore))
+```
+
+<br>
+
+```{r example2}
+# Use argument `nrow` to specify how many panel rows facet_wrap should plot.
+ggplot(msleep_cleaned) + 
+  aes(x = sleep_rem, 
+      y = awake, 
+      color = vore) + 
+  geom_point() + 
+  facet_wrap(vars(vore), nrow = 1) # All panels will be laid out in ONE ROW
+```
+
+<br>
+
+
+```{r example3}
+# Or, use argument `ncol` to specify how many panel columns facet_wrap should plot.
+ggplot(msleep_cleaned) + 
+  aes(x = sleep_rem, 
+      y = awake, 
+      color = vore) + 
+  geom_point() + 
+  facet_wrap(vars(vore), ncol = 1) # All panels will be laid out in ONE COLUMN
+```
+
+
+<br>
+
+
+
+```{r example4}
+# Use the `scales` argument to allow x-axis limits to vary acrcoss panels depending on panel data ranges
+ggplot(msleep_cleaned) + 
+  aes(x = sleep_rem, 
+      y = awake, 
+      color = vore) + 
+  geom_point() + 
+  facet_wrap(vars(vore), scales = "free_x") # Free the x scales to vary based on data - now panels have different x-axis ranges
+```
+
+
+
+<br>
+
+```{r example5}
+# Use the `scales` argument to allow y-axis limits to vary acrcoss panels depending on panel data ranges
+ggplot(msleep_cleaned) + 
+  aes(x = sleep_rem, 
+      y = awake, 
+      color = vore) + 
+  geom_point() + 
+  facet_wrap(vars(vore), scales = "free_y") # Free the y scales to vary based on data - now panels have different y-axis ranges
+```
+
+<br>
+
+```{r example6}
+# Use the `scales` argument to allow BOTH x- and y-axis limits to vary acrcoss panels depending on panel data ranges
+ggplot(msleep_cleaned) + 
+  aes(x = sleep_rem, 
+      y = awake, 
+      color = vore) + 
+  geom_point() + 
+  facet_wrap(vars(vore), scales = "free") # Free the BOTH x and y scales to vary based on data - now panels have different axis ranges
+```
+
+<br>
+
+
+```{r example7}
+# Use facet_grid to make a paneled plot of conservation and vore
+# Note that some panels are empty, meaning there are no data points wiht that combination of those vore/conservation categories in msleep.
+ggplot(msleep_cleaned) + 
+  aes(x = sleep_rem, 
+      y = awake, 
+      color = vore) + 
+  geom_point() + 
+  # Here, vore panels are in rows, and conservation panels are in columns
+  facet_grid(rows = vars(vore),
+             cols = vars(conservation))
+```
+
+<br>
+
+```{r example8}
+# Use facet_grid to make a paneled plot of conservation and vore, reversed
+# Note that some panels are empty, meaning there are no data points wiht that combination of those vore/conservation categories in msleep.
+ggplot(msleep_cleaned) + 
+  aes(x = sleep_rem, 
+      y = awake, 
+      color = vore) + 
+  geom_point() + 
+  # Here, conservation panels are in rows, and vore panels are in columns
+  facet_grid(rows = vars(conservation),
+             cols = vars(vore))
+```
+
+
+<br>
+
+```{r example9}
+# Free both axis scales with `scales = "free". This can also be done as `scales = "free_x"` or `scales = "free_y"` to free only one axis
+ggplot(msleep_cleaned) + 
+  aes(x = sleep_rem, 
+      y = awake, 
+      color = vore) + 
+  geom_point() + 
+  # Here, conservation panels are in rows, and vore panels are in columns
+  facet_grid(rows = vars(conservation),
+             cols = vars(vore), 
+             scales = "free") # allow both X and Y panel axes ranges to vary based on panel's data
+```
+
+
+<br> 
+
+```{r example10}
+# Switch y facet label locations in a faceted plot (works with either facet_wrap or facet_grid)
+ggplot(msleep_cleaned) + 
+  aes(x = sleep_rem, 
+      y = awake, 
+      color = vore) + 
+  geom_point() + 
+  # Here, conservation panels are in rows, and vore panels are in columns
+  facet_grid(rows = vars(conservation),
+             cols = vars(vore), 
+             switch = "y") # This argument switches y facet labels to be on the LEFT
+```
+<br>
+
+
+```{r example11}
+# Switch x facet label locations in a faceted plot (works with either facet_wrap or facet_grid)
+ggplot(msleep_cleaned) + 
+  aes(x = sleep_rem, 
+      y = awake, 
+      color = vore) + 
+  geom_point() + 
+  # Here, conservation panels are in rows, and vore panels are in columns
+  facet_grid(rows = vars(conservation),
+             cols = vars(vore), 
+             switch = "x") # This argument switches x facet labels to be on the BOTTOM
+```
+
+<br>
+
+
+```{r example12}
+# Switch x and y label locations in a faceted plot (works with either facet_wrap or facet_grid)
+ggplot(msleep_cleaned) + 
+  aes(x = sleep_rem, 
+      y = awake, 
+      color = vore) + 
+  geom_point() + 
+  # Here, conservation panels are in rows, and vore panels are in columns
+  facet_grid(rows = vars(conservation),
+             cols = vars(vore), 
+             switch = "both") # This argument switches BOTH x and y facet labels to be on the bottom and left, respectively
+```
