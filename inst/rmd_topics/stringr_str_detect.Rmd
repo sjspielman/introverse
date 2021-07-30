@@ -1,0 +1,129 @@
+---
+title: "{introverse} quick docs"
+output: 
+  html_document:
+    highlight: tango
+    theme: readable
+---
+
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE, 
+                      warning = FALSE, 
+                      message = FALSE)
+library(stringr)
+set.seed(1)
+single_sentence <-  sample(stringr::sentences,1)
+set.seed(18)
+fruits <- sample(stringr::fruit, 6)
+```
+
+```{css custom, echo=FALSE}
+.title{
+    display: none;
+}
+blockquote {
+  display: block;
+  font-size: 0.95em;
+  border-left: 3px solid #7FB036;
+  padding:10px;
+  margin-left:10px;
+}
+```
+
+<div>
+<br>
+ <img src = "logo.png" style = "float:left;height:130px;margin-top:-30px;">
+ <span style = "font-weight:bold;font-size:30px;"> 
+  &nbsp;<code>stringr::str_detect()</code>
+ </span>
+ <br>
+ <b>&nbsp;&nbsp;&nbsp;<code>get_help()</code> docs</b>
+</div>
+<br>
+
+### Description
+
+The [`str_detect()`](https://stringr.tidyverse.org/reference/str_detect.html) function is part of the [`{stringr}`](https://stringr.tidyverse.org/) package, which is part of the [`{tidyverse}`](https://www.tidyverse.org/).
+
+We use the `str_detect()` function to ask _if it is `TRUE` or `FALSE`_ that a certain pattern is present in a string or array of strings. A common usage of this function is with `dplyr::filter()` to subset rows from tibbles (data frames) that contain (or do not contain) a certain substring or regular expression (a special kind of pattern-matching string).
+
+All `{stringr}` functions (and `R` itself) are _case sensitive_, which means uppercase and lowercase letters are viewed as different characters. In other words, searching for "A" will not match "a", and searching for "a" will not match "A."
+
+<!-- Add the following if the topic is a function that does NOT come with base R, and uncomment/fill in the subsequent multiline HTML comment: -->
+To use this function, you need to either first load the `{stringr}` library, or always use the function with `stringr::str_detect()` notation.
+
+```{r description, eval=FALSE}
+# Load the library
+library(stringr)
+# Or, load the full tidyverse:
+library(tidyverse)
+
+# Or, use :: notation
+stringr::str_detect()
+```
+
+
+### Conceptual Usage 
+
+```{r usage, eval=FALSE}
+stringr::str_detect("string to search in", "substring to look for in bigger string")
+
+stringr::str_detect(c("array", "of", "strings", "to", "search", "in"), 
+                   "substring to look for in each string in the array")
+```
+
+### Examples
+
+The examples use the variables shown below, as well as the `carnivores` dataset. Learn more about the `carnivores` with `get_help("carnivores")`.
+
+```{r exdata, collapse=TRUE}
+# Show all variables and datasets used in examples:
+
+# A single string
+single_sentence
+
+# An array of strings
+fruits
+
+# A tibble
+carnivores
+```
+
+<br>
+
+```{r example1}
+# Does the word "way" appear in single sentence?
+str_detect(single_sentence, "way")
+```
+
+<br>  <!-- Do not delete the <br>, and make sure to keep the previous and following lines blank. -->
+
+```{r example2}
+# Does the capitalized word "Wind" appear in single sentence?
+str_detect(single_sentence, "Wind")
+```
+
+<br>  <!-- Do not delete the <br>, and make sure to keep the previous and following lines blank. -->
+
+```{r example3}
+# Does the word "berry" appear in each string in fruits?
+str_detect(fruits, "berry")
+```
+
+
+<br>
+
+```{r example4}
+# Keep only rows where it is `TRUE` that the word "seal" is in `name`, using dplyr::filter
+carnivores %>%
+  dplyr::filter(str_detect(name, "seal"))
+```
+<br>
+
+```{r example5}
+# Keep only rows where it is `FALSE` that the word "fox" is in `name`, using dplyr::filter
+# For this, we negate the result of `str_detect()` using `!` to get `FALSE` instead of `TRUE`
+carnivores %>%
+  dplyr::filter(!str_detect(name, "fox"))
+```

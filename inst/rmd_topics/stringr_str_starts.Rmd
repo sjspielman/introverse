@@ -1,0 +1,146 @@
+---
+title: "{introverse} quick docs"
+output: 
+  html_document:
+    highlight: tango
+    theme: readable
+---
+
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE, 
+                      warning = FALSE, 
+                      message = FALSE)
+library(stringr)
+set.seed(1)
+single_sentence <-  sample(stringr::sentences,1)
+set.seed(18)
+fruits <- sample(stringr::fruit, 6)
+```
+
+```{css custom, echo=FALSE}
+.title{
+    display: none;
+}
+blockquote {
+  display: block;
+  font-size: 0.95em;
+  border-left: 3px solid #7FB036;
+  padding:10px;
+  margin-left:10px;
+}
+```
+
+<div>
+<br>
+ <img src = "logo.png" style = "float:left;height:130px;margin-top:-30px;">
+ <span style = "font-weight:bold;font-size:30px;"> 
+  &nbsp;<code>stringr::str_starts()</code> and <code>stringr::str_ends()</code>
+ </span>
+ <br>
+ <b>&nbsp;&nbsp;&nbsp;<code>get_help()</code> docs</b>
+</div>
+<br>
+
+### Description
+
+The [`str_starts()`](https://stringr.tidyverse.org/reference/str_starts.html) and [`str_ends()`](https://stringr.tidyverse.org/reference/str_starts.html) functions are part of the [`{stringr}`](https://stringr.tidyverse.org/) package, which is part of the [`{tidyverse}`](https://www.tidyverse.org/).
+
+We use these functions to ask _if it is `TRUE` or `FALSE`_ that a certain string either _starts with_ (`str_starts()`) or _ends with_ (`str_end()`) a given pattern. A common usage of this function is with `dplyr::filter()` to subset rows from tibbles (data frames) that start and/or end with a certain set of characters.
+
+All `{stringr}` functions (and `R` itself) are _case sensitive_, which means uppercase and lowercase letters are viewed as different characters. In other words, searching for "A" will not match "a", and searching for "a" will not match "A."
+
+<!-- Add the following if the topic is a function that does NOT come with base R, and uncomment/fill in the subsequent multiline HTML comment: -->
+To use this function, you need to either first load the `{stringr}` library, or always use the function with `stringr::` notation.
+
+```{r description, eval=FALSE}
+# Load the library
+library(stringr)
+# Or, load the full tidyverse:
+library(tidyverse)
+
+# Or, use :: notation, for example with str_starts() 
+stringr::str_starts()
+```
+
+
+### Conceptual Usage 
+
+```{r usage, eval=FALSE}
+stringr::str_starts("string to search in", 
+                    "substring you are asking if the first argument starts with")
+
+stringr::str_starts(c("array", "of", "strings", "to", "search", "in"), 
+                   "substring you are asking if the first argument starts with")
+
+stringr::str_ends("string to search in", 
+                    "substring you are asking if the first argument ends with")
+
+stringr::str_ends(c("array", "of", "strings", "to", "search", "in"), 
+                   "substring you are asking if the first argument ends with")
+```
+
+### Examples
+
+The examples use the variables shown below, as well as the `carnivores` dataset. Learn more about the `carnivores` with `get_help("carnivores")`.
+
+```{r exdata, collapse=TRUE}
+# Show all variables and datasets used in examples:
+
+# A single string
+single_sentence
+
+# An array of strings
+fruits
+
+# A tibble
+carnivores
+```
+
+<br>
+
+```{r example1}
+# Does `single_sentence` start with "Hello"?
+str_starts(single_sentence, "Hello")
+```
+
+<br>  <!-- Do not delete the <br>, and make sure to keep the previous and following lines blank. -->
+
+```{r example2}
+# Does `single_sentence` end with a period?
+# To search for a literal period, you need to write: "\\." (include two backslashes)
+str_ends(single_sentence, "\\.")
+```
+
+<br>  <!-- Do not delete the <br>, and make sure to keep the previous and following lines blank. -->
+
+```{r example3}
+# Do strings in `fruits` start with "p"?
+str_starts(fruits, "p")
+```
+
+
+<br>
+
+
+```{r example4}
+# Do strings in `fruits` end with "y"?
+str_ends(fruits, "y")
+```
+
+<br>
+```{r example5}
+# Keep only rows where it is `TRUE` that the `genus` ends in "s" dplyr::filter
+carnivores %>%
+  dplyr::filter(str_ends(genus, "s"))
+```
+
+<br>
+
+
+```{r example6}
+# Keep only rows where it is `FALSE` that genus starts with "C"
+# For this, we negate the result of `str_starts()` using `!` to get `FALSE` instead of `TRUE`
+carnivores %>%
+  dplyr::filter(!str_starts(genus, "C"))
+```

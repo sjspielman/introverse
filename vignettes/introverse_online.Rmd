@@ -256,6 +256,21 @@ knitr::opts_chunk$set(
 | [**`fct_lump_prop()`**](../introverse_docs/forcats_fct_lump_n.html) | Combine infrequently occurring levels of a factor into one |
 
 
+### Get help with `readr`
+
+| Function   |  Description  |
+|----|----|
+| [**`read_csv()`**](../introverse_docs/readr_read_csv.html)  |  Read a CSV file into `R` |
+| [**`read_tsv()`**](../introverse_docs/readr_read_csv.html)  |  Read a TSV file into `R` |
+| [**`read_csv2()`**](../introverse_docs/readr_read_csv.html)  |  Read a CSV2 file into `R` |
+| [**`read_delim()`**](../introverse_docs/readr_read_csv.html)  |  Read a delimited file of any kind into `R` |
+| [**`write_csv()`**](../introverse_docs/readr_write_csv.html)  |  Write (save) a tibble (data frame) to a CSV file |
+| [**`write_tsv()`**](../introverse_docs/readr_write_csv.html)  | Write (save) a tibble (data frame) to a TSV file |
+| [**`write_csv2()`**](../introverse_docs/readr_write_csv.html)  |  Write (save) a tibble (data frame) to a CSV2 file |
+| [**`write_delim()`**](../introverse_docs/readr_write_csv.html)  | Write (save) a tibble (data frame) to a delimited file |
+
+
+
 ### Get help with `tibble`
 
 | Function   |  Description  |
@@ -275,15 +290,14 @@ knitr::opts_chunk$set(
 | [**`unite()`**](../introverse_docs/tidyr_unite.html) | Unite (combine) two columns in a tibble (data frame) into a single column |
 | [**`separate()`**](../introverse_docs/tidyr_separate.html) | Separate a single column in a tibble (data frame) into two new columns |
 
-### Get help with `readr`
+
+### Get help with `stringr`
 
 | Function   |  Description  |
 |----|----|
-| [**`read_csv()`**](../introverse_docs/readr_read_csv.html)  |  Read a CSV file into `R` |
-| [**`read_tsv()`**](../introverse_docs/readr_read_csv.html)  |  Read a TSV file into `R` |
-| [**`read_csv2()`**](../introverse_docs/readr_read_csv.html)  |  Read a CSV2 file into `R` |
-| [**`read_delim()`**](../introverse_docs/readr_read_csv.html)  |  Read a delimited file of any kind into `R` |
-| [**`write_csv()`**](../introverse_docs/readr_write_csv.html)  |  Write (save) a tibble (data frame) to a CSV file |
-| [**`write_tsv()`**](../introverse_docs/readr_write_csv.html)  | Write (save) a tibble (data frame) to a TSV file |
-| [**`write_csv2()`**](../introverse_docs/readr_write_csv.html)  |  Write (save) a tibble (data frame) to a CSV2 file |
-| [**`write_delim()`**](../introverse_docs/readr_write_csv.html)  | Write (save) a tibble (data frame) to a delimited file |
+| [**`str_count()`**](../introverse_docs/stringr_str_count.html)  |  Count the number of occurrences of a substring or regular expression in a string |
+| [**`str_replace()`**](../introverse_docs/stringr_str_replace.html) | Replace _the first_ occurrence of a substring or regular expression in a string with a given replacement string |
+| [**`str_replace_all()`**](../introverse_docs/stringr_str_replace.html) | Replace _all_ occurrences of a substring or regular expression in a string with a given replacement string |
+| [**`str_detect()`**](../introverse_docs/stringr_str_detect.html) |  Determine whether it is `TRUE` or `FALSE` that a given string contains a substring |
+| [**`str_starts()`**](../introverse_docs/stringr_str_starts.html) | Determine whether it is `TRUE` or `FALSE` that a given string starts with a given substring  |
+| [**`str_ends()`**](../introverse_docs/stringr_str_starts.html) | Determine whether it is `TRUE` or `FALSE` that a given string ends with a given substring |

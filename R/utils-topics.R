@@ -113,12 +113,11 @@ forcats_topics <- sort(c(
 #' All the stringr topics
 #' @keywords internal
 stringr_topics <- sort(c(
-  # Needed for fall:
   "str_count",
   "str_replace", "str_replace_all",
+  "str_to_upper", "str_to_lower", "str_to_sentence", "str_to_title", 
   "str_detect", 
-  "str_starts", "str_ends",
-  "str_to_lower", "str_to_upper", "str_to_sentence", "str_to_title" #,
+  "str_starts", "str_ends"
   # Not needed for fall:
   #"str_trim",
 #  "str_order",
@@ -171,7 +170,7 @@ topic_list <- list(
   "magrittr"   = c("apipe", "pipe"), # keep assignment first
   "operators"  = c("assignment", "logical", "mathematical"), # alphabetical
   "readr"      = readr_topics,
-# "stringr"    = stringr_topics, 
+  "stringr"    = stringr_topics, 
   "tibble"     = tibble_topics,
   "tidyr"      = tidyr_topics,
   "tidyselect" = tidyselect_topics
@@ -184,6 +183,9 @@ topic_list <- list(
 #' List of which topics share a given page, for redirection. The FIRST one represents the rmd file which _exist_
 #' @keywords internal
 shared_doc_pages <- list(
+  c("str_replace", "str_replace_all"),
+  c("str_to_upper", "str_to_lower", "str_to_sentence", "str_to_title"),
+  c("str_starts", "str_ends"),
   c("facet_wrap", "facet_grid"),
   c("tidyselect", 
     "everything",

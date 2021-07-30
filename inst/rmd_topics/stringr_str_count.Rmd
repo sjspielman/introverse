@@ -1,0 +1,129 @@
+---
+title: "{introverse} quick docs"
+output: 
+  html_document:
+    highlight: tango
+    theme: readable
+---
+
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE, 
+                      warning = FALSE, 
+                      message = FALSE)
+library(stringr)
+set.seed(1)
+single_sentence <-  sample(stringr::sentences,1)
+set.seed(18)
+fruits <- sample(stringr::fruit, 6)
+```
+
+```{css custom, echo=FALSE}
+.title{
+    display: none;
+}
+blockquote {
+  display: block;
+  font-size: 0.95em;
+  border-left: 3px solid #7FB036;
+  padding:10px;
+  margin-left:10px;
+}
+```
+
+<div>
+<br>
+ <img src = "logo.png" style = "float:left;height:130px;margin-top:-30px;">
+ <span style = "font-weight:bold;font-size:30px;"> 
+  &nbsp;<code>stringr::str_count()</code>
+ </span>
+ <br>
+ <b>&nbsp;&nbsp;&nbsp;<code>get_help()</code> docs</b>
+</div>
+<br>
+
+### Description
+
+The [`str_count()`](https://stringr.tidyverse.org/reference/str_count.html) function is part of the [`{stringr}`](https://stringr.tidyverse.org/) package, which is part of the [`{tidyverse}`](https://www.tidyverse.org/).
+
+
+We use the `str_count()` function to count the number of times a given smaller string or regular expression (a special type of pattern-matching string) appears in a larger string.
+
+All `{stringr}` functions (and `R` itself) are _case sensitive_, which means uppercase and lowercase letters are viewed as different characters. In other words, searching for "A" will not match "a", and searching for "a" will not match "A."
+
+<!-- Add the following if the topic is a function that does NOT come with base R, and uncomment/fill in the subsequent multiline HTML comment: -->
+To use this function, you need to either first load the `{stringr}` library, or always use the function with `stringr::str_count()` notation.
+
+```{r description, eval=FALSE}
+# Load the library
+library(stringr)
+# Or, load the full tidyverse:
+library(tidyverse)
+
+# Or, use :: notation
+stringr::str_count()
+```
+
+
+### Conceptual Usage 
+
+```{r usage, eval=FALSE}
+stringr::str_count("string to count observations in", "substring to look for in bigger string")
+
+stringr::str_count(c("array", "of", "strings", "to", "count", "observations", "in"), 
+                   "substring to look for in each string in the array")
+```
+
+### Examples
+
+The examples use the variables shown below, as well as the `carnivores` dataset. Learn more about the `carnivores` with `get_help("carnivores")`.
+
+```{r exdata, collapse=TRUE}
+# Show all variables and datasets used in examples:
+
+# A single string
+single_sentence
+
+# An array of strings
+fruits
+
+# A tibble
+carnivores
+```
+
+<br>
+
+
+```{r example1}
+# Count the number of times the substring "ou" appears in `single_sentence`
+str_count(single_sentence, "ou")
+```
+
+<br>  <!-- Do not delete the <br>, and make sure to keep the previous and following lines blank. -->
+
+```{r example2}
+# Count the number of times the capital letter "A" appears in `single_sentence`
+str_count(single_sentence, "A")
+```
+<br>  <!-- Do not delete the <br>, and make sure to keep the previous and following lines blank. -->
+
+```{r example3}
+# Count the number of times the letter "o" appears in _each string_ in the array `fruits`
+# The result is an array that counts each string's number of "o"s
+str_count(fruits, "o")
+```
+
+
+```{r example4}
+# Count the number of times the letter "a" appears in each genus in carnivores
+str_count(carnivores$genus, "a")
+```
+
+
+<br>
+
+```{r example5}
+# Use dplyr::mutate() to create a new column in carnivores containing counts of the letter "a" in `genus`
+carnivores %>%
+  dplyr::mutate(number_a_in_genus = str_count(genus, "a"))
+```

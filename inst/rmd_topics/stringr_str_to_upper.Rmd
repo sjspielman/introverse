@@ -1,0 +1,141 @@
+---
+title: "{introverse} quick docs"
+output: 
+  html_document:
+    highlight: tango
+    theme: readable
+---
+
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE, 
+                      warning = FALSE, 
+                      message = FALSE)
+library(stringr)
+set.seed(1)
+single_sentence <-  sample(stringr::sentences,1)
+set.seed(18)
+fruits <- sample(stringr::fruit, 6)
+fruits
+```
+
+```{css custom, echo=FALSE}
+.title{
+    display: none;
+}
+blockquote {
+  display: block;
+  font-size: 0.95em;
+  border-left: 3px solid #7FB036;
+  padding:10px;
+  margin-left:10px;
+}
+```
+
+<div>
+<br>
+ <img src = "logo.png" style = "float:left;height:130px;margin-top:-30px;">
+ <span style = "font-weight:bold;font-size:30px;"> 
+  &nbsp;Converting between uppercase and lowercase in <code>{stringr}</code>
+ </span>
+ <br>
+ <b>&nbsp;&nbsp;&nbsp;<code>get_help()</code> docs</b>
+</div>
+<br>
+
+### Description
+
+The [`{stringr}`](https://stringr.tidyverse.org/) package, which is part of the [`{tidyverse}`](https://www.tidyverse.org/), includes several useful functions for converting strings or arrays of strings between uppercase and lowercase. These functions include:
+
+
+| Function | How it affects strings | 
+|:---------|:-----------------------|
+| `str_to_upper()` | Makes all letters in a string _uppercase_ |
+| `str_to_lower()` | Makes all letters in a string _lowercase_ |
+| `str_to_title()` | Converts a string to _title case_, which means the first letter of each word will uppercase and the rest will be lowercase. |
+| `str_to_sentence()` | Converts a string to _sentence case_, where the first letter of the first word is uppercase, and all remaining letters are lowercase (like a sentence). |
+
+<!-- Add the following if the topic is a function that does NOT come with base R, and uncomment/fill in the subsequent multiline HTML comment: -->
+To use this function, you need to either first load the `{stringr}` library, or always use the function with `stringr::()` notation.
+
+```{r description, eval=FALSE}
+# Load the library
+library(stringr)
+# Or, load the full tidyverse:
+library(tidyverse)
+
+# Or, use :: notation with str_to_upper(), for example
+stringr::str_to_upper()
+```
+
+
+### Conceptual Usage 
+
+```{r usage, eval=FALSE}
+stringr::str_to_upper("string or array of strings to convert to uppercase") 
+stringr::str_to_lower("string or array of strings to convert to lowercase") 
+stringr::str_to_title("string or array of strings to convert to title case") 
+stringr::str_to_sentence("string or array of strings to convert to sentence case") 
+
+```
+
+### Examples
+
+The examples use the variables shown below, as well as the `carnivores` dataset. Learn more about the `carnivores` with `get_help("carnivores")`.
+
+```{r exdata, collapse=TRUE}
+# Show all variables and datasets used in examples:
+
+# A single string
+single_sentence
+
+# An array of strings
+fruits
+
+# A tibble
+carnivores
+```
+
+```{r example1}
+# Convert `single_sentence` to all uppercase
+str_to_upper(single_sentence)
+```
+
+<br>  <!-- Do not delete the <br>, and make sure to keep the previous and following lines blank. -->
+
+```{r example2}
+# Convert `single_sentence` to title case
+str_to_title(single_sentence)
+```
+<br>  <!-- Do not delete the <br>, and make sure to keep the previous and following lines blank. -->
+
+```{r example3}
+# Convert all strings in `fruits` to sentence case
+str_to_sentence(fruits)
+```
+
+
+<br>
+
+```{r example4}
+# Convert all strings in `fruits` to title case
+str_to_title(fruits)
+```
+
+<br>
+
+```{r example5}
+# Convert the column `name` in carnivores to all uppercase using dplyr::mutate
+carnivores %>%
+  dplyr::mutate(name = str_to_upper(name))
+```
+
+
+<br>
+
+```{r example6}
+# Convert the column `genus` in carnivores to all lowercase using dplyr::mutate
+carnivores %>%
+  dplyr::mutate(genus = str_to_lower(genus))
+```
+

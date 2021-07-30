@@ -1,0 +1,145 @@
+---
+title: "{introverse} quick docs"
+output: 
+  html_document:
+    highlight: tango
+    theme: readable
+---
+
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE, 
+                      warning = FALSE, 
+                      message = FALSE)
+library(stringr)
+set.seed(1)
+single_sentence <-  sample(stringr::sentences,1)
+set.seed(18)
+fruits <- sample(stringr::fruit, 6)
+```
+
+```{css custom, echo=FALSE}
+.title{
+    display: none;
+}
+blockquote {
+  display: block;
+  font-size: 0.95em;
+  border-left: 3px solid #7FB036;
+  padding:10px;
+  margin-left:10px;
+}
+```
+
+<div>
+<br>
+ <img src = "logo.png" style = "float:left;height:130px;margin-top:-30px;">
+ <span style = "font-weight:bold;font-size:24px;"> 
+  &nbsp;<code>stringr::str_replace()</code> and <code>stringr::str_replace_all()</code>
+ </span>
+ <br>
+ <b>&nbsp;&nbsp;&nbsp;<code>get_help()</code> docs</b>
+</div>
+<br>
+
+### Description
+
+The [`str_replace()`](https://stringr.tidyverse.org/reference/str_replace.html) and  [`str_replace_all()`](https://stringr.tidyverse.org/reference/str_replace.html) functions are part of the [`{stringr}`](https://stringr.tidyverse.org/) package, which is part of the [`{tidyverse}`](https://www.tidyverse.org/).
+
+We use these function find and replace patterns, including strings or or regular expression (a special type of pattern-matching string), in strings. 
+
+The `str_replace()` function will replace _only the first occurrence_ of the given pattern with the given replacement, but `str_replace_all()` will replace _all_ occurrences of the given pattern with the given replacement.
+
+All `{stringr}` functions (and `R` itself) are _case sensitive_, which means uppercase and lowercase letters are viewed as different characters. In other words, searching for "A" will not match "a", and searching for "a" will not match "A."
+
+<!-- Add the following if the topic is a function that does NOT come with base R, and uncomment/fill in the subsequent multiline HTML comment: -->
+To use this function, you need to either first load the `{stringr}` library, or always use the function with `stringr::()` notation.
+
+```{r description, eval=FALSE}
+# Load the library
+library(stringr)
+# Or, load the full tidyverse:
+library(tidyverse)
+
+# Or, use :: notation with str_replace(), for example
+stringr::str_replace()
+```
+
+
+### Conceptual Usage 
+
+```{r usage, eval=FALSE}
+stringr::str_replace("string to search in", 
+                     "pattern to search for",
+                     "replacement to replace only the first occurrance of pattern")
+
+stringr::str_replace_all("string to search in", 
+                         "pattern to search for",
+                         "replacement to replace all occurrances")
+```
+
+### Examples
+
+The examples use the variables shown below, as well as the `carnivores` dataset. Learn more about the `carnivores` with `get_help("carnivores")`.
+
+```{r exdata, collapse=TRUE}
+# Show all variables and datasets used in examples:
+
+# A single string
+single_sentence
+
+# An array of strings
+fruits
+
+# A tibble
+carnivores
+```
+
+<br>
+
+
+```{r example1}
+# Replace the first occurrances of "the" with "THE" in single_sentence
+str_replace(single_sentence, "the", "THE")
+```
+
+<br>  <!-- Do not delete the <br>, and make sure to keep the previous and following lines blank. -->
+
+```{r example2}
+# Replace all  occurranceso f "the" with "THE" in single_sentence
+str_replace_all(single_sentence, "the", "THE")
+```
+<br>  <!-- Do not delete the <br>, and make sure to keep the previous and following lines blank. -->
+
+```{r example3}
+# Replace the first occurrence of letter "i" with the word "EYE" in all strings in fruits
+# This will replace the first occurrence separately in each string in fruits
+str_replace(fruits, "i", "EYE")
+```
+
+
+<br>
+
+```{r example4}
+# Replace all occurrence of letter "i" with the word "EYE" in all strings in fruits
+str_replace_all(fruits, "i", "EYE")
+```
+
+<br>
+
+```{r example5}
+# Replace all occurrences of the substring "berry" with "bear-y" in all fruit strings
+# When you know you want all occurrences replaced, it's generally safer to use `str_replace_all()`
+str_replace_all(fruits, "berry", "bear-y")
+```
+
+
+<br>
+
+```{r example6}
+# Use dplyr::mutate() to create a new column `name_improved` in carnivores that 
+#   replaces all occurrences of "seal" in the column `name` with "furbabies"
+carnivores %>%
+  dplyr::mutate(name_improved = str_replace_all(name, "seal", "furbabies"))
+```
+
