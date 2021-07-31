@@ -40,11 +40,11 @@ blockquote {
 
 ### Description
 
-The `ifelse()` function comes with R and is part of the Base R `{base}` package.
+The `ifelse()` function comes with `R` and is part of the Base `R` `{base}` package.
   
 We use this function to assign a value based on whether a logical statement is `TRUE` or `FALSE`. 
 
-Note that there is a `{dplyr}` package version of this function ([`dplyr::if_else()`](https://dplyr.tidyverse.org/reference/if_else.html), with an underscore) that can be used in exactly the same way, but the `{dplyr}` version enforces that the resulting values must always be the same type.
+Note that there is a [`{dplyr}`]((https://dplyr.tidyverse.org) package version of this function ([`dplyr::if_else()`](https://dplyr.tidyverse.org/reference/if_else.html), with an underscore) that can be used in exactly the same way, but the `{dplyr}` version enforces that the resulting values must always be the same type.
 
 
 ### Conceptual Usage 
@@ -52,7 +52,7 @@ Note that there is a `{dplyr}` package version of this function ([`dplyr::if_els
 ```{r usage, eval=FALSE}
 ifelse(logical statement, 
        value to use if statement is `TRUE`, 
-       value to useif statement is `FALSE`)
+       value to use if statement is `FALSE`)
 }
 ```
 
@@ -86,8 +86,8 @@ ifelse(10 < 100, 5, 'string')
 
 ```{r example3}
 # Use ifelse to create a new column `sleeps_alot` that will contain
-# "yes" if `awake` <= 10, and "no" otherwise
+# "yes" if `awake` <= 10, and "no" otherwise, using dplyr::mutate()
 carnivores %>%
-  mutate(sleeps_alot = ifelse(awake <= 10, "yes", "no"))
+  dplyr::mutate(sleeps_alot = ifelse(awake <= 10, "yes", "no"))
 ```
 

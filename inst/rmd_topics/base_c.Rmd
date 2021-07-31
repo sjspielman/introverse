@@ -39,7 +39,7 @@ blockquote {
 
 ### Description
 
-The `c()` function comes with R and is part of the Base R `{base}` package.
+The `c()` function comes with `R` and is part of the Base `R` `{base}` package.
   
 We use this function to create arrays. Recall that all values in arrays must have the same type. 
 
@@ -76,5 +76,14 @@ new_array
 #  all values into characters
 new_array <- c('a', 'e', 'i', 'o', 'u', 'y', 1, 2, 3, 4, 5)
 new_array
+```
+
+
+<br>
+
+```{r example4}
+# To create an array of ordered numbers, you can use `:` without `c()`
+ordered_numbers <- 5:20
+ordered_numbers
 ```
 

@@ -38,7 +38,7 @@ blockquote {
 
 ### Description
 
-The `table()` function comes with R and is part of the Base R `{base}` package.
+The `table()` function comes with `R` and is part of the Base `R` `{base}` package.
   
 This function summarizes counts in categorical variables to quickly make a contingency table. All `NA`s in the data will be *ignored*.
 

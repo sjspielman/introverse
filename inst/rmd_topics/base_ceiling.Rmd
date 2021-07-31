@@ -40,7 +40,7 @@ blockquote {
 
 ### Description
 
-The `ceiling()` and `floor()` functions come with R and are part of the `{base}` package.
+The `ceiling()` and `floor()` functions come with `R` and are part of the Base `R` `{base}` package.
   
 We use these functions to round decimals up (`ceiling()`) or down (`floor()`) to the closest integer.
 
@@ -88,8 +88,8 @@ floor(some_decimals)
 <br>
 
 ```{r example4}
-# Round up values in the `carnivores` column `awake`
+# Round up values in the `carnivores` column `awake` using dplyr::mutate()
 carnivores %>%
-  mutate(awake_rounded_up = ceiling(awake))
+  dplyr::mutate(awake_rounded_up = ceiling(awake))
 ```
 

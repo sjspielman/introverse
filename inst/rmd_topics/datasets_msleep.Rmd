@@ -61,10 +61,10 @@ Columns in `msleep` include the following:
 + `vore`: Whether the species is **carni**vore, **hervi**vore, **omni**vore, or **insecti**vore
 + `order`: The Order classification of the mammal species
 + `conservation`: The conservation status of the mammal species
-  + `lc`: "**l**east **c**oncern"
-  + `nt`: "**n**ot **t**hreatened"
-  + `en`: "**en**dangered"
-  + `cd`: "**c**onservation **d**ependent
+  + `lc`: **l**east **c**oncern
+  + `nt`: **n**ot **t**hreatened
+  + `en`: **en**dangered
+  + `cd`: **c**onservation **d**ependent
   + `domesticated`: domesticated
 + `sleep_total`: The total amount of sleep per day, in hours
 + `sleep_rem`: The amount of REM sleep per day, in hours
@@ -73,7 +73,7 @@ Columns in `msleep` include the following:
 + `brainwt`: The brain weight in kg
 + `bodywt`: The body weight in kg
 
-Values in the data that are _NA_ indicate that the data are _missing and/or unknown._
+Values in the data that are `NA` indicate that the data are _missing and/or unknown._
 
 <br>
 

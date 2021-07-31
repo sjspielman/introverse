@@ -39,11 +39,9 @@ blockquote {
 
 ### Description
 
-The `nchar()` function comes with R and is part of the Base R `{base}` package.
+The `nchar()` function comes with `R` and is part of the Base `R` `{base}` package.
   
 We use this function to determine the how many characters (**n**umber of **char**acters) in a string. Unfortunately, it is pronounced "en-char."
-
-
 
 
 ### Conceptual Usage 
@@ -57,7 +55,7 @@ nchar(string to count number of characters in)
 
 ```{r example1}
 # Find the number of characters in a string directly
-nchar('word')
+nchar("word")
 ```
 
 <br>  <!-- Do not delete the <br>, and make sure to keep the previous and following lines blank. -->
@@ -65,7 +63,7 @@ nchar('word')
 
 ```{r example2}
 # Find the number of characters in a string with multiple words
-nchar('This is a whole sentence.')
+nchar("This is a whole sentence.")
 ```
 
 <br>  <!-- Do not delete the <br>, and make sure to keep the previous and following lines blank. -->
@@ -73,6 +71,6 @@ nchar('This is a whole sentence.')
 
 ```{r example3}
 # Find the number of characters in a string that was previously defined as a variable.
-my_string <- 'heyo!'
+my_string <- "heyo!"
 nchar(my_string)
 ```

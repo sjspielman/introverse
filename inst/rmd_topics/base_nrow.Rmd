@@ -39,9 +39,9 @@ blockquote {
 
 ### Description
 
-The `nrow()` and `ncol()` functions come with R and are part of the `{base}` package.
+The `nrow()` and `ncol()` functions come with `R` and are part of the Base `R` `{base}` package.
   
-We use these functions to get the number of rows (`nrow()`) or columns (`ncol()`) of an object, usually a tibble (data frame).
+We use these functions to find the number of rows (`nrow()`) or columns (`ncol()`) of a variable, usually a tibble (data frame).
 
 ### Conceptual Usage 
 

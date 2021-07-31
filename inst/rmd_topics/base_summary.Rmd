@@ -39,7 +39,7 @@ blockquote {
 
 ### Description
 
-The `summary()` function comes with R and is part of the Base R `{base}` package.
+The `summary()` function comes with `R` and is part of the Base `R` `{base}` package.
   
 We use this function to generally summarize objects and variables. Most commonly, we summarize objects like tibbles/data frames, arrays, and statistical model output.
 
@@ -52,6 +52,14 @@ summary(object to summarize)
 
 ### Examples
 
+The examples below use the `msleep` dataset. Learn more about this dataset with `get_help("msleep")`.
+
+```{r msleep}
+# Show the msleep dataset with head()
+head(msleep)
+```
+
+<br>
 
 ```{r example1}
 # Summarize the msleep tibble to get information about all columns
@@ -65,3 +73,10 @@ summary(msleep)
 summary(msleep$awake)
 ```
 
+<br>
+
+```{r example3}
+# Summarize a linear model
+fit <- lm(awake ~ bodywt, data = msleep)
+summary(fit)
+```

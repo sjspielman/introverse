@@ -39,9 +39,9 @@ blockquote {
 
 ### Description
 
-The `head()` and `tail()` functions come with R and are part of the Base R `{utils}` package.
+The `head()` and `tail()` functions come with `R` and are part of the Base `R` `{utils}` package.
   
-We use these functions quickly to obtain the first (`head()`) or last (`tail()`) 6 rows of a given tibble (data frame), or more generally the first/last 6 entries in any array or list. With a second argument, you can change the default from 6 to a different value.
+We use these functions to obtain the first (`head()`) or last (`tail()`) 6 rows of a given tibble (data frame), or more generally the first/last 6 entries in any array or list. With a second argument, you can change the default from 6 to a different value.
 
 
 

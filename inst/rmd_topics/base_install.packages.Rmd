@@ -39,7 +39,7 @@ blockquote {
 
 ### Description
 
-The `install.packages()` function comes with R and is part of the Base R `{base}` package.
+The `install.packages()` function comes with `R` and is part of the Base `R` `{base}` package.
   
 We use this function to install packages, aka libraries, onto your computer. Libraries only need to be installed one time. To _load_ an installed library, use the function `library()`. 
 

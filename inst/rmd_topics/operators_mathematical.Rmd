@@ -39,7 +39,7 @@ blockquote {
 
 ### Description
 
-Mathematical operators (symbols to do math with) in R include the following:
+Mathematical operators (symbols to do math with) in `R` include the following:
   
 
 | Operator | What it does 

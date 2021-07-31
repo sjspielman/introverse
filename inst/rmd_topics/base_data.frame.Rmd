@@ -39,11 +39,11 @@ blockquote {
 
 ### Description
 
-The `data.frame()` function comes with R and is part of the Base R `{base}` package.
+The `data.frame()` function comes with `R` and is part of the Base `R` `{base}` package.
   
-We use this function to create new data frames from scratch. By default, data frames print in full and show row numbers or names, which are not columns. 
+We use this function to create new data frames from scratch.
 
-Note that the `{tidyverse}` introduced a variant on the data frame, known as the **tibble**, which prints more visibly and is generally nicer to work with. We can also directly create tibbles with the `{tibble}` package functions `tibble()` or `tribble()`. 
+Note that the [`{tidyverse}`](https://www.tidyverse.org/) introduced a variant on the data frame, known as the **tibble**, which prints more visibly and is generally nicer to work with. We can also directly create tibbles with the `{tibble}` package functions `tibble()` or `tribble()` (use `get_help("tibble")` to learn more!).
 
 ### Conceptual Usage 
 
@@ -60,6 +60,9 @@ new_data_frame <- data.frame(
 ```{r example1}
 # Define a data frame with two columns `a` and `b`, 
 #  making sure the values for a and b columns have the same length. 
-new_df <- data.frame(a = 12:17, b = c('a', 'e', 'i', 'o', 'u', 'y') )
+new_df <- data.frame(a = 12:17,
+                     b = c('a', 'e', 'i', 'o', 'u', 'y') )
 new_df
 ```
+
+

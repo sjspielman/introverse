@@ -63,7 +63,7 @@ Columns in `carnivores` include the following:
 + `awake`: The amount of time spent awake, in hours
 + `brainwt`: The brain weight in kg
 
-Values in the data that are _NA_ indicate that the data are _missing and/or unknown._
+Values in the data that are `NA` indicate that the data are _missing and/or unknown._
 
 <br>
 ```{r echo=FALSE}

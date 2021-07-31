@@ -39,9 +39,9 @@ blockquote {
 
 ### Description
 
-The `getwd()` function comes with R and is part of the Base R `{base}` package.
+The `getwd()` function comes with `R` and is part of the Base `R` `{base}` package.
   
-We use this function to retrieve the working directory for an R session. The function does not requirement any arguments; simply ask to tell you the working directory with this function.
+We use this function to retrieve the working directory for an R session. The function does not requirement any arguments; simply ask `R` to tell you the working directory with this function.
 
 ### Examples
 

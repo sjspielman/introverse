@@ -40,7 +40,7 @@ blockquote {
 
 ### Description
 
-The `as.factor()` function comes with R and is part of the Base R `{base}` package.
+The `as.factor()` function comes with `R` and is part of the Base `R` `{base}` package.
   
 We use this function to _coerce_ a value or variable array to be a factor, i.e. change the variable's type into a factor type. 
 
@@ -73,8 +73,16 @@ as.factor( c("a", "b", "b", "c", "c", "c") )
 
 <br>  <!-- Do not delete the <br>, and make sure to keep the previous and following lines blank. -->
 
+
 ```{r example2, warning=TRUE}
 # Coerce the character `genus` column in carnivores into a factor column
+carnivores$genus <- as.factor(carnivores$genus)
+```
+
+<br>
+
+```{r example3, warning=TRUE}
+# Coerce the character `genus` column in carnivores into a factor column using dplyr::mutate()
 carnivores %>%
-  mutate(genus = as.factor(genus))
+  dplyr::mutate(genus = as.factor(genus))
 ```

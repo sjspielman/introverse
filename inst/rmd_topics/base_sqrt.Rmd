@@ -39,11 +39,9 @@ blockquote {
 
 ### Description
 
-The `sqrt()` function comes with R and is part of the Base R `{base}` package.
+The `sqrt()` function comes with `R` and is part of the Base `R` `{base}` package.
   
 We use this function to calculate the square root of a number or numeric array.
-
-
 
 
 ### Conceptual Usage 

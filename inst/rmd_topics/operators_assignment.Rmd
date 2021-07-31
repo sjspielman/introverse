@@ -69,19 +69,20 @@ x
 ```{r example2}
 # Define the variable x with the value 12, and show the value of x
 12 -> x
+x
 ```
 
 <br>
 
 ```{r example3, error=TRUE}
-# This will result in an error because the pointing is backwards!
+# This will result in an error because the assignment operator is pointing backwards!
 12 <- x
 ```
 
 <br>
 
 ```{r example4}
-# We use <- to create the variable, but = to define aspects internal to the variable
+# We use `<-` to create the data frame variable, but `=` to define aspects internal to a variable
 my_new_data_frame <- data.frame(
   first_column  = c(1,2),
   second_column = c("A", "B")

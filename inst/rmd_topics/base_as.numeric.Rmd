@@ -11,6 +11,7 @@ output:
 knitr::opts_chunk$set(echo = TRUE, 
                       warning = FALSE, 
                       message = FALSE)
+library(dplyr)
 ```
 
 ```{css custom, echo=FALSE}
@@ -88,4 +89,34 @@ as.numeric(TRUE)
 # The logical `FALSE` turns into 0 when coerced to be a number. 
 # This is consistent across all programming languages that allow coersion.
 as.numeric(FALSE)
+```
+
+<br>
+
+```{r example5}
+# Example of coercing a column in a tibble to be numeric.
+# This will only work if the column values are allowed to be numbers
+
+# First, create and show a tibble to use for the example:
+example_tib <- tibble::tibble(
+  column1 = c("1", "2", "3", "4"),
+  column2 = c("a", "b", "c", "d")
+)
+example_tib
+```
+
+```{r example5.5, warning=TRUE}
+# We can successfully coerce column1, but column2 will becomes NAs
+example_tib$column1 <- as.numeric(example_tib$column1)
+example_tib$column2 <- as.numeric(example_tib$column2)
+
+# Show data after coersion:
+example_tib
+```
+
+```{r example5.75, warning=TRUE}
+# Or, we can coerce (or attempt coercion) with dplyr::mutate()
+example_tib %>%
+  dplyr::mutate(column1 = as.numeric(column1),
+                column2 = as.numeric(column2))
 ```

@@ -39,9 +39,9 @@ blockquote {
 
 ### Description
 
-Logical operators are symbols you can make comparisons with **that tell you `TRUE` or `FALSE`**. _Logical statement_ is any piece of code that evaluates to `TRUE` or `FALSE`, i.e. it contained a logical operator. Note that in other computing languages, these operators and statements are often called "boolean" (boo-lee-an) and not logical
+Logical operators are symbols you can make comparisons with **that tell you `TRUE` or `FALSE`**. A _logical statement_ is any piece of code that evaluates to `TRUE` or `FALSE`, i.e. code that uses a logical operator. Note that in other computing languages, these operators and statements are often called "boolean" (boo-lee-an),  not logical.
 
-Logical operators in R include the following, using placeholders `X` and `Y` to represent values/variables being compared:
+Logical operators in `R` include the following, using placeholders `X` and `Y` to represent values/variables being compared:
 
 
 | Operator | What it asks |

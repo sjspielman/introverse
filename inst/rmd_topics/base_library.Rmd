@@ -39,7 +39,7 @@ blockquote {
 
 ### Description
 
-The `library()` function comes with R and is part of the Base R `{base}` package.
+The `library()` function comes with `R` and is part of the Base `R` `{base}` package.
   
 We use this function to load libraries into the R session. This function will _not install libraries for you_, which is (usually) done with the `{base}` R function `install.packages()`.
 

@@ -39,7 +39,7 @@ blockquote {
 
 ### Description
 
-The `setwd()` function comes with R and is part of the Base R `{base}` package.
+The `setwd()` function comes with `R` and is part of the Base `R` `{base}` package.
   
 We use this function to set the working directory for an R session.
 

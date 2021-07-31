@@ -39,7 +39,7 @@ blockquote {
 
 ### Description
 
-The `round()` function comes with R and is part of the Base R `{base}` package.
+The `round()` function comes with `R` and is part of the Base `R` `{base}` package.
   
 We use this function to round numbers to a certain number of decimal places. 
 
@@ -68,7 +68,7 @@ round(c(3.55511, 6.2351, 7.29315327, 34.253620), 3)
 <br>
 
 ```{r example3}
-# Round all values in the `carnivores` column `brainwt` to 1 digit
+# Round all values in the `carnivores` column `brainwt` to 1 digit using dplyr::mutate()
 carnivores %>%
   mutate(brainwt_rounded = round(brainwt, 1))
 ```

@@ -39,7 +39,7 @@ blockquote {
 
 ### Description
 
-R comes with several functions (in its `{base}` and `{stats}` packages) that are used to _calculate summary statistics_ from numeric arrays. The greatest hits of R summary statistics functions include the following:
+`R` comes with several functions (in the included `{base}` and `{stats}` packages) that are used to _calculate summary statistics_ from numeric arrays. The greatest hits of R summary statistics functions include the following:
 
 | Function | What it calculates |
 |:---------|:-------------------|
@@ -54,7 +54,7 @@ Note, there is no function to calculate the mode (most commonly appearing value)
 
 <br> 
 
-By default, if the array you want to summarize contains any `NA` values, all functions above will return `NA`; R is very conservative when it encounters missing data. To _ignore `NA` values_ during calculations, provide the second argument `na.rm = TRUE` when using any of the functions.
+By default, if the array you want to summarize contains any `NA` values, all functions above will return `NA` because `R` is very conservative when it encounters missing data. To _ignore `NA` values_ during calculations, provide the second argument `na.rm = TRUE` when using any of the functions.
 
 ### Conceptual Usage 
 
@@ -116,7 +116,7 @@ max(carnivores$brainwt, na.rm = TRUE)
 
 <br>
 ```{r example4, collapse = TRUE}
-# If you do not use the `na.rm = TRUE` argument, all calculations will be NA
+# If you do not use the `na.rm = TRUE` argument when NAs are present, all calculations will be NA
 mean(carnivores$brainwt)
 median(carnivores$brainwt)
 sd(carnivores$brainwt)
