@@ -76,6 +76,7 @@ knitr::opts_chunk$set(
 | [**`length()`**](../introverse_docs/base_length.html) | Determine the length of an array (_not_ of a single string) |
 | [**`nchar()`**](../introverse_docs/base_nchar.html) | Determine the number of characters in a string |
 | [**`levels()`**](../introverse_docs/base_levels.html) | Determine the levels (i.e., ordered categories) of a factor variable |
+| [**`paste()`** and **`paste0()`**](../introverse_docs/base_paste.html) | Combine several strings into one |
 | [**`ifelse()`**](../introverse_docs/base_ifelse.html) | Assign a value based on whether a statement is `TRUE` or `FALSE` |
 
 

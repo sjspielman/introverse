@@ -1,0 +1,105 @@
+---
+title: "{introverse} quick docs"
+output: 
+  html_document:
+    highlight: tango
+    theme: readable
+---
+
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE, 
+                      warning = FALSE, 
+                      message = FALSE)
+```
+
+```{css custom, echo=FALSE}
+.title{
+    display: none;
+}
+blockquote {
+  display: block;
+  font-size: 0.95em;
+  border-left: 3px solid #7FB036;
+  padding:10px;
+  margin-left:10px;
+}
+```
+
+<div>
+<br>
+ <img src = "logo.png" style = "float:left;height:130px;margin-top:-30px;">
+ <span style = "font-weight:bold;font-size:30px;"> 
+  &nbsp;<code>paste</code> and <code>paste0</code>
+ </span>
+ <br>
+ <b>&nbsp;&nbsp;&nbsp;<code>get_help()</code> docs</b>
+</div>
+<br>
+
+### Description
+
+The `paste()` and `paste0()` functions come with `R` and are part of the Base R `{base}` package.
+  
+We use these functions combine multiple strings (or other values that will be coerced into characters) into one. The `paste()` function combines all provided strings separated by a space or a provided other "separator." The `paste0()` function combines all provided strings _without_ any separator.
+
+For a slightly more convenient way to combine strings, the [`glue()`](https://glue.tidyverse.org/reference/glue.html) function from the [`{glue}`](https://glue.tidyverse.org/) package, makes it easier to combine strings with previously-defined variables. Learn more by running `get_help("glue")`.
+
+
+### Conceptual Usage 
+
+```{r usage, eval=FALSE}
+# Combine with spaces
+paste(these, strings, will, be, combined, into, a, single, long, string, separated, by, a, space)
+
+# Combine with `!` separating the strings using sep
+paste(use, the, sep, argument, to, change, how, these, are, separated, 
+      sep = "how those strings should be separated?"
+
+# When combining strings in an array, use `collapse` instead of `sep`
+paste( c(these, strings, are, inside, an array), 
+       collapse = "how those strings should be separated")
+
+# Combine with nothing separating the strings
+paste0(these, strings, will, be, combined, into, a, single, long, string, without, any, separation)
+
+# Setting sep = "" is equivalent to paste0()
+paste(equivalent, to, paste0, sep = "")
+```
+
+### Examples
+
+<br>
+
+
+```{r example1}
+# Combine the following substrings into the resulting sentence
+# A space is placed between each string
+favorite_animal <- "tardigrades"
+paste("I love", favorite_animal, "the most.")
+```
+
+<br>
+
+```{r example2}
+# Combine the following substrings into the resulting "sentence," separated by a semi-colon `;`
+favorite_animal <- "tardigrades"
+paste("I love", favorite_animal, "the most.", sep = ";")
+```
+
+<br>  <!-- Do not delete the <br>, and make sure to keep the previous and following lines blank. -->
+
+```{r example3}
+# Combine the following substrings into the resulting "sentence," not separated at all with paste0()
+# Original spaces remain, but nothing was added between "I love"/"tardigrades" and "tardigrades"/"the most."
+favorite_animal <- "tardigrades"
+paste0("I love", favorite_animal, "the most.")
+```
+
+<br>  <!-- Do not delete the <br>, and make sure to keep the previous and following lines blank. -->
+
+```{r example4}
+# To combine all strings _in an array_ into a single string, use the argument `collapse` instead of `sep` to combine with
+favorite_animals <- c("tardigrades", "rotifers", "axolotls")
+paste(favorite_animals, collapse="-")
+```

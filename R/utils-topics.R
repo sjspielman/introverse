@@ -153,7 +153,8 @@ base_topics <- sort(c(
   "file.exists", "dir.exists", # Same page
   "as.numeric", 
   "as.factor", 
-  "as.character" 
+  "as.character",
+  "paste", "paste0" # same page
 ))
 
 
@@ -183,6 +184,7 @@ topic_list <- list(
 #' List of which topics share a given page, for redirection. The FIRST one represents the rmd file which _exist_
 #' @keywords internal
 shared_doc_pages <- list(
+  c("paste", "paste0"),
   c("str_replace", "str_replace_all"),
   c("str_to_upper", "str_to_lower", "str_to_sentence", "str_to_title"),
   c("str_starts", "str_ends"),
