@@ -1,6 +1,6 @@
 # introverse
 
-Into the [`tidyverse`](https://www.tidyverse.org/) with the `introverse`: Accessible and novice-oriented help for getting started in `R` and data science
+Into the [`tidyverse`](https://www.tidyverse.org/) with the `introverse`: Accessible and novice-oriented help for getting started with `R` and data science
 
 
 

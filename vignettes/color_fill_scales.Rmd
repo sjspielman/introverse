@@ -1,5 +1,5 @@
 ---
-title: "Working with color and fill scales in ggplot2"
+title: "Customizing ggplot2 color and fill scales"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{color_fill_scales}
