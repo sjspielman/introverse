@@ -70,7 +70,7 @@ dplyr::everything()
 
 ### Examples
 
-The first five examples below use the `msleep` dataset. Learn more about this dataset with `get_help("msleep")`.
+The first examples below use the `msleep` dataset. Learn more about this dataset with `get_help("msleep")`.
 
 ```{r msleep}
 # Show the msleep dataset with head()
@@ -98,7 +98,7 @@ msleep %>%
 <br> 
 
 ```{r example2.5}
-# Use contains() to REMOVE columns that contain the letter "w"
+# Use contains() to REMOVE columns that contain the letter "w", with a minus sign
 msleep %>%
   select(-contains("w"))
 ```
@@ -148,8 +148,7 @@ msleep %>%
 <br> 
 
 ```{r example5.5}
-# Tidyselect allows us to use colons `:` to select a range of columns
-# DE-select vore through awake
+# DE-select vore through awake, with a minus sign
 msleep %>%
   select(-(vore:awake))
 ```

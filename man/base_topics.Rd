@@ -5,7 +5,7 @@
 \alias{base_topics}
 \title{All the base R topics}
 \format{
-An object of class \code{character} of length 34.
+An object of class \code{character} of length 36.
 }
 \usage{
 base_topics

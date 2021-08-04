@@ -40,7 +40,7 @@ blockquote {
 
 ### Description
 
-The [`full_join()`](https://dplyr.tidyverse.org/reference/full_join.html) function is part of the [`{dplyr}`](https://dplyr.tidyverse.org/) package, which is part of the [`{tidyverse}`](https://www.tidyverse.org/).
+The [`full_join()`](https://dplyr.tidyverse.org/reference/mutate-joins.html) function is part of the [`{dplyr}`](https://dplyr.tidyverse.org/) package, which is part of the [`{tidyverse}`](https://www.tidyverse.org/).
 
 We use this function to merge _two relational datasets_. Specifically, `full_join()` retains all rows from _both_ the left and right tibbles (data frames). Missing row information becomes `NA` in the final output, represented in the GIF below by the blank cells.
 
@@ -94,7 +94,7 @@ second_tibble
 
 ```{r example1}
 # full_join to merge tibbles together. 
-# Left/right order does not matter except to determine final column order
+# Left/right order does not matter except to determine final row and column order
 first_tibble %>%
   full_join(second_tibble)
 ```
@@ -103,7 +103,7 @@ first_tibble %>%
 
 ```{r example2}
 # full_join to merge tibbles together.
-# Left/right order does not matter except to determine final column order
+# Left/right order does not matter except to determine final row and column order
 second_tibble %>%
   full_join(first_tibble)
 ```

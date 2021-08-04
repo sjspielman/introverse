@@ -46,24 +46,25 @@ blockquote {
 
 All functions documented here are part of the [`{ggplot2}`](https://ggplot2.tidyverse.org/) package, which is part of the [`{tidyverse}`](https://www.tidyverse.org/).
 
-The `{ggplot2}` package [provides several useful functions](https://ggplot2.tidyverse.org/reference/scale_manual.html) for creating your own aesthetic mapping scales. With these functions, you can manually customize how colors, fills, shapes, sizes, alpha (transparency), and and linetypes are mapped to your data. _You should only use these functions when you have MAPPED an aesthetic._ If you are trying to specify a color, fill, shape, etc. directly without any mapping, simply provide the argument to the geom of interest.
+The `{ggplot2}` package [provides several useful functions](https://ggplot2.tidyverse.org/reference/scale_manual.html) (and see [here](https://ggplot2.tidyverse.org/reference/scale_gradient.html)) for creating your own aesthetic mapping scales. With these functions, you can manually customize how colors, fills, shapes, sizes, alpha (transparency), and and linetypes are mapped to your data. _You should only use these functions when you have MAPPED an aesthetic._ If you are trying to specify a color, fill, shape, etc. directly without any mapping, simply provide the argument to the geom of interest.
 
 All functions are named `scale_AESTHETIC-TYPE_manual()` (except for those ending in `gradient()` or `gradient2()`, which are used for continuous mappings), where `AESTHETIC-TYPE` is a type of aesthetic mapping you have specified. These functions include:
 
-| Function | What we use it for
+| Function | Specify custom mapping of...
 |:-----------|:-------------
-|  `scale_color_manual()` (aka `scale_colour_manual()`)   | Specify custom _discrete colors_ to use for mapping
-|  `scale_fill_manual()`  | Specify custom fills to use for mapping
-|  `scale_color_gradient()` (aka `scale_colour_gradient()`)   | Specify custom _continuous gradient_ to use for mapping
-|  `scale_color_gradient2()` (aka `scale_colour_gradient2()`)   | Specify custom _continuous gradient2_ colors to use for mapping|  
-| `scale_fill_gradient()` | Specify custom _continuous gradient_ fills to use for mapping
-| `scale_fill_gradient2()` | Specify custom _continuous gradient2_ fills to use for mapping
-|  `scale_shape_manual()`  | Specify custom shapes to use for mapping
-|  `scale_alpha_manual()`  | Specify custom alpha (transparency) levels to use for mapping
-|  `scale_size_manual()`  | Specify custom sizes to use for mapping. This is generally _not recommended_ unless you really know what you're doing, since it is easy to distort sizes and make interpretation difficult
-|  `scale_linetype_manual()`  | Specify custom linetypes to use for mapping
+|  `scale_color_manual()` (aka `scale_colour_manual()`)   | Discrete/categorical colors 
+|  `scale_fill_manual()`  | Discrete/categorical fills 
+|  `scale_color_gradient()` (aka `scale_colour_gradient()`)   | Continuous gradient colors
+|  `scale_color_gradient2()` (aka `scale_colour_gradient2()`)   | Continuous gradient2 colors
+| `scale_fill_gradient()` | Continuous gradient fills
+| `scale_fill_gradient2()` | Continuous gradient2 fills
+|  `scale_shape_manual()`  | Shapes
+|  `scale_alpha_manual()`  | Alpha (transparency) level
+|  `scale_size_manual()`  | Sizes (This is generally _not recommended_ unless you really know what you're doing, since it is easy to distort sizes and make interpretation difficult)
+|  `scale_linetype_manual()`  | Linetypes
 
 For more information about _color and fill scales specifically_, either...
+
 + [See this tutorial on the `{introverse}` website](https://spielmanlab.github.io/introverse/articles/color_fill_scales.html)
 + Or, run this command in `R` Console: `vignette("color_fill_scales", package = "introverse")`
 

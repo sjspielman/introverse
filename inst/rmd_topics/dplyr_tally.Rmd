@@ -44,7 +44,7 @@ The [`tally()`](https://dplyr.tidyverse.org/reference/tally.html) function is pa
 
 The function `tally()` creates a new column (named `n` by default) in a tibble (data frame) that tallies the number of rows (observations) in specified group.  If there is no grouping, `tally()` will give the total number of rows. This is similar to using base `nrow()` except, like many `{dplyr}` verbs, `tally()` returns a tibble. 
 
-Note that the `{dplyr}` function `count()` provides a shortcut for `group_by() %>% tally() %>% ungroup()`"
+Note that the `{dplyr}` function `count()` provides a shortcut for `group_by() %>% tally() %>% ungroup()`.
 
 <!-- Add the following if the topic is a function that does NOT come with base R, and uncomment/fill in the subsequent multiline HTML comment: -->
 To use this function, you need to either first load the `{dplyr}` library, or always use the function with `dplyr::tally()` notation.

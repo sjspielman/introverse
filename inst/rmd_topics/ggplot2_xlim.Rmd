@@ -47,7 +47,7 @@ All functions documented here are part of the [`{ggplot2}`](https://ggplot2.tidy
 The `{ggplot2}` package [provides several functions](https://ggplot2.tidyverse.org/reference/lims.html) for customizing the limits, aka ranges, of the axes in your `{ggplot2}` plots, as described below. `{ggplot2}` will usually pick a reasonable axis range, so using these functions is not necessary unless you need to change the ranges for a specific data visualization goal.
 
 If you also want to customize the specific tickmark (aka "break") locations on axes, either...
-For more information about _color and fill scales specifically_, either...
+
 + [See this tutorial on the `{introverse}` website](https://spielmanlab.github.io/introverse/articles/axes.html)
 + Or, run this command in `R` Console: `vignette("axes", package = "introverse")`
 

@@ -24,14 +24,14 @@ if (htmlify)
   # I can loop if I want to, I can leave my fRiends behind.
   for (category in names(topic_list)) #STEPH!!!!!!!!!
   {
-    category <- "base"
+    #category <- "base"
     for (topic in topic_list[[category]])
     {
 
       #category <- "ggplot2"
       #topic <- "facet_wrap"
       redirected_topic <- redirect_topic(topic)
-      #print(redirected_topic)
+      print(redirected_topic)
       name <- glue::glue("{category}_{redirected_topic}")
       rmd_file <- file.path(rmd_dir, glue::glue("{name}.Rmd"))
       html_file <- file.path(html_dir, glue::glue("{name}.html"))

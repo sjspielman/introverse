@@ -94,6 +94,8 @@ The first two examples use this dataset, which contains some names of notable bi
 biologists
 ```
 
+<br>
+
 ```{r example1}
 # Separate `full_name` into `first_name` and `last_name`
 biologists %>% 

@@ -1,8 +1,8 @@
 # introverse
 
-Accessible and beginner-oriented help for getting started in R and the [`tidyverse`](https://www.tidyverse.org/). 
+Into the [`tidyverse`](https://www.tidyverse.org/) with the `introverse`: Accessible and novice-oriented help for getting started in `R` and data science
 
-**_EXTREMELY_ UNDER DEVELOPMENT**
+
 
 <!-- badges: start --> 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -16,12 +16,12 @@ stable](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https:/
 
 
 
-The `{introverse}` package provides alternate documentation for commonly-used functions in base `R` and in the `tidyverse`. The provided resources are meant to _complement, not replace_ official documentation and existing `R` resources. Therefore, the goal of the `{introverse}` is to provide beginner-oriented help for most _introductory_ topics within `R` and the tidyverse, _not_ to provide comprehensive help about using all of R. We hope `{introverse}` can help you (and/or your students!) get up-and-running within R and the `tidyverse`, so that once you get your bearings you can eventually "graduate" from the `{introverse}` and take advantage of the official comprehensive documentation/resources.
+The `{introverse}` package provides alternate documentation for commonly-used functions and concepts in Base `R` and in the `tidyverse`. The provided resources are meant to _complement, not replace_ official documentation and existing `R` resources. Therefore, the goal of the `{introverse}` is to provide beginner-oriented help for most _introductory_ topics within `R` and the tidyverse, _not_ to provide comprehensive help about using all of R. We hope `{introverse}` can help you (and/or your students!) get up-and-running within R and the `tidyverse`, so that once you get your bearings you can eventually "graduate" from the `{introverse}` and take advantage of the official comprehensive documentation/resources.
 
 
 ## Obtaining the `{introverse}`
 
-All `{introverse}` are available online [here](https://spielmanlab.github.io/introverse/articles/introverse_online.html), or via command line as a package in RStudio as described below.
+All `{introverse}` help docs are available online [here](https://spielmanlab.github.io/introverse/articles/introverse_online.html), or via command line as a package in RStudio as described below.
 
 <br>
 
@@ -55,7 +55,7 @@ library(introverse)
 
 #### Step 3: Get some help!
 
-Head over [here](https://spielmanlab.github.io/introverse/articles/introverse_online.html) to see how to get started.
+Head over [here](https://spielmanlab.github.io/introverse/articles/introverse_rstudio.html) to see how to get started.
 
 <br><br>
 

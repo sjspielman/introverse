@@ -40,7 +40,7 @@ blockquote {
 
 ### Description
 
-The [`inner_join()`](https://dplyr.tidyverse.org/reference/inner_join.html) function is part of the [`{dplyr}`](https://dplyr.tidyverse.org/) package, which is part of the [`{tidyverse}`](https://www.tidyverse.org/).
+The [`inner_join()`](https://dplyr.tidyverse.org/reference/mutate-joins.html) function is part of the [`{dplyr}`](https://dplyr.tidyverse.org/) package, which is part of the [`{tidyverse}`](https://www.tidyverse.org/).
 
 We use this function to merge _two relational datasets_ to retain only information that is shared by _both_ tibbles (data frames). Specifically, `inner_join()` retains only rows that are present in _both_ the left and right tibbles (data frames):
 

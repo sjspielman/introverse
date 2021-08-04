@@ -5,7 +5,7 @@
 \alias{ggplot2_topics}
 \title{All the ggplot2 topics}
 \format{
-An object of class \code{character} of length 10.
+An object of class \code{character} of length 52.
 }
 \usage{
 ggplot2_topics

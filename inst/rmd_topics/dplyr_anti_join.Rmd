@@ -40,7 +40,7 @@ blockquote {
 
 ### Description
 
-The [`anti_join()`](https://dplyr.tidyverse.org/reference/anti_join.html) function is part of the [`{dplyr}`](https://dplyr.tidyverse.org/) package, which is part of the [`{tidyverse}`](https://www.tidyverse.org/).
+The [`anti_join()`](https://dplyr.tidyverse.org/reference/filter-joins.html) function is part of the [`{dplyr}`](https://dplyr.tidyverse.org/) package, which is part of the [`{tidyverse}`](https://www.tidyverse.org/).
 
 We use this function to merge _two relational datasets_ and retain only information that is _not_ shared between them. In order to merge relational datasets, there must be at least one column name in common.
 

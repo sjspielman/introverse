@@ -41,9 +41,9 @@ blockquote {
 
 ### Description
 
-The [`geom_col()`](https://ggplot2.tidyverse.org/reference/geom_col.html) function is part of the [`{ggplot2}`](https://ggplot2.tidyverse.org/) package, which is part of the [`{tidyverse}`](https://www.tidyverse.org/).
+The [`geom_col()`](https://ggplot2.tidyverse.org/reference/geom_bar.html) function is part of the [`{ggplot2}`](https://ggplot2.tidyverse.org/) package, which is part of the [`{tidyverse}`](https://www.tidyverse.org/).
 
-The `geom_col()` function is used within `{ggplot2}` plots to create barplots where the bar heights' are directly taken from a variable in the dataset. When you call `geom_col()`, `{ggplot2}` will automatically count the number of observations in each category of your primary variable and then plot that calculated value.
+The `geom_col()` function is used within `{ggplot2}` plots to create barplots where the bar heights' are directly taken from a variable in the dataset. 
 
 To instead plot bars whose heights are equal to _the counted number of categories_, it is recommended to use `ggplot2::geom_bar()`.
 

@@ -44,7 +44,7 @@ blockquote {
 
 ### Description
 
-The [`str_starts()`](https://stringr.tidyverse.org/reference/str_starts.html) and [`str_ends()`](https://stringr.tidyverse.org/reference/str_starts.html) functions are part of the [`{stringr}`](https://stringr.tidyverse.org/) package, which is part of the [`{tidyverse}`](https://www.tidyverse.org/).
+The [`str_starts()` and `str_ends()`](https://stringr.tidyverse.org/reference/str_starts.html) functions are part of the [`{stringr}`](https://stringr.tidyverse.org/) package, which is part of the [`{tidyverse}`](https://www.tidyverse.org/).
 
 We use these functions to ask _if it is `TRUE` or `FALSE`_ that a certain string either _starts with_ (`str_starts()`) or _ends with_ (`str_end()`) a given pattern. A common usage of this function is with `dplyr::filter()` to subset rows from tibbles (data frames) that start and/or end with a certain set of characters.
 

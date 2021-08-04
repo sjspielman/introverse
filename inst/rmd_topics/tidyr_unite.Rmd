@@ -83,11 +83,13 @@ tibble %>%
 
 ### Examples
 
-The first two examples use this dataset, which contains some names of notable biologists:
+All examples use this dataset, which contains some names of notable biologists:
 
 ```{r exdata}
 biologists
 ```
+
+<br>
 
 ```{r example1}
 # Combine `first_name` and `last_name` into `full_name`
@@ -103,6 +105,8 @@ biologists %>%
   unite(full_name, first_name, last_name,
         remove = FALSE)
 ```
+
+<br>
 
 ```{r example3}
 # Combine `first_name` and `last_name` into `full_name`, 

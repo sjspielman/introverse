@@ -47,7 +47,7 @@ blockquote {
 
 The [`tibble()`](https://tibble.tidyverse.org/reference/tibble.html) and [`tribble()`](https://tibble.tidyverse.org/reference/tribble.html) functions are part of the [`{tibble}`](https://tibble.tidyverse.org/) package, which is part of the [`{tidyverse}`](https://www.tidyverse.org/).
 
-We use the functions `tibble()` and `tribble()` functions to quickly create tibbles from scratch within R. You can use either function depending on your personal preference 
+We use the functions `tibble()` and `tribble()` functions to quickly create tibbles from scratch within R. You can use either function depending on your personal preference.
 
 
 <!-- Add the following if the topic is a function that does NOT come with base R, and uncomment/fill in the subsequent multiline HTML comment: -->

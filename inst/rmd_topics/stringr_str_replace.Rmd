@@ -44,7 +44,7 @@ blockquote {
 
 ### Description
 
-The [`str_replace()`](https://stringr.tidyverse.org/reference/str_replace.html) and  [`str_replace_all()`](https://stringr.tidyverse.org/reference/str_replace.html) functions are part of the [`{stringr}`](https://stringr.tidyverse.org/) package, which is part of the [`{tidyverse}`](https://www.tidyverse.org/).
+The [`str_replace()` and `str_replace_all()`](https://stringr.tidyverse.org/reference/str_replace.html) functions are part of the [`{stringr}`](https://stringr.tidyverse.org/) package, which is part of the [`{tidyverse}`](https://www.tidyverse.org/).
 
 We use these function find and replace patterns, including strings or or regular expression (a special type of pattern-matching string), in strings. 
 

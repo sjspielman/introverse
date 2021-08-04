@@ -5,7 +5,7 @@
 \alias{dplyr_topics}
 \title{All the dplyr topics}
 \format{
-An object of class \code{character} of length 22.
+An object of class \code{character} of length 23.
 }
 \usage{
 dplyr_topics

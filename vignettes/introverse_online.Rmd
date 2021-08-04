@@ -28,7 +28,7 @@ knitr::opts_chunk$set(
 + [**`magrittr` pipe**](../introverse_docs/magrittr_pipe.html) 
 + [**`magrittr` assignment pipe**](../introverse_docs/magrittr_apipe.html) 
 
-### Get help with base `R` and operators
+### Get help with Base `R` 
 
 #### Working with data types
 
@@ -184,13 +184,16 @@ knitr::opts_chunk$set(
 | [**`geom_col()`**](../introverse_docs/ggplot2_geom_col.html) | Create bar plots whose height corresponds to literal values in the data |
 | [**`geom_bar()`**](../introverse_docs/ggplot2_geom_bar.html) |Create bar plots whose height corresponds to _counted number of observations_ of a categorical variable |
 
-#### Axes
+#### Axes, labels, and faceting
 
 | Function or tutorial   |  Description  |
 |----|----|
 | [**Axes tutorial**](https://spielmanlab.github.io/introverse/articles/axes.html) | Customizing x- and y- axes
 | [**`xlim()`**](../introverse_docs/ggplot2_xlim.html) | Change x-axis limits 
 | [**`ylim()`**](../introverse_docs/ggplot2_xlim.html) | Change y-axis limits 
+| [**`labs()`**](../introverse_docs/ggplot2_labs.html) | Customize plot labels, including axes, titles, and legends |
+| [**`facet_wrap()`**](../introverse_docs/ggplot2_facet_wrap.html) | Create a faceted (paneled) plot across 1 variable
+| [**`facet_grid()`**](../introverse_docs/ggplot2_facet_wrap.html) | Create a faceted (paneled) grid of plots across 2 variables
 
 
 
@@ -198,7 +201,7 @@ knitr::opts_chunk$set(
 
 | Function or tutorial   |  Description  |
 |----|----|
-| [**Comprehensive tutorial**](https://spielmanlab.github.io/introverse/articles/color_fill_scales.html) | Customizing color and fill scales
+| [**Color and fill scales tutorial**](https://spielmanlab.github.io/introverse/articles/color_fill_scales.html) | Customizing color and fill scales
 | [**`scale_color_manual()`**](../introverse_docs/ggplot2_scale_color_manual.html) | Specify custom color scale mappings for discrete data
 | [**`scale_fill_manual()`**](../introverse_docs/ggplot2_scale_color_manual.html) | Specify custom fill scale mappings for discrete data
 | [**`scale_color_gradient()`**](../introverse_docs/ggplot2_scale_color_manual.html) | Specify custom color gradient scale mappings for continuous data
@@ -215,7 +218,7 @@ knitr::opts_chunk$set(
 | [**`scale_fill_viridis_c()`**](../introverse_docs/ggplot2_scale_color_viridis_c.html) | Specify `viridis` fill scale mappings for continuous data
 
 
-#### Other scales and faceting
+#### Other scales
 
 | Link   |  Description  |
 |----|----|
@@ -223,14 +226,13 @@ knitr::opts_chunk$set(
 | [**`scale_size_manual()`**](../introverse_docs/ggplot2_scale_color_manual.html) | Specify custom size mappings
 | [**`scale_alpha_manual()`**](../introverse_docs/ggplot2_scale_color_manual.html) | Specify custom alpha (transparency) mappings
 | [**`scale_linetype_manual()`**](../introverse_docs/ggplot2_scale_color_manual.html) | Specify custom linetype mappings
-| [**`facet_wrap()`**](../introverse_docs/ggplot2_facet_wrap.html) | Create a faceted (paneled) plot across 1 variable
-| [**`facet_grid()`**](../introverse_docs/ggplot2_facet_wrap.html) | Create a faceted (paneled) grid of plots across 2 variables
 
 
-#### Themes and labels
+#### Themes
 
 | Function   |  Description  |
 |----|----|
+| [**`theme()`** and associated tutoral](https://spielmanlab.github.io/introverse/articles/themes.html) | Customizing themes
 | [**`theme_set()`**](../introverse_docs/ggplot2_theme_set.html) | Set the default theme |
 | [**`theme_gray()`**](../introverse_docs/ggplot2_theme_gray.html) | Specify the built-in "gray" (default) theme|
 | [**`theme_grey()`**](../introverse_docs/ggplot2_theme_gray.html) | Specify the built-in "grey" (default) theme|
@@ -241,8 +243,6 @@ knitr::opts_chunk$set(
 | [**`theme_minimal()`**](../introverse_docs/ggplot2_theme_gray.html) | Specify the built-in "minimal" theme|
 | [**`theme_classic()`**](../introverse_docs/ggplot2_theme_gray.html) | Specify the "classic" theme |
 | [**`theme_void()`**](../introverse_docs/ggplot2_theme_gray.html) | Specify the built-in "void" theme|
-| [**`theme()`**](https://spielmanlab.github.io/introverse/articles/themes.html) | Customize aspects of a plot theme |
-| [**`labs()`**](../introverse_docs/ggplot2_labs.html) | Customize plot labels, including axes, titles, and legends |
 
 ### Get help with `forcats`
 

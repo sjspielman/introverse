@@ -5,7 +5,7 @@
 \alias{topic_list}
 \title{List of available help topics by category ordered alphabetically, which is sometimes but not always a package.}
 \format{
-An object of class \code{list} of length 9.
+An object of class \code{list} of length 13.
 }
 \usage{
 topic_list

@@ -92,6 +92,18 @@ ggplot(msleep) +
   geom_smooth(method = "lm")
 ```
 
+
+<br>
+
+```{r example1.5}
+## CAUTION! If you forget the argument `method = "lm"`, you will get a "loess trendline,"
+# This is only a problem if you do not want a loess trendline 
+ggplot(msleep) + 
+  aes(x = sleep_rem, y = awake) + 
+  geom_point() + 
+  geom_smooth()
+```
+
 <br>
 
 ```{r example2}

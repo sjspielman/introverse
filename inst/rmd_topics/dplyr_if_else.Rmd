@@ -42,9 +42,9 @@ blockquote {
 
 The [`if_else()`](https://dplyr.tidyverse.org/reference/if_else.html) function is part of the [`{dplyr}`](https://dplyr.tidyverse.org/) package, which is part of the [`{tidyverse}`](https://www.tidyverse.org/).
 
-We use this function to assign a value based on whether a logical statement is `TRUE` or `FALSE`. We often use `case_when()` along with `mutate()` to create new data frame columns. The provided values must be of the same type! 
+We use this function to assign a value based on whether a logical statement is `TRUE` or `FALSE`. We often use `if_else()` along with `mutate()` to create new data frame columns. The provided values must be of the same type! 
 
-Note that there is a `{base}` R version of this function `dplyr::ifelse()` (without an underscore!) that can be used in exactly the same way, but the `{base}` version does not enforce that the result is always the same type.
+Note that there is a Base `R` version of this function `dplyr::ifelse()` (without an underscore!) that can be used in exactly the same way, but the Base version does not enforce that the result is always the same type.
 
 
 
@@ -66,13 +66,13 @@ dplyr::if_else()
 
 ```{r usage, eval=FALSE}
 if_else(logical statement, 
-        value if statement is `TRUE`, 
-        value if statement is `FALSE`)
+        value if statement is TRUE, 
+        value if statement is FALSE)
 
 tibble %>%
   mutate(new_column = if_else(logical statement, 
-                              value for new_column if statement is `TRUE`, 
-                              value for new_column if statement is `FALSE`)
+                              value for new_column if statement is TRUE, 
+                              value for new_column if statement is FALSE)
   )
 
 ```
@@ -96,17 +96,31 @@ if_else(10 < 4, 5, 7)
 <br>  <!-- Do not delete the <br>, and make sure to keep the previous and following lines blank. -->
 
 
-```{r example2, error=TRUE}
-# Return the value 5 if it is TRUE that 10 < 100. Otherwise, return the value 'string'. 
-## But wait! This code will result in an ERROR since 5 is a number but 'string' is character (different types!)",
+```{r example2}
+# Return the value "hello" if the first argument is true, and "goodbye" otherwise
+if_else(nchar("aloha") == 10, "hello", "goodbye")
+```
 
+<br>  <!-- Do not delete the <br>, and make sure to keep the previous and following lines blank. -->
+
+```{r example2.5}
+# This example's logic is equivalent to the previous one
+if_else(nchar("aloha") != 10, "goodbye", "hello")
+```
+
+<br>  <!-- Do not delete the <br>, and make sure to keep the previous and following lines blank. -->
+
+
+```{r example3, error=TRUE}
+## CAUTION! This code will result in an ERROR since (what to do if TRUE) 5 is a number, but
+## 'string' (what ro do if FALSE) is character. Those are different types.
 if_else(10 < 100, 5, 'string')
 ```
 
 <br> 
 
 
-```{r example3}
+```{r example4}
 # Use if_else to help create a new column called `how_awake` in `carnivores` that will be:
 ## "alert" if awake >= 15 and "sleepy" otherwise.
 carnivores %>%
