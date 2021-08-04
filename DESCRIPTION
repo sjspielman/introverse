@@ -1,6 +1,6 @@
 Package: introverse
 Title: Resources for Beginners Learning R and the Tidyverse
-Version: 0.0.0.9
+Version: 0.0.1
 Authors@R: c(
   person("Stephanie", "Spielman", role = c("aut", "cre"), 
           email = "spielman@rowan.edu",
