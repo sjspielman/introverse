@@ -87,10 +87,11 @@ reveal_help <- function(category, topic, browser)
 {
   
   message(
+    stringr::str_wrap(
     crayon::green(
       crayon::bold("Help is now being generated!") %+%
         "\nFor large help pages (mostly `{ggplot2}` topics), this process may take up to 10-15 seconds."
-    )
+    ), width = 55)
   )
   
   tempDir <- tempfile()

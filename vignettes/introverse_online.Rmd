@@ -85,11 +85,12 @@ knitr::opts_chunk$set(
 | Function   |  Description  |
 |----|----|
 | [**`data.frame()`**](../introverse_docs/base_data.frame.html) | Create a new data frame from scratch |
-| [**`nrow()`**](../introverse_docs/base_nrow.html) | Determine the number of rows in a data frame  |
-| [**`ncol()`**](../introverse_docs/base_nrow.html) | Determine the number of columns in a data frame  |
-| [**`head()`**](../introverse_docs/base_head.html) | See the first 6 rows of a data frame |
-| [**`tail()`**](../introverse_docs/base_head.html) | See the last 6 rows of a data frame |
-| [**`summary()`**](../introverse_docs/base_summary.html) | See a summary of columns in data frame |
+| [**`nrow()`**](../introverse_docs/base_nrow.html) | Determine the number of rows in a tibble (data frame)  |
+| [**`ncol()`**](../introverse_docs/base_nrow.html) | Determine the number of columns in a tibble (data frame)  |
+| [**`names()`**](../introverse_docs/base_names.html) | Determine the column names of a tibble (data frame)  |
+| [**`head()`**](../introverse_docs/base_head.html) | See the first 6 rows of a tibble (data frame) |
+| [**`tail()`**](../introverse_docs/base_head.html) | See the last 6 rows of a tibble (data frame) |
+| [**`summary()`**](../introverse_docs/base_summary.html) | See a summary of columns in tibble (data frame) |
 
 #### Summary statistics
 

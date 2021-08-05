@@ -154,6 +154,7 @@ base_topics <- sort(c(
   "as.numeric", 
   "as.factor", 
   "as.character",
+  "names",
   "paste", "paste0" # same page
 ))
 

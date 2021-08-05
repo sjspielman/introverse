@@ -28,8 +28,8 @@ if (htmlify)
     for (topic in topic_list[[category]])
     {
 
-      #category <- "ggplot2"
-      #topic <- "facet_wrap"
+      category <- "base"
+      topic <- "names"
       redirected_topic <- redirect_topic(topic)
       print(redirected_topic)
       name <- glue::glue("{category}_{redirected_topic}")
