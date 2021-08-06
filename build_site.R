@@ -24,8 +24,8 @@ if (htmlify)
   # I can loop if I want to, I can leave my fRiends behind.
   for (category in names(topic_list)) #STEPH!!!!!!!!!
   {
-    category <- "dplyr"
-    topic <- "mutate"
+    category <- "base"
+    topic <- "ifelse"
     for (topic in topic_list[["forcats"]])
     {
 
@@ -38,7 +38,7 @@ if (htmlify)
       html_file <- file.path(html_dir, glue::glue("{name}.html"))
       #if (file.exists(html_file)) next
       withr::with_options(c(width = topic_width),
-                          rmarkdown::render(
+                            rmarkdown::render(
                             rmd_file,
                             output_file = html_file,
                             quiet = TRUE)

@@ -44,7 +44,7 @@ The `ifelse()` function comes with `R` and is part of the Base `R` `{base}` pack
   
 We use this function to assign a value based on whether a logical statement is `TRUE` or `FALSE`. 
 
-Note that there is a [`{dplyr}`]((https://dplyr.tidyverse.org) package version of this function ([`dplyr::if_else()`](https://dplyr.tidyverse.org/reference/if_else.html), with an underscore) that can be used in exactly the same way, but the `{dplyr}` version enforces that the resulting values must always be the same type.
+Note that there is a [`{dplyr}`](https://dplyr.tidyverse.org) package version of this function ([`dplyr::if_else()`](https://dplyr.tidyverse.org/reference/if_else.html), with an underscore) that can be used in exactly the same way, but the `{dplyr}` version enforces that the resulting values must always be the same type.
 
 
 ### Conceptual Usage 
@@ -53,7 +53,6 @@ Note that there is a [`{dplyr}`]((https://dplyr.tidyverse.org) package version o
 ifelse(logical statement, 
        value to use if statement is `TRUE`, 
        value to use if statement is `FALSE`)
-}
 ```
 
 ### Examples

@@ -1,0 +1,95 @@
+---
+title: "{introverse} quick docs"
+output: 
+  html_document:
+    highlight: tango
+    theme: readable
+---
+
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE, 
+                      warning = FALSE, 
+                      message = FALSE)
+```
+
+```{css custom, echo=FALSE}
+.title{
+    display: none;
+}
+blockquote {
+  display: block;
+  font-size: 0.95em;
+  border-left: 3px solid #7FB036;
+  padding:10px;
+  margin-left:10px;
+}
+```
+
+<div>
+<br>
+ <img src = "logo.png" style = "float:left;height:130px;margin-top:-30px;">
+ <span style = "font-weight:bold;font-size:30px;"> 
+  &nbsp;<code>print()</code> and <code>cat()</code>
+ </span>
+ <br>
+ <b>&nbsp;&nbsp;&nbsp;<code>get_help()</code> docs</b>
+</div>
+<br>
+
+### Description
+
+The `print()` and `cat()` functions come with `R` and are part of the Base R `{base}` package.
+  
+We use these functions to explicitly print to the Console. The `print()` function can only print one thing at a time, but the `cat()` function can print multiple things together. The output of the printing looks slightly different for more advanced reasons, but both accomplish the goal of printing.
+
+Using printing functions is not strictly necessary when working from the R Console directly, or from RMarkdown chunks. However, explicit printing is crucial when running _non-interactive scripts_, in which simply typing the variable name will not work to reveal output.
+
+### Conceptual Usage 
+
+```{r usage, eval=FALSE}
+print(thing to print)
+
+cat(thing to print)
+
+cat(first thing to print, 
+    second thing to print, 
+    (etc. to print more things),
+    sep = "how to separate the things you're printing")
+```
+
+### Examples
+
+<br>
+
+
+```{r example1}
+# Print the variable with print()
+favorite_animal <- "tardigrades"
+print(favorite_animal)
+```
+
+<br>
+
+```{r example2}
+# Print the variable with cat()
+favorite_animal <- "tardigrades"
+cat(favorite_animal)
+```
+
+<br>  <!-- Do not delete the <br>, and make sure to keep the previous and following lines blank. -->
+
+```{r example3}
+# Print the string _and_ variable with cat(), separated by a space
+favorite_animal <- "tardigrades"
+cat("My favorite animals are", favorite_animal, sep = " ")
+```
+
+<br>  <!-- Do not delete the <br>, and make sure to keep the previous and following lines blank. -->
+
+```{r example4}
+# Print the two variables separated by a new line. Use "\n" (backslash and 'n') to represent a "newline" symbol
+first_favorite_animal <- "tardigrades"
+second_favorite_animal <- "axolotls"
+cat(first_favorite_animal, second_favorite_animal, sep = "\n")
+```

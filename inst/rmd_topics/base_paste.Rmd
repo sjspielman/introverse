@@ -41,7 +41,7 @@ blockquote {
 
 The `paste()` and `paste0()` functions come with `R` and are part of the Base R `{base}` package.
   
-We use these functions combine multiple strings (or other values that will be coerced into characters) into one. The `paste()` function combines all provided strings separated by a space or a provided other "separator." The `paste0()` function combines all provided strings _without_ any separator.
+We use these functions to combine multiple strings (or other values that will be coerced into characters) into one. The `paste()` function combines all provided strings separated by a space or a provided other "separator." The `paste0()` function combines all provided strings _without_ any separator.
 
 For a slightly more convenient way to combine strings, the [`glue()`](https://glue.tidyverse.org/reference/glue.html) function from the [`{glue}`](https://glue.tidyverse.org/) package, makes it easier to combine strings with previously-defined variables. Learn more by running `get_help("glue")`.
 

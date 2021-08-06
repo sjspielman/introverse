@@ -1,0 +1,78 @@
+---
+title: "{introverse} quick docs"
+output: 
+  html_document:
+    highlight: tango
+    theme: readable
+---
+
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE, 
+                      warning = FALSE, 
+                      message = FALSE)
+library(dplyr)
+```
+
+```{css custom, echo=FALSE}
+.title{
+    display: none;
+}
+blockquote {
+  display: block;
+  font-size: 0.95em;
+  border-left: 3px solid #7FB036;
+  padding:10px;
+  margin-left:10px;
+}
+```
+
+<div>
+<br>
+ <img src = "logo.png" style = "float:left;height:130px;margin-top:-30px;">
+ <span style = "font-weight:bold;font-size:30px;"> 
+  &nbsp;<code>str()</code>
+ </span>
+ <br>
+ <b>&nbsp;&nbsp;&nbsp;<code>get_help()</code> docs</b>
+</div>
+<br>
+
+### Description
+
+The `str()` function comes with `R` and is part of the Base `R` `{utils}` package.
+  
+We use this function to quickly view the **str**ucture of a given variable, commonly a tibble (data frame). When used on a data frame, this function will show the number rows and columns, column names, columns types, and information about the top values.
+
+Note that there is related function in the [`{dplyr}`](https://dplyr.tidyverse.org) package called  [`dplyr::glimpse()`](https://dplyr.tidyverse.org/reference/distinct.html) which offers an _improved view_ of the structure of tibbles (data frames).
+
+### Conceptual Usage 
+
+```{r usage, eval=FALSE}
+str(a data frame or other variable to see structure of)
+```
+
+### Examples
+
+Some examples below use the `carnivores` dataset. Learn more about this dataset with `get_help("carnivores")`.
+
+```{r carnivores}
+# Show the carnivores dataset
+carnivores
+```
+
+<br>
+
+```{r example1}
+# Show structure of the carnivores tibble
+str(carnivores)
+```
+
+
+<br>
+
+```{r example2}
+# Show structure of the iris data frame, which comes built in with R
+# Note how the output shows this is technically a data frame, not a tibble
+str(iris)
+```
