@@ -15,6 +15,9 @@ library(forcats)
 library(dplyr)
 library(ggplot2)
 library(tidyr)
+msleep %>%
+  drop_na(order) %>%                  # Remove any NAs from the vore column with tidyr::drop_na()
+  mutate(order = as.factor(order)) -> msleep_fctorder
 ```
 
 ```{css custom, echo=FALSE}
@@ -92,35 +95,21 @@ fct_lump_n(factor_variable,
 
 ### Examples
 
-The examples below use the `msleep` dataset. Learn more about this dataset with `get_help("msleep")`.
+The examples below use a modified version of the `msleep` dataset called `msleep_fctorder`. Learn more about this dataset with `get_help("msleep")`.
 
-```{r msleep}
-# Show the msleep dataset with head()
-head(msleep)
+In this modified dataset, the `order` column has been _coerced_ into a factor type (instead of character), and all `NA` values have been removed from that column. (Notice below, the `order` column is annotated `<fct>` since it's a factor).
+
+```{r msleep, collapse=TRUE}
+# Show the modified msleep dataset, msleep_fctorder, with head()
+head(msleep_fctorder)
+
+# To help guide you through examples, use the base R function table() count the number of each order 
+# This shows us which categories are more/less frequent
+table(msleep_fctorder$order)
 ```
-
 <br>
-```{r factorize}
-# For examples, we must first create a new version of `msleep` that contains a 
-#  factor variable. We will convert `order` (which will have many levels!) to a factor with base R function`as.factor()`.
-msleep %>%
-  drop_na(order) %>%                  # Remove any NAs from the vore column with tidyr::drop_na()
-  mutate(order = as.factor(order)) %>% # Make the order column factor type with dplyr::mutate() 
-  #Make the `order` column appear first for easier viewing with dplyr::select() and tidyselect::everything()
-  select(order, everything()) -> msleep_fctorder
 
-# Show the example dataset, which now shows `order` as <fct> (factor!) type
-msleep_fctorder
 
-# Show the default order (alphabetical!) and associated counts of the factor `order` column, 
-# using dplyr::count() and dplyr::arrange()
-# Examples below will manipulate the level order of the `order` column
-msleep_fctorder %>%
-  count(order) %>%
-  arrange(n)
-```
-
-<br><br>
 
 ```{r example1}
 # Lump together all levels occurring fewer than 5 times

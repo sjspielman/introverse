@@ -24,18 +24,19 @@ if (htmlify)
   # I can loop if I want to, I can leave my fRiends behind.
   for (category in names(topic_list)) #STEPH!!!!!!!!!
   {
-    #category <- "base"
-    for (topic in topic_list[[category]])
+    category <- "dplyr"
+    topic <- "mutate"
+    for (topic in topic_list[["forcats"]])
     {
 
-      category <- "base"
-      topic <- "names"
+      #category <- "base"
+      #topic <- "names"
       redirected_topic <- redirect_topic(topic)
       print(redirected_topic)
       name <- glue::glue("{category}_{redirected_topic}")
       rmd_file <- file.path(rmd_dir, glue::glue("{name}.Rmd"))
       html_file <- file.path(html_dir, glue::glue("{name}.html"))
-      if (file.exists(html_file)) next
+      #if (file.exists(html_file)) next
       withr::with_options(c(width = topic_width),
                           rmarkdown::render(
                             rmd_file,

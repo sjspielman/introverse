@@ -15,6 +15,9 @@ library(forcats)
 library(dplyr)
 library(ggplot2)
 library(tidyr)
+msleep %>%
+  drop_na(vore) %>%                  # Remove any NAs from the vore column with tidyr::drop_na()
+  mutate(vore = as.factor(vore))  -> msleep_fctvore
 ```
 
 ```{css custom, echo=FALSE}
@@ -68,45 +71,24 @@ forcats::fct_infreq()
 ```{r usage, eval=FALSE}
 fct_infreq(factor variable to change order of)
 ```
-
 ### Examples
 
-The examples below use the `msleep` dataset. Learn more about this dataset with `get_help("msleep")`.
+The examples below use a modified version of the `msleep` dataset called `msleep_fctvore`. Learn more about this dataset with `get_help("msleep")`.
 
-```{r msleep}
-# Show the msleep dataset with head()
-head(msleep)
+In this modified dataset, the `vore` column has been _coerced_ into a factor type (instead of character), and all `NA` values have been removed from that column. (Notice below, the `vore` column is annotated `<fct>` since it's a factor).
+
+```{r msleep, collapse=TRUE}
+# Show the modified msleep dataset, msleep_fctvore, with head()
+head(msleep_fctvore)
+
+# To help guide you through examples, use the base R function table() count the number of each vore 
+# This shows us which categories are more/less frequent
+table(msleep_fctvore$vore)
 ```
-
 <br>
-```{r factorize}
-# For examples, we must first create a new version of `msleep` that contains a 
-#  factor variable. We will convert `vore` to a factor with base R function`as.factor()`.
-msleep %>%
-  drop_na(vore) %>%                  # Remove any NAs from the vore column with tidyr::drop_na()
-  mutate(vore = as.factor(vore)) %>% # Make the vore column factor type with dplyr::mutate() 
-  #Make the `vore` column appear first for easier viewing with dplyr::select() and tidyselect::everything()
-  select(vore, everything()) -> msleep_fctvore
-
-# Show the example dataset, which now shows `vore` as <fct> (factor!) type
-msleep_fctvore
-
-# Show the default order (alphabetical!) of the factor vore column.
-# Examples below will use fct_infreq() to manipulate this order:
-levels(msleep_fctvore$vore)
-
-# First, let's see how often each `vore` appears in the dataset using `dplyr::count()`, and
-# `dplyr::arrange() to see ordered high-to-low
-# Results from examples should "match" this order from high-to-low
-msleep_fctvore %>%
-  count(vore) %>%
-  arrange(desc(n))
-```
-
-<br><br>
 
 ```{r example1}
-# reorder the order of `vore` levels according to frequency
+# Use dplyr::mutate() to reorder the order of `vore` levels according to frequency
 msleep_fctvore %>%
   mutate(vore = fct_infreq(vore)) -> msleep_fctvore_ex1
 

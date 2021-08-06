@@ -102,8 +102,25 @@ carnivores %>%
 
 <br> 
 
-
 ```{r example3}
+# It is possible to create multiple columns at once:
+carnivores %>%
+  mutate(brainwt_g = brainwt * 1000, # multiply by 1000 to convert kg --> g
+         brainwt_mg = brainwt * 1e6) # multiply by 1000000 (1e6) to convert kg --> mg
+```
+
+<br> 
+
+```{r example4}
+# It is also possible to use columns you're actively making when making new columns
+carnivores %>%
+  mutate(brainwt_g = brainwt * 1000, # multiply by 1000 to convert kg --> g
+         brainwt_mg = brainwt_g * 1000) # you can use brainwt_g in code here
+```
+
+<br> 
+
+```{r example5}
 # Create a new column `little_name` that contains the `name` values in lower case.
 # We'll use the function stringr::str_to_lower() to convert strings to lower case
 carnivores %>%
@@ -112,7 +129,7 @@ carnivores %>%
 
 <br> 
 
-```{r example4}
+```{r example6}
 # Use mutate() to change the column `genus` into a factor instead of character
 carnivores %>%
   mutate(genus = as.factor(genus))
