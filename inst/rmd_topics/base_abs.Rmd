@@ -1,0 +1,85 @@
+---
+title: "{introverse} quick docs"
+output: 
+  html_document:
+    highlight: tango
+    theme: readable
+---
+
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE, 
+                      warning = FALSE, 
+                      message = FALSE)
+```
+
+```{css custom, echo=FALSE}
+.title{
+    display: none;
+}
+blockquote {
+  display: block;
+  font-size: 0.95em;
+  border-left: 3px solid #7FB036;
+  padding:10px;
+  margin-left:10px;
+}
+```
+
+<div>
+<br>
+ <img src = "logo.png" style = "float:left;height:130px;margin-top:-30px;">
+ <span style = "font-weight:bold;font-size:30px;"> 
+  &nbsp;<code>abs()</code>
+ </span>
+ <br>
+ <b>&nbsp;&nbsp;&nbsp;<code>get_help()</code> docs</b>
+</div>
+<br>
+
+### Description
+
+The `abs()` function comes with `R` and is part of the Base `R` `{base}` package.
+  
+We use this function to calculate the absolute value a number or numeric array.
+
+
+### Conceptual Usage 
+
+```{r usage, eval=FALSE}
+abs(number to get the absolute value of)
+
+abs(numeric array to get the absolute value of all its values)
+```
+
+### Examples
+
+
+```{r example1}
+# Find the absolute value of 107
+abs(107)
+```
+
+<br>  <!-- Do not delete the <br>, and make sure to keep the previous and following lines blank. -->
+
+```{r example2}
+# Find the absolute value of -107
+abs(-107)
+```
+
+<br>  <!-- Do not delete the <br>, and make sure to keep the previous and following lines blank. -->
+
+
+```{r example3}
+# Find the absolute value of a defined variable
+x <- -107
+abs(x)
+```
+
+<br>  <!-- Do not delete the <br>, and make sure to keep the previous and following lines blank. -->
+
+
+```{r example4}
+# Find the absolute value of all values in an array
+abs( c(100, -110, 120, -50, -30) )
+```

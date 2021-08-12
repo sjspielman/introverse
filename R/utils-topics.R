@@ -129,6 +129,8 @@ stringr_topics <- sort(c(
 #' All the base R topics
 #' @keywords internal
 base_topics <- sort(c(
+  "abs",
+  "all", "any", # Same page
   "length", 
   "nchar", 
   "log", 
@@ -188,6 +190,7 @@ topic_list <- list(
 #' List of which topics share a given page, for redirection. The FIRST one represents the rmd file which _exist_
 #' @keywords internal
 shared_doc_pages <- list(
+  c("all", "any"),
   c("print", "cat"),
   c("paste", "paste0"),
   c("str_replace", "str_replace_all"),

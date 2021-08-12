@@ -61,12 +61,12 @@ knitr::opts_chunk$set(
 
 | Function   |  Description  |
 |----|----|
+| [**`log()`**](../introverse_docs/base_log.html) | Calculate the natural log (or other specified base) of a number or array of numbers |
+| [**`sqrt()`**](../introverse_docs/base_log.html) | Calculate the square root of a number or array of numbers |
+| [**`abs()`**](../introverse_docs/base_abs.html) | Calculate the absolute value of a number or array of numbers |
 | [**`round()`**](../introverse_docs/base_round.html) | Round a number or array of numbers to a specified number of decimal places |
 | [**`ceiling()`**](../introverse_docs/base_ceiling.html) | Round a number or array of numbers up to the next highest integer |
 | [**`floor()`**](../introverse_docs/base_ceiling.html) | Round a number or array of numbers down to the next lowest integer |
-| [**`log()`**](../introverse_docs/base_log.html) | Calculate the natural log (or other specified base) of a number or array of numbers |
-| [**`sqrt()`**](../introverse_docs/base_log.html) | Calculate the square root of a number or array of numbers |
-
 
 #### Working with arrays, strings, and more
 
@@ -80,7 +80,9 @@ knitr::opts_chunk$set(
 | [**`paste()`** and **`paste0()`**](../introverse_docs/base_paste.html) | Combine several strings into one |
 | [**`ifelse()`**](../introverse_docs/base_ifelse.html) | Assign a value based on whether a statement is `TRUE` or `FALSE` |
 | [**`cat()`** and **`print`**](../introverse_docs/base_print.html) | Functions you can use to explicitly print |
- 
+| [**`all()`**](../introverse_docs/base_all.html) | Asks, "do ALL values in an array meet a logical condition?" |
+| [**`any()`**](../introverse_docs/base_any.html) | Asks, "do ANY (at least one) values in an array meet a logical condition?" |
+
 
 
 #### Working with data frames (and other objects)

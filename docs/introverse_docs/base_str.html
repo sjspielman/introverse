@@ -283,7 +283,7 @@ blockquote {
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>carnivores</span></code></pre></div>
 <pre><code>## # A tibble: 9 × 4
 ##   name              genus        awake brainwt
-##   &lt;chr&gt;             &lt;chr&gt;        &lt;dbl&gt;   &lt;dbl&gt;
+##   &lt;chr&gt;             &lt;fct&gt;        &lt;dbl&gt;   &lt;dbl&gt;
 ## 1 Arctic fox        Vulpes        11.5  0.0445
 ## 2 Cheetah           Acinonyx      11.9 NA     
 ## 3 Dog               Canis         13.9  0.07  
@@ -298,7 +298,7 @@ blockquote {
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(carnivores)</span></code></pre></div>
 <pre><code>## tibble [9 × 4] (S3: tbl_df/tbl/data.frame)
 ##  $ name   : chr [1:9] &quot;Arctic fox&quot; &quot;Cheetah&quot; &quot;Dog&quot; &quot;Gray seal&quot; ...
-##  $ genus  : chr [1:9] &quot;Vulpes&quot; &quot;Acinonyx&quot; &quot;Canis&quot; &quot;Haliochoerus&quot; ...
+##  $ genus  : Factor w/ 6 levels &quot;Acinonyx&quot;,&quot;Callorhinus&quot;,..: 6 1 3 4 5 5 2 6 5
 ##  $ awake  : num [1:9] 11.5 11.9 13.9 17.8 13.6 10.5 15.3 14.2 8.2
 ##  $ brainwt: num [1:9] 0.0445 NA 0.07 0.325 0.157 NA NA 0.0504 NA</code></pre>
 <p><br></p>

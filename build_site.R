@@ -25,8 +25,8 @@ if (htmlify)
   for (category in names(topic_list)) #STEPH!!!!!!!!!
   {
     category <- "base"
-    topic <- "ifelse"
-    for (topic in topic_list[["forcats"]])
+    topic <- "all"
+    for (topic in topic_list[[category]])
     {
 
       #category <- "base"

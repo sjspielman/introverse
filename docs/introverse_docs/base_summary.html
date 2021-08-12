@@ -283,17 +283,17 @@ blockquote {
 <pre><code>## # A tibble: 6 × 11
 ##   name  genus vore  order conservation sleep_total sleep_rem sleep_cycle awake  brainwt  bodywt
 ##   &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;              &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;
-## 1 Owl … Aotus omni  Prim… &lt;NA&gt;                17         1.8      NA       7    0.0155    0.48 
-## 2 Moun… Aplo… herbi Rode… nt                  14.4       2.4      NA       9.6 NA         1.35 
-## 3 Grea… Blar… omni  Sori… lc                  14.9       2.3       0.133   9.1  0.00029   0.019
-## 4 Cow   Bos   herbi Arti… domesticated         4         0.7       0.667  20    0.423   600    
-## 5 Thre… Brad… herbi Pilo… &lt;NA&gt;                14.4       2.2       0.767   9.6 NA         3.85 
-## 6 Nort… Call… carni Carn… vu                   8.7       1.4       0.383  15.3 NA        20.5</code></pre>
+## 1 Chee… Acin… carni Carn… lc                  12.1      NA        NA      11.9 NA        50    
+## 2 Owl … Aotus omni  Prim… &lt;NA&gt;                17         1.8      NA       7    0.0155    0.48 
+## 3 Moun… Aplo… herbi Rode… nt                  14.4       2.4      NA       9.6 NA         1.35 
+## 4 Grea… Blar… omni  Sori… lc                  14.9       2.3       0.133   9.1  0.00029   0.019
+## 5 Cow   Bos   herbi Arti… domesticated         4         0.7       0.667  20    0.423   600    
+## 6 Thre… Brad… herbi Pilo… &lt;NA&gt;                14.4       2.2       0.767   9.6 NA         3.85</code></pre>
 <p><br></p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Summarize the msleep tibble to get information about all columns</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(msleep)</span></code></pre></div>
 <pre><code>##      name              genus               vore              order          
-##  Length:61          Length:61          Length:61          Length:61         
+##  Length:83          Length:83          Length:83          Length:83         
 ##  Class :character   Class :character   Class :character   Class :character  
 ##  Mode  :character   Mode  :character   Mode  :character   Mode  :character  
 ##                                                                             
@@ -301,26 +301,26 @@ blockquote {
 ##                                                                             
 ##                                                                             
 ##  conservation        sleep_total      sleep_rem      sleep_cycle         awake      
-##  Length:61          Min.   : 1.90   Min.   :0.100   Min.   :0.1167   Min.   : 4.10  
-##  Class :character   1st Qu.: 8.00   1st Qu.:0.900   1st Qu.:0.1833   1st Qu.:10.30  
-##  Mode  :character   Median :10.00   Median :1.500   Median :0.3333   Median :14.00  
-##                     Mean   :10.39   Mean   :1.875   Mean   :0.4396   Mean   :13.61  
-##                     3rd Qu.:13.70   3rd Qu.:2.400   3rd Qu.:0.5792   3rd Qu.:16.00  
+##  Length:83          Min.   : 1.90   Min.   :0.100   Min.   :0.1167   Min.   : 4.10  
+##  Class :character   1st Qu.: 7.85   1st Qu.:0.900   1st Qu.:0.1833   1st Qu.:10.25  
+##  Mode  :character   Median :10.10   Median :1.500   Median :0.3333   Median :13.90  
+##                     Mean   :10.43   Mean   :1.875   Mean   :0.4396   Mean   :13.57  
+##                     3rd Qu.:13.75   3rd Qu.:2.400   3rd Qu.:0.5792   3rd Qu.:16.15  
 ##                     Max.   :19.90   Max.   :6.600   Max.   :1.5000   Max.   :22.10  
-##                                                     NA&#39;s   :29                      
-##     brainwt             bodywt       
-##  Min.   :0.000140   Min.   :  0.005  
-##  1st Qu.:0.002475   1st Qu.:  0.205  
-##  Median :0.011750   Median :  1.670  
-##  Mean   :0.106472   Mean   : 63.295  
-##  3rd Qu.:0.115000   3rd Qu.: 20.490  
-##  Max.   :1.320000   Max.   :899.995  
-##  NA&#39;s   :13</code></pre>
+##                                     NA&#39;s   :22      NA&#39;s   :51                      
+##     brainwt            bodywt        
+##  Min.   :0.00014   Min.   :   0.005  
+##  1st Qu.:0.00290   1st Qu.:   0.174  
+##  Median :0.01240   Median :   1.670  
+##  Mean   :0.28158   Mean   : 166.136  
+##  3rd Qu.:0.12550   3rd Qu.:  41.750  
+##  Max.   :5.71200   Max.   :6654.000  
+##  NA&#39;s   :27</code></pre>
 <p><br></p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Summarize an array</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(msleep<span class="sc">$</span>awake)</span></code></pre></div>
 <pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-##    4.10   10.30   14.00   13.61   16.00   22.10</code></pre>
+##    4.10   10.25   13.90   13.57   16.15   22.10</code></pre>
 <p><br></p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Summarize a linear model</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(awake <span class="sc">~</span> bodywt, <span class="at">data =</span> msleep)</span>
@@ -331,18 +331,18 @@ blockquote {
 ## 
 ## Residuals:
 ##     Min      1Q  Median      3Q     Max 
-## -8.6852 -2.5062  0.9142  2.3136  6.6896 
+## -9.1742 -3.2743  0.4257  2.3769  7.6997 
 ## 
 ## Coefficients:
 ##              Estimate Std. Error t value Pr(&gt;|t|)    
-## (Intercept) 12.785060   0.530457  24.102  &lt; 2e-16 ***
-## bodywt       0.013069   0.002795   4.676 1.75e-05 ***
+## (Intercept) 1.327e+01  4.776e-01  27.795  &lt; 2e-16 ***
+## bodywt      1.765e-03  5.973e-04   2.955  0.00409 ** 
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 
-## Residual standard error: 3.906 on 59 degrees of freedom
-## Multiple R-squared:  0.2704, Adjusted R-squared:  0.258 
-## F-statistic: 21.87 on 1 and 59 DF,  p-value: 1.746e-05</code></pre>
+## Residual standard error: 4.256 on 81 degrees of freedom
+## Multiple R-squared:  0.09733,    Adjusted R-squared:  0.08619 
+## F-statistic: 8.734 on 1 and 81 DF,  p-value: 0.004089</code></pre>
 </div>
 
 

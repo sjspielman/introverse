@@ -297,7 +297,7 @@ blockquote {
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>carnivores</span></code></pre></div>
 <pre><code>## # A tibble: 9 × 4
 ##   name              genus        awake brainwt
-##   &lt;chr&gt;             &lt;chr&gt;        &lt;dbl&gt;   &lt;dbl&gt;
+##   &lt;chr&gt;             &lt;fct&gt;        &lt;dbl&gt;   &lt;dbl&gt;
 ## 1 Arctic fox        Vulpes        11.5  0.0445
 ## 2 Cheetah           Acinonyx      11.9 NA     
 ## 3 Dog               Canis         13.9  0.07  
@@ -313,7 +313,7 @@ blockquote {
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">my_new_column =</span>  <span class="dv">5</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 9 × 5
 ##   name              genus        awake brainwt my_new_column
-##   &lt;chr&gt;             &lt;chr&gt;        &lt;dbl&gt;   &lt;dbl&gt;         &lt;dbl&gt;
+##   &lt;chr&gt;             &lt;fct&gt;        &lt;dbl&gt;   &lt;dbl&gt;         &lt;dbl&gt;
 ## 1 Arctic fox        Vulpes        11.5  0.0445             5
 ## 2 Cheetah           Acinonyx      11.9 NA                  5
 ## 3 Dog               Canis         13.9  0.07               5
@@ -329,7 +329,7 @@ blockquote {
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">brainwt_g =</span> brainwt <span class="sc">*</span> <span class="dv">1000</span>) <span class="co"># multiply by 1000 to convert kg --&gt; g</span></span></code></pre></div>
 <pre><code>## # A tibble: 9 × 5
 ##   name              genus        awake brainwt brainwt_g
-##   &lt;chr&gt;             &lt;chr&gt;        &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;
+##   &lt;chr&gt;             &lt;fct&gt;        &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;
 ## 1 Arctic fox        Vulpes        11.5  0.0445      44.5
 ## 2 Cheetah           Acinonyx      11.9 NA           NA  
 ## 3 Dog               Canis         13.9  0.07        70  
@@ -346,7 +346,7 @@ blockquote {
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">brainwt_mg =</span> brainwt <span class="sc">*</span> <span class="fl">1e6</span>) <span class="co"># multiply by 1000000 (1e6) to convert kg --&gt; mg</span></span></code></pre></div>
 <pre><code>## # A tibble: 9 × 6
 ##   name              genus        awake brainwt brainwt_g brainwt_mg
-##   &lt;chr&gt;             &lt;chr&gt;        &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt;
+##   &lt;chr&gt;             &lt;fct&gt;        &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt;
 ## 1 Arctic fox        Vulpes        11.5  0.0445      44.5      44500
 ## 2 Cheetah           Acinonyx      11.9 NA           NA           NA
 ## 3 Dog               Canis         13.9  0.07        70        70000
@@ -363,7 +363,7 @@ blockquote {
 <span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">brainwt_mg =</span> brainwt_g <span class="sc">*</span> <span class="dv">1000</span>) <span class="co"># you can use brainwt_g in code here</span></span></code></pre></div>
 <pre><code>## # A tibble: 9 × 6
 ##   name              genus        awake brainwt brainwt_g brainwt_mg
-##   &lt;chr&gt;             &lt;chr&gt;        &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt;
+##   &lt;chr&gt;             &lt;fct&gt;        &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt;
 ## 1 Arctic fox        Vulpes        11.5  0.0445      44.5      44500
 ## 2 Cheetah           Acinonyx      11.9 NA           NA           NA
 ## 3 Dog               Canis         13.9  0.07        70        70000
@@ -380,7 +380,7 @@ blockquote {
 <span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">little_name =</span> stringr<span class="sc">::</span><span class="fu">str_to_lower</span>(name))</span></code></pre></div>
 <pre><code>## # A tibble: 9 × 5
 ##   name              genus        awake brainwt little_name      
-##   &lt;chr&gt;             &lt;chr&gt;        &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;            
+##   &lt;chr&gt;             &lt;fct&gt;        &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;            
 ## 1 Arctic fox        Vulpes        11.5  0.0445 arctic fox       
 ## 2 Cheetah           Acinonyx      11.9 NA      cheetah          
 ## 3 Dog               Canis         13.9  0.07   dog              

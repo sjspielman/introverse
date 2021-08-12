@@ -1,0 +1,91 @@
+---
+title: "{introverse} quick docs"
+output: 
+  html_document:
+    highlight: tango
+    theme: readable
+---
+
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE, 
+                      warning = FALSE, 
+                      message = FALSE)
+library(dplyr)
+```
+
+```{css custom, echo=FALSE}
+.title{
+    display: none;
+}
+blockquote {
+  display: block;
+  font-size: 0.95em;
+  border-left: 3px solid #7FB036;
+  padding:10px;
+  margin-left:10px;
+}
+```
+
+<div>
+<br>
+ <img src = "logo.png" style = "float:left;height:130px;margin-top:-30px;">
+ <span style = "font-weight:bold;font-size:30px;"> 
+  &nbsp;<code>all()</code> and <code>any()</code>
+ </span>
+ <br>
+ <b>&nbsp;&nbsp;&nbsp;<code>get_help()</code> docs</b>
+</div>
+<br>
+
+### Description
+
+The `all()` and `any()` functions come with `R` and are part of the Base `R` `{base}` package.
+  
+We use these functions to ask if _all_ values in a given array meet some logical condition (`all()`), or if _any_ values in a given array meet some logical condition (`any()`). In other words...
+
++ The function `all()` asks: "Is this thing `TRUE` for _all_ of the array values?"
++ The function `any()` asks: "Is this thing `TRUE` for _any_ (at least one) of the array values?"
+
+### Conceptual Usage 
+
+```{r usage, eval=FALSE}
+all(logical statement about an array)
+
+any(logical statement about an array)
+```
+
+### Examples
+
+<br>
+
+```{r example1}
+# Is it TRUE that ALL of the values in this array are greater than 5?
+my_array <- c(6, 77, 8, 22)
+all(my_array > 5)
+```
+
+<br>
+
+```{r example2}
+# Is it TRUE that ANY of the values in this array are greater than 5?
+my_array <- c(4, 5, 7, 8, 22)
+any(my_array > 5)
+```
+
+<br>
+
+```{r example3}
+# Is it TRUE that ALL of the strings in this array have 3 characters?
+my_array <- c("one", "two", "three")
+all( nchar(my_array) == 3 )
+```
+
+<br>
+
+```{r example4}
+# Is it TRUE that ANY of the strings in this array have 3 characters?
+my_array <- c("one", "two", "three")
+any( nchar(my_array) == 3 )
+```
+
