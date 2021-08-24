@@ -41,7 +41,7 @@ Or, all currently available topics can be seen [here](https://spielmanlab.github
 Yes, you can! Use this function:
 
 ```{r, eval=F}
-show_categores()
+show_categories()
 ```
 
 <br>
