@@ -23,7 +23,8 @@ dplyr_topics <- sort(c(
   "full_join",
   "inner_join",
   "anti_join",
-  "bind_cols"
+  "bind_cols",
+  "bind_rows"
 ))
 
 #' All the ggplot2 topics

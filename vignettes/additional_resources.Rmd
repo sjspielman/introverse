@@ -20,7 +20,7 @@ The following links will bring you to additional internet resources which beginn
 ## Official `tidyverse` documentation and vignettes
 
 + Documentation and command references
-  + [`tidyverse` homepage, official documentation, and cheatsheets](https://www.tidyverse.org/)
+  + [`tidyverse` homepage and official documentation](https://www.tidyverse.org/)
   + [`ggplot2` command reference](https://ggplot2.tidyverse.org/reference/) 
   + [`readr` command reference](https://readr.tidyverse.org/reference/) 
   + [`dplyr` command reference](https://dplyr.tidyverse.org/reference/) 
@@ -30,6 +30,15 @@ The following links will bring you to additional internet resources which beginn
     
 + [Tidyverse style guide](https://style.tidyverse.org/)
   + A resource of recommended code style when programming in the `tidyverse`. 
+
++ Download Tidyverse cheatsheets
+  + [Rmarkdown cheatsheet](https://raw.githubusercontent.com/rstudio/cheatsheets/master/rmarkdown.pdf)
+  + [`ggplot2` cheatsheet](https://raw.githubusercontent.com/rstudio/cheatsheets/master/data-visualization.pdf)
+  + [`dplyr` cheatsheet](https://raw.githubusercontent.com/rstudio/cheatsheets/master/data-transformation.pdf)
+  + [`readr` and `readxl` cheatsheet](https://raw.githubusercontent.com/rstudio/cheatsheets/master/data-import.pdf)
+  + [`tidyr` cheatsheet](https://raw.githubusercontent.com/rstudio/cheatsheets/master/tidyr.pdf)
+  + [`stringr` cheatsheet](https://raw.githubusercontent.com/rstudio/cheatsheets/master/strings.pdf)
+  + [`forcats` cheatsheet](https://raw.githubusercontent.com/rstudio/cheatsheets/master/factors.pdf)
 
 ## Resources from RStudio
 
@@ -48,6 +57,8 @@ The following links will bring you to additional internet resources which beginn
   + The "official" `ggplot2` book.
 + [Data Visualization: A Practical Introduction](https://socviz.co/) by Kieran Healy
   + Introduces `ggplot2`, including the philosophy of the grammar of graphics and using many geoms. Again, some examples may assume more background knowledge than computing novices have.
++ [Rmarkdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/) by Yihui Xie, J. J. Allaire, and Garrett Grolemund
+  + Comprehensive manual on using R Markdown
 + [Fundamentals of Data Visualization](https://clauswilke.com/dataviz) by Claus O. Wilke
   + Introduces concepts and principles in data visualization. This book does not contain code or teach `ggplot2`.
 + [Twitter for Scientists](https://t4scientists.com/) and  [Twitter for R Programmers](https://www.t4rstats.com/)

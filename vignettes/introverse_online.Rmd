@@ -113,60 +113,6 @@ knitr::opts_chunk$set(
 
 
 
-
-### Get help with `dplyr`
-
-
-#### One-table verbs 
-
-| Function   |  Description  |
-|----|----|
-| [**`arrange()`**](../introverse_docs/dplyr_arrange.html) | Arrange tibble (data frame) rows |
-| [**`distinct()`**](../introverse_docs/dplyr_distinct.html) | Remove duplicate rows from a tibble (data frame) |
-| [**`mutate()`**](../introverse_docs/dplyr_mutate.html) | Create new or modify existing columns in a tibble (data frame) |
-| [**`filter()`**](../introverse_docs/dplyr_filter.html) | Keep only certain rows from a tibble (data frame) based on `TRUE` or `FALSE` |
-| [**`select()`**](../introverse_docs/dplyr_select.html) | Keep, remove, or reorder columns in a tibble (data frame) |
-| [**`rename()`**](../introverse_docs/dplyr_rename.html) | Rename existing columns in a tibble (data frame)|
-| [**`glimpse()`**](../introverse_docs/dplyr_glimpse.html) | See an overview of tibble (data frame) contents |
-| [**`pull()`**](../introverse_docs/dplyr_pull.html) | Extract out a column from a tibble (data frame) into its own array |
-| [**`slice()`**](../introverse_docs/dplyr_slice.html) | Keep only certain rows from a tibble (data frame) based on index |
-| [**`group_by()`**](../introverse_docs/dplyr_group_by.html) | Establish a grouping in a tibble (data frame) |
-| [**`ungroup()`**](../introverse_docs/dplyr_group_by.html) | Undo any groupings in a tibble (data frame) |
-| [**`summarize()`**](../introverse_docs/dplyr_summarize.html) | Summarize values in a tibble (data frame) to produce a smaller summarized tibble |
-| [**`tally()`**](../introverse_docs/dplyr_tally.html) | Count the number of rows in each grouping of a tibble (data frame)|
-| [**`count()`**](../introverse_docs/dplyr_count.html) | Simultaneously group and count the number of rows in each grouping of a tibble (data frame)|
-
-#### Two-table verbs
-
-| Function   |  Description  |
-|----|----|
-| [**`bind_cols()`**](../introverse_docs/dplyr_bind_cols.html) | Combine arrays or tibbles (data frames) by columns |
-| [**`left_join()`**](../introverse_docs/dplyr_left_join.html) | Merge two relational tibbles (data frames) based on the left side |
-| [**`right_join()`**](../introverse_docs/dplyr_right_join.html) | Merge two relational tibbles (data frames) based on the right side |
-| [**`full_join()`**](../introverse_docs/dplyr_full_join.html) | Merge two relational tibbles (data frames) fully |
-| [**`inner_join()`**](../introverse_docs/dplyr_inner_join.html) | Merge two relational tibbles (data frames) based on what they have in common |
-| [**`anti_join()`**](../introverse_docs/dplyr_anti_join.html) | Merge relational tibbles (data frames) based on what they do not have in common |
-
-#### Helper functions
-
-| Function   |  Description  |
-|----|----|
-| [**`if_else()`**](../introverse_docs/dplyr_if_else.html) | Assign a value based on whether a statement is `TRUE` or `FALSE` , ensuring same type |
-| [**`case_when()`**](../introverse_docs/dplyr_case_when.html) | Assign a value based on a series of conditions are `TRUE` or `FALSE` |
-| [**`n()`**](../introverse_docs/dplyr_n.html) | Returns the number of rows in a tibble group |
-
-
-### Get help with `tidyselect` helper functions
-
-| Function   |  Description  |
-|----|----|
-| [**`everything()`**](../introverse_docs/tidyselect_tidyselect.html)  | Select all columns, except those already explicitly stated |
-| [**`contains()`**](../introverse_docs/tidyselect_tidyselect.html)    | Select all columns that contain a given string argument |
-| [**`starts_with()`**](../introverse_docs/tidyselect_tidyselect.html)    | Select all columns that start with a given string, i.e. prefix |     
-| [**`ends_with()`**](../introverse_docs/tidyselect_tidyselect.html)     | Select all columns that end with a given string, i.e. suffix | 
-| [**`matches()`**](../introverse_docs/tidyselect_tidyselect.html)      | Select all columns that match a regular expression (a special type of pattern-matching string) |
-
-
 ### Get help with `ggplot2`
 
 #### Fundamental `ggplot2`
@@ -250,6 +196,61 @@ knitr::opts_chunk$set(
 | [**`theme_minimal()`**](../introverse_docs/ggplot2_theme_gray.html) | Specify the built-in "minimal" theme|
 | [**`theme_classic()`**](../introverse_docs/ggplot2_theme_gray.html) | Specify the "classic" theme |
 | [**`theme_void()`**](../introverse_docs/ggplot2_theme_gray.html) | Specify the built-in "void" theme|
+
+
+### Get help with `dplyr`
+
+
+#### One-table verbs 
+
+| Function   |  Description  |
+|----|----|
+| [**`arrange()`**](../introverse_docs/dplyr_arrange.html) | Arrange tibble (data frame) rows |
+| [**`distinct()`**](../introverse_docs/dplyr_distinct.html) | Remove duplicate rows from a tibble (data frame) |
+| [**`mutate()`**](../introverse_docs/dplyr_mutate.html) | Create new or modify existing columns in a tibble (data frame) |
+| [**`filter()`**](../introverse_docs/dplyr_filter.html) | Keep only certain rows from a tibble (data frame) based on `TRUE` or `FALSE` |
+| [**`select()`**](../introverse_docs/dplyr_select.html) | Keep, remove, or reorder columns in a tibble (data frame) |
+| [**`rename()`**](../introverse_docs/dplyr_rename.html) | Rename existing columns in a tibble (data frame)|
+| [**`glimpse()`**](../introverse_docs/dplyr_glimpse.html) | See an overview of tibble (data frame) contents |
+| [**`pull()`**](../introverse_docs/dplyr_pull.html) | Extract out a column from a tibble (data frame) into its own array |
+| [**`slice()`**](../introverse_docs/dplyr_slice.html) | Keep only certain rows from a tibble (data frame) based on index |
+| [**`group_by()`**](../introverse_docs/dplyr_group_by.html) | Establish a grouping in a tibble (data frame) |
+| [**`ungroup()`**](../introverse_docs/dplyr_group_by.html) | Undo any groupings in a tibble (data frame) |
+| [**`summarize()`**](../introverse_docs/dplyr_summarize.html) | Summarize values in a tibble (data frame) to produce a smaller summarized tibble |
+| [**`tally()`**](../introverse_docs/dplyr_tally.html) | Count the number of rows in each grouping of a tibble (data frame)|
+| [**`count()`**](../introverse_docs/dplyr_count.html) | Simultaneously group and count the number of rows in each grouping of a tibble (data frame)|
+
+#### Two-table verbs
+
+| Function   |  Description  |
+|----|----|
+| [**`bind_cols()`**](../introverse_docs/dplyr_bind_cols.html) | Combine arrays or tibbles (data frames) by columns |
+| [**`bind_rows()`**](../introverse_docs/dplyr_bind_cols.html) | Combine arrays or tibbles (data frames) by rows |
+| [**`left_join()`**](../introverse_docs/dplyr_left_join.html) | Merge two relational tibbles (data frames) based on the left side |
+| [**`right_join()`**](../introverse_docs/dplyr_right_join.html) | Merge two relational tibbles (data frames) based on the right side |
+| [**`full_join()`**](../introverse_docs/dplyr_full_join.html) | Merge two relational tibbles (data frames) fully |
+| [**`inner_join()`**](../introverse_docs/dplyr_inner_join.html) | Merge two relational tibbles (data frames) based on what they have in common |
+| [**`anti_join()`**](../introverse_docs/dplyr_anti_join.html) | Merge relational tibbles (data frames) based on what they do not have in common |
+
+#### Helper functions
+
+| Function   |  Description  |
+|----|----|
+| [**`if_else()`**](../introverse_docs/dplyr_if_else.html) | Assign a value based on whether a statement is `TRUE` or `FALSE` , ensuring same type |
+| [**`case_when()`**](../introverse_docs/dplyr_case_when.html) | Assign a value based on a series of conditions are `TRUE` or `FALSE` |
+| [**`n()`**](../introverse_docs/dplyr_n.html) | Returns the number of rows in a tibble group |
+
+
+### Get help with `tidyselect` helpers
+
+| Function   |  Description  |
+|----|----|
+| [**`everything()`**](../introverse_docs/tidyselect_tidyselect.html)  | Select all columns, except those already explicitly stated |
+| [**`contains()`**](../introverse_docs/tidyselect_tidyselect.html)    | Select all columns that contain a given string argument |
+| [**`starts_with()`**](../introverse_docs/tidyselect_tidyselect.html)    | Select all columns that start with a given string, i.e. prefix |     
+| [**`ends_with()`**](../introverse_docs/tidyselect_tidyselect.html)     | Select all columns that end with a given string, i.e. suffix | 
+| [**`matches()`**](../introverse_docs/tidyselect_tidyselect.html)      | Select all columns that match a regular expression (a special type of pattern-matching string) |
+
 
 ### Get help with `forcats`
 

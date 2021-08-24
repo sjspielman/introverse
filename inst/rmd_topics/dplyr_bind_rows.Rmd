@@ -1,0 +1,103 @@
+---
+title: "`{introverse}` quick docs"
+output: 
+  html_document:
+    theme: readable
+    syntax: tango
+---
+
+<!-- Welcome to the template! This comment is here to help you get started. The HTML comments will help you fill it out. Please make sure to do the following:
+- make the YAML `title` the topic name. For example, the `filter()` docs are titled `dplyr::filter()` (with backticks since it's code!)
+- name the final Rmd file "packagethetopiccomesfrom_topic.Rmd". For example, the `filter()` file is named `dplyr_filter.Rmd`
+- If you are considering documenting MULTIPLE TOPICS in a single help Rmd, STOP and CONSULT FIRST with Spielman!!
+-->
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE, 
+                      warning = FALSE, 
+                      message = FALSE)
+library(dplyr)
+```
+
+```{css custom, echo=FALSE}
+.title{
+    display: none;
+}
+blockquote {
+  display: block;
+  font-size: 0.95em;
+  border-left: 3px solid #7FB036;
+  padding:10px;
+  margin-left:10px;
+}
+```
+
+<div>
+<br>
+ <img src = "logo.png" style = "float:left;height:130px;margin-top:-30px;">
+ <span style = "font-weight:bold;font-size:30px;"> 
+  &nbsp;<code>dplyr::bind_rows()</code>
+ </span>
+ <br>
+ <b>&nbsp;&nbsp;&nbsp;<code>get_help()</code> docs</b>
+</div>
+<br>
+
+## Description
+
+The [`bind_rows()`](https://dplyr.tidyverse.org/reference/bind.html) function is part of the [`{dplyr}`](https://dplyr.tidyverse.org/) package, which is part of the [`{tidyverse}`](https://www.tidyverse.org/).
+
+This function is used to *bind* the rows of two tibbles (data frames) or arrays into one tibble (data frame). This requires that both tibbles have the same columns.
+
+<!-- Add the following if the topic is a function that does NOT come with base R, and uncomment/fill in the subsequent multiline HTML comment: -->
+To use this function, you need to either first load the `{dplyr}` library, or always use the function with `dplyr::bind_cols()` notation.
+
+```{r, eval=FALSE}
+# Load the library
+library(dplyr)
+# Or, load the full tidyverse:
+library(tidyverse)
+
+# Or, use :: notation
+dplyr::bind_rows()
+```
+
+
+
+### Conceptual Usage 
+
+```{r, eval=FALSE}
+# Remember that both tibbles must have the same columns to be able to bind them
+
+bind_rows(first tibble, second tibble)
+```
+
+
+## Examples
+
+The examples below use the `carnivores` dataset. Learn more about this dataset with `get_help("carnivores")`.
+
+```{r msleep}
+# Show the carnivores dataset
+carnivores
+```
+
+<br>
+<!-- Add a <br> if there is NO DATASET REFRESHER!! Otherwise the refresher takes up enough space. -->
+
+```{r example1}
+# Use bind_rows() to combine two smaller tibbles
+
+# First, create two smaller tibbles _from carnivores_ to use for demonstration:
+
+# use dplyr::slice to extract the first row only
+carnivores %>% 
+  slice(1) -> tibble1 
+
+# use dplyr::slice to extract the second row only
+carnivores %>% 
+  slice(2) -> tibble2
+
+# Bind rows together:
+bind_rows(tibble1, tibble2)
+```
