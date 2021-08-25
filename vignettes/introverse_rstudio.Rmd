@@ -30,7 +30,7 @@ To see all currently available help topics, run the following command. The funct
 ```{r, eval=F}
 show_topics()
 ```
-Or, all currently available topics can be seen [here](https://spielmanlab.github.io/introverse/articles/available_topics.html).
+Or, all currently available topics can be seen [here](https://spielmanlab.github.io/introverse/articles/introverse_online.html).
 
 
 <br>
