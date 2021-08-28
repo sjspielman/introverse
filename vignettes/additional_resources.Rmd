@@ -71,5 +71,7 @@ The following links will bring you to additional internet resources which beginn
   + Comprehensive data science book
 + [Data Science in a Box](https://datasciencebox.org/index.html)
   + A collection of resources, lessons, tutorials, and exercises for mastering data science techniques in R within the `tidyverse` framework. 
++ [Introduction to Modern Statistics](https://openintro-ims.netlify.app/index.html) by Mine Çetinkaya-Rundel and Johanna Hardin
+  + Open-source statistics textbook
 + [Calling Bullshit Course Website](https://callingbullshit.org/) by Carl Bergstrom and Jevin West
   + Not specifically, or even at all, about R programming or data science, but teaches critical thinking skills needed in data visualization, analysis, and interpretation
