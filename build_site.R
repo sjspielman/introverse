@@ -24,8 +24,8 @@ if (htmlify)
   # I can loop if I want to, I can leave my fRiends behind.
   for (category in names(topic_list)) #STEPH!!!!!!!!!
   {
-    category <- "base"
-    topic <- "all"
+    category <- "forcats"
+    topic <- "fct_reorder"
     for (topic in topic_list[[category]])
     {
 

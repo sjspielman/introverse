@@ -155,3 +155,21 @@ ggplot(msleep_fctvore) +
   geom_boxplot() + 
   labs(x = "vore")
 ```
+
+
+<br>
+
+```{r example5}
+# Without re-writing the column, change the levels for _plotting purposes only_
+# Provide fct_reorder(VARIABLE, OTHER VARIABLE, ...) to ggplot2::aes() to order in your plot
+# This affects the x-axis labeling, so it is best practice to clean up with `labs()`
+
+# For this plot, we'll reorder `vore` based on its COUNT, using `dplyr::count()`
+msleep_fctvore %>%
+  count(vore) %>%
+  ggplot() + 
+  aes(x = fct_reorder(vore, n), 
+      y = n) + 
+  geom_col() + 
+  labs(x = "vore")
+```
