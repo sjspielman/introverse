@@ -99,6 +99,26 @@ levels(msleep_fctvore_ex1$vore)
 <br>
 
 ```{r example2}
+# Below is shown a barplot of vore that uses the default vore levels,
+# This way you can compare with the next plot that changes the levels with `fct_infreq()`.
+ggplot(msleep_fctvore) +
+  aes(x = vore) + 
+  geom_bar() 
+```
+
+```{r example3}
+# Without re-writing the column, change the levels for _plotting purposes only_
+# Provide fct_infreq(VARIABLE) to ggplot2::aes() to order in your plot
+# This affects the x-axis labeling, so it is best practice to clean up with `labs()`
+ggplot(msleep_fctvore) +
+  aes(x = fct_infreq(vore)) + 
+  geom_bar() + 
+  labs(x = "vore")
+```
+
+<br> 
+
+```{r example4}
 # Without re-writing the column, change the levels for _plotting purposes only_
 # Provide fct_infreq(VARIABLE) to ggplot2::aes() to order in your plot
 # This affects the x-axis labeling, so it is best practice to clean up with `labs()`
