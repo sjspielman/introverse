@@ -13,7 +13,6 @@ knitr::opts_chunk$set(echo = TRUE,
                       message = TRUE)
 library(ggplot2)
 library(dplyr)
-msleep %>% tidyr::drop_na(sleep_rem, awake) -> msleep
 ```
 
 ```{css custom, echo=FALSE}
@@ -135,9 +134,4 @@ ggplot(msleep) +
   labs(x = "Time in REM sleep (hours)",
        y = "Time spent awake (hours)",
        fill = "This title isn't going to appear since there is no fill aes")
-```
-
-
-```{r, returnmsleep, echo=F, include=F}
-msleep <- introverse::msleep
 ```

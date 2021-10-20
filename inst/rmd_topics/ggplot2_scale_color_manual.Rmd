@@ -15,7 +15,6 @@ knitr::opts_chunk$set(echo = TRUE,
                       fig.height = 4)
 library(ggplot2)
 library(dplyr)
-msleep %>% tidyr::drop_na(sleep_rem, awake) -> msleep
 ```
 
 ```{css custom, echo=FALSE}
@@ -364,8 +363,4 @@ ggplot(time_demo_tibble) +
   scale_linetype_manual(
     values = c(3,1,2)
   )
-```
-
-```{r, returnmsleep, echo=F, include=F}
-msleep <- introverse::msleep
 ```

@@ -12,7 +12,6 @@ knitr::opts_chunk$set(echo = TRUE,
                       warning = FALSE, 
                       message = TRUE)
 library(ggplot2)
-msleep %>% tidyr::drop_na(sleep_rem, awake) -> msleep
 set.seed(1)
 ```
 
@@ -93,6 +92,7 @@ theme_set(theme_bw())
 
 <br>
 
+#### `theme_gray()`
 ```{r example2}
 # Example of a plot using theme_gray (the default)
 ggplot(msleep) + 
@@ -104,6 +104,7 @@ ggplot(msleep) +
 
 <br>
 
+#### `theme_bw()`
 ```{r example3}
 # Example of a plot using theme_bw()
 ggplot(msleep) + 
@@ -114,7 +115,7 @@ ggplot(msleep) +
 
 <br>
 
-
+#### `theme_linedraw()`
 ```{r example4}
 # Example of a plot using theme_linedraw()
 ggplot(msleep) + 
@@ -125,6 +126,7 @@ ggplot(msleep) +
 
 <br>
 
+#### `theme_light()`
 ```{r example5}
 # Example of a plot using theme_light()
 ggplot(msleep) + 
@@ -135,7 +137,7 @@ ggplot(msleep) +
 
 <br>
 
-
+#### `theme_dark()`
 ```{r example6}
 # Example of a plot using theme_dark()
 ggplot(msleep) + 
@@ -146,6 +148,7 @@ ggplot(msleep) +
 
 <br>
 
+#### `theme_minimal()`
 ```{r example7}
 # Example of a plot using theme_minimal()
 ggplot(msleep) + 
@@ -156,6 +159,7 @@ ggplot(msleep) +
 
 <br>
 
+#### `theme_classic()`
 ```{r example8}
 # Example of a plot using theme_classic()
 ggplot(msleep) + 
@@ -165,10 +169,10 @@ ggplot(msleep) +
 ```
 
 
-
-
 <br>
 
+
+#### `theme_void()`
 ```{r example9}
 # Example of a plot using theme_void()
 # This theme is completely blank!
@@ -178,9 +182,3 @@ ggplot(msleep) +
   theme_void()
 ```
 
-
-
-```{r returnmsleep, echo=F, include=F}
-msleep <- introverse::msleep
-theme_set(theme_gray())
-```

@@ -12,7 +12,6 @@ knitr::opts_chunk$set(echo = TRUE,
                       warning = FALSE, 
                       message = TRUE)
 library(ggplot2)
-msleep %>% tidyr::drop_na(sleep_rem, awake) -> msleep
 ```
 
 ```{css custom, echo=FALSE}
@@ -162,9 +161,4 @@ msleep %>%
   aes(x = forcats::fct_reorder(vore, mean_awake),  # order x-axis by mean_awake value
       y = mean_awake) +
   geom_point(size = 5)
-```
-
-
-```{r, returnmsleep, echo=F, include=F}
-msleep <- introverse::msleep
 ```

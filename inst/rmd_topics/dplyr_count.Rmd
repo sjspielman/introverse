@@ -69,6 +69,10 @@ tibble %>%
   count(first column to count,
         second column to count in all combinations with the first,
         etc. as needed)
+
+tibble %>%
+  count(column to count, 
+        name = "desired custom name for output column")
 ```
 
 ### Examples
@@ -94,4 +98,10 @@ msleep %>%
 # Count the number of each combination of `vore` and `order` categories in `msleep`
 msleep %>%
   count(vore, order)
+```
+
+```{r example3}
+# Count the number of each vore category in `msleep` but name the output column `num_vore` instead of the default `n`
+msleep %>%
+  count(vore, name = "num_vore")
 ```

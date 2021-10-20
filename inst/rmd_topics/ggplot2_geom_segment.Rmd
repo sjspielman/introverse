@@ -1,0 +1,146 @@
+---
+title: "{introverse} quick docs"
+output: 
+  html_document:
+    highlight: tango
+    theme: readable
+---
+
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE, 
+                      warning = FALSE, 
+                      message = TRUE)
+library(ggplot2)
+library(forcats)
+```
+
+```{css custom, echo=FALSE}
+.title{
+    display: none;
+}
+blockquote {
+  display: block;
+  font-size: 0.95em;
+  border-left: 3px solid #7FB036;
+  padding:10px;
+  margin-left:10px;
+}
+```
+
+<div>
+<br>
+ <img src = "logo.png" style = "float:left;height:130px;margin-top:-30px;">
+ <span style = "font-weight:bold;font-size:30px;"> 
+  &nbsp;<code>ggplot2::geom_segment()</code>
+ </span>
+ <br>
+ <b>&nbsp;&nbsp;&nbsp;<code>get_help()</code> docs</b>
+</div>
+<br>
+
+### Description
+
+The [`geom_segment()`](https://ggplot2.tidyverse.org/reference/geom_segment.html) function is part of the [`{ggplot2}`](https://ggplot2.tidyverse.org/) package, which is part of the [`{tidyverse}`](https://www.tidyverse.org/).
+
+The `geom_segment()` function is used within `{ggplot2}` plots to create line segments. Line segments have x and y start and end coordinates.
+
+
+#### Required aesthetics:
+
++ `x`: The x-coordinate for the line segment to start at
++ `xend`: The x-coordinate for the line segment to end at
++ `y`: The y-coordinate for the line segment to start at
++ `yend`: The y-coordinate for the line segment to end at
+
+#### Commonly used optional aesthetics:
+
++ `color` (`colour`): The color of the line segment
++ `size`: The width of the line segment
++ `linetype`: The style of the line segment, where options include `"solid"`, `"dashed"`, `"dotted"`, `"dotdash"`, `"longdash"`, `"twodash"`. The default is `"solid"`.
+
+
+<!-- Add the following if the topic is a function that does NOT come with base R, and uncomment/fill in the subsequent multiline HTML comment: -->
+To use this function, you need to either first load the `{ggplot2}` library, or always use the function with `ggplot2::geom_segment()` notation.
+
+```{r description, eval=FALSE}
+# Load the library
+library(ggplot2)
+# Or, load the full tidyverse:
+library(tidyverse)
+
+# Or, use :: notation
+ggplot2::geom_segment()
+```
+
+
+
+### Examples
+
+Some of the examples below use the `msleep` and `carnivores` datasets. Learn more about this dataset with `get_help("msleep")` and `get_help("carnivores")`.
+
+```{r msleep-carnivores}
+# Show the msleep dataset with head()
+head(msleep)
+
+# Show the carnivores dataset
+carnivores
+```
+
+<br>
+
+```{r example1}
+# Create a tibble with tibble::tribble() with values for the line segment we want to draw, and draw it!
+example_tibble <- tibble::tribble(
+  ~x_var, ~xend_var, ~y_var, ~yend_var,
+  0,         3.5,        2,       4
+)
+
+# Look at tibble:
+example_tibble
+
+ggplot(example_tibble) + 
+  aes(x = x_var, 
+      xend = xend_var,
+      y = y_var,
+      yend = yend_var) + 
+  geom_segment()
+
+```
+
+<br>
+
+```{r example2}
+# Scatterplot of awake against sleep_rem, where we add a line segment in at specified coordinates
+ggplot(msleep) + 
+  aes(x = sleep_rem, y = awake) + 
+  geom_point() + 
+  # Add a segment:
+  geom_segment(x = 0, xend = 2, y = 7, yend = 9, color = "red")
+```
+
+<br>
+
+```{r example3}
+# Scatterplot of awake against sleep_rem, where we add a line segment in at specified coordinates
+# This example uses a different linetype
+ggplot(msleep) + 
+  aes(x = sleep_rem, y = awake) + 
+  geom_point() + 
+  # Add a segment:
+  geom_segment(x = 0, xend = 2, y = 7, yend = 9, color = "red", linetype = "dashed")
+```
+
+<br>
+
+```{r example4}
+# Plot the literal values of `awake` for each name in the carnivores dataset, as a lollipop plot
+ggplot(carnivores) + 
+  aes(x = name, y = awake) +
+  geom_point() + 
+  # To understand this, think carefully about the grammar and how data maps to these aesthetics
+  geom_segment(aes(x = name,   # For a vertical line, x starts and stops at same coordinate. 
+                   xend = name,
+                   y = 0, # y starts from 0
+                   yend = awake)) # and goes to the awake value
+```

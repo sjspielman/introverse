@@ -10,9 +10,8 @@ output:
 ```{r setup, include = FALSE}
 knitr::opts_chunk$set(echo = TRUE, 
                       warning = FALSE, 
-                      message = TRUE)
+                      message = FALSE)
 library(ggplot2)
-msleep %>% tidyr::drop_na(sleep_rem, awake) -> msleep
 ```
 
 ```{css custom, echo=FALSE}
@@ -122,7 +121,7 @@ ggplot(msleep) +
 
 <br>
 
-```{r example3}
+```{r example3, warning=FALSE}
 # Plot of awake against sleep_rem ("y against x"), but using `geom_text()` instead of `geom_point()`.
 # Now we map the vore column to label
 ggplot(msleep) + 
@@ -237,16 +236,12 @@ msleep %>%
   summarize(mean_hours_awake = mean(awake)) %>%
   # reorder the vore factor here
   mutate(vore = fct_reorder(vore, mean_hours_awake)) %>%
-  # drop any NAs
-  drop_na() %>%
+  # drop any NAs with tidyr::drop_na()
+  tidyr::drop_na() %>%
   ggplot() + 
   geom_col(aes(x = vore, #
                y = mean_hours_awake)) + 
   geom_text(aes(x = vore,
                 y = mean_hours_awake + 0.5,
                 label = round(mean_hours_awake, 2)))
-```
-
-```{r, returnmsleep, echo=F, include=F}
-msleep <- introverse::msleep
 ```

@@ -12,7 +12,6 @@ knitr::opts_chunk$set(echo = TRUE,
                       warning = FALSE, 
                       message = TRUE)
 library(ggplot2)
-msleep %>% tidyr::drop_na(sleep_rem, awake) -> msleep
 ```
 
 ```{css custom, echo=FALSE}
@@ -149,7 +148,3 @@ ggplot(msleep) +
   geom_smooth(method = "lm")
 ```
 
-
-```{r, returnmsleep, echo=F, include=F}
-msleep <- introverse::msleep
-```
