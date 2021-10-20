@@ -43,6 +43,8 @@ ggplot2_topics <- sort(c(
   "geom_bar",
   "geom_col",
   # Same page
+  "geom_text", "geom_label",
+  # Same page
   "theme_gray", "theme_grey", "theme_bw", "theme_minimal", "theme_light", "theme_linedraw", "theme_classic", "theme_dark", "theme_void",
   "theme_set",
   "theme",
@@ -204,6 +206,7 @@ shared_doc_pages <- list(
     "starts_with",
     "ends_with",
     "matches"),
+  c("geom_text", "geom_label"),
   c("xlim", "ylim"),
   c("scale_color_manual",
     "scale_colour_manual", 

@@ -1,0 +1,252 @@
+---
+title: "{introverse} quick docs"
+output: 
+  html_document:
+    highlight: tango
+    theme: readable
+---
+
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE, 
+                      warning = FALSE, 
+                      message = TRUE)
+library(ggplot2)
+msleep %>% tidyr::drop_na(sleep_rem, awake) -> msleep
+```
+
+```{css custom, echo=FALSE}
+.title{
+    display: none;
+}
+blockquote {
+  display: block;
+  font-size: 0.95em;
+  border-left: 3px solid #7FB036;
+  padding:10px;
+  margin-left:10px;
+}
+```
+
+<div>
+<br>
+ <img src = "logo.png" style = "float:left;height:130px;margin-top:-30px;">
+ <span style = "font-weight:bold;font-size:30px;"> 
+  &nbsp;<code>ggplot2::geom_text() and ggplot2::geom_label()</code>
+ </span>
+ <br>
+ <b>&nbsp;&nbsp;&nbsp;<code>get_help()</code> docs</b>
+</div>
+<br>
+
+### Description
+
+The [`geom_text()`](https://ggplot2.tidyverse.org/reference/geom_text.html) and [`geom_label()`](https://ggplot2.tidyverse.org/reference/geom_text.html)  functions are part of the [`{ggplot2}`](https://ggplot2.tidyverse.org/) package, which is part of the [`{tidyverse}`](https://www.tidyverse.org/).
+
+These functions are used within `{ggplot2}` plots to create text in plots. The `geom_text()` function simply writes text, but the `geom_label()` function includes a rectangle behind the text.
+
+#### Required aesthetics:
+
++ `x`: The x-axis coordinate(s) for the text(s)
++ `y`: The y-axis coordinate(s) for the text(s)
+
+
+#### Commonly used optional aesthetics:
+
++ `color` (`colour`): The text color
++ `size`: The text size
++ `fill`: A rectangle fill when using `geom_label()` (not `geom_text()`)
+
+
+
+<!-- Add the following if the topic is a function that does NOT come with base R, and uncomment/fill in the subsequent multiline HTML comment: -->
+To use these functions, you need to either first load the `{ggplot2}` library, or always use the function with `ggplot2::geom_text()` (or `ggplot2::geom_label()`) notation.
+
+```{r description, eval=FALSE}
+# Load the library
+library(ggplot2)
+# Or, load the full tidyverse:
+library(tidyverse)
+
+# Or, use :: notation for example with geom_text()
+ggplot2::geom_text()
+```
+
+
+
+### Examples
+
+The examples below use the `msleep` dataset. Learn more about this dataset with `get_help("msleep")`.
+
+```{r msleep}
+# Show the msleep dataset with head()
+head(msleep)
+```
+
+<br>
+```{r example1}
+# Plot of awake against sleep_rem ("y against x"), but using `geom_text()` instead of `geom_point()`.
+# Using the label argument, all "text points" are the letter "w". This is "just a label"
+ggplot(msleep) + 
+  aes(x = sleep_rem, y = awake) + 
+  geom_text(label = "w")
+```
+
+<br>
+```{r example1.5}
+# Plot of awake against sleep_rem ("y against x"), but using `geom_label()` instead of `geom_point()`.
+# Using the label argument, all "text points" are the letter "w". This is "just a label"
+ggplot(msleep) + 
+  aes(x = sleep_rem, y = awake) + 
+  geom_label(label = "w")
+```
+
+<br>
+```{r example1.75}
+# Plot of awake against sleep_rem ("y against x"), but using `geom_label()` instead of `geom_point()`.
+# Include "just a fill" for the geom_label rectangles:
+ggplot(msleep) + 
+  aes(x = sleep_rem, y = awake) + 
+  geom_label(label = "w", fill = "yellow")
+```
+
+<br>
+
+```{r example2}
+# Plot of awake against sleep_rem ("y against x"), but using `geom_text()` instead of `geom_point()`.
+# Now we also make all labels blue, and all labels now read 'hello'
+ggplot(msleep) + 
+  aes(x = sleep_rem, y = awake) + 
+  geom_text(label = "hello", color = "blue")
+```
+
+<br>
+
+```{r example3}
+# Plot of awake against sleep_rem ("y against x"), but using `geom_text()` instead of `geom_point()`.
+# Now we map the vore column to label
+ggplot(msleep) + 
+  aes(x = sleep_rem, y = awake, label = vore) + 
+  geom_text(color = "blue")
+```
+
+
+<br>
+
+```{r example3.5}
+# Plot of awake against sleep_rem ("y against x"), but using `geom_text()` instead of `geom_point()`.
+# Now we map the vore column to label AND to color
+ggplot(msleep) + 
+  aes(x = sleep_rem, 
+      y = awake, 
+      label = vore, 
+      color = vore) + 
+  geom_text()
+```
+
+<br>
+
+```{r example3.75}
+# Plot of awake against sleep_rem ("y against x"), but using `geom_label()` instead of `geom_point()`.
+# Now we map FILL and label to vore as an example of using this function (not a good plot though since excessive overlap!)
+ggplot(msleep) + 
+  aes(x = sleep_rem, 
+      y = awake, 
+      label = vore, 
+      fill = vore) + 
+  geom_label()
+```
+
+<br>
+
+```{r example4}
+# A wrangled-using-dplyr barplot showing the mean awake value for each vore, where bars are labeled with mean awake values.
+# Subsequent examples all modify this plot.
+# To explore this example, see it in action one line at a time!
+# The next example presents a "cleaned" version of this plot
+msleep %>%
+  # Calculate mean hours awake for each vore
+  group_by(vore) %>%
+  summarize(mean_hours_awake = mean(awake)) %>%
+  ggplot() + 
+  aes(x = vore, 
+      y = mean_hours_awake,
+      # Set the label aesthetic for geom_text
+      label = mean_hours_awake) + 
+  geom_col() + 
+  geom_text()
+```
+
+<br>
+
+
+```{r example5}
+# The previous examples labels were at the exact bar height - it would look nicer if they were a little bit higher up on the Y-axis higher
+# We can achieve this by specifying aesthetics separately for each geom: 
+msleep %>%
+  # Calculate mean hours awake for each vore
+  group_by(vore) %>%
+  summarize(mean_hours_awake = mean(awake)) %>%
+  ggplot() + 
+  geom_col(aes(x = vore, 
+               # column height shoud be the mean hours spent awake
+               y = mean_hours_awake)) + 
+  geom_text(aes(x = vore, 
+                # label height should be 0.5 units or so higher than the bar! You can add any value you want here, in units of the Y-axis
+                # trial and error to find how much higher!
+                y = mean_hours_awake + 0.5,
+                label = mean_hours_awake))
+```
+<br>
+
+
+```{r example6}
+# This example further modifies the plot by rounding mean values in the label so they are more legible
+msleep %>%
+  # Calculate mean hours awake for each vore
+  group_by(vore) %>%
+  summarize(mean_hours_awake = mean(awake)) %>%
+  ggplot() + 
+  geom_col(aes(x = vore, 
+               y = mean_hours_awake)) + 
+  geom_text(aes(x = vore, 
+                y = mean_hours_awake + 0.5,
+                # Round the LABEL (not the bar height!) to two decimal places. See get_help("round")
+                label = round(mean_hours_awake, 2)))
+```
+```{r example7}
+# This example even further modifies the bar plot by arranging bars in order of mean hours spent awake with fct_reorder
+msleep %>%
+  # Calculate mean hours awake for each vore
+  group_by(vore) %>%
+  summarize(mean_hours_awake = mean(awake)) %>%
+  ggplot() + 
+  geom_col(aes(x = fct_reorder(vore, mean_hours_awake), # reorder vore
+               y = mean_hours_awake)) + 
+  geom_text(aes(x = fct_reorder(vore, mean_hours_awake), # reorder vore
+                y = mean_hours_awake + 0.5,
+                label = round(mean_hours_awake, 2)))
+```
+
+```{r example8}
+# This final example even further modifies the bar plot by arranging bars in order of mean hours spent awake with fct_reorder
+# But this time, the vore variable is reordered before plotting and NAs are removed:
+msleep %>%
+  # Calculate mean hours awake for each vore
+  group_by(vore) %>%
+  summarize(mean_hours_awake = mean(awake)) %>%
+  # reorder the vore factor here
+  mutate(vore = fct_reorder(vore, mean_hours_awake)) %>%
+  # drop any NAs
+  drop_na() %>%
+  ggplot() + 
+  geom_col(aes(x = vore, #
+               y = mean_hours_awake)) + 
+  geom_text(aes(x = vore,
+                y = mean_hours_awake + 0.5,
+                label = round(mean_hours_awake, 2)))
+```
+
+```{r, returnmsleep, echo=F, include=F}
+msleep <- introverse::msleep
+```

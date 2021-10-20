@@ -136,6 +136,8 @@ knitr::opts_chunk$set(
 | [**`geom_smooth()`**](../introverse_docs/ggplot2_geom_smooth.html) | Add a trendline to a plot, often (but not always) to a scatterplot |
 | [**`geom_col()`**](../introverse_docs/ggplot2_geom_col.html) | Create bar plots whose height corresponds to literal values in the data |
 | [**`geom_bar()`**](../introverse_docs/ggplot2_geom_bar.html) |Create bar plots whose height corresponds to _counted number of observations_ of a categorical variable |
+| [**`geom_text()`** and **`geom_label()`**](../introverse_docs/ggplot2_geom_text.html) | Create labels in plots |
+
 
 #### Axes, labels, and faceting
 
