@@ -42,6 +42,7 @@ ggplot2_topics <- sort(c(
   "geom_jitter",
   "geom_bar",
   "geom_col",
+  "geom_segment",
   # Same page
   "geom_text", "geom_label",
   # Same page

@@ -99,7 +99,7 @@ reveal_help <- function(category, topic, browser)
   htmlFile <- file.path(tempDir, "index.html")
   
   redirected_topic <- redirect_topic(topic)
-  withr::with_options(c(width = topic_width),
+  withr::with_options(c(width = topic_width, warn = -1), # TURN OFF CMD LINE WARNINGS!
     rmarkdown::render(
       system.file(rmd_topics_path, 
                   glue::glue("{category}_{redirected_topic}.Rmd"), 

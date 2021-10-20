@@ -25,7 +25,7 @@ if (htmlify)
   for (category in names(topic_list)) #STEPH!!!!!!!!!
   {
     category <- "dplyr"
-    topic <- "slice"
+    topic <- "count"
     for (topic in topic_list[[category]])
     {
 

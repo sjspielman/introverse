@@ -298,7 +298,7 @@ blockquote {
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>carnivores</span></code></pre></div>
 <pre><code>## # A tibble: 9 × 4
 ##   name              genus        awake brainwt
-##   &lt;chr&gt;             &lt;chr&gt;        &lt;dbl&gt;   &lt;dbl&gt;
+##   &lt;chr&gt;             &lt;fct&gt;        &lt;dbl&gt;   &lt;dbl&gt;
 ## 1 Arctic fox        Vulpes        11.5  0.0445
 ## 2 Cheetah           Acinonyx      11.9 NA     
 ## 3 Dog               Canis         13.9  0.07  
@@ -314,7 +314,7 @@ blockquote {
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice</span>(<span class="dv">4</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 1 × 4
 ##   name      genus        awake brainwt
-##   &lt;chr&gt;     &lt;chr&gt;        &lt;dbl&gt;   &lt;dbl&gt;
+##   &lt;chr&gt;     &lt;fct&gt;        &lt;dbl&gt;   &lt;dbl&gt;
 ## 1 Gray seal Haliochoerus  17.8   0.325</code></pre>
 <p><br> <!-- Do not delete the <br>, and make sure to keep the previous and following lines blank. --></p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Keep only the 3rd - 5th rows from carnivores </span></span>
@@ -322,7 +322,7 @@ blockquote {
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice</span>(<span class="dv">3</span><span class="sc">:</span><span class="dv">5</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 3 × 4
 ##   name      genus        awake brainwt
-##   &lt;chr&gt;     &lt;chr&gt;        &lt;dbl&gt;   &lt;dbl&gt;
+##   &lt;chr&gt;     &lt;fct&gt;        &lt;dbl&gt;   &lt;dbl&gt;
 ## 1 Dog       Canis         13.9   0.07 
 ## 2 Gray seal Haliochoerus  17.8   0.325
 ## 3 Jaguar    Panthera      13.6   0.157</code></pre>
@@ -332,7 +332,7 @@ blockquote {
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice</span>(<span class="dv">1</span>, <span class="dv">8</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 2 × 4
 ##   name       genus  awake brainwt
-##   &lt;chr&gt;      &lt;chr&gt;  &lt;dbl&gt;   &lt;dbl&gt;
+##   &lt;chr&gt;      &lt;fct&gt;  &lt;dbl&gt;   &lt;dbl&gt;
 ## 1 Arctic fox Vulpes  11.5  0.0445
 ## 2 Red fox    Vulpes  14.2  0.0504</code></pre>
 <p><br></p>
@@ -341,7 +341,7 @@ blockquote {
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice</span>(<span class="sc">-</span><span class="dv">8</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 8 × 4
 ##   name              genus        awake brainwt
-##   &lt;chr&gt;             &lt;chr&gt;        &lt;dbl&gt;   &lt;dbl&gt;
+##   &lt;chr&gt;             &lt;fct&gt;        &lt;dbl&gt;   &lt;dbl&gt;
 ## 1 Arctic fox        Vulpes        11.5  0.0445
 ## 2 Cheetah           Acinonyx      11.9 NA     
 ## 3 Dog               Canis         13.9  0.07  
@@ -358,7 +358,7 @@ blockquote {
 <span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 3 × 4
 ##   name              genus        awake brainwt
-##   &lt;chr&gt;             &lt;chr&gt;        &lt;dbl&gt;   &lt;dbl&gt;
+##   &lt;chr&gt;             &lt;fct&gt;        &lt;dbl&gt;   &lt;dbl&gt;
 ## 1 Gray seal         Haliochoerus  17.8  0.325 
 ## 2 Northern fur seal Callorhinus   15.3 NA     
 ## 3 Red fox           Vulpes        14.2  0.0504</code></pre>
@@ -370,7 +370,7 @@ blockquote {
 <span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 3 × 4
 ##   name       genus    awake brainwt
-##   &lt;chr&gt;      &lt;chr&gt;    &lt;dbl&gt;   &lt;dbl&gt;
+##   &lt;chr&gt;      &lt;fct&gt;    &lt;dbl&gt;   &lt;dbl&gt;
 ## 1 Tiger      Panthera   8.2 NA     
 ## 2 Lion       Panthera  10.5 NA     
 ## 3 Arctic fox Vulpes    11.5  0.0445</code></pre>
