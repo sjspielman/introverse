@@ -114,3 +114,23 @@ carnivores %>%
 carnivores %>%
   slice(-8)
 ```
+
+
+<br> 
+
+```{r example5}
+# Slice is conveniently combined with arrange() to keep, for example, "top three values of awake"
+carnivores %>%
+  # arrange in descending order of `awake` (large values at the top)
+  arrange(desc(awake)) %>%
+  slice(1:3)
+```
+<br> 
+
+```{r example6}
+# Slice is conveniently combined with arrange() to keep, for example, "BOTTOM three values of awake"
+carnivores %>%
+  # Arrange by default will work in ascending order (small values at the top)
+  arrange(awake) %>%
+  slice(1:3)
+```

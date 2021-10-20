@@ -24,8 +24,8 @@ if (htmlify)
   # I can loop if I want to, I can leave my fRiends behind.
   for (category in names(topic_list)) #STEPH!!!!!!!!!
   {
-    category <- "ggplot2"
-    topic <- "geom_text"
+    category <- "dplyr"
+    topic <- "slice"
     for (topic in topic_list[[category]])
     {
 
