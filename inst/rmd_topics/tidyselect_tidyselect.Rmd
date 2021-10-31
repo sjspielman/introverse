@@ -53,6 +53,7 @@ We generally use these helper functions as part of our _arguments_ to functions 
 | `contains()`     |  All columns that contain a given string argument |
 | `starts_with()`     | All columns that start with a given string, i.e. prefix |
 | `ends_with()`     | All columns that end with a given string, i.e. suffix |
+| `last_col()`     | The last column in the tibble (data frame)
 | `matches()`     |  All columns that match a regular expression (a special type of pattern-matching string) |
 
 To use these function, you need to either first load the _`{dplyr}`_ (the `{dplyr}` library conveniently includes the `{tidyselect}` functionality!) library, or always use the function with `dplyr::()` notation.
@@ -147,11 +148,28 @@ msleep %>%
 
 <br> 
 
-```{r example5.5}
+```{r example5.25}
 # DE-select vore through awake, with a minus sign
 msleep %>%
   select(-(vore:awake))
 ```
+
+
+<br>
+```{r example5.5}
+# Use last_col() to keep only the last-appearing column in msleep
+msleep %>%
+  select(last_col())
+```
+
+<br>
+```{r example5.75}
+# Use last_col() to keep the columns `sleep_cycle` through the last-appearing column in msleep
+msleep %>%
+  select(sleep_cycle:last_col())
+```
+
+
 <br>
 ```{r example6}
 # ADVANCED EXAMPLE:

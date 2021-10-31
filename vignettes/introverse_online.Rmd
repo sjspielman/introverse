@@ -253,6 +253,7 @@ knitr::opts_chunk$set(
 | [**`contains()`**](../introverse_docs/tidyselect_tidyselect.html)    | Select all columns that contain a given string argument |
 | [**`starts_with()`**](../introverse_docs/tidyselect_tidyselect.html)    | Select all columns that start with a given string, i.e. prefix |     
 | [**`ends_with()`**](../introverse_docs/tidyselect_tidyselect.html)     | Select all columns that end with a given string, i.e. suffix | 
+|  [**`last_col()`**](../introverse_docs/tidyselect_tidyselect.html)  | Select the last column |
 | [**`matches()`**](../introverse_docs/tidyselect_tidyselect.html)      | Select all columns that match a regular expression (a special type of pattern-matching string) |
 
 

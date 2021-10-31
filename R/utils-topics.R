@@ -89,6 +89,7 @@ tidyselect_topics <- sort(c(
   "everything",
   "contains",
   "starts_with",
+  "last_col",
   "ends_with",
   "matches"
 ))
@@ -206,6 +207,7 @@ shared_doc_pages <- list(
     "contains",
     "starts_with",
     "ends_with",
+    "last_col",
     "matches"),
   c("geom_text", "geom_label"),
   c("xlim", "ylim"),
