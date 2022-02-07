@@ -282,7 +282,7 @@ blockquote {
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>carnivores</span></code></pre></div>
 <pre><code>## # A tibble: 9 × 4
 ##   name              genus        awake brainwt
-##   &lt;chr&gt;             &lt;chr&gt;        &lt;dbl&gt;   &lt;dbl&gt;
+##   &lt;chr&gt;             &lt;fct&gt;        &lt;dbl&gt;   &lt;dbl&gt;
 ## 1 Arctic fox        Vulpes        11.5  0.0445
 ## 2 Cheetah           Acinonyx      11.9 NA     
 ## 3 Dog               Canis         13.9  0.07  
@@ -309,7 +309,7 @@ blockquote {
 <span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>carnivores</span></code></pre></div>
 <pre><code>## # A tibble: 9 × 4
 ##   name              genus        awake brainwt
-##   &lt;chr&gt;             &lt;chr&gt;        &lt;chr&gt;   &lt;dbl&gt;
+##   &lt;chr&gt;             &lt;fct&gt;        &lt;chr&gt;   &lt;dbl&gt;
 ## 1 Arctic fox        Vulpes       11.5   0.0445
 ## 2 Cheetah           Acinonyx     11.9  NA     
 ## 3 Dog               Canis        13.9   0.07  
@@ -325,7 +325,7 @@ blockquote {
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">awake =</span> <span class="fu">as.character</span>(awake))</span></code></pre></div>
 <pre><code>## # A tibble: 9 × 4
 ##   name              genus        awake brainwt
-##   &lt;chr&gt;             &lt;chr&gt;        &lt;chr&gt;   &lt;dbl&gt;
+##   &lt;chr&gt;             &lt;fct&gt;        &lt;chr&gt;   &lt;dbl&gt;
 ## 1 Arctic fox        Vulpes       11.5   0.0445
 ## 2 Cheetah           Acinonyx     11.9  NA     
 ## 3 Dog               Canis        13.9   0.07  

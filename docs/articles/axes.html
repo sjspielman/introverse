@@ -26,6 +26,8 @@
 <![endif]-->
 </head>
 <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-article">
       <header><div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
   <div class="container">
@@ -81,7 +83,7 @@
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/spielmanlab/introverse/">
+  <a href="https://github.com/sjspielman/introverse/" class="external-link">
     <span class="fab fa-github fa-lg"></span>
      
   </a>
@@ -96,14 +98,14 @@
 
       
 
-      </header><script src="axes_files/header-attrs-2.11/header-attrs.js"></script><div class="row">
+      </header><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>Customizing axes in <code>ggplot2</code>
 </h1>
             
       
-      <small class="dont-index">Source: <a href="https://github.com/spielmanlab/introverse/blob/master/vignettes/axes.Rmd"><code>vignettes/axes.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/sjspielman/introverse/blob/HEAD/vignettes/axes.Rmd" class="external-link"><code>vignettes/axes.Rmd</code></a></small>
       <div class="hidden name"><code>axes.Rmd</code></div>
 
     </div>
@@ -116,7 +118,7 @@
 <code class="sourceCode R"><span class="co"># Remove NAs from the columns awake, sleep_rem, vore, and brainwt for plotting demonstration</span>
 <span class="co"># We'll call this dataset `msleep_clean`</span>
 <span class="va">msleep</span> <span class="op">%&gt;%</span>
-  <span class="fu">tidyr</span><span class="fu">::</span><span class="fu"><a href="https://tidyr.tidyverse.org/reference/drop_na.html">drop_na</a></span><span class="op">(</span><span class="va">awake</span>, <span class="va">sleep_rem</span>, <span class="va">vore</span>, <span class="va">bodywt</span><span class="op">)</span> <span class="op">-&gt;</span> <span class="va">msleep_clean</span>
+  <span class="fu">tidyr</span><span class="fu">::</span><span class="fu"><a href="https://tidyr.tidyverse.org/reference/drop_na.html" class="external-link">drop_na</a></span><span class="op">(</span><span class="va">awake</span>, <span class="va">sleep_rem</span>, <span class="va">vore</span>, <span class="va">bodywt</span><span class="op">)</span> <span class="op">-&gt;</span> <span class="va">msleep_clean</span>
   
 <span class="co"># First plot used in examples</span>
 <span class="fu">ggplot</span><span class="op">(</span><span class="va">msleep_clean</span><span class="op">)</span> <span class="op">+</span> 
@@ -136,15 +138,15 @@
 <span class="co"># Add plots together, which is allowed when you load the {patchwork} library</span>
 <span class="va">plot1</span> <span class="op">+</span> <span class="va">plot2</span> <span class="op">+</span> <span class="va">plot3</span></code></pre></div>
 <p><img src="axes_files/figure-html/all_plots-1.png" width="960"></p>
-<div id="simply-changing-the-ranges-limits" class="section level2">
-<h2 class="hasAnchor">
-<a href="#simply-changing-the-ranges-limits" class="anchor"></a>Simply changing the ranges (limits)</h2>
-<p><a href="https://ggplot2.tidyverse.org">ggplot2</a> will automatically decide the axis limits for a given plot you make, but you can easily customize this with the quick functions <code>xlim(&lt;low&gt;, &lt;high&gt;)</code> and <code>ylim(&lt;low&gt;, &lt;high&gt;)</code>. For example:</p>
+<div class="section level2">
+<h2 id="simply-changing-the-ranges-limits">Simply changing the ranges (limits)<a class="anchor" aria-label="anchor" href="#simply-changing-the-ranges-limits"></a>
+</h2>
+<p><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a> will automatically decide the axis limits for a given plot you make, but you can easily customize this with the quick functions <code>xlim(&lt;low&gt;, &lt;high&gt;)</code> and <code>ylim(&lt;low&gt;, &lt;high&gt;)</code>. For example:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">ggplot</span><span class="op">(</span><span class="va">msleep</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">awake</span>, y <span class="op">=</span> <span class="va">sleep_rem</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> 
   <span class="fu">geom_point</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://rdrr.io/r/graphics/plot.window.html">xlim</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">10</span><span class="op">)</span> <span class="op">+</span> <span class="co"># Set x-axis to range from 0-10</span>
-  <span class="fu"><a href="https://rdrr.io/r/graphics/plot.window.html">ylim</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">6</span><span class="op">)</span> <span class="co"># Set y-axis to range from 1-6</span>
+  <span class="fu"><a href="https://rdrr.io/r/graphics/plot.window.html" class="external-link">xlim</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">10</span><span class="op">)</span> <span class="op">+</span> <span class="co"># Set x-axis to range from 0-10</span>
+  <span class="fu"><a href="https://rdrr.io/r/graphics/plot.window.html" class="external-link">ylim</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">6</span><span class="op">)</span> <span class="co"># Set y-axis to range from 1-6</span>
 <span class="co">#&gt; Warning: Removed 71 rows containing missing values (geom_point).</span></code></pre></div>
 <p><img src="axes_files/figure-html/unnamed-chunk-2-1.png" width="576"></p>
 <p>Be careful to pay attention to <em>warning messages</em> if you change the axis limits, as you may accidentally remove points from the plot! The warning message above is telling us that 71 rows were excluded from this plot. Rows usually get excluded for one of two reasons: 1) The rows contained <code>NA</code> values in these variables so there was nothing to plot, or 2) The rows <em>fell outside the plot’s axis ranges</em>. In this case, we removed all <code>NA</code> values from the variables <code>awake</code> and <code>sleep_rem</code>. This means by limiting our axes, we have removed 71 points of data!</p>
@@ -153,14 +155,14 @@
 <code class="sourceCode R"><span class="fu">ggplot</span><span class="op">(</span><span class="va">msleep_clean</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">awake</span>, y <span class="op">=</span> <span class="va">sleep_rem</span><span class="op">)</span> <span class="op">+</span> 
   <span class="fu">geom_point</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://rdrr.io/r/graphics/plot.window.html">xlim</a></span><span class="op">(</span><span class="fl">15</span>, <span class="fl">20</span><span class="op">)</span>
+  <span class="fu"><a href="https://rdrr.io/r/graphics/plot.window.html" class="external-link">xlim</a></span><span class="op">(</span><span class="fl">15</span>, <span class="fl">20</span><span class="op">)</span>
 <span class="co">#&gt; Warning: Removed 42 rows containing missing values (geom_point).</span></code></pre></div>
 <p><img src="axes_files/figure-html/unnamed-chunk-3-1.png" width="576"></p>
 </div>
-<div id="changing-the-tick-locations-and-labels" class="section level2">
-<h2 class="hasAnchor">
-<a href="#changing-the-tick-locations-and-labels" class="anchor"></a>Changing the tick locations and labels</h2>
-<p><a href="https://ggplot2.tidyverse.org">ggplot2</a> will also decide where the tickmarks (“breaks”) and associated axis text (“labels”) appear automatically, but of course, anything can be customized! When changing the breaks and labels, you first need to know <em>what kind of axis you are dealing with</em>: Does it use <em>continuous values</em> (the full number line) or does it use <em>discrete values</em>?</p>
+<div class="section level2">
+<h2 id="changing-the-tick-locations-and-labels">Changing the tick locations and labels<a class="anchor" aria-label="anchor" href="#changing-the-tick-locations-and-labels"></a>
+</h2>
+<p><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a> will also decide where the tickmarks (“breaks”) and associated axis text (“labels”) appear automatically, but of course, anything can be customized! When changing the breaks and labels, you first need to know <em>what kind of axis you are dealing with</em>: Does it use <em>continuous values</em> (the full number line) or does it use <em>discrete values</em>?</p>
 <p>There are different functions to use depending on the type of axis you have: Axes showing <em>continuous values</em> use functions <code>scale_x_continuous()</code> and <code>scale_y_continuous()</code>, and axes showing <em>discrete values</em> use functions <code>scale_x_discrete()</code> and <code>scale_y_discrete()</code> for customizing X and Y axes, respectively.</p>
 <p>The key arguments you can use include:</p>
 <ul>
@@ -171,15 +173,15 @@
 <li>
 <code>labels</code>, an array of labels for associated ticks, <em>if you would like to CHANGE them further.</em> The length of this array must match the length of the <code>breaks</code> (or the default number of breaks if you aren’t specifying breaks).</li>
 <li>
-<code>limits</code>: an array of <code><a href="https://rdrr.io/r/base/c.html">c(low, high)</a></code> for the axis limits. This has the same functionality as functions <code><a href="https://rdrr.io/r/graphics/plot.window.html">xlim()</a></code> and/or <code><a href="https://rdrr.io/r/graphics/plot.window.html">ylim()</a></code>, but can also be specified here if you want.</li>
+<code>limits</code>: an array of <code>c(low, high)</code> for the axis limits. This has the same functionality as functions <code><a href="https://rdrr.io/r/graphics/plot.window.html" class="external-link">xlim()</a></code> and/or <code><a href="https://rdrr.io/r/graphics/plot.window.html" class="external-link">ylim()</a></code>, but can also be specified here if you want.</li>
 <li>
 <code>name</code>: You can also rename the axis (same as using <code>labs()</code>) with the argument <code>name</code> if you want.</li>
 </ul>
-<div id="examples-continuous-axes" class="section level3">
-<h3 class="hasAnchor">
-<a href="#examples-continuous-axes" class="anchor"></a>Examples: Continuous axes</h3>
+<div class="section level3">
+<h3 id="examples-continuous-axes">Examples: Continuous axes<a class="anchor" aria-label="anchor" href="#examples-continuous-axes"></a>
+</h3>
 <blockquote>
-<p>Official <a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">documentation</a>!</p>
+<p>Official <a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html" class="external-link">documentation</a>!</p>
 </blockquote>
 <p><br><br></p>
 <p>Change the location of tickmarks:</p>
@@ -208,18 +210,18 @@
   <span class="fu">scale_x_continuous</span><span class="op">(</span>breaks <span class="op">=</span> <span class="fl">4</span><span class="op">:</span><span class="fl">23</span>, labels <span class="op">=</span> <span class="va">new_labels</span><span class="op">)</span></code></pre></div>
 <p><img src="axes_files/figure-html/unnamed-chunk-5-1.png" width="576"></p>
 </div>
-<div id="example-discrete-axes" class="section level3">
-<h3 class="hasAnchor">
-<a href="#example-discrete-axes" class="anchor"></a>Example: Discrete axes</h3>
+<div class="section level3">
+<h3 id="example-discrete-axes">Example: Discrete axes<a class="anchor" aria-label="anchor" href="#example-discrete-axes"></a>
+</h3>
 <blockquote>
-<p>Official <a href="https://ggplot2.tidyverse.org/reference/scale_discrete.html">documentation</a>!</p>
+<p>Official <a href="https://ggplot2.tidyverse.org/reference/scale_discrete.html" class="external-link">documentation</a>!</p>
 </blockquote>
 <p>Change the labels of tickmarks:</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">ggplot</span><span class="op">(</span><span class="va">msleep_clean</span><span class="op">)</span> <span class="op">+</span> 
   <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">vore</span>, y <span class="op">=</span> <span class="va">awake</span><span class="op">)</span> <span class="op">+</span> 
   <span class="fu">geom_boxplot</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">scale_x_discrete</span><span class="op">(</span>labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"carnivores"</span>, <span class="st">"herbivores"</span>, <span class="st">"insectivores"</span>, <span class="st">"omnivores"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+  <span class="fu">scale_x_discrete</span><span class="op">(</span>labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"carnivores"</span>, <span class="st">"herbivores"</span>, <span class="st">"insectivores"</span>, <span class="st">"omnivores"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <p><img src="axes_files/figure-html/unnamed-chunk-6-1.png" width="576"></p>
 <p>For discrete data like <code>vore</code>, you will not have much luck changing the number of breaks. This is because the axis is discrete, and the breaks are what they are:</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
@@ -231,9 +233,9 @@
 <p><img src="axes_files/figure-html/unnamed-chunk-7-1.png" width="576"></p>
 </div>
 </div>
-<div id="applying-a-log-scale" class="section level2">
-<h2 class="hasAnchor">
-<a href="#applying-a-log-scale" class="anchor"></a>Applying a log scale</h2>
+<div class="section level2">
+<h2 id="applying-a-log-scale">Applying a log scale<a class="anchor" aria-label="anchor" href="#applying-a-log-scale"></a>
+</h2>
 <p>When data has extreme ranges, it can be useful to apply a log-scale. We can accomplish this with either <code>scale_x_log10()</code> or <code>scale_y_log10()</code>, depending on which axis you want to visualize on a log scale (it may be both!). The variable <code>bodywt</code> has an extreme range of values, making trends difficult to visualize on linear scales. It may be helpful to transform, as shown below:</p>
 <p><br><br></p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
@@ -267,11 +269,13 @@
 
 
       <footer><div class="copyright">
-  <p>Developed by Stephanie Spielman.</p>
+  <p></p>
+<p>Developed by Stephanie Spielman.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+  <p></p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
 </div>
 
       </footer>
@@ -279,6 +283,8 @@
 
   
 
+
+  
 
   </body>
 </html>

@@ -46,5 +46,5 @@ The [`theme()`](https://ggplot2.tidyverse.org/reference/theme.html) function is 
 
 We use the `theme()` function to customize or modify components of a `{ggplot2}` plot theme. For more information on using this function to customize your theme, please either...
 
-+ [See this tutorial on the `{introverse}` website](https://spielmanlab.github.io/introverse/articles/themes.html)
++ [See this tutorial on the `{introverse}` website](https://sjspielman.github.io/introverse/articles/themes.html)
 + Or, run this command in `R` Console: `vignette("themes", package = "introverse")`

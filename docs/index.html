@@ -26,6 +26,8 @@
 <![endif]-->
 </head>
 <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-home">
       <header><div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
   <div class="container">
@@ -81,7 +83,7 @@
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/spielmanlab/introverse/">
+  <a href="https://github.com/sjspielman/introverse/" class="external-link">
     <span class="fab fa-github fa-lg"></span>
      
   </a>
@@ -98,60 +100,47 @@
 
       </header><div class="row">
   <div class="contents col-md-9">
-<div id="introverse" class="section level1">
-<div class="page-header"><h1 class="hasAnchor">
-<a href="#introverse" class="anchor"></a>introverse</h1></div>
-<p>Into the <a href="https://www.tidyverse.org/"><code>tidyverse</code></a> with the <code>introverse</code>: Accessible and novice-oriented help for getting started with <code>R</code> and data science</p>
+<div class="section level1">
+<div class="page-header"><h1 id="introverse">introverse<a class="anchor" aria-label="anchor" href="#introverse"></a>
+</h1></div>
+<p>Into the <a href="https://www.tidyverse.org/" class="external-link"><code>tidyverse</code></a> with the <code>introverse</code>: Accessible and novice-oriented help for getting started with <code>R</code> and data science</p>
 <!-- badges: start -->
-<p><a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License: MIT"></a> <a href="https://www.tidyverse.org/lifecycle/#experimental"><img src="https://img.shields.io/badge/lifecycle-experimental-orange.svg" alt="Lifecycle: stable"></a> <a href="https://github.com/spielmanlab/introverse/actions"><img src="https://github.com/spielmanlab/introverse/workflows/R-CMD-check/badge.svg" alt="R-CMD-check"></a><!-- badges: end --></p>
-<p><img src="logo.png" height="200px"></p>
-<p>(Note: This package is <em>not</em> affiliated with <a href="https://www.rstudio.com/">RStudio</a> or the <a href="https://www.tidyverse.org/"><code>tidyverse</code></a>, but their <a href="https://github.com/rstudio/hex-stickers">CC0 hex-stickers</a> are simply fantastic.)</p>
-<p>The <a href="https://github.com/spielmanlab/introverse">introverse</a> package provides alternate documentation for commonly-used functions and concepts in Base <code>R</code> and in the <code>tidyverse</code>. The provided resources are meant to <em>complement, not replace</em> official documentation and existing <code>R</code> resources. Therefore, the goal of the <a href="https://github.com/spielmanlab/introverse">introverse</a> is to provide beginner-oriented help for most <em>introductory</em> topics within <code>R</code> and the tidyverse, <em>not</em> to provide comprehensive help about using all of R. We hope <a href="https://github.com/spielmanlab/introverse">introverse</a> can help you (and/or your students!) get up-and-running within R and the <code>tidyverse</code>, so that once you get your bearings you can eventually “graduate” from the <a href="https://github.com/spielmanlab/introverse">introverse</a> and take advantage of the official comprehensive documentation/resources.</p>
-<div id="obtaining-the-introverse" class="section level2">
-<h2 class="hasAnchor">
-<a href="#obtaining-the-introverse" class="anchor"></a>Obtaining the <code>{introverse}</code>
+
+<p><img src="logo.png" width="125px"></p>
+<p>(Note: This package is <em>not</em> affiliated with <a href="https://www.rstudio.com/" class="external-link">RStudio</a> or the <a href="https://www.tidyverse.org/" class="external-link"><code>tidyverse</code></a>, but their <a href="https://github.com/rstudio/hex-stickers" class="external-link">CC0 hex-stickers</a> are simply fantastic.)</p>
+<p>The <a href="https://github.com/sjspielman/introverse" class="external-link">introverse</a> package provides alternate documentation for commonly-used functions and concepts in Base <code>R</code> and in the <code>tidyverse</code>. The provided resources are meant to <em>complement, not replace</em> official documentation and existing <code>R</code> resources. Therefore, the goal of the <a href="https://github.com/sjspielman/introverse" class="external-link">introverse</a> is to provide beginner-oriented help for most <em>introductory</em> topics within <code>R</code> and the tidyverse, <em>not</em> to provide comprehensive help about using all of R. We hope <a href="https://github.com/sjspielman/introverse" class="external-link">introverse</a> can help you (and/or your students!) get up-and-running within R and the <code>tidyverse</code>, so that once you get your bearings you can eventually “graduate” from the <a href="https://github.com/sjspielman/introverse" class="external-link">introverse</a> and take advantage of the official comprehensive documentation/resources.</p>
+<div class="section level2">
+<h2 id="obtaining-the-introverse">Obtaining the <code>{introverse}</code>
+<a class="anchor" aria-label="anchor" href="#obtaining-the-introverse"></a>
 </h2>
-<p>All <a href="https://github.com/spielmanlab/introverse">introverse</a> help docs are available online <a href="https://spielmanlab.github.io/introverse/articles/introverse_online.html">here</a>, or via command line as a package in RStudio as described below.</p>
+<p>All <a href="https://github.com/sjspielman/introverse" class="external-link">introverse</a> help docs are available online <a href="https://sjspielman.github.io/introverse/articles/introverse_online.html" class="external-link">here</a>, or via command line as a package in RStudio as described below.</p>
 <p><br></p>
-<div id="step-1-install-the-package" class="section level4">
-<h4 class="hasAnchor">
-<a href="#step-1-install-the-package" class="anchor"></a>Step 1: Install the package</h4>
-<p>First, install the <a href="https://github.com/spielmanlab/introverse">introverse</a> package by copy/pasting this code into an R Console. You only need to run this <em>once</em>!</p>
-<pre><code><a href="https://remotes.r-lib.org/reference/install_github.html">remotes::install_github("spielmanlab/introverse")</a></code></pre>
-<p>If you run this line of code and receive the error,</p>
-<blockquote>
-<p>Error in loadNamespace(name) : there is no package called ‘remotes’</p>
-</blockquote>
-<p>This error means you first need to install the <a href="https://remotes.r-lib.org">remotes</a> package to be able to install the <a href="https://github.com/spielmanlab/introverse">introverse</a>. Copy/paste the line of code below into an R Console, and then try the code <code><a href="https://remotes.r-lib.org/reference/install_github.html">remotes::install_github("spielmanlab/introverse")</a></code> again.</p>
-<pre><code><a href="https://rdrr.io/r/utils/install.packages.html">install.packages("remotes") </a></code></pre>
-<p>If you did not receive that error, <a href="https://github.com/spielmanlab/introverse">introverse</a> has been installed properly.</p>
+<div class="section level4">
+<h4 id="step-1-install-the-package">Step 1: Install the package<a class="anchor" aria-label="anchor" href="#step-1-install-the-package"></a>
+</h4>
+<p>First, install the <a href="https://github.com/sjspielman/introverse" class="external-link">introverse</a> package by copy/pasting this code into an R Console. You only need to run this <em>once</em>!</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"sjspielman/introverse"</span>)</span></code></pre></div>
+<p>If you run this line of code and receive the error, &gt; Error in loadNamespace(name) : there is no package called ‘remotes’</p>
+<p>This error means you first need to install the <a href="https://remotes.r-lib.org" class="external-link">remotes</a> package to be able to install the <a href="https://github.com/sjspielman/introverse" class="external-link">introverse</a>. Copy/paste the line of code below into an R Console, and then try the code <code>remotes::install_github("sjspielman/introverse")</code> again.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"remotes"</span>) </span></code></pre></div>
+<p>If you did not receive that error, <a href="https://github.com/sjspielman/introverse" class="external-link">introverse</a> has been installed properly.</p>
 </div>
-<div id="step-2-load-the-package" class="section level4">
-<h4 class="hasAnchor">
-<a href="#step-2-load-the-package" class="anchor"></a>Step 2: Load the package.</h4>
-<p>Now that the <a href="https://github.com/spielmanlab/introverse">introverse</a> is installed, you are ready to use it! From the R Console, <em>load the package</em> with the code. After you run this, you will be greeted with a welcome prompt that tells you some basic usage of the <a href="https://github.com/spielmanlab/introverse">introverse</a>. <em>Remember to load the package again for every R session you want to use it during!</em></p>
-<pre><code><a href="https://github.com/spielmanlab/introverse">library(introverse)</a></code></pre>
+<div class="section level4">
+<h4 id="step-2-load-the-package">Step 2: Load the package.<a class="anchor" aria-label="anchor" href="#step-2-load-the-package"></a>
+</h4>
+<p>Now that the <a href="https://github.com/sjspielman/introverse" class="external-link">introverse</a> is installed, you are ready to use it! From the R Console, <em>load the package</em> with the code. After you run this, you will be greeted with a welcome prompt that tells you some basic usage of the <a href="https://github.com/sjspielman/introverse" class="external-link">introverse</a>. <em>Remember to load the package again for every R session you want to use it during!</em></p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(introverse)</span></code></pre></div>
 </div>
-<div id="step-3-get-some-help" class="section level4">
-<h4 class="hasAnchor">
-<a href="#step-3-get-some-help" class="anchor"></a>Step 3: Get some help!</h4>
-<p>Head over <a href="https://spielmanlab.github.io/introverse/articles/introverse_rstudio.html">here</a> to see how to get started.</p>
+<div class="section level4">
+<h4 id="step-3-get-some-help">Step 3: Get some help!<a class="anchor" aria-label="anchor" href="#step-3-get-some-help"></a>
+</h4>
+<p>Head over <a href="https://sjspielman.github.io/introverse/articles/introverse_rstudio.html" class="external-link">here</a> to see how to get started.</p>
 <p><br><br></p>
 </div>
-<div id="code-of-conduct" class="section level3">
-<h3 class="hasAnchor">
-<a href="#code-of-conduct" class="anchor"></a>Code of Conduct</h3>
-<p>Please note that the <a href="https://github.com/spielmanlab/introverse">introverse</a> project is released with a <a href="https://contributor-covenant.org/version/2/0/CODE_OF_CONDUCT.html">Contributor Code of Conduct</a>. By contributing to this project, you agree to abide by its terms.</p>
-<div id="undergraduate-student-contributors" class="section level4">
-<h4 class="hasAnchor">
-<a href="#undergraduate-student-contributors" class="anchor"></a>Undergraduate student contributors:</h4>
-<ul>
-<li>
-<a href="https://github.com/jakekova">John (“Jake”) Kovaleski</a> (Fall 2020 - Present)</li>
-<li>
-<a href="https://github.com/judithepevans">Judith Evans</a> (Spring 2021 - Present)</li>
-</ul>
-</div>
+<div class="section level3">
+<h3 id="code-of-conduct">Code of Conduct<a class="anchor" aria-label="anchor" href="#code-of-conduct"></a>
+</h3>
+<p>Please note that the <a href="https://github.com/sjspielman/introverse" class="external-link">introverse</a> project is released with a <a href="https://contributor-covenant.org/version/2/0/CODE_OF_CONDUCT.html" class="external-link">Contributor Code of Conduct</a>. By contributing to this project, you agree to abide by its terms.</p>
 </div>
 </div>
 </div>
@@ -159,33 +148,49 @@
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <div class="links">
-<h2>Links</h2>
+<h2 data-toc-skip>Links</h2>
 <ul class="list-unstyled">
-<li>Browse source code at <br><a href="https://github.com/spielmanlab/introverse/">https://​github.com/​spielmanlab/​introverse/​</a>
-</li>
-<li>Report a bug at <br><a href="https://github.com/spielmanlab/introverse/issues">https://​github.com/​spielmanlab/​introverse/​issues</a>
-</li>
+<li><a href="https://github.com/sjspielman/introverse/" class="external-link">Browse source code</a></li>
+<li><a href="https://github.com/sjspielman/introverse/issues" class="external-link">Report a bug</a></li>
 </ul>
 </div>
+
 <div class="license">
-<h2>License</h2>
+<h2 data-toc-skip>License</h2>
 <ul class="list-unstyled">
 <li><a href="LICENSE.html">Full license</a></li>
-<li><small><a href="https://opensource.org/licenses/mit-license.php">MIT</a> + file <a href="LICENSE-text.html">LICENSE</a></small></li>
+<li><small><a href="https://opensource.org/licenses/mit-license.php" class="external-link">MIT</a> + file <a href="LICENSE-text.html">LICENSE</a></small></li>
 </ul>
 </div>
+
 <div class="community">
-<h2>Community</h2>
+<h2 data-toc-skip>Community</h2>
 <ul class="list-unstyled">
-<li><a href="CONTRIBUTING.html">Contributing guide</a></li>
 <li><a href="CODE_OF_CONDUCT.html">Code of conduct</a></li>
 </ul>
 </div>
-<div class="developers">
-<h2>Developers</h2>
+
+<div class="citation">
+<h2 data-toc-skip>Citation</h2>
 <ul class="list-unstyled">
-<li>Stephanie Spielman <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/0000-0002-9090-4788" target="orcid.widget" aria-label="ORCID"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
-<li><a href="authors.html">All authors...</a></li>
+<li><a href="authors.html#citation">Citing introverse</a></li>
+</ul>
+</div>
+
+<div class="developers">
+<h2 data-toc-skip>Developers</h2>
+<ul class="list-unstyled">
+<li>Stephanie Spielman <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/0000-0002-9090-4788" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
+<li><a href="authors.html">More about authors...</a></li>
+</ul>
+</div>
+
+<div class="dev-status">
+<h2 data-toc-skip>Dev status</h2>
+<ul class="list-unstyled">
+<li><a href="https://opensource.org/licenses/MIT" class="external-link"><img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License: MIT"></a></li>
+<li><a href="https://www.tidyverse.org/lifecycle/#experimental" class="external-link"><img src="https://img.shields.io/badge/lifecycle-experimental-orange.svg" alt="Lifecycle: stable"></a></li>
+<li><a href="https://github.com/sjspielman/introverse/actions" class="external-link"><img src="https://github.com/sjspielman/introverse/workflows/R-CMD-check/badge.svg" alt="R-CMD-check"></a></li>
 </ul>
 </div>
 
@@ -194,11 +199,13 @@
 
 
       <footer><div class="copyright">
-  <p>Developed by Stephanie Spielman.</p>
+  <p></p>
+<p>Developed by Stephanie Spielman.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+  <p></p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
 </div>
 
       </footer>
@@ -206,6 +213,8 @@
 
   
 
+
+  
 
   </body>
 </html>

@@ -145,7 +145,7 @@ knitr::opts_chunk$set(
 
 | Function or tutorial   |  Description  |
 |----|----|
-| [**Axes tutorial**](https://spielmanlab.github.io/introverse/articles/axes.html) | Customizing x- and y- axes
+| [**Axes tutorial**](https://sjspielman.github.io/introverse/articles/axes.html) | Customizing x- and y- axes
 | [**`xlim()`**](../introverse_docs/ggplot2_xlim.html) | Change x-axis limits 
 | [**`ylim()`**](../introverse_docs/ggplot2_xlim.html) | Change y-axis limits 
 | [**`labs()`**](../introverse_docs/ggplot2_labs.html) | Customize plot labels, including axes, titles, and legends |
@@ -158,7 +158,7 @@ knitr::opts_chunk$set(
 
 | Function or tutorial   |  Description  |
 |----|----|
-| [**Color and fill scales tutorial**](https://spielmanlab.github.io/introverse/articles/color_fill_scales.html) | Customizing color and fill scales
+| [**Color and fill scales tutorial**](https://sjspielman.github.io/introverse/articles/color_fill_scales.html) | Customizing color and fill scales
 | [**`scale_color_manual()`**](../introverse_docs/ggplot2_scale_color_manual.html) | Specify custom color scale mappings for discrete data
 | [**`scale_fill_manual()`**](../introverse_docs/ggplot2_scale_color_manual.html) | Specify custom fill scale mappings for discrete data
 | [**`scale_color_gradient()`**](../introverse_docs/ggplot2_scale_color_manual.html) | Specify custom color gradient scale mappings for continuous data
@@ -189,7 +189,7 @@ knitr::opts_chunk$set(
 
 | Function   |  Description  |
 |----|----|
-| [**`theme()`** and associated tutoral](https://spielmanlab.github.io/introverse/articles/themes.html) | Customizing themes
+| [**`theme()`** and associated tutoral](https://sjspielman.github.io/introverse/articles/themes.html) | Customizing themes
 | [**`theme_set()`**](../introverse_docs/ggplot2_theme_set.html) | Set the default theme |
 | [**`theme_gray()`**](../introverse_docs/ggplot2_theme_gray.html) | Specify the built-in "gray" (default) theme|
 | [**`theme_grey()`**](../introverse_docs/ggplot2_theme_gray.html) | Specify the built-in "grey" (default) theme|

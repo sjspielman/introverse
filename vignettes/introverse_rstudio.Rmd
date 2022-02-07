@@ -30,7 +30,7 @@ To see all currently available help topics, run the following command. The funct
 ```{r, eval=F}
 show_topics()
 ```
-Or, all currently available topics can be seen [here](https://spielmanlab.github.io/introverse/articles/introverse_online.html).
+Or, all currently available topics can be seen [here](https://sjspielman.github.io/introverse/articles/introverse_online.html).
 
 
 <br>
@@ -88,4 +88,4 @@ Or, directly type `msleep` and/or `carnivores` into the R Console to see the dat
 
 ### This is all a little confusing. What if I get lost?
 
-Don't worry, the `{introverse}` is here to help! We try to provide helpful feedback as much as possible if you use one of the `{introverse}` functions incorrectly or provide a "bad" argument. Read all of the messages you get carefully, and if you're still confused, let us know how we can improve by filing an [issue](https://github.com/spielmanlab/introverse/issues)!
+Don't worry, the `{introverse}` is here to help! We try to provide helpful feedback as much as possible if you use one of the `{introverse}` functions incorrectly or provide a "bad" argument. Read all of the messages you get carefully, and if you're still confused, let us know how we can improve by filing an [issue](https://github.com/sjspielman/introverse/issues)!

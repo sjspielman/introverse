@@ -326,7 +326,8 @@ blockquote {
 <div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="do">## </span><span class="al">CAUTION</span><span class="do">! This code will result in an ERROR since (what to do if TRUE) 5 is a number, but</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="do">## &#39;string&#39; (what ro do if FALSE) is character. Those are different types.</span></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">if_else</span>(<span class="dv">10</span> <span class="sc">&lt;</span> <span class="dv">100</span>, <span class="dv">5</span>, <span class="st">&#39;string&#39;</span>)</span></code></pre></div>
-<pre><code>## Error: `false` must be a double vector, not a character vector.</code></pre>
+<pre><code>## Error in `glubort()`:
+## ! `false` must be a double vector, not a character vector.</code></pre>
 <p><br></p>
 <div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Use if_else to help create a new column called `how_awake` in `carnivores` that will be:</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="do">## &quot;alert&quot; if awake &gt;= 15 and &quot;sleepy&quot; otherwise.</span></span>

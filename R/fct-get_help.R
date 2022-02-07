@@ -48,7 +48,7 @@ Not sure what help you need? Use " %+%  crayon::bold('show_topics()') %+% " to s
     Or, do you think this topic is missing and would 
     be helpful to include in the introverse? 
     
-    Let us know by filing an issue here:\n" %+% crayon::underline("https://github.com/spielmanlab/introverse/issues") %+% "
+    Let us know by filing an issue here:\n" %+% crayon::underline("https://github.com/sjspielman/introverse/issues") %+% "
     Thanks for the feedback!")
       }
     } else 

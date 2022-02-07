@@ -26,6 +26,8 @@
 <![endif]-->
 </head>
 <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-article">
       <header><div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
   <div class="container">
@@ -81,7 +83,7 @@
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/spielmanlab/introverse/">
+  <a href="https://github.com/sjspielman/introverse/" class="external-link">
     <span class="fab fa-github fa-lg"></span>
      
   </a>
@@ -96,14 +98,14 @@
 
       
 
-      </header><script src="themes_files/header-attrs-2.11/header-attrs.js"></script><div class="row">
+      </header><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>Customizing themes in <code>ggplot2</code>
 </h1>
             
       
-      <small class="dont-index">Source: <a href="https://github.com/spielmanlab/introverse/blob/master/vignettes/themes.Rmd"><code>vignettes/themes.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/sjspielman/introverse/blob/HEAD/vignettes/themes.Rmd" class="external-link"><code>vignettes/themes.Rmd</code></a></small>
       <div class="hidden name"><code>themes.Rmd</code></div>
 
     </div>
@@ -122,7 +124,7 @@
 <li><code>color</code></li>
 <li><code>size</code></li>
 <li>
-<code>face</code> : “plain”, “italic”, “bold”, or "bold.italic)</li>
+<code>face</code> : “plain”, “italic”, “bold”, or “bold.italic)</li>
 <li><code>angle</code></li>
 <li>
 <code>hjust</code> : “horizontal justification” where 0 is far left, 0.5 is middle, and 1 is far right, and anything in between!</li>
@@ -165,14 +167,14 @@
 <p><br></p>
 <ul>
 <li>
-<strong><code>unit()</code></strong>: Some theme components are not strictly elements but are defined in terms of size only and will be termed <code>unit()</code> or <code><a href="https://rdrr.io/r/grid/unit.html">grid::unit()</a></code>.</li>
+<strong><code>unit()</code></strong>: Some theme components are not strictly elements but are defined in terms of size only and will be termed <code>unit()</code> or <code><a href="https://rdrr.io/r/grid/unit.html" class="external-link">grid::unit()</a></code>.</li>
 </ul>
 <p><br></p>
-<p>All theme components can be fully customized using the <strong><code>theme()</code></strong> function, as is overwhelmingly documented <a href="https://ggplot2.tidyverse.org/reference/theme.html">here</a>. There are also several <a href="">existing complete themes</a> in <a href="https://ggplot2.tidyverse.org">ggplot2</a>, which can be used “out of the box” if you want something different but without further customization, examples for which are shown in this tutorial.</p>
+<p>All theme components can be fully customized using the <strong><code>theme()</code></strong> function, as is overwhelmingly documented <a href="https://ggplot2.tidyverse.org/reference/theme.html" class="external-link">here</a>. There are also several <a href="">existing complete themes</a> in <a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a>, which can be used “out of the box” if you want something different but without further customization, examples for which are shown in this tutorial.</p>
 <p><br><br></p>
-<div id="customizing-a-theme" class="section level2">
-<h2 class="hasAnchor">
-<a href="#customizing-a-theme" class="anchor"></a>Customizing a theme</h2>
+<div class="section level2">
+<h2 id="customizing-a-theme">Customizing a theme<a class="anchor" aria-label="anchor" href="#customizing-a-theme"></a>
+</h2>
 <p>All examples in this tutorial will modify a version of this plot, which uses the default <code>theme_gray()</code> with no further customization. The plot is made with the <code>msleep</code> dataset. <strong>Note that the examples generally do not make well-styled plots! The modified theme elements are intentionally strong to demonstrate the concepts, not because they look pretty.</strong></p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">ggplot</span><span class="op">(</span><span class="va">msleep</span><span class="op">)</span> <span class="op">+</span> 
@@ -182,8 +184,8 @@
 <p><br></p>
 <p>When customizing a theme, you need to:</p>
 <ul>
-<li>Search through <a href="https://ggplot2.tidyverse.org/reference/theme.html">the documentation</a> (literally) to find how <code>ggplot2</code> refers to the particular plot component you want to change.</li>
-<li>Use <a href="https://ggplot2.tidyverse.org/reference/element.html">the documentation</a> (sensing a pattern?) to determine whether that component goes with <code>element_text()</code>, <code>element_line()</code>, or <code>element_rect()</code>.
+<li>Search through <a href="https://ggplot2.tidyverse.org/reference/theme.html" class="external-link">the documentation</a> (literally) to find how <code>ggplot2</code> refers to the particular plot component you want to change.</li>
+<li>Use <a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">the documentation</a> (sensing a pattern?) to determine whether that component goes with <code>element_text()</code>, <code>element_line()</code>, or <code>element_rect()</code>.
 <ul>
 <li>Or, decide if you want to <em>entirely remove</em> that particular plot component. Stay tuned…</li>
 </ul>
@@ -200,9 +202,8 @@
 </ul>
 </li>
 </ul>
-<div id="quick-examples-of-element_text" class="section level3">
-<h3 class="hasAnchor">
-<a href="#quick-examples-of-element_text" class="anchor"></a>Quick examples of <code>element_text()</code>
+<div class="section level3">
+<h3 id="quick-examples-of-element_text">Quick examples of <code>element_text()</code><a class="anchor" aria-label="anchor" href="#quick-examples-of-element_text"></a>
 </h3>
 <p>Let’s see some examples using <code>axis.text</code><a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>, which controls both X and Y axis <em>text</em> (aka the labels along the axes, NOT the title). Customizing <code>axis.text</code> must be paired with <code>element_text()</code>, as it is text!</p>
 <p><br><br></p>
@@ -253,9 +254,8 @@
   <span class="fu">theme</span><span class="op">(</span>axis.text <span class="op">=</span> <span class="fu">element_text</span><span class="op">(</span>angle <span class="op">=</span> <span class="fl">90</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <p><img src="themes_files/figure-html/unnamed-chunk-7-1.png" width="384"></p>
 </div>
-<div id="quick-examples-of-element_rect" class="section level3">
-<h3 class="hasAnchor">
-<a href="#quick-examples-of-element_rect" class="anchor"></a>Quick examples of <code>element_rect()</code>
+<div class="section level3">
+<h3 id="quick-examples-of-element_rect">Quick examples of <code>element_rect()</code><a class="anchor" aria-label="anchor" href="#quick-examples-of-element_rect"></a>
 </h3>
 <p>Change the background fill of the plot:</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
@@ -283,9 +283,8 @@
                                         size <span class="op">=</span> <span class="fu">rel</span><span class="op">(</span><span class="fl">4</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <p><img src="themes_files/figure-html/unnamed-chunk-10-1.png" width="576"></p>
 </div>
-<div id="quick-examples-of-element_line" class="section level3">
-<h3 class="hasAnchor">
-<a href="#quick-examples-of-element_line" class="anchor"></a>Quick examples of <code>element_line()</code>
+<div class="section level3">
+<h3 id="quick-examples-of-element_line">Quick examples of <code>element_line()</code><a class="anchor" aria-label="anchor" href="#quick-examples-of-element_line"></a>
 </h3>
 <p>Change the axis thickness (multiply default size by 2) and color, why not!</p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
@@ -309,9 +308,8 @@
         panel.grid.minor <span class="op">=</span> <span class="fu">element_blank</span><span class="op">(</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <p><img src="themes_files/figure-html/unnamed-chunk-13-1.png" width="384"></p>
 </div>
-<div id="quick-examples-of-unit" class="section level3">
-<h3 class="hasAnchor">
-<a href="#quick-examples-of-unit" class="anchor"></a>Quick examples of <code>unit()</code>
+<div class="section level3">
+<h3 id="quick-examples-of-unit">Quick examples of <code>unit()</code><a class="anchor" aria-label="anchor" href="#quick-examples-of-unit"></a>
 </h3>
 <p>Legend components commonly use <code>unit()</code>, which takes two arguments: the target size, and the unit of the target size. There are many units for size, but some popular ones are <code>"cm"</code> and <code>"inches"</code>!</p>
 <p>For example, we might want to change the size of the legend keys to make them smaller:</p>
@@ -332,9 +330,9 @@
 <p><img src="themes_files/figure-html/unnamed-chunk-15-1.png" width="768"></p>
 </div>
 </div>
-<div id="modifying-the-theme-of-an-existing-plot" class="section level2">
-<h2 class="hasAnchor">
-<a href="#modifying-the-theme-of-an-existing-plot" class="anchor"></a>Modifying the theme of an existing plot</h2>
+<div class="section level2">
+<h2 id="modifying-the-theme-of-an-existing-plot">Modifying the theme of an existing plot<a class="anchor" aria-label="anchor" href="#modifying-the-theme-of-an-existing-plot"></a>
+</h2>
 <p>You can continue to add features, including theme changes, to a plot once it is created. For example:</p>
 <div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">ggplot</span><span class="op">(</span><span class="va">msleep</span><span class="op">)</span> <span class="op">+</span> 
@@ -367,11 +365,13 @@
 
 
       <footer><div class="copyright">
-  <p>Developed by Stephanie Spielman.</p>
+  <p></p>
+<p>Developed by Stephanie Spielman.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+  <p></p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
 </div>
 
       </footer>
@@ -379,6 +379,8 @@
 
   
 
+
+  
 
   </body>
 </html>

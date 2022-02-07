@@ -336,231 +336,231 @@ blockquote {
 <pre><code>## # A tibble: 6 × 11
 ##   name  genus vore  order conservation sleep_total sleep_rem sleep_cycle awake  brainwt  bodywt
 ##   &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;              &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;
-## 1 Chee… Acin… carni Carn… lc                  12.1      NA        NA      11.9 NA        50    
-## 2 Owl … Aotus omni  Prim… &lt;NA&gt;                17         1.8      NA       7    0.0155    0.48 
-## 3 Moun… Aplo… herbi Rode… nt                  14.4       2.4      NA       9.6 NA         1.35 
-## 4 Grea… Blar… omni  Sori… lc                  14.9       2.3       0.133   9.1  0.00029   0.019
-## 5 Cow   Bos   herbi Arti… domesticated         4         0.7       0.667  20    0.423   600    
-## 6 Thre… Brad… herbi Pilo… &lt;NA&gt;                14.4       2.2       0.767   9.6 NA         3.85</code></pre>
+## 1 Owl … Aotus omni  Prim… &lt;NA&gt;                17         1.8      NA       7    0.0155    0.48 
+## 2 Moun… Aplo… herbi Rode… nt                  14.4       2.4      NA       9.6 NA         1.35 
+## 3 Grea… Blar… omni  Sori… lc                  14.9       2.3       0.133   9.1  0.00029   0.019
+## 4 Cow   Bos   herbi Arti… domesticated         4         0.7       0.667  20    0.423   600    
+## 5 Thre… Brad… herbi Pilo… &lt;NA&gt;                14.4       2.2       0.767   9.6 NA         3.85 
+## 6 Nort… Call… carni Carn… vu                   8.7       1.4       0.383  15.3 NA        20.5</code></pre>
 <p><br></p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Use everything() to move the column brainwt to the front</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># This code says: first select brainwt, and then _everything else_</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>msleep <span class="sc">%&gt;%</span> </span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(brainwt, <span class="fu">everything</span>())</span></code></pre></div>
-<pre><code>## # A tibble: 83 × 11
-##     brainwt name       genus  vore  order  conservation sleep_total sleep_rem sleep_cycle awake
-##       &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;              &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt; &lt;dbl&gt;
-##  1 NA       Cheetah    Acino… carni Carni… lc                  12.1      NA        NA      11.9
-##  2  0.0155  Owl monkey Aotus  omni  Prima… &lt;NA&gt;                17         1.8      NA       7  
-##  3 NA       Mountain … Aplod… herbi Roden… nt                  14.4       2.4      NA       9.6
-##  4  0.00029 Greater s… Blari… omni  Soric… lc                  14.9       2.3       0.133   9.1
-##  5  0.423   Cow        Bos    herbi Artio… domesticated         4         0.7       0.667  20  
-##  6 NA       Three-toe… Brady… herbi Pilosa &lt;NA&gt;                14.4       2.2       0.767   9.6
-##  7 NA       Northern … Callo… carni Carni… vu                   8.7       1.4       0.383  15.3
-##  8 NA       Vesper mo… Calom… &lt;NA&gt;  Roden… &lt;NA&gt;                 7        NA        NA      17  
-##  9  0.07    Dog        Canis  carni Carni… domesticated        10.1       2.9       0.333  13.9
-## 10  0.0982  Roe deer   Capre… herbi Artio… lc                   3        NA        NA      21  
-## # … with 73 more rows, and 1 more variable: bodywt &lt;dbl&gt;</code></pre>
+<pre><code>## # A tibble: 61 × 11
+##     brainwt name         genus vore  order conservation sleep_total sleep_rem sleep_cycle awake
+##       &lt;dbl&gt; &lt;chr&gt;        &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;              &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt; &lt;dbl&gt;
+##  1  0.0155  Owl monkey   Aotus omni  Prim… &lt;NA&gt;                17         1.8      NA       7  
+##  2 NA       Mountain be… Aplo… herbi Rode… nt                  14.4       2.4      NA       9.6
+##  3  0.00029 Greater sho… Blar… omni  Sori… lc                  14.9       2.3       0.133   9.1
+##  4  0.423   Cow          Bos   herbi Arti… domesticated         4         0.7       0.667  20  
+##  5 NA       Three-toed … Brad… herbi Pilo… &lt;NA&gt;                14.4       2.2       0.767   9.6
+##  6 NA       Northern fu… Call… carni Carn… vu                   8.7       1.4       0.383  15.3
+##  7  0.07    Dog          Canis carni Carn… domesticated        10.1       2.9       0.333  13.9
+##  8  0.115   Goat         Capri herbi Arti… lc                   5.3       0.6      NA      18.7
+##  9  0.0055  Guinea pig   Cavis herbi Rode… domesticated         9.4       0.8       0.217  14.6
+## 10 NA       Grivet       Cerc… omni  Prim… lc                  10         0.7      NA      14  
+## # … with 51 more rows, and 1 more variable: bodywt &lt;dbl&gt;</code></pre>
 <p><br> <!-- Do not delete the <br>, and make sure to keep the previous and following lines blank. --></p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Use contains() to keep only columns that contain the letter &quot;w&quot;</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>msleep <span class="sc">%&gt;%</span></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">contains</span>(<span class="st">&quot;w&quot;</span>))</span></code></pre></div>
-<pre><code>## # A tibble: 83 × 3
+<pre><code>## # A tibble: 61 × 3
 ##    awake  brainwt  bodywt
 ##    &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;
-##  1  11.9 NA        50    
-##  2   7    0.0155    0.48 
-##  3   9.6 NA         1.35 
-##  4   9.1  0.00029   0.019
-##  5  20    0.423   600    
-##  6   9.6 NA         3.85 
-##  7  15.3 NA        20.5  
-##  8  17   NA         0.045
-##  9  13.9  0.07     14    
-## 10  21    0.0982   14.8  
-## # … with 73 more rows</code></pre>
+##  1   7    0.0155    0.48 
+##  2   9.6 NA         1.35 
+##  3   9.1  0.00029   0.019
+##  4  20    0.423   600    
+##  5   9.6 NA         3.85 
+##  6  15.3 NA        20.5  
+##  7  13.9  0.07     14    
+##  8  18.7  0.115    33.5  
+##  9  14.6  0.0055    0.728
+## 10  14   NA         4.75 
+## # … with 51 more rows</code></pre>
 <p><br></p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Use contains() to REMOVE columns that contain the letter &quot;w&quot;, with a minus sign</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>msleep <span class="sc">%&gt;%</span></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="fu">contains</span>(<span class="st">&quot;w&quot;</span>))</span></code></pre></div>
-<pre><code>## # A tibble: 83 × 8
+<pre><code>## # A tibble: 61 × 8
 ##    name                       genus  vore  order conservation sleep_total sleep_rem sleep_cycle
 ##    &lt;chr&gt;                      &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;              &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt;
-##  1 Cheetah                    Acino… carni Carn… lc                  12.1      NA        NA    
-##  2 Owl monkey                 Aotus  omni  Prim… &lt;NA&gt;                17         1.8      NA    
-##  3 Mountain beaver            Aplod… herbi Rode… nt                  14.4       2.4      NA    
-##  4 Greater short-tailed shrew Blari… omni  Sori… lc                  14.9       2.3       0.133
-##  5 Cow                        Bos    herbi Arti… domesticated         4         0.7       0.667
-##  6 Three-toed sloth           Brady… herbi Pilo… &lt;NA&gt;                14.4       2.2       0.767
-##  7 Northern fur seal          Callo… carni Carn… vu                   8.7       1.4       0.383
-##  8 Vesper mouse               Calom… &lt;NA&gt;  Rode… &lt;NA&gt;                 7        NA        NA    
-##  9 Dog                        Canis  carni Carn… domesticated        10.1       2.9       0.333
-## 10 Roe deer                   Capre… herbi Arti… lc                   3        NA        NA    
-## # … with 73 more rows</code></pre>
+##  1 Owl monkey                 Aotus  omni  Prim… &lt;NA&gt;                17         1.8      NA    
+##  2 Mountain beaver            Aplod… herbi Rode… nt                  14.4       2.4      NA    
+##  3 Greater short-tailed shrew Blari… omni  Sori… lc                  14.9       2.3       0.133
+##  4 Cow                        Bos    herbi Arti… domesticated         4         0.7       0.667
+##  5 Three-toed sloth           Brady… herbi Pilo… &lt;NA&gt;                14.4       2.2       0.767
+##  6 Northern fur seal          Callo… carni Carn… vu                   8.7       1.4       0.383
+##  7 Dog                        Canis  carni Carn… domesticated        10.1       2.9       0.333
+##  8 Goat                       Capri  herbi Arti… lc                   5.3       0.6      NA    
+##  9 Guinea pig                 Cavis  herbi Rode… domesticated         9.4       0.8       0.217
+## 10 Grivet                     Cerco… omni  Prim… lc                  10         0.7      NA    
+## # … with 51 more rows</code></pre>
 <p><br></p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Use starts_with() to keep only columns that start with &quot;sleep&quot;</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>msleep <span class="sc">%&gt;%</span></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">starts_with</span>(<span class="st">&quot;sleep&quot;</span>))</span></code></pre></div>
-<pre><code>## # A tibble: 83 × 3
+<pre><code>## # A tibble: 61 × 3
 ##    sleep_total sleep_rem sleep_cycle
 ##          &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt;
-##  1        12.1      NA        NA    
-##  2        17         1.8      NA    
-##  3        14.4       2.4      NA    
-##  4        14.9       2.3       0.133
-##  5         4         0.7       0.667
-##  6        14.4       2.2       0.767
-##  7         8.7       1.4       0.383
-##  8         7        NA        NA    
-##  9        10.1       2.9       0.333
-## 10         3        NA        NA    
-## # … with 73 more rows</code></pre>
+##  1        17         1.8      NA    
+##  2        14.4       2.4      NA    
+##  3        14.9       2.3       0.133
+##  4         4         0.7       0.667
+##  5        14.4       2.2       0.767
+##  6         8.7       1.4       0.383
+##  7        10.1       2.9       0.333
+##  8         5.3       0.6      NA    
+##  9         9.4       0.8       0.217
+## 10        10         0.7      NA    
+## # … with 51 more rows</code></pre>
 <p><br></p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Use starts_with() to REMOVE columns that start with &quot;sleep&quot;, with a minus sign</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>msleep <span class="sc">%&gt;%</span></span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="fu">starts_with</span>(<span class="st">&quot;sleep&quot;</span>))</span></code></pre></div>
-<pre><code>## # A tibble: 83 × 8
-##    name                       genus       vore  order       conservation awake  brainwt  bodywt
-##    &lt;chr&gt;                      &lt;chr&gt;       &lt;chr&gt; &lt;chr&gt;       &lt;chr&gt;        &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;
-##  1 Cheetah                    Acinonyx    carni Carnivora   lc            11.9 NA        50    
-##  2 Owl monkey                 Aotus       omni  Primates    &lt;NA&gt;           7    0.0155    0.48 
-##  3 Mountain beaver            Aplodontia  herbi Rodentia    nt             9.6 NA         1.35 
-##  4 Greater short-tailed shrew Blarina     omni  Soricomorp… lc             9.1  0.00029   0.019
-##  5 Cow                        Bos         herbi Artiodacty… domesticated  20    0.423   600    
-##  6 Three-toed sloth           Bradypus    herbi Pilosa      &lt;NA&gt;           9.6 NA         3.85 
-##  7 Northern fur seal          Callorhinus carni Carnivora   vu            15.3 NA        20.5  
-##  8 Vesper mouse               Calomys     &lt;NA&gt;  Rodentia    &lt;NA&gt;          17   NA         0.045
-##  9 Dog                        Canis       carni Carnivora   domesticated  13.9  0.07     14    
-## 10 Roe deer                   Capreolus   herbi Artiodacty… lc            21    0.0982   14.8  
-## # … with 73 more rows</code></pre>
+<pre><code>## # A tibble: 61 × 8
+##    name                       genus         vore  order     conservation awake  brainwt  bodywt
+##    &lt;chr&gt;                      &lt;chr&gt;         &lt;chr&gt; &lt;chr&gt;     &lt;chr&gt;        &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;
+##  1 Owl monkey                 Aotus         omni  Primates  &lt;NA&gt;           7    0.0155    0.48 
+##  2 Mountain beaver            Aplodontia    herbi Rodentia  nt             9.6 NA         1.35 
+##  3 Greater short-tailed shrew Blarina       omni  Soricomo… lc             9.1  0.00029   0.019
+##  4 Cow                        Bos           herbi Artiodac… domesticated  20    0.423   600    
+##  5 Three-toed sloth           Bradypus      herbi Pilosa    &lt;NA&gt;           9.6 NA         3.85 
+##  6 Northern fur seal          Callorhinus   carni Carnivora vu            15.3 NA        20.5  
+##  7 Dog                        Canis         carni Carnivora domesticated  13.9  0.07     14    
+##  8 Goat                       Capri         herbi Artiodac… lc            18.7  0.115    33.5  
+##  9 Guinea pig                 Cavis         herbi Rodentia  domesticated  14.6  0.0055    0.728
+## 10 Grivet                     Cercopithecus omni  Primates  lc            14   NA         4.75 
+## # … with 51 more rows</code></pre>
 <p><br></p>
 <div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Use ends_with() to keep only columns that end with &quot;wt&quot;</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>msleep <span class="sc">%&gt;%</span></span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">ends_with</span>(<span class="st">&quot;wt&quot;</span>))</span></code></pre></div>
-<pre><code>## # A tibble: 83 × 2
+<pre><code>## # A tibble: 61 × 2
 ##     brainwt  bodywt
 ##       &lt;dbl&gt;   &lt;dbl&gt;
-##  1 NA        50    
-##  2  0.0155    0.48 
-##  3 NA         1.35 
-##  4  0.00029   0.019
-##  5  0.423   600    
-##  6 NA         3.85 
-##  7 NA        20.5  
-##  8 NA         0.045
-##  9  0.07     14    
-## 10  0.0982   14.8  
-## # … with 73 more rows</code></pre>
+##  1  0.0155    0.48 
+##  2 NA         1.35 
+##  3  0.00029   0.019
+##  4  0.423   600    
+##  5 NA         3.85 
+##  6 NA        20.5  
+##  7  0.07     14    
+##  8  0.115    33.5  
+##  9  0.0055    0.728
+## 10 NA         4.75 
+## # … with 51 more rows</code></pre>
 <p><br></p>
 <div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Use ends_with() to REMOVE columns that end with &quot;wt&quot;, with a minus sign</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>msleep <span class="sc">%&gt;%</span></span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="fu">ends_with</span>(<span class="st">&quot;sleep&quot;</span>))</span></code></pre></div>
-<pre><code>## # A tibble: 83 × 11
-##    name       genus  vore  order  conservation sleep_total sleep_rem sleep_cycle awake  brainwt
-##    &lt;chr&gt;      &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;              &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;
-##  1 Cheetah    Acino… carni Carni… lc                  12.1      NA        NA      11.9 NA      
-##  2 Owl monkey Aotus  omni  Prima… &lt;NA&gt;                17         1.8      NA       7    0.0155 
-##  3 Mountain … Aplod… herbi Roden… nt                  14.4       2.4      NA       9.6 NA      
-##  4 Greater s… Blari… omni  Soric… lc                  14.9       2.3       0.133   9.1  0.00029
-##  5 Cow        Bos    herbi Artio… domesticated         4         0.7       0.667  20    0.423  
-##  6 Three-toe… Brady… herbi Pilosa &lt;NA&gt;                14.4       2.2       0.767   9.6 NA      
-##  7 Northern … Callo… carni Carni… vu                   8.7       1.4       0.383  15.3 NA      
-##  8 Vesper mo… Calom… &lt;NA&gt;  Roden… &lt;NA&gt;                 7        NA        NA      17   NA      
-##  9 Dog        Canis  carni Carni… domesticated        10.1       2.9       0.333  13.9  0.07   
-## 10 Roe deer   Capre… herbi Artio… lc                   3        NA        NA      21    0.0982 
-## # … with 73 more rows, and 1 more variable: bodywt &lt;dbl&gt;</code></pre>
+<pre><code>## # A tibble: 61 × 11
+##    name         genus vore  order conservation sleep_total sleep_rem sleep_cycle awake  brainwt
+##    &lt;chr&gt;        &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;              &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;
+##  1 Owl monkey   Aotus omni  Prim… &lt;NA&gt;                17         1.8      NA       7    0.0155 
+##  2 Mountain be… Aplo… herbi Rode… nt                  14.4       2.4      NA       9.6 NA      
+##  3 Greater sho… Blar… omni  Sori… lc                  14.9       2.3       0.133   9.1  0.00029
+##  4 Cow          Bos   herbi Arti… domesticated         4         0.7       0.667  20    0.423  
+##  5 Three-toed … Brad… herbi Pilo… &lt;NA&gt;                14.4       2.2       0.767   9.6 NA      
+##  6 Northern fu… Call… carni Carn… vu                   8.7       1.4       0.383  15.3 NA      
+##  7 Dog          Canis carni Carn… domesticated        10.1       2.9       0.333  13.9  0.07   
+##  8 Goat         Capri herbi Arti… lc                   5.3       0.6      NA      18.7  0.115  
+##  9 Guinea pig   Cavis herbi Rode… domesticated         9.4       0.8       0.217  14.6  0.0055 
+## 10 Grivet       Cerc… omni  Prim… lc                  10         0.7      NA      14   NA      
+## # … with 51 more rows, and 1 more variable: bodywt &lt;dbl&gt;</code></pre>
 <p><br></p>
 <div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Tidyselect allows us to use colons `:` to select a range of columns</span></span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Select vore through awake</span></span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>msleep <span class="sc">%&gt;%</span></span>
 <span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(vore<span class="sc">:</span>awake)</span></code></pre></div>
-<pre><code>## # A tibble: 83 × 7
+<pre><code>## # A tibble: 61 × 7
 ##    vore  order        conservation sleep_total sleep_rem sleep_cycle awake
 ##    &lt;chr&gt; &lt;chr&gt;        &lt;chr&gt;              &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt; &lt;dbl&gt;
-##  1 carni Carnivora    lc                  12.1      NA        NA      11.9
-##  2 omni  Primates     &lt;NA&gt;                17         1.8      NA       7  
-##  3 herbi Rodentia     nt                  14.4       2.4      NA       9.6
-##  4 omni  Soricomorpha lc                  14.9       2.3       0.133   9.1
-##  5 herbi Artiodactyla domesticated         4         0.7       0.667  20  
-##  6 herbi Pilosa       &lt;NA&gt;                14.4       2.2       0.767   9.6
-##  7 carni Carnivora    vu                   8.7       1.4       0.383  15.3
-##  8 &lt;NA&gt;  Rodentia     &lt;NA&gt;                 7        NA        NA      17  
-##  9 carni Carnivora    domesticated        10.1       2.9       0.333  13.9
-## 10 herbi Artiodactyla lc                   3        NA        NA      21  
-## # … with 73 more rows</code></pre>
+##  1 omni  Primates     &lt;NA&gt;                17         1.8      NA       7  
+##  2 herbi Rodentia     nt                  14.4       2.4      NA       9.6
+##  3 omni  Soricomorpha lc                  14.9       2.3       0.133   9.1
+##  4 herbi Artiodactyla domesticated         4         0.7       0.667  20  
+##  5 herbi Pilosa       &lt;NA&gt;                14.4       2.2       0.767   9.6
+##  6 carni Carnivora    vu                   8.7       1.4       0.383  15.3
+##  7 carni Carnivora    domesticated        10.1       2.9       0.333  13.9
+##  8 herbi Artiodactyla lc                   5.3       0.6      NA      18.7
+##  9 herbi Rodentia     domesticated         9.4       0.8       0.217  14.6
+## 10 omni  Primates     lc                  10         0.7      NA      14  
+## # … with 51 more rows</code></pre>
 <p><br></p>
 <div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># DE-select vore through awake, with a minus sign</span></span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>msleep <span class="sc">%&gt;%</span></span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>(vore<span class="sc">:</span>awake))</span></code></pre></div>
-<pre><code>## # A tibble: 83 × 4
-##    name                       genus        brainwt  bodywt
-##    &lt;chr&gt;                      &lt;chr&gt;          &lt;dbl&gt;   &lt;dbl&gt;
-##  1 Cheetah                    Acinonyx    NA        50    
-##  2 Owl monkey                 Aotus        0.0155    0.48 
-##  3 Mountain beaver            Aplodontia  NA         1.35 
-##  4 Greater short-tailed shrew Blarina      0.00029   0.019
-##  5 Cow                        Bos          0.423   600    
-##  6 Three-toed sloth           Bradypus    NA         3.85 
-##  7 Northern fur seal          Callorhinus NA        20.5  
-##  8 Vesper mouse               Calomys     NA         0.045
-##  9 Dog                        Canis        0.07     14    
-## 10 Roe deer                   Capreolus    0.0982   14.8  
-## # … with 73 more rows</code></pre>
+<pre><code>## # A tibble: 61 × 4
+##    name                       genus          brainwt  bodywt
+##    &lt;chr&gt;                      &lt;chr&gt;            &lt;dbl&gt;   &lt;dbl&gt;
+##  1 Owl monkey                 Aotus          0.0155    0.48 
+##  2 Mountain beaver            Aplodontia    NA         1.35 
+##  3 Greater short-tailed shrew Blarina        0.00029   0.019
+##  4 Cow                        Bos            0.423   600    
+##  5 Three-toed sloth           Bradypus      NA         3.85 
+##  6 Northern fur seal          Callorhinus   NA        20.5  
+##  7 Dog                        Canis          0.07     14    
+##  8 Goat                       Capri          0.115    33.5  
+##  9 Guinea pig                 Cavis          0.0055    0.728
+## 10 Grivet                     Cercopithecus NA         4.75 
+## # … with 51 more rows</code></pre>
 <p><br></p>
 <div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Use last_col() to keep only the last-appearing column in msleep</span></span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>msleep <span class="sc">%&gt;%</span></span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">last_col</span>())</span></code></pre></div>
-<pre><code>## # A tibble: 83 × 1
+<pre><code>## # A tibble: 61 × 1
 ##     bodywt
 ##      &lt;dbl&gt;
-##  1  50    
-##  2   0.48 
-##  3   1.35 
-##  4   0.019
-##  5 600    
-##  6   3.85 
-##  7  20.5  
-##  8   0.045
-##  9  14    
-## 10  14.8  
-## # … with 73 more rows</code></pre>
+##  1   0.48 
+##  2   1.35 
+##  3   0.019
+##  4 600    
+##  5   3.85 
+##  6  20.5  
+##  7  14    
+##  8  33.5  
+##  9   0.728
+## 10   4.75 
+## # … with 51 more rows</code></pre>
 <p><br></p>
 <div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Use last_col() to keep the columns `sleep_cycle` through the last-appearing column in msleep</span></span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>msleep <span class="sc">%&gt;%</span></span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(sleep_cycle<span class="sc">:</span><span class="fu">last_col</span>())</span></code></pre></div>
-<pre><code>## # A tibble: 83 × 4
+<pre><code>## # A tibble: 61 × 4
 ##    sleep_cycle awake  brainwt  bodywt
 ##          &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;
-##  1      NA      11.9 NA        50    
-##  2      NA       7    0.0155    0.48 
-##  3      NA       9.6 NA         1.35 
-##  4       0.133   9.1  0.00029   0.019
-##  5       0.667  20    0.423   600    
-##  6       0.767   9.6 NA         3.85 
-##  7       0.383  15.3 NA        20.5  
-##  8      NA      17   NA         0.045
-##  9       0.333  13.9  0.07     14    
-## 10      NA      21    0.0982   14.8  
-## # … with 73 more rows</code></pre>
+##  1      NA       7    0.0155    0.48 
+##  2      NA       9.6 NA         1.35 
+##  3       0.133   9.1  0.00029   0.019
+##  4       0.667  20    0.423   600    
+##  5       0.767   9.6 NA         3.85 
+##  6       0.383  15.3 NA        20.5  
+##  7       0.333  13.9  0.07     14    
+##  8      NA      18.7  0.115    33.5  
+##  9       0.217  14.6  0.0055    0.728
+## 10      NA      14   NA         4.75 
+## # … with 51 more rows</code></pre>
 <p><br></p>
 <div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ADVANCED EXAMPLE:</span></span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Use matches() to keep only columns that match the regex `\\w+_\\w+`</span></span>
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>msleep <span class="sc">%&gt;%</span></span>
 <span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">matches</span>(<span class="st">&quot;</span><span class="sc">\\</span><span class="st">w+_</span><span class="sc">\\</span><span class="st">w+&quot;</span>))</span></code></pre></div>
-<pre><code>## # A tibble: 83 × 3
+<pre><code>## # A tibble: 61 × 3
 ##    sleep_total sleep_rem sleep_cycle
 ##          &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt;
-##  1        12.1      NA        NA    
-##  2        17         1.8      NA    
-##  3        14.4       2.4      NA    
-##  4        14.9       2.3       0.133
-##  5         4         0.7       0.667
-##  6        14.4       2.2       0.767
-##  7         8.7       1.4       0.383
-##  8         7        NA        NA    
-##  9        10.1       2.9       0.333
-## 10         3        NA        NA    
-## # … with 73 more rows</code></pre>
+##  1        17         1.8      NA    
+##  2        14.4       2.4      NA    
+##  3        14.9       2.3       0.133
+##  4         4         0.7       0.667
+##  5        14.4       2.2       0.767
+##  6         8.7       1.4       0.383
+##  7        10.1       2.9       0.333
+##  8         5.3       0.6      NA    
+##  9         9.4       0.8       0.217
+## 10        10         0.7      NA    
+## # … with 51 more rows</code></pre>
 <p><br></p>
 <p>The remaining examples use the wide dataset <code>billboard</code>, which comes from the <code>{tidyr}</code> package and contains song rankings for the Billboard top 100 songs in the year 2000.</p>
 <div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Show billboard dataset</span></span>

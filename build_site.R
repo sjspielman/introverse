@@ -24,8 +24,8 @@ if (htmlify)
   # I can loop if I want to, I can leave my fRiends behind.
   for (category in names(topic_list)) #STEPH!!!!!!!!!
   {
-    category <- "tidyselect"
-    topic <- "tidyselect"
+    #category <- "tidyselect"
+    #topic <- "tidyselect"
     for (topic in topic_list[[category]])
     {
 
@@ -47,5 +47,6 @@ if (htmlify)
     
   }
 }
-
+devtools::build_readme()
+devtools::build_vignettes()
 pkgdown::build_site(run_dont_run = TRUE)

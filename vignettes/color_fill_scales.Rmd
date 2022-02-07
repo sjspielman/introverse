@@ -91,7 +91,7 @@ All `colorbrewer` palettes can be used for discrete data, but the middle set of 
 
 # Examples
 
-All examples shown here are made from a modified version of the `msleep` dataset with certain `NA` values removed (see below). Examples modify the default colors/fills of one of these plots, all of which use the _default_ `{ggplot2}` scales. We will also _set the theme for all plots_ to include the legend on the bottom, for easier viewing in examples (learn more about that [here](https://spielmanlab.github.io/introverse/articles/themes.html))!
+All examples shown here are made from a modified version of the `msleep` dataset with certain `NA` values removed (see below). Examples modify the default colors/fills of one of these plots, all of which use the _default_ `{ggplot2}` scales. We will also _set the theme for all plots_ to include the legend on the bottom, for easier viewing in examples (learn more about that [here](https://sjspielman.github.io/introverse/articles/themes.html))!
 
 ```{r all_plots, fig.height=4, fig.width=10}
 # Remove NAs from the columns awake, sleep_rem, and vore for plotting demonstration

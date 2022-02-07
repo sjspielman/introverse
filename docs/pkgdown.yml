@@ -1,5 +1,5 @@
-pandoc: '2.13'
-pkgdown: 1.6.1
+pandoc: 2.14.0.3
+pkgdown: 2.0.2
 pkgdown_sha: ~
 articles:
   additional_resources: additional_resources.html
@@ -8,5 +8,5 @@ articles:
   introverse_online: introverse_online.html
   introverse_rstudio: introverse_rstudio.html
   themes: themes.html
-last_built: 2021-10-31T19:21Z
+last_built: 2022-02-07T12:56Z
 

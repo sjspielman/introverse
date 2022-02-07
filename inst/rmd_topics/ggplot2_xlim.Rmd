@@ -48,7 +48,7 @@ The `{ggplot2}` package [provides several functions](https://ggplot2.tidyverse.o
 
 If you also want to customize the specific tickmark (aka "break") locations on axes, either...
 
-+ [See this tutorial on the `{introverse}` website](https://spielmanlab.github.io/introverse/articles/axes.html)
++ [See this tutorial on the `{introverse}` website](https://sjspielman.github.io/introverse/articles/axes.html)
 + Or, run this command in `R` Console: `vignette("axes", package = "introverse")`
 
 

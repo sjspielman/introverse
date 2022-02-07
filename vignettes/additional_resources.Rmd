@@ -14,7 +14,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-The following links will bring you to additional internet resources which beginners in `R` and data science might find useful. These resources are _not_ affiliated with the `{introverse}`, so please let us know if one of these links breaks _or_ if you have a resource to recommend by filing an issue [here](https://github.com/spielmanlab/introverse/issues). Thanks!
+The following links will bring you to additional internet resources which beginners in `R` and data science might find useful. These resources are _not_ affiliated with the `{introverse}`, so please let us know if one of these links breaks _or_ if you have a resource to recommend by filing an issue [here](https://github.com/sjspielman/introverse/issues). Thanks!
 
 
 ## Official `tidyverse` documentation and vignettes

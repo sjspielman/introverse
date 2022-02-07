@@ -338,36 +338,36 @@ blockquote {
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>msleep <span class="sc">%&gt;%</span> </span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>(vore)</span></code></pre></div>
 <pre><code>## # A tibble: 56 × 11
-##    name       genus  vore  order  conservation sleep_total sleep_rem sleep_cycle awake  brainwt
-##    &lt;chr&gt;      &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;              &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;
-##  1 Owl monkey Aotus  omni  Prima… &lt;NA&gt;                17         1.8      NA       7    0.0155 
-##  2 Mountain … Aplod… herbi Roden… nt                  14.4       2.4      NA       9.6 NA      
-##  3 Greater s… Blari… omni  Soric… lc                  14.9       2.3       0.133   9.1  0.00029
-##  4 Cow        Bos    herbi Artio… domesticated         4         0.7       0.667  20    0.423  
-##  5 Three-toe… Brady… herbi Pilosa &lt;NA&gt;                14.4       2.2       0.767   9.6 NA      
-##  6 Northern … Callo… carni Carni… vu                   8.7       1.4       0.383  15.3 NA      
-##  7 Dog        Canis  carni Carni… domesticated        10.1       2.9       0.333  13.9  0.07   
-##  8 Goat       Capri  herbi Artio… lc                   5.3       0.6      NA      18.7  0.115  
-##  9 Guinea pig Cavis  herbi Roden… domesticated         9.4       0.8       0.217  14.6  0.0055 
-## 10 Grivet     Cerco… omni  Prima… lc                  10         0.7      NA      14   NA      
+##    name         genus vore  order conservation sleep_total sleep_rem sleep_cycle awake  brainwt
+##    &lt;chr&gt;        &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;              &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;
+##  1 Owl monkey   Aotus omni  Prim… &lt;NA&gt;                17         1.8      NA       7    0.0155 
+##  2 Mountain be… Aplo… herbi Rode… nt                  14.4       2.4      NA       9.6 NA      
+##  3 Greater sho… Blar… omni  Sori… lc                  14.9       2.3       0.133   9.1  0.00029
+##  4 Cow          Bos   herbi Arti… domesticated         4         0.7       0.667  20    0.423  
+##  5 Three-toed … Brad… herbi Pilo… &lt;NA&gt;                14.4       2.2       0.767   9.6 NA      
+##  6 Northern fu… Call… carni Carn… vu                   8.7       1.4       0.383  15.3 NA      
+##  7 Dog          Canis carni Carn… domesticated        10.1       2.9       0.333  13.9  0.07   
+##  8 Goat         Capri herbi Arti… lc                   5.3       0.6      NA      18.7  0.115  
+##  9 Guinea pig   Cavis herbi Rode… domesticated         9.4       0.8       0.217  14.6  0.0055 
+## 10 Grivet       Cerc… omni  Prim… lc                  10         0.7      NA      14   NA      
 ## # … with 46 more rows, and 1 more variable: bodywt &lt;dbl&gt;</code></pre>
 <p><br></p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Remove all rows with NA in the `vore` or `conservation` columns</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>msleep <span class="sc">%&gt;%</span> </span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>(vore, conservation)</span></code></pre></div>
 <pre><code>## # A tibble: 40 × 11
-##    name       genus  vore  order  conservation sleep_total sleep_rem sleep_cycle awake  brainwt
-##    &lt;chr&gt;      &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;              &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;
-##  1 Mountain … Aplod… herbi Roden… nt                  14.4       2.4      NA       9.6 NA      
-##  2 Greater s… Blari… omni  Soric… lc                  14.9       2.3       0.133   9.1  0.00029
-##  3 Cow        Bos    herbi Artio… domesticated         4         0.7       0.667  20    0.423  
-##  4 Northern … Callo… carni Carni… vu                   8.7       1.4       0.383  15.3 NA      
-##  5 Dog        Canis  carni Carni… domesticated        10.1       2.9       0.333  13.9  0.07   
-##  6 Goat       Capri  herbi Artio… lc                   5.3       0.6      NA      18.7  0.115  
-##  7 Guinea pig Cavis  herbi Roden… domesticated         9.4       0.8       0.217  14.6  0.0055 
-##  8 Grivet     Cerco… omni  Prima… lc                  10         0.7      NA      14   NA      
-##  9 Chinchilla Chinc… herbi Roden… domesticated        12.5       1.5       0.117  11.5  0.0064 
-## 10 Star-nose… Condy… omni  Soric… lc                  10.3       2.2      NA      13.7  0.001  
+##    name         genus vore  order conservation sleep_total sleep_rem sleep_cycle awake  brainwt
+##    &lt;chr&gt;        &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;              &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;
+##  1 Mountain be… Aplo… herbi Rode… nt                  14.4       2.4      NA       9.6 NA      
+##  2 Greater sho… Blar… omni  Sori… lc                  14.9       2.3       0.133   9.1  0.00029
+##  3 Cow          Bos   herbi Arti… domesticated         4         0.7       0.667  20    0.423  
+##  4 Northern fu… Call… carni Carn… vu                   8.7       1.4       0.383  15.3 NA      
+##  5 Dog          Canis carni Carn… domesticated        10.1       2.9       0.333  13.9  0.07   
+##  6 Goat         Capri herbi Arti… lc                   5.3       0.6      NA      18.7  0.115  
+##  7 Guinea pig   Cavis herbi Rode… domesticated         9.4       0.8       0.217  14.6  0.0055 
+##  8 Grivet       Cerc… omni  Prim… lc                  10         0.7      NA      14   NA      
+##  9 Chinchilla   Chin… herbi Rode… domesticated        12.5       1.5       0.117  11.5  0.0064 
+## 10 Star-nosed … Cond… omni  Sori… lc                  10.3       2.2      NA      13.7  0.001  
 ## # … with 30 more rows, and 1 more variable: bodywt &lt;dbl&gt;</code></pre>
 </div>
 

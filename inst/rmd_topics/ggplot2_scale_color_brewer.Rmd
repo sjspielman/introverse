@@ -46,7 +46,7 @@ All functions documented here are part of the [`{ggplot2}`](https://ggplot2.tidy
 
 The `{ggplot2}` package [provides several useful functions](https://ggplot2.tidyverse.org/reference/scale_brewer.html) for specifying `colorbrewer` color/fill palettes for your color/fill _aesthetic mapping scales_. For more information on using this function to customize your theme, please either...
 
-+ [See this tutorial on the `{introverse}` website](https://spielmanlab.github.io/introverse/articles/color_fill_scales.html)
++ [See this tutorial on the `{introverse}` website](https://sjspielman.github.io/introverse/articles/color_fill_scales.html)
 + Or, run this command in `R` Console: `vignette("color_fill_scales", package = "introverse")`
 
 

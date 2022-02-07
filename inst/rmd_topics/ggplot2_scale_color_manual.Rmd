@@ -64,7 +64,7 @@ All functions are named `scale_AESTHETIC-TYPE_manual()` (except for those ending
 
 For more information about _color and fill scales specifically_, either...
 
-+ [See this tutorial on the `{introverse}` website](https://spielmanlab.github.io/introverse/articles/color_fill_scales.html)
++ [See this tutorial on the `{introverse}` website](https://sjspielman.github.io/introverse/articles/color_fill_scales.html)
 + Or, run this command in `R` Console: `vignette("color_fill_scales", package = "introverse")`
 
 

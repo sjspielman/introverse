@@ -308,18 +308,18 @@ blockquote {
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Show dataset:</span></span>
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>msleep_cleaned</span></code></pre></div>
 <pre><code>## # A tibble: 40 × 11
-##    name       genus  vore  order  conservation sleep_total sleep_rem sleep_cycle awake  brainwt
-##    &lt;chr&gt;      &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;              &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;
-##  1 Mountain … Aplod… herbi Roden… nt                  14.4       2.4      NA       9.6 NA      
-##  2 Greater s… Blari… omni  Soric… lc                  14.9       2.3       0.133   9.1  0.00029
-##  3 Cow        Bos    herbi Artio… domesticated         4         0.7       0.667  20    0.423  
-##  4 Northern … Callo… carni Carni… vu                   8.7       1.4       0.383  15.3 NA      
-##  5 Dog        Canis  carni Carni… domesticated        10.1       2.9       0.333  13.9  0.07   
-##  6 Goat       Capri  herbi Artio… lc                   5.3       0.6      NA      18.7  0.115  
-##  7 Guinea pig Cavis  herbi Roden… domesticated         9.4       0.8       0.217  14.6  0.0055 
-##  8 Grivet     Cerco… omni  Prima… lc                  10         0.7      NA      14   NA      
-##  9 Chinchilla Chinc… herbi Roden… domesticated        12.5       1.5       0.117  11.5  0.0064 
-## 10 Star-nose… Condy… omni  Soric… lc                  10.3       2.2      NA      13.7  0.001  
+##    name         genus vore  order conservation sleep_total sleep_rem sleep_cycle awake  brainwt
+##    &lt;chr&gt;        &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;              &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;
+##  1 Mountain be… Aplo… herbi Rode… nt                  14.4       2.4      NA       9.6 NA      
+##  2 Greater sho… Blar… omni  Sori… lc                  14.9       2.3       0.133   9.1  0.00029
+##  3 Cow          Bos   herbi Arti… domesticated         4         0.7       0.667  20    0.423  
+##  4 Northern fu… Call… carni Carn… vu                   8.7       1.4       0.383  15.3 NA      
+##  5 Dog          Canis carni Carn… domesticated        10.1       2.9       0.333  13.9  0.07   
+##  6 Goat         Capri herbi Arti… lc                   5.3       0.6      NA      18.7  0.115  
+##  7 Guinea pig   Cavis herbi Rode… domesticated         9.4       0.8       0.217  14.6  0.0055 
+##  8 Grivet       Cerc… omni  Prim… lc                  10         0.7      NA      14   NA      
+##  9 Chinchilla   Chin… herbi Rode… domesticated        12.5       1.5       0.117  11.5  0.0064 
+## 10 Star-nosed … Cond… omni  Sori… lc                  10.3       2.2      NA      13.7  0.001  
 ## # … with 30 more rows, and 1 more variable: bodywt &lt;dbl&gt;</code></pre>
 <p><br></p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Use facet_wrap with default layout to panel scatterplot by vore: Each panel represents a vore.</span></span>
