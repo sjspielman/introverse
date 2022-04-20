@@ -118,6 +118,7 @@ test_that("get_help() reveals help aka returns invisible", {
   # each topic should return invisible, implicitly testing `reveal_help()`
   test_get_help <- function(x)
   {
+    print(x)
     expect_invisible(get_help(x))
   }
   sapply(unlist(topic_list), test_get_help)

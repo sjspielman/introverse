@@ -11,13 +11,6 @@ output:
 knitr::opts_chunk$set(echo = TRUE, 
                       warning = FALSE, 
                       message = FALSE)
-library(DT)
-clean_nas <- function(df){
-  df %>%
-    dplyr::mutate(
-      dplyr::across(dplyr::everything(), ~tidyr::replace_na(.x, "NA"))
-    )  
-}
 ```
 
 <br>
@@ -67,9 +60,11 @@ Values in the data that are `NA` indicate that the data are _missing and/or unkn
 
 <br>
 ```{r echo=FALSE}
-DT::datatable(clean_nas(carnivores), 
-              rownames=FALSE,
-              fillContainer = FALSE)
+DT::datatable(
+  dplyr::mutate(carnivores, 
+         brainwt = ifelse(is.na(brainwt), "NA", brainwt)),
+  rownames=FALSE,
+  fillContainer = FALSE)
 ```
 
 
