@@ -5,7 +5,7 @@
 \alias{shared_doc_pages}
 \title{List of which topics share a given page, for redirection. The FIRST one represents the rmd file which \emph{exist}}
 \format{
-An object of class \code{list} of length 21.
+An object of class \code{list} of length 24.
 }
 \usage{
 shared_doc_pages

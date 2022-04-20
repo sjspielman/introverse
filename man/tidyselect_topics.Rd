@@ -5,7 +5,7 @@
 \alias{tidyselect_topics}
 \title{All the todyselect topics, INCLUDING SELF!}
 \format{
-An object of class \code{character} of length 6.
+An object of class \code{character} of length 7.
 }
 \usage{
 tidyselect_topics
