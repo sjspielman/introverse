@@ -57,16 +57,7 @@ Not sure what help you need? Use " %+%  crayon::bold('show_topics()') %+% " to s
       
       # Find category
       category <- paste0(find_topic_category(topic))
-      
-      
-      
-      # define reading function which includes the progress bar updates and printing
-      read_with_progress <- function(filename){
-        
-        data_read <- read_csv(filename)
-        # you can add additional operations on data_read, or 
-        # decide on entirely different task that this function should do.
-      }
+
       
       # launch help
       reveal_help(category, topic, browser)
