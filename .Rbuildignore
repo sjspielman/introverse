@@ -12,7 +12,6 @@ documentation_modules/
 ^README.html$
 ^data-raw$
 ^\.github$
-^logo.png$
 ^_pkgdown\.yml$
 ^docs$
 ^pkgdown$
