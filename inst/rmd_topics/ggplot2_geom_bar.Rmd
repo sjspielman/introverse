@@ -131,9 +131,11 @@ ggplot(msleep) +
 
 <br>
 
+<!--Known bug in evaluate which is resolved in evaluate_0.15.2.
+https://github.com/rstudio/rmarkdown/issues/2363 --> 
 ```{r example5, error=TRUE}
-## CAUTION!! `geom_bar()` can only take either `x` or `y` in its default (non-advanced) usage 
-## This code therefore does not work and results in blank canvas with an error
+## CAUTION!! `geom_bar()` can only take either `x` or `y` aesthetic
+## This code will not work, but will result in an error
 ggplot(msleep) + 
   aes(x = vore, y = awake) + 
   geom_bar() 
@@ -141,7 +143,7 @@ ggplot(msleep) +
 
 <br>
 
-```{r example6, error=TRUE}
+```{r example6}
 ## CAUTION!! `geom_bar()` is used to plot categorical data, NOT numeric data!
 ## Plotting a numeric continuous variable results in confusion. 
 ## When plotting continuous data as bars, use `ggplot2::geom_histogram()` instead
