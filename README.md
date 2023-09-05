@@ -1,6 +1,8 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
+**Note: This package is no longer under active development. Do you want to continue the project and take it over as your baby? Let me know!**
+
 # introverse
 
 Into the [`tidyverse`](https://www.tidyverse.org/) with the
